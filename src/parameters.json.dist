@@ -1,0 +1,9 @@
+{
+    "cell": {
+        "flags": {
+            "none": 0,
+            "dead": 1,
+            "ship": 2
+        }
+    }
+}
