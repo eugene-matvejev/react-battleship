@@ -1,1 +1,1 @@
-# battleship-game-gui-react-js
+# Battleship Game GUI :: react.js version
