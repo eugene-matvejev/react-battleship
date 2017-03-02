@@ -1,0 +1,13 @@
+machine:
+    node:
+        version: 6.9
+
+dependencies:
+    cache_directories:
+        - ~/.npm/
+
+test:
+    pre:
+        - npm run generate:all
+    override:
+        - npm test
