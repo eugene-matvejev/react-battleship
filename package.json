@@ -1,17 +1,18 @@
 {
   "name": "battleship-game-gui-react-js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.15.2",
+    "bootstrap": "^3.3.7",
+    "lessc-each": "^1.1.0",
+    "node-parameter-handler": "^0.1.0",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.3.2",
+    "react-native-maps": "^0.12.4",
     "react-router": "^3.0.0",
-    "react-scripts": "^0.7.0",
-    "node-parameter-handler": "^0.1.0",
-    "axios": "^0.15.2",
-    "bootstrap": "^3.3.7",
-    "lessc-each": "^1.1.0"
+    "react-scripts": "^0.7.0"
   },
   "devDependencies": {
     "less-watch-compile": "^1.1.8"
@@ -20,7 +21,7 @@
     "start": "npm run generate:css; npm run generate:settings; react-scripts start",
     "build": "npm run generate:css; npm run generate:settings; react-scripts build",
     "test": "npm run generate:css; react-scripts test --env=jsdom --verbose",
-    "generate:settings": "node node_modules/node-parameter-handler/index.js",
+    "generate:settings": "node node_modules/node-parameter-handler",
     "generate:css": "node node_modules/lessc-each src/stylesheets/less src/stylesheets/css --verbose",
     "generate:css:w": "node node_modules/less-watch-compile -w src/stylesheets/less -o src/stylesheets/css --verbose"
   },
