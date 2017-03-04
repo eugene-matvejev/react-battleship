@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Compoment from "./game";
 
-describe('player component', () => {
+describe('component:: Game', () => {
     it('renders without error', () => {
         const div = document.createElement('div');
 

@@ -1,6 +1,6 @@
 import Cell from "./cell_model";
 
-describe('cell model', () => {
+describe(`model:: Cell`, () => {
     const dataProvider = [
         {coordinate: 'A1', letter: 'A', digit: 1},
         {coordinate: 'A2', letter: 'A', digit: 2},
