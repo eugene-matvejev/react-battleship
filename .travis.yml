@@ -1,0 +1,13 @@
+language: "node_js"
+
+node_js:
+    - "6"
+    - "7"
+
+before_script:
+     - yarn install
+
+script:
+    - "npm test -- --coverage"
+
+cache: yarn
