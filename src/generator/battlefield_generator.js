@@ -1,26 +1,26 @@
-import Battlefield from "../model/battlefield_model";
+import BattlefieldModel from "../model/battlefield_model";
 import CellGenerator from "./cell_generator";
-import GeneratorInterface from "./generator_interface";
 
-export default class Generator implements GeneratorInterface {
+export default class BattlefieldGenerator {
     /**
      * @param {Number} size
-     * @returns {Battlefield}
+     *
+     * @returns {BattlefieldModel}
      */
     static generate(size) {
-        const battlefield = new Battlefield();
-        battlefield.size = size;
+        const model = new BattlefieldModel();
+        model.size = size;
 
         for (let x = 1; x <= size; x++) {
-            battlefield.addDecorationCell(CellGenerator.generate(x, x));
+            model.addDecorationCell(CellGenerator.generate(x, x));
 
             for (let y = 1; y <= size; y++) {
                 const cell = CellGenerator.generate(x, y);
 
-                battlefield.addCell(cell);
+                model.addCell(cell);
             }
         }
 
-        return battlefield;
+        return model;
     }
 }

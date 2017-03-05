@@ -1,6 +1,6 @@
 import CellGenerator from "./cell_generator";
 
-describe('cell model', () => {
+describe('generator:: Cell', () => {
     const dataProvider = [
         {x: 1, y: 1, coordinate: 'A1'},
         {x: 1, y: 2, coordinate: 'A2'},
