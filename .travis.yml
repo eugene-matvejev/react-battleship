@@ -5,9 +5,9 @@ node_js:
     - "7"
 
 before_script:
-     - yarn install
+     - npm install
 
 script:
     - "npm test -- --coverage"
 
-cache: yarn
+cache: npm
