@@ -8,6 +8,14 @@ export default class BattlefieldModel {
         this.decorationCells = {};
     }
 
+    setPlayer(player) {
+        this.player = player;
+    }
+
+    getPlayer() {
+        return this.player;
+    }
+
     addDecorationCell(cell) {
         this.decorationCells[cell.coordinate] = cell;
     }
