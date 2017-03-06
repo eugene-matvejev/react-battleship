@@ -40,7 +40,7 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
   * `$ npm run generate:css` - to generate CSS from LESS
   * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
  * TO DEPLOY:
-  * ```$ npm run build``` - compile app and assets, compiled app will be located in __./build__ directory
+  * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
   
 ## used enviroment variables
  * __BASE_URL__ - API endpoint host example: https://api.game.local
