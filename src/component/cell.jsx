@@ -3,9 +3,7 @@ import AbstractComponent from "./abstract_component";
 import "../stylesheets/css/cell.css";
 
 export default class Cell extends AbstractComponent {
-    constructor(props) {
-        super(props);
-
+    componentWillMount() {
         this.state.model = this.props.model;
         this.state.text = this.props.text;
         this.state.attributes = {
