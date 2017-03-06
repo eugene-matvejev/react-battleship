@@ -2,15 +2,16 @@
 [circle.ci-master-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master
 [travis.ci-master-badge]: https://travis-ci.org/eugene-matvejev/battleship-game-gui-react-js.svg?branch=master
 [travis.ci-master-link]: https://travis-ci.org/eugene-matvejev/battleship-game-gui-react-js
-[codecov.io-master-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master/graph/badge.svg
-[codecov.io-master-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master
+[codecov.io-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master/graph/badge.svg
+[codecov.io-master-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master
 
 [circle.ci-heroku-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku.svg?style=svg
 [circle.ci-heroku-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku
 [travis.ci-heroku-badge]: https://travis-ci.org/eugene-matvejev/battleship-game-gui-react-js.svg?branch=heroku
 [travis.ci-heroku-link]: https://travis-ci.org/eugene-matvejev/battleship-game-gui-react-js
-[codecov.io-heroku-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
-[codecov.io-heroku-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
+[codecov.io-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
+[codecov.io-heroku-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
+
 
 |                 | master                                                         | heroku                   
 |---              |---                                                             |---
