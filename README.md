@@ -34,19 +34,19 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
  * yarn
  
 ## how to install
- * ```$ npm start``` - init app in "development" environment
+ * `$ npm start` - init app in "development" environment
  * OPTIONAL:
-  * ```$ npm run generate:settings``` - to generate settings [_src/parameters.json_]
-  * ```$ npm run generate:css``` - to generate CSS from LESS
-  * ```$ npm run generate:css:w``` - watch LESS files for changes and compile CSS in runtime
+  * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
+  * `$ npm run generate:css` - to generate CSS from LESS
+  * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
  * TO DEPLOY:
   * ```$ npm run build``` - compile app and assets, compiled app will be located in __./build__ directory
   
 ## used enviroment variables
  * __BASE_URL__ - API endpoint host example: https://api.game.local
-  * ```$ export BASE_URL="https://api.game.local"```
+  * `$ export BASE_URL="https://api.game.local"`
 
 ## how to run tests
- * ```$ npm test```
+ * `$ npm test`
  * OPTIONAL:
-  * ```-- --coverage``` to generate coverage report [located in __./coverage__ directory]
+  * `-- --coverage` to generate coverage report [located in __./coverage__ directory]
