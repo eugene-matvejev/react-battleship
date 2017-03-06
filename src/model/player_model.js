@@ -1,15 +1,17 @@
-export default class PlayerModel {
-    constructor(id, username, email, flags) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.flags = flags;
+import AbstractBytesAwareModel from "./abstract_bytes_aware_model";
+
+export default class PlayerModel extends AbstractBytesAwareModel {
+    constructor() {
+        super();
+
+        this.id = 0;
+        this.username = this.email = 'undefined';
     }
 
     getId() {
         return this.id;
     }
-    
+
     setId(id) {
         this.id = id;
     }
@@ -28,13 +30,5 @@ export default class PlayerModel {
 
     setEmail(email) {
         this.email = email;
-    }
-
-    getFlags() {
-        return this.flags;
-    }
-
-    setFlags(flags) {
-        this.flags = flags;
     }
 }
