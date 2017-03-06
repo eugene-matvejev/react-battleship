@@ -1,14 +1,13 @@
-import Cell from "../model/cell_model";
-import GeneratorInterface from "./generator_interface";
+import CellModel from "../model/cell_model";
 
-export default class Generator implements GeneratorInterface {
+export default class Generator {
     /**
      * @param {Number} x
      * @param {Number} y
      *
-     * @returns {Cell}
+     * @returns {CellModel}
      */
     static generate(x, y) {
-        return new Cell(`${String.fromCharCode(96 + x).toUpperCase()}${y}`);
+        return new CellModel(`${String.fromCharCode(96 + x).toUpperCase()}${y}`);
     }
 }

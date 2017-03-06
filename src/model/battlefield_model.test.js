@@ -1,7 +1,8 @@
 import Battlefield from "./battlefield_model";
+import Player from "./player_model";
 import Cell from "./cell_model";
 
-describe('battlefield model', () => {
+describe(`model:: Battlefield`, () => {
     const dataProvider = [
         'A1', 'A2', 'B2'
     ];
@@ -58,5 +59,11 @@ describe('battlefield model', () => {
                 expect(battlefield.getCell(coordinate)).toBeUndefined();
             });
         });
-    })
+    });
+
+    describe('get|set Player', () => {
+       const player1 = new Player();
+       const player2 = new Player();
+
+    });
 });
