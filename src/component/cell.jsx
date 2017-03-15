@@ -6,8 +6,8 @@ export default class Cell extends AbstractComponent {
     constructor(props) {
         super(props);
 
-        this.state.model = this.props.model;
-        this.state.text = this.props.text;
+        this.state.model = props.model;
+        this.state.text = props.text;
         this.state.attributes = {
             'data-id': 'cell-id',
             'data-flags': 0,
