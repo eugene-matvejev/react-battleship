@@ -12,6 +12,9 @@ export default class AbstractComponent extends React.Component {
         }
     }
 
+    componentWillMount() {
+    }
+
     /**
      * @param {string} attribute
      * @param {any}    value
