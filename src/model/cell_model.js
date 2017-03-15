@@ -1,4 +1,4 @@
-export default class Cell {
+export default class CellModel {
     constructor(coordinate) {
         this.coordinate = coordinate;
     }
