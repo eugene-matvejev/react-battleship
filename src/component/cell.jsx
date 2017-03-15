@@ -20,5 +20,9 @@ export default class Cell extends AbstractComponent {
 
         return <div className="col-md-1 battlefield-cell" {...this.getAttributes()}>{text}</div>;
     }
-}
 
+    static PropTypes = {
+        model: React.PropTypes.object.isRequired,
+        text: React.PropTypes.string.isRequired
+    }
+}

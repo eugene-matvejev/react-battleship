@@ -21,7 +21,7 @@ export default class Player extends AbstractComponent {
         );
     }
 
-    static propTypes = {
+    static PropTypes = {
         data: React.PropTypes.object.isRequired
     }
 }
