@@ -9,7 +9,6 @@ export default class Battlefield extends AbstractComponent {
     constructor(props) {
         super(props);
 
-        this.state.data = this.props.battlefield;
         this.state.model = this.props.model;
         this.state.attributes = {
             'data-player-id': 'unk',
@@ -21,7 +20,7 @@ export default class Battlefield extends AbstractComponent {
         const battlefield = this.state.model;
         const coordinates = Object.keys(battlefield.getCells());
         const size = battlefield.size;
-        const rows = (new Array(battlefield.size)).fill(1);
+        const rows = (new Array(size)).fill(1);
 
         return (
             <div className="col-md-6 battlefield" {...this.getAttributes()}>
@@ -54,6 +53,6 @@ export default class Battlefield extends AbstractComponent {
     }
 
     static PropTypes = {
-        battlefield: React.PropTypes.object.isRequired
+        model: React.PropTypes.object.isRequired
     }
 }
