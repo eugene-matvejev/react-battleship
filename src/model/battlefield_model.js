@@ -1,5 +1,9 @@
-export default class BattlefieldModel {
+import BytesAwareModel from './abstract_bytes_aware_model'
+
+export default class BattlefieldModel extends BytesAwareModel {
     constructor() {
+        super();
+
         this.player = undefined;
         this.id = undefined;
         this.size = 0;

@@ -3,13 +3,15 @@ import React from "react";
 export default class AbstractComponent extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            data: {},
+            model: {},
+            attributes: {}
+        }
     }
 
     componentWillMount() {
-        this.state = {
-            data: {},
-            attributes: {}
-        }
     }
 
     /**
