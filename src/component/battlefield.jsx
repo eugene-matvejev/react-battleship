@@ -56,4 +56,3 @@ export default class Battlefield extends AbstractComponent {
         model: React.PropTypes.object.isRequired
     }
 }
-
