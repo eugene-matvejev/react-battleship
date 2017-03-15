@@ -12,8 +12,7 @@
 [codecov.io-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
 [codecov.io-heroku-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
 
-
-|                  | master                                                         | heroku                   
+|                  | master                                                         | heroku
 |---               |---                                                             |---
 | __tests__        |
 | _< Circle CI >_  | [![build][circle.ci-master-badge]][circle.ci-master-link]      | [![build][circle.ci-heroku-badge]][circle.ci-heroku-link]
@@ -23,7 +22,6 @@
 
 
 # Battleship Game GUI on react.js [WIP]
-
 project target: re-do https://github.com/eugene-matvejev/battleship-game-gui using react-js
 
 ## used technologies
