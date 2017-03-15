@@ -20,7 +20,7 @@ export default class Battlefield extends AbstractComponent {
         const battlefield = this.state.model;
         const coordinates = Object.keys(battlefield.getCells());
         const size = battlefield.size;
-        const rows = (new Array(battlefield.size)).fill(1);
+        const rows = (new Array(size)).fill(1);
 
         return (
             <div className="col-md-6 battlefield" {...this.getAttributes()}>
