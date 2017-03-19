@@ -1,28 +1,26 @@
 @size: 3em;
 
 .battlefield-cells {
-    .row {
-        .battlefield-cell {
-            height: @size;
-            width: @size;
+    .battlefield-cell {
+        height: @size;
+        width: @size;
 
-            border-left: 1px solid;
-            border-top: 1px solid;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            font-size: @size/3;
-            line-height: @size;
-
-            &:last-child {
-                border-right: 1px solid;
-            }
-        }
+        border-left: 1px solid;
+        border-top: 1px solid;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: @size/3;
+        line-height: @size;
 
         &:last-child {
-            .battlefield-cell {
-                border-bottom: 1px solid;
-            }
+            border-right: 1px solid;
+        }
+    }
+
+    &:last-child {
+        .battlefield-cell {
+            border-bottom: 1px solid;
         }
     }
 }
