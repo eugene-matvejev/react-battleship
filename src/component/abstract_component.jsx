@@ -6,6 +6,7 @@ export default class AbstractComponent extends React.Component {
 
         this.state = {
             data: {},
+            model: {},
             attributes: {}
         }
     }

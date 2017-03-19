@@ -1,10 +1,10 @@
-import AbstractBytesAwareModel from "./abstract_bytes_aware_model";
+import BytesAwareModel from './abstract_bytes_aware_model'
 
-export default class PlayerModel extends AbstractBytesAwareModel {
+export default class PlayerModel extends BytesAwareModel {
     constructor() {
         super();
 
-        this.id = 0;
+        this.id = 'undefined';
         this.username = this.email = 'undefined';
     }
 

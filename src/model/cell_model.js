@@ -1,6 +1,14 @@
-export default class CellModel {
+import BytesAwareModel from './abstract_bytes_aware_model'
+
+export default class CellModel extends BytesAwareModel {
     constructor(coordinate) {
+        super();
+
         this.coordinate = coordinate;
+    }
+
+    getCoordinate() {
+        return this.coordinate;
     }
 
     static getCoordinateCharacter(coordinate) {
