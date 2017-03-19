@@ -3,7 +3,6 @@ import AbstractComponent from "./abstract_component";
 import Cell from "./cell";
 import CellModel from "../model/cell_model";
 import BattlefieldModel from "../model/battlefield_model";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../stylesheets/css/battlefield.css";
 
 export default class Battlefield extends AbstractComponent {
@@ -24,36 +23,34 @@ export default class Battlefield extends AbstractComponent {
         const rows = (new Array(model.size)).fill(1);
 
         return (
-            <div className={`col-md-6 battlefield ${this.props.className || ''}`} {...this.getAttributes()}>
-                <div className="battlefield-cells">
-                    <div className="row">
-                        <Cell model={new CellModel('')}/>
-                        {
-                            coordinates
-                                .slice(0, size)
-                                .map(coordinate => <Cell key={CellModel.getCoordinateDigit(coordinate)}
-                                                         model={new CellModel(CellModel.getCoordinateDigit(coordinate))}/>)
-                        }
-                    </div>
+            <div className={`battlefield-cells ${this.props.className || ''}`} {...this.getAttributes()}>
+                <div className="row">
+                    <Cell model={new CellModel('')}/>
                     {
-                        rows.map((value, index) =>
-                            <div key={index} className="row">
-                                <Cell model={new CellModel(CellModel.getCoordinateCharacter(coordinates[size * index]))}/>
-                                {
-                                    coordinates
-                                        .slice(size * index, size * (1 + index))
-                                        .map(coordinate => <Cell key={coordinate} model={model.getCell(coordinate)}/>)
-                                }
-                            </div>
-                        )
+                        coordinates
+                            .slice(0, size)
+                            .map(coordinate => <Cell key={CellModel.getCoordinateDigit(coordinate)}
+                                                     model={new CellModel(CellModel.getCoordinateDigit(coordinate))}/>)
                     }
                 </div>
+                {
+                    rows.map((value, index) =>
+                        <div key={index} className="row">
+                            <Cell model={new CellModel(CellModel.getCoordinateCharacter(coordinates[size * index]))}/>
+                            {
+                                coordinates
+                                    .slice(size * index, size * (1 + index))
+                                    .map(coordinate => <Cell key={coordinate} model={model.getCell(coordinate)}/>)
+                            }
+                        </div>
+                    )
+                }
             </div>
         )
     }
 
     static PropTypes = {
-        model: React.PropTypes.objectOf(BattlefieldModel),
+        model: React.PropTypes.objectOf(BattlefieldModel).isRequired,
         className: React.PropTypes.string,
     }
 }
