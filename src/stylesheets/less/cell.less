@@ -1,26 +1,67 @@
 @size: 3em;
 
-.battlefield-cells {
-    .battlefield-cell {
-        height: @size;
-        width: @size;
 
-        border-left: 1px solid;
-        border-top: 1px solid;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        font-size: @size/3;
-        line-height: @size;
+@flag_undefined_flag: undefined;
+
+@flag_none_color: #e1ffff;
+@flag_none_flag: 0;
+
+@flag_dead_color: #1e5799;
+@flag_dead_flag: 1;
+
+@flag_ship_color: #000;
+@flag_ship_flag: 2;
+
+@flag_ship_dead_color: #6d0019;
+@flag_ship_dead_flag: @flag_ship_flag + @flag_dead_flag;
+
+@flag_skip_color: #556980;
+@flag_skip_flag: 4 + @flag_dead_flag;
+
+.battlefield-cells {
+    .row {
+        .battlefield-cell {
+            height: @size;
+            width: @size;
+
+            border-left: 1px solid;
+            border-top: 1px solid;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-size: @size/3;
+            line-height: @size;
+
+            &:last-child {
+                border-right: 1px solid;
+            }
+
+            &[data-bytes="@{flag_none_flag}"] {
+                background-color: @flag_none_color;
+            }
+
+            &[data-bytes="@{flag_dead_flag}"] {
+                background-color: @flag_dead_color;
+            }
+
+            &[data-bytes="@{flag_ship_flag}"] {
+                background-color: @flag_ship_color;
+            }
+
+            &[data-bytes="@{flag_ship_dead_flag}"] {
+                background-color: @flag_ship_dead_color;
+            }
+
+            &[data-bytes="@{flag_skip_flag}"] {
+                background-color: @flag_skip_color;
+            }
+        }
 
         &:last-child {
-            border-right: 1px solid;
-        }
-    }
-
-    &:last-child {
-        .battlefield-cell {
-            border-bottom: 1px solid;
+            .battlefield-cell {
+                border-bottom: 1px solid;
+            }
         }
     }
 }
+
