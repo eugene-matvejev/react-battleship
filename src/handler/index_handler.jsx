@@ -24,7 +24,7 @@ export default class Handler extends React.Component {
 
         return (
             <div>
-                <fieldset className="col-md-6">
+                <fieldset className="col-md-3">
                     <div>opponents: {opponents}</div>
                     <Slider min={1} max={3} step={1} value={opponents} onChange={(val) => this.setState({ opponents: val })}/>
                     <div>game size: {size}</div>
