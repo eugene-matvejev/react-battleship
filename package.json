@@ -1,11 +1,10 @@
 {
   "name": "battleship-game-gui-react-js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "axios": "^0.15.2",
     "bootstrap": "^3.3.7",
-    "jest": "^20.0.4",
     "lessc-each": "^1.1.0",
     "node-bytes-calculator": "^1.0.0",
     "node-parameter-handler": "^0.1.0",
