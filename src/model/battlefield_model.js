@@ -1,5 +1,4 @@
 import AbstractModel from './abstract_byte_sequence_aware_model'
-import PlayerModel from '../model/player_model';
 
 export default class BattlefieldModel extends AbstractModel {
     constructor() {
