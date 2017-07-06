@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Component from "./player";
-import PlayerModel from '../model/player_model';
+import PlayerModel from "../model/player_model";
 
 describe(`component:: Player`, () => {
     describe(`::render`, () => {

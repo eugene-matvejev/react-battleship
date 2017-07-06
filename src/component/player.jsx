@@ -1,7 +1,7 @@
 import React from "react";
 import AbstractComponent from "./abstract_component";
-import PlayerModel from '../model/player_model';
-import '../stylesheets/css/player.css';
+import PlayerModel from "../model/player_model";
+import "../stylesheets/css/player.css";
 
 export default class Player extends AbstractComponent {
     render() {
@@ -10,7 +10,7 @@ export default class Player extends AbstractComponent {
 
         const attributes = {
             'data-player-id': model.getId(),
-            'data-player-flag': model.getBytes(),
+            'data-player-flag': model.getSequence(),
         };
 
         return (
@@ -24,8 +24,8 @@ export default class Player extends AbstractComponent {
         );
     }
 
-    static PropTypes = {
-        model: React.PropTypes.objectOf(PlayerModel).isRequired,
+    static propTypes = {
+        model: React.PropTypes.instanceOf(PlayerModel).isRequired,
         className: React.PropTypes.string,
     }
 }

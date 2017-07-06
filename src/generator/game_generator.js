@@ -21,7 +21,7 @@ export default class GameGenerator {
             model.addBattlefield(battlefield)
         }
 
-        GameGenerator.applyPlayerShips(model);
+        GameGenerator.alterPlayerBattlefield(model);
 
         return model;
     }
@@ -29,25 +29,19 @@ export default class GameGenerator {
     /**
      * @param {GameModel} model
      */
-    static applyPlayerShips(model) {
-        let cells = ['A1', 'A2', 'A3', 'A5', 'C1', 'C2', 'C5'];
+    static alterPlayerBattlefield(model) {
+        const shipCoordinates = ['A1', 'A2', 'A3', 'A5', 'C1', 'C2', 'C5'];
+        const attackedCoordinates = ['A3', 'B1', 'B2'];
 
         for (const battlefield of model.getBattlefields()) {
-            if (battlefield.getPlayer().hasBytes(0x01)) {
+            const player = battlefield.getPlayer();
+
+            if (!player.isHumanControlled()) {
                 continue;
             }
 
-            cells.forEach(coordinate => battlefield.getCell(coordinate).setBytes(CellModel.flags.ship));
-        }
-
-        cells = ['B1', 'B2'];
-
-        for (const battlefield of model.getBattlefields()) {
-            if (battlefield.getPlayer().hasBytes(0x01)) {
-                continue;
-            }
-
-            cells.forEach(coordinate => battlefield.getCell(coordinate).setBytes(CellModel.flags.dead));
+            shipCoordinates.forEach(coordinate => battlefield.getCell(coordinate).addSequence(CellModel.flags.ship));
+            attackedCoordinates.forEach(coordinate => battlefield.getCell(coordinate).addSequence(CellModel.flags.ship));
         }
     }
 }

@@ -1,6 +1,8 @@
-import BytesAwareModel from './abstract_bytes_aware_model'
+import AbstractModel from "./abstract_byte_sequence_aware_model";
 
-export default class PlayerModel extends BytesAwareModel {
+const FLAG_HUMAN_CONTROLLED = 0x01;
+
+export default class PlayerModel extends AbstractModel {
     constructor() {
         super();
 
@@ -30,5 +32,13 @@ export default class PlayerModel extends BytesAwareModel {
 
     setEmail(email) {
         this.email = email;
+    }
+
+    isHumanControlled() {
+        return this.hasSequence(this.constructor.getHumanFlag());
+    }
+
+    static getHumanFlag() {
+        return FLAG_HUMAN_CONTROLLED;
     }
 }
