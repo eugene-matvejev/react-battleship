@@ -18,7 +18,7 @@ export default class CellModel extends AbstractModel {
     }
 
     static getCoordinateDigit(coordinate) {
-        return parseInt(coordinate.substring(1));
+        return parseInt(coordinate.substring(1), 10);
     }
 
     getCoordinate() {
