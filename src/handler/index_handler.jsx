@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Game from "../component/game";
 import generator from "../generator/game_generator";
 import Slider from "react-rangeslider";
