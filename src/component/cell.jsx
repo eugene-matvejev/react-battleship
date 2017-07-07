@@ -7,7 +7,7 @@ export default class Cell extends AbstractComponent {
     render() {
         const attributes = {
             'data-id': '<cell-id>',
-            'data-flags': this.props.model.getBytes(),
+            'data-bytes': this.props.model.getBytes(),
             'data-coordinate': this.props.model.getCoordinate(),
         };
 
