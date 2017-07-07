@@ -7,15 +7,15 @@ export default class CellModel extends BytesAwareModel {
         this.coordinate = coordinate;
     }
 
+    getCoordinate() {
+        return this.coordinate;
+    }
+
     static getCoordinateCharacter(coordinate) {
         return coordinate.charAt(0);
     }
 
     static getCoordinateDigit(coordinate) {
         return parseInt(coordinate.substring(1));
-    }
-
-    getCoordinate() {
-        return this.coordinate;
     }
 }
