@@ -4,16 +4,7 @@ export default class GameModel extends BytesAwareModel {
     constructor() {
         super();
 
-        this.size = 0;
         this.battlefields = [];
-    }
-
-    getSize() {
-        return this.size;
-    }
-
-    setSize(size) {
-        this.size = size;
     }
 
     addBattlefield(battlefield) {
@@ -22,9 +13,5 @@ export default class GameModel extends BytesAwareModel {
 
     getBattlefields() {
         return this.battlefields;
-    }
-
-    setBattlefields(battlefields) {
-        return this.battlefields = battlefields;
     }
 }
