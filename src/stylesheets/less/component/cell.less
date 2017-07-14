@@ -1,12 +1,11 @@
 @size: 3em;
 
-
 @flag_undefined_flag: undefined;
 
-@flag_none_color: #e1ffff;
+@flag_none_color: #2484ff;
 @flag_none_flag: 0;
 
-@flag_dead_color: #1e5799;
+@flag_dead_color: #234899;
 @flag_dead_flag: 1;
 
 @flag_ship_color: #000;
@@ -18,8 +17,12 @@
 @flag_skip_color: #556980;
 @flag_skip_flag: 4 + @flag_dead_flag;
 
+@hover_color: #801077;
+
 .battlefield-cells {
-    .row {
+    .battlefield-cells-row {
+        display: inline-block;
+
         .battlefield-cell {
             height: @size;
             width: @size;
@@ -31,6 +34,10 @@
             text-align: center;
             font-size: @size/3;
             line-height: @size;
+
+            &:hover {
+                background-color: @hover_color;
+            }
 
             &:last-child {
                 border-right: 1px solid;
@@ -57,10 +64,20 @@
             }
         }
 
-        &:last-child {
-            .battlefield-cell {
-                border-bottom: 1px solid;
-            }
+        &:not(:first-child) {
+            margin: -.17em 0;
+        }
+
+        &:first-child {
+            margin: 0 0 -.2em 0;
+        }
+
+        &:first-child .battlefield-cell, .battlefield-cell:first-child {
+            background: #b19fa3;
+        }
+
+        &:last-child .battlefield-cell {
+            border-bottom: 1px solid;
         }
     }
 }

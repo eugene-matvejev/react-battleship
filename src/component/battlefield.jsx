@@ -25,7 +25,7 @@ export default class Battlefield extends AbstractComponent {
 
         return (
             <div className={`battlefield-cells ${this.props.className || ''}`} {...this.getAttributes()}>
-                <div className="row">
+                <div className="battlefield-cells-row">
                     <Cell model={new CellModel('')}/>
                     {
                         coordinates
@@ -36,7 +36,7 @@ export default class Battlefield extends AbstractComponent {
                 </div>
                 {
                     rows.map((value, index) =>
-                        <div key={index} className="row">
+                        <div key={index} className="battlefield-cells-row">
                             <Cell model={new CellModel(CellModel.getCoordinateCharacter(coordinates[size * index]))}/>
                             {
                                 coordinates

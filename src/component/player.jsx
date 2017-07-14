@@ -15,13 +15,13 @@ export default class Player extends AbstractComponent {
         };
 
         return (
-            <fieldset className={`battlefield-player ${this.props.className || ''}`} {...attributes}>
+            <div className={`battlefield-player ${this.props.className || ''}`} {...attributes}>
                 <div className="player-avatar">
                     <img src="/assets/img/avatar-placeholder.png" alt="avatar pic"/>
                 </div>
                 <div className="player-name">{'< playerName >'}</div>
                 <div className="player-score">{'< playerScore >'}</div>
-            </fieldset>
+            </div>
         );
     }
 
