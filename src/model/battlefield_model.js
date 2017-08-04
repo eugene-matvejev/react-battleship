@@ -1,6 +1,7 @@
-import BytesAwareModel from './abstract_bytes_aware_model'
+import AbstractModel from './abstract_byte_sequence_aware_model'
+import PlayerModel from '../model/player_model';
 
-export default class BattlefieldModel extends BytesAwareModel {
+export default class BattlefieldModel extends AbstractModel {
     constructor() {
         super();
 
@@ -16,6 +17,9 @@ export default class BattlefieldModel extends BytesAwareModel {
         this.player = player;
     }
 
+    /**
+     * @return {PlayerModel}
+     */
     getPlayer() {
         return this.player;
     }

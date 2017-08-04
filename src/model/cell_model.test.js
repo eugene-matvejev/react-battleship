@@ -1,4 +1,4 @@
-import Cell from "./cell_model";
+import CellModel from "./cell_model";
 
 describe(`model:: Cell`, () => {
     const dataProvider = [
@@ -7,17 +7,29 @@ describe(`model:: Cell`, () => {
         {coordinate: 'B2', letter: 'B', digit: 2}
     ];
 
-    dataProvider.forEach(data => it(`cell model: constructor on coordinate ${data.coordinate}`, () => {
-        const cell = new Cell(data.coordinate);
+    describe(`constructor - should inject coordinate`, () => {
+        it(`::constructor - mandatory fields [coordinate|byte_sequence] should be initialized`, () => {
+            const model = new CellModel('A1');
 
-        expect(cell.coordinate).toBe(data.coordinate);
-    }));
+            expect(model.coordinate).toBeDefined();
+            expect(model.byte_sequence).toBeDefined();
+            expect(model.byte_sequence).toBe(0);
+        });
 
-    dataProvider.forEach(data => it(`cell model: getCoordinateCharacter on coordinate ${data.coordinate}`, () => {
-        expect(Cell.getCoordinateCharacter(data.coordinate)).toBe(data.letter);
-    }));
+        dataProvider.forEach(data => it(`::constructor - injected coordinate "${data.coordinate}" should be encapsulated`, () => {
+            const cell = new CellModel(data.coordinate);
 
-    dataProvider.forEach(data => it(`cell model: getCoordinateDigits on coordinate ${data.coordinate}`, () => {
-        expect(Cell.getCoordinateDigit(data.coordinate)).toBe(data.digit);
-    }));
+            expect(cell.getCoordinate()).toBe(data.coordinate);
+        }));
+    });
+
+    describe(`coordinate formatting`, () => {
+        dataProvider.forEach(data => it(`::getCoordinateCharacter on coordinate ${data.coordinate}`, () => {
+            expect(CellModel.getCoordinateCharacter(data.coordinate)).toBe(data.letter);
+        }));
+
+        dataProvider.forEach(data => it(`::getCoordinateDigits on coordinate ${data.coordinate}`, () => {
+            expect(CellModel.getCoordinateDigit(data.coordinate)).toBe(data.digit);
+        }));
+    });
 });

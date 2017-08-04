@@ -49,8 +49,22 @@ export default class Battlefield extends AbstractComponent {
         )
     }
 
-    static PropTypes = {
-        model: React.PropTypes.objectOf(BattlefieldModel).isRequired,
+    calculateCellRows(size) {
+        const cells = [];
+
+        for (let i = 0; i <= size; i++) {
+            const cellRow = [];
+
+            for (let j = 0; i <= size; j++) {
+
+            }
+
+            cells.push(cellRow);
+        }
+    }
+
+    static propTypes = {
+        model: React.PropTypes.instanceOf(BattlefieldModel).isRequired,
         className: React.PropTypes.string,
     }
 }
