@@ -5,5 +5,11 @@
             "dead": 1,
             "ship": 2
         }
+    },
+    "maxOpponents": 3,
+    "minGameSize": 5,
+    "maxGameSize": 10,
+    "api": {
+        "host": "http://kitchen.kafoodle.local/app_dev.php"
     }
 }
