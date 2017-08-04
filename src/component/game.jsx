@@ -22,8 +22,8 @@ export default class Game extends React.Component {
         );
     }
 
-    static PropTypes = {
-        model: React.PropTypes.objectOf(GameModel).isRequired,
+    static propTypes = {
+        model: React.PropTypes.instanceOf(GameModel).isRequired,
         className: React.PropTypes.string,
     }
 }

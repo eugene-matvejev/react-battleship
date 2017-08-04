@@ -7,7 +7,7 @@ export default class Cell extends AbstractComponent {
     render() {
         const attributes = {
             'data-id': '<cell-id>',
-            'data-bytes': this.props.model.getBytes(),
+            'data-bytes': this.props.model.getSequence(),
             'data-coordinate': this.props.model.getCoordinate(),
         };
 
@@ -18,8 +18,8 @@ export default class Cell extends AbstractComponent {
         );
     }
 
-    static PropTypes = {
-        model: React.PropTypes.objectOf(CellModel).isRequired,
-        className: React.PropTypes.className
+    static propTypes = {
+        model: React.PropTypes.instanceOf(CellModel).isRequired,
+        className: React.PropTypes.string
     }
 }

@@ -1,12 +1,12 @@
-import BytesAwareModel from "./abstract_bytes_aware_model";
+import AbstractModel from "./abstract_byte_sequence_aware_model";
 
 const FLAG_NONE = 0x00;
 const FLAG_DEAD = 0x01;
 const FLAG_SHIP = 0x02;
-const FLAG_SKIP = 0x04;
 /** const FLAG_DEAD_SHIP = FLAG_SHIP | FLAG_DEAD; */
+const FLAG_SKIP = 0x04;
 
-export default class CellModel extends BytesAwareModel {
+export default class CellModel extends AbstractModel {
     constructor(coordinate) {
         super();
 

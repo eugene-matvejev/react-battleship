@@ -64,6 +64,5 @@ describe(`model:: Battlefield`, () => {
     describe('get|set Player', () => {
        const player1 = new Player();
        const player2 = new Player();
-
     });
 });
