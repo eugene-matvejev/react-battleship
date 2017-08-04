@@ -13,16 +13,16 @@ export default class CellModel extends AbstractModel {
         this.coordinate = coordinate;
     }
 
+    getCoordinate() {
+        return this.coordinate;
+    }
+
     static getCoordinateCharacter(coordinate) {
         return coordinate.charAt(0);
     }
 
     static getCoordinateDigit(coordinate) {
-        return parseInt(coordinate.substring(1), 10);
-    }
-
-    getCoordinate() {
-        return this.coordinate;
+        return parseInt(coordinate.substring(1));
     }
 
     static flags = {
