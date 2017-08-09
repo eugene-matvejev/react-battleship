@@ -17,18 +17,18 @@ export default class CellModel extends AbstractModel {
         return this.coordinate;
     }
 
-    static flags = {
-        none: FLAG_NONE,
-        dead: FLAG_DEAD,
-        ship: FLAG_SHIP,
-        skip: FLAG_SKIP
-    }
-
     static getCoordinateCharacter(coordinate) {
         return coordinate.charAt(0);
     }
 
     static getCoordinateDigit(coordinate) {
         return parseInt(coordinate.substring(1));
+    }
+
+    static flags = {
+        none: FLAG_NONE,
+        dead: FLAG_DEAD,
+        ship: FLAG_SHIP,
+        skip: FLAG_SKIP
     }
 }
