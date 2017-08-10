@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Battlefield from "./battlefield";
 import Player from "./player";
 import GameModel from "../model/game_model";
@@ -23,7 +24,7 @@ export default class Game extends React.Component {
     }
 
     static propTypes = {
-        model: React.PropTypes.instanceOf(GameModel).isRequired,
-        className: React.PropTypes.string,
+        model: PropTypes.instanceOf(GameModel).isRequired,
+        className: PropTypes.string,
     }
 }

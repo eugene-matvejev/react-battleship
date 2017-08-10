@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import AbstractComponent from "./abstract_component";
 import CellModel from "../model/cell_model";
 import "../stylesheets/css/cell.css";
@@ -19,7 +20,7 @@ export default class Cell extends AbstractComponent {
     }
 
     static propTypes = {
-        model: React.PropTypes.instanceOf(CellModel).isRequired,
-        className: React.PropTypes.string
+        model: PropTypes.instanceOf(CellModel).isRequired,
+        className: PropTypes.string
     }
 }

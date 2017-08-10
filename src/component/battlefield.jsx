@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import AbstractComponent from "./abstract_component";
 import Cell from "./cell";
 import CellModel from "../model/cell_model";
@@ -64,7 +65,7 @@ export default class Battlefield extends AbstractComponent {
     }
 
     static propTypes = {
-        model: React.PropTypes.instanceOf(BattlefieldModel).isRequired,
-        className: React.PropTypes.string,
+        model: PropTypes.instanceOf(BattlefieldModel).isRequired,
+        className: PropTypes.string,
     }
 }
