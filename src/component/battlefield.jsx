@@ -21,7 +21,7 @@ export default class Battlefield extends AbstractComponent {
         const model = this.state.model;
         const coordinates = Object.keys(model.getCells());
         const size = model.size;
-        const rows = (new Array(model.size)).fill(1);
+        const rows = (new Array(size)).fill(1);
 
         return (
             <div className={`battlefield-cells ${this.props.className || ''}`} {...this.getAttributes()}>
