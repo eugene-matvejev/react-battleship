@@ -34,5 +34,5 @@ describe(`model:: Player`, () => {
                 expect(model.getUsername()).toBe(data.email)
             });
         });
-    })
+    });
 });
