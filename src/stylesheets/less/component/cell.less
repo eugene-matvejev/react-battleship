@@ -23,6 +23,14 @@
     .battlefield-cells-row {
         display: inline-block;
 
+        &:not(:first-child) {
+            .battlefield-cell:not(:first-child) {
+                &:hover {
+                    background-color: @hover_color;
+                }
+            }
+        }
+
         .battlefield-cell {
             height: @size;
             width: @size;
