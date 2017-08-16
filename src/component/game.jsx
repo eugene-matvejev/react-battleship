@@ -13,10 +13,10 @@ export default class Game extends React.Component {
             <div className={`battlefield-game ${this.props.className || ''}`}>
                 {
                     model.battlefields.map((battlefield, key) =>
-                        <fieldset key={key} className="col-md-6 row">
+                        <div key={key} className="col-md-6">
                             <Player model={battlefield.getPlayer()}/>
                             <Battlefield model={battlefield}/>
-                        </fieldset>
+                        </div>
                     )
                 }
             </div>
