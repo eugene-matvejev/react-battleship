@@ -55,6 +55,7 @@ export default class Handler extends React.Component {
 
         this.setState(state);
     }
+
     /**
      * @param {Number} opponents
      * @param {Number} size
