@@ -45,7 +45,7 @@ export default class AbstractComponent extends React.Component {
      * @param {object} attributes
      */
     setAttributes(attributes) {
-        this.setState({attributes: attributes});
+        this.setState({ attributes: attributes });
     }
 
     /**
@@ -59,6 +59,6 @@ export default class AbstractComponent extends React.Component {
      * @param {object} data
      */
     setData(data) {
-        this.setState({data: data});
+        this.setState({ data: data });
     }
 }
