@@ -19,6 +19,8 @@
 # Battleship Game GUI on react.js [WIP]
 project target: re-do https://github.com/eugene-matvejev/battleship-game-gui using react-js
 
+## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
+
 ## used technologies
  * node.js
  * react.js
