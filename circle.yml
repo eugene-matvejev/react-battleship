@@ -9,6 +9,7 @@ dependencies:
 test:
     pre:
         - npm install -g codecov
+        - npm run generate:settings && npm run generate:css
     override:
         - npm test -- --coverage
         - codecov
