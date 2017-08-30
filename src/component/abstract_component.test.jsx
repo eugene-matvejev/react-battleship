@@ -1,9 +1,9 @@
-import Component from "./abstract_component";
+import AbstractComponent from "./abstract_component";
 
 describe('component:: Abstract', () => {
     describe(`::constructor`, () => {
         it(` - constructor should set mandatory state fields [data|model|attributes]`, () => {
-            const component = new Component();
+            const component = new AbstractComponent();
 
             expect(component.state).toBeDefined();
             expect(component.state.data).toBeDefined();

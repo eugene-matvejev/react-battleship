@@ -7,8 +7,8 @@ describe(`model:: Cell`, () => {
         {coordinate: 'B2', letter: 'B', digit: 2}
     ];
 
-    describe(`constructor - should inject coordinate`, () => {
-        it(`::constructor - mandatory fields [coordinate|byte_sequence] should be initialized`, () => {
+    describe(`::constructor`, () => {
+        it(` - mandatory fields [coordinate|byte_sequence] should be initialized`, () => {
             const model = new CellModel('A1');
 
             expect(model.coordinate).toBeDefined();
@@ -16,7 +16,7 @@ describe(`model:: Cell`, () => {
             expect(model.byte_sequence).toBe(0);
         });
 
-        dataProvider.forEach(data => it(`::constructor - injected coordinate "${data.coordinate}" should be encapsulated`, () => {
+        dataProvider.forEach(data => it(` - injected coordinate "${data.coordinate}" should be encapsulated`, () => {
             const cell = new CellModel(data.coordinate);
 
             expect(cell.getCoordinate()).toBe(data.coordinate);

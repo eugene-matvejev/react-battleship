@@ -1,68 +1,77 @@
-import Battlefield from "./battlefield_model";
-import Player from "./player_model";
-import Cell from "./cell_model";
+import BattlefieldModel from "./battlefield_model";
+import CellModel from "./cell_model"
+import PlayerModel from "./player_model";
 
 describe(`model:: Battlefield`, () => {
     const dataProvider = [
         'A1', 'A2', 'B2'
     ];
 
-    describe('add|get cell', () => {
-        it(`on single cell`, () => {
-            const battlefield = new Battlefield();
+    describe('::(add|get) Cell', () => {
+        it(` - on single cell`, () => {
+            const model = new BattlefieldModel();
 
-            battlefield.addCell(new Cell('A1'));
+            model.addCell(new CellModel('A1'));
 
-            const keys = Object.keys(battlefield.getCells());
+            const keys = Object.keys(model.getCells());
 
-            expect(battlefield.getCell('A1')).toBeDefined();
+            expect(model.getCell('A1')).toBeDefined();
             expect(keys.length).toBe(1);
             expect(keys).toEqual(['A1']);
         });
 
-        it(`expect cells ${dataProvider.toString()} to be present`, () => {
-            const battlefield = new Battlefield();
+        it(` - expect cells ${dataProvider.toString()} to be present`, () => {
+            const model = new BattlefieldModel();
 
-            dataProvider.forEach(coordinate => battlefield.addCell(new Cell(coordinate)));
+            dataProvider.forEach(coordinate => model.addCell(new CellModel(coordinate)));
 
-            const keys = Object.keys(battlefield.getCells());
+            const keys = Object.keys(model.getCells());
 
             expect(keys.length).toBe(dataProvider.length);
             expect(keys).toEqual(dataProvider);
         });
     });
 
-    describe('has|get cell', () => {
+    describe('::(has|get) Cell', () => {
         dataProvider.forEach(coordinate => {
             it(`expect cell ${coordinate} to be present`, () => {
-                const battlefield = new Battlefield();
-                const cell = new Cell(coordinate);
+                const model = new BattlefieldModel();
+                const cell = new CellModel(coordinate);
 
-                battlefield.addCell(cell);
+                model.addCell(cell);
 
-                expect(battlefield.hasCell(cell)).toBe(true);
-                expect(battlefield.getCell(coordinate)).toBeDefined();
+                expect(model.hasCell(cell)).toBe(true);
+                expect(model.getCell(coordinate)).toBeDefined();
             });
         });
     });
 
-    describe('remove|get cell', () => {
+    describe('::(remove|get) Cell', () => {
         dataProvider.forEach(coordinate => {
             it(`expect cell ${coordinate} to be not present`, () => {
-                const battlefield = new Battlefield();
-                const cell = new Cell(coordinate);
+                const model = new BattlefieldModel();
+                const cell = new CellModel(coordinate);
 
-                battlefield.addCell(cell);
-                battlefield.removeCell(cell);
+                model.addCell(cell);
+                model.removeCell(cell);
 
-                expect(battlefield.hasCell(cell)).toBe(false);
-                expect(battlefield.getCell(coordinate)).toBeUndefined();
+                expect(model.hasCell(cell)).toBe(false);
+                expect(model.getCell(coordinate)).toBeUndefined();
             });
         });
     });
 
-    describe('get|set Player', () => {
-       const player1 = new Player();
-       const player2 = new Player();
+    describe('::(get|set) Player', () => {
+        it(` - setter overwrite encapsulated value`, () => {
+            const player1 = new PlayerModel();
+            const player2 = new PlayerModel();
+
+            const model = new BattlefieldModel();
+            model.setPlayer(player1);
+
+            expect(model.getPlayer()).toBe(player1);
+            model.setPlayer(player2);
+            expect(model.getPlayer()).toBe(player2);
+        });
     });
 });
