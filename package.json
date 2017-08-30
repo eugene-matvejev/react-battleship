@@ -24,7 +24,7 @@
     "build": "npm run generate:css; npm run generate:settings; react-scripts build",
     "test": "npm run generate:css; react-scripts test --env=jsdom --verbose",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "node node_modules/lessc-each src/stylesheets/less src/stylesheets/css --verbose",
+    "generate:css": "node node_modules/lessc-each src/stylesheets/less/component src/stylesheets/css --verbose; node node_modules/lessc-each src/stylesheets/less/handler src/stylesheets/css --verbose; ",
     "generate:css:w": "node node_modules/less-watch-compile -w src/stylesheets/less -o src/stylesheets/css --verbose"
   },
   "extra": {
