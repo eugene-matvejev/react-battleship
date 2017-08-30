@@ -13,7 +13,7 @@ export default class Game extends Component {
             <div className={`battlefield-game ${this.props.className || ''}`}>
                 {
                     model.battlefields.map((battlefield, key) =>
-                        <div key={key} className="col-md-6">
+                        <div key={`${key}-${battlefield.size}`} className="col-md-6">
                             <Player model={battlefield.getPlayer()}/>
                             <Battlefield model={battlefield}/>
                         </div>
