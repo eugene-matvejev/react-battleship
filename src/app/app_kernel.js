@@ -1,8 +1,8 @@
-import React from "react";
+import React, {Component} from "react";
 import {Router, Route, hashHistory} from "react-router";
 import IndexHandler from "../handler/index_handler";
 
-export default class AppKernel extends React.Component {
+export default class AppKernel extends Component {
     render() {
         return (
             <Router history={hashHistory}>

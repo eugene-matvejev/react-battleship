@@ -1,4 +1,4 @@
-import BattlefieldModel from "../model/battlefield_model";
+import BattlefieldModel from "../../model/battlefield_model";
 import CellGenerator from "./cell_generator";
 
 export default class BattlefieldGenerator {

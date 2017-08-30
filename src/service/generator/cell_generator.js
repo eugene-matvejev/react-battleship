@@ -1,6 +1,6 @@
-import CellModel from "../model/cell_model";
+import CellModel from "../../model/cell_model";
 
-export default class Generator {
+export default class CellGenerator {
     /**
      * @param {Number} x
      * @param {Number} y

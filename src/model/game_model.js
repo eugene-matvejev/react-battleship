@@ -1,6 +1,6 @@
-import BytesAwareModel from "./abstract_byte_sequence_aware_model";
+import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
 
-export default class GameModel extends BytesAwareModel {
+export default class GameModel extends AbstractByteSequenceAwareModel {
     constructor() {
         super();
 

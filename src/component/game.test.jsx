@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Component from "./game";
-import GameGenerator from "../generator/game_generator";
+import Game from "./game";
+import GameGenerator from "../service/generator/game_generator";
 
 describe('component:: Game', () => {
     describe('::render', () => {
@@ -9,7 +9,7 @@ describe('component:: Game', () => {
             const div = document.createElement('div');
             const model = GameGenerator.generate(1, 1);
 
-            ReactDOM.render(<Component model={model}/>, div);
+            ReactDOM.render(<Game model={model}/>, div);
         });
     });
 });

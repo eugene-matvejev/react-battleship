@@ -1,8 +1,8 @@
-import AbstractModel from "./abstract_byte_sequence_aware_model";
+import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
 
 const FLAG_HUMAN_CONTROLLED = 0x01;
 
-export default class PlayerModel extends AbstractModel {
+export default class PlayerModel extends AbstractByteSequenceAwareModel {
     constructor() {
         super();
 

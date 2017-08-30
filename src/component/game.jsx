@@ -1,11 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Battlefield from "./battlefield";
 import Player from "./player";
 import GameModel from "../model/game_model";
 import "../stylesheets/css/game.css";
 
-export default class Game extends React.Component {
+export default class Game extends Component {
     render() {
         const model = this.props.model;
 

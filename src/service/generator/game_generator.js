@@ -1,7 +1,7 @@
-import GameModel from "../model/game_model";
-import BattlefieldGenerator from "../generator/battlefield_generator";
-import CellModel from "../model/cell_model";
-import PlayerModel from "../model/player_model";
+import BattlefieldGenerator from "./battlefield_generator";
+import CellModel from "../../model/cell_model";
+import PlayerModel from "../../model/player_model";
+import GameModel from "../../model/game_model";
 
 export default class GameGenerator {
     /**

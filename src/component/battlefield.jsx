@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import AbstractComponent from "./abstract_component";
 import Cell from "./cell";
-import CellModel from "../model/cell_model";
 import BattlefieldModel from "../model/battlefield_model";
+import CellModel from "../model/cell_model";
 import "../stylesheets/css/battlefield.css";
 
 export default class Battlefield extends AbstractComponent {
