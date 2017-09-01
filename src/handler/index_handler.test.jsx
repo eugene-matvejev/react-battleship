@@ -7,7 +7,7 @@ describe('handler:: Index', () => {
         it(' - renders without error', () => {
             const div = document.createElement('div');
 
-            ReactDOM.render(<IndexHandler/>, div);
+            ReactDOM.render(<IndexHandler size={1} opponents={1}/>, div);
         });
     });
 });
