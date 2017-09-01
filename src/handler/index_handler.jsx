@@ -7,6 +7,7 @@ import parameters from "../parameters.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-rangeslider/lib/index.css";
 import "../stylesheets/css/component/overwritten.css";
+import "../stylesheets/css/handler/index.css"
 
 export default class Handler extends Component {
     constructor(props) {
