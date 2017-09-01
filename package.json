@@ -4,20 +4,23 @@
   "private": true,
   "dependencies": {
     "axios": "^0.15.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap-grid": "^2.0.0",
     "lessc-each": "^1.1.0",
     "node-bytes-calculator": "^1.0.0",
     "node-parameter-handler": "^1.0.0",
     "prop-types": "^15.5.0",
-    "react": "^15.5.0",
-    "react-dom": "^15.5.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-rangeslider": "^2.0.0",
     "react-router": "^4.0.0",
     "react-scripts": "^1.0.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "less-watch-compile": "^1.1.8"
+    "enzyme": "^2.9.1",
+    "jest-enzyme": "^3.8.1",
+    "less-watch-compile": "^1.1.8",
+    "react-test-renderer": "^15.6.1"
   },
   "scripts": {
     "start": "npm run generate:all; concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
