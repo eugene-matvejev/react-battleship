@@ -1,18 +1,12 @@
-import React, {Component} from "react";
-import {Router, Route, hashHistory} from "react-router";
+import React from "react";
+import {MemoryRouter, Switch, Route} from "react-router";
 import IndexHandler from "../handler/index_handler";
 
-export default class AppKernel extends Component {
-    render() {
-        return (
-            <Router history={hashHistory}>
-                <Route path="/" component={IndexHandler}/>
-                <Route path="/game">
-                    <Route path="/" component={IndexHandler}/>
-                    <Route path="/new" component={IndexHandler}/>
-                    <Route path="/results" component={IndexHandler}/>
-                </Route>
-            </Router>
-        );
-    }
-}
+const appKernel = () =>
+    <MemoryRouter>
+        <Switch>
+            <Route exact path="/" component={IndexHandler}/>
+        </Switch>
+    </MemoryRouter>;
+
+export default appKernel;

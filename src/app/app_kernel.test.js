@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import AppKernel from "./app_kernel";
 
-describe('kernel component', () => {
+describe(`component:: <AppKernel/>`, () => {
     describe('::render', () => {
         it(' - without error', () => {
             const div = document.createElement('div');
