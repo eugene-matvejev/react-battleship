@@ -1,6 +1,6 @@
 import GameGenerator from "./game_generator";
 
-describe(`generator:: Game`, () => {
+describe(`generator:: <GameGenerator/>`, () => {
     describe(`::generate`, () => {
         [0, 1, 2, 10].forEach(number => {
             it(` - expected ${number} battlefields attached`, () => {

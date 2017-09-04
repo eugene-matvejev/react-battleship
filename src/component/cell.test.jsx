@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Cell from "./cell";
 import CellModel from "../model/cell_model";
 
-describe('component:: Cell', () => {
+describe(`component:: <Cell/>`, () => {
     it(`::render`, () => {
         it(' - renders without error', () => {
             const model = new CellModel('A1');
