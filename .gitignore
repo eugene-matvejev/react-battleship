@@ -1,8 +1,7 @@
 build/
 coverage/
-npm-debug.log
-
 node_modules/
+npm-debug.log
 
 src/parameters.json
 
