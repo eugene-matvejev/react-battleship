@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import IndexHandler from "./index_handler";
 import {shallow} from "enzyme";
 
-describe('handler:: Index', () => {
+describe(`handler:: <IndexHandler/>`, () => {
     describe(`::render`, () => {
         it(' - renders without error', () => {
             const div = document.createElement('div');
@@ -13,10 +13,12 @@ describe('handler:: Index', () => {
     });
 
     describe(`::slider`, () => {
-        const el = shallow(<IndexHandler size={1} opponents={1}/>);
+        it(` - should generate & render additional battlefield as opponets changed from 1 to 2`, () => {
+            const el = shallow(<IndexHandler size={1} opponents={1}/>);
 
-        el.find('Slider[min=1]').simulate('change', 2);
+            el.find('Slider[min=1]').simulate('change', 2);
 
-        expect(el.find('Game').prop('model').battlefields.length).toBe(3);
+            expect(el.find('Game').prop('model').battlefields.length).toBe(3);
+        });
     });
 });

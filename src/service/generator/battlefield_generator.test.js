@@ -1,6 +1,6 @@
 import BattlefieldGenerator from "./battlefield_generator";
 
-describe('generator:: Battlefield', () => {
+describe(`generator:: <BattlefieldGenerator/>`, () => {
     const dataProvider = [1, 2, 3, 10, 15];
 
     dataProvider.forEach(size => {

@@ -25,12 +25,14 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
  * node.js
  * react.js
  * jest
+ * enzyme
  * npm
  * yarn
  
 ## how to install
- * `$ npm start` - init app in "development" environment
+ * `$ npm start` - execute `$ npm run generate:all`, then starts lite-server with file watcher and `generate:css:w`
  * OPTIONAL:
+   * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
    * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
    * `$ npm run generate:css` - to generate CSS from LESS
    * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime

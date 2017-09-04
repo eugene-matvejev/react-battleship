@@ -2,7 +2,7 @@ import BattlefieldModel from "./battlefield_model";
 import CellModel from "./cell_model"
 import PlayerModel from "./player_model";
 
-describe(`model:: Battlefield`, () => {
+describe(`model:: <BattlefieldModel/>`, () => {
     const dataProvider = [
         'A1', 'A2', 'B2'
     ];

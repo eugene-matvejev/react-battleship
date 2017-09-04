@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Game from "./game";
 import GameGenerator from "../service/generator/game_generator";
 
-describe('component:: Game', () => {
+describe(`component:: <Game/>`, () => {
     describe('::render', () => {
         it('- renders without error', () => {
             const div = document.createElement('div');
