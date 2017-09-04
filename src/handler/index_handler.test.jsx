@@ -17,6 +17,6 @@ describe('handler:: Index', () => {
 
         el.find('Slider[min=1]').simulate('change', 2);
 
-        expect(el.find('.battlefield-cells').children()).toBe(3);
+        expect(el.find('Game').prop('model').battlefields.length).toBe(3);
     });
 });
