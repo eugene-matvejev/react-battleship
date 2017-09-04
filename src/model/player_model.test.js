@@ -1,6 +1,6 @@
 import PlayerModel from "./player_model";
 
-describe(`model:: Player`, () => {
+describe(`model:: <PlayerModel/>`, () => {
     const model = new PlayerModel();
     const dataProvider = [
         {id: 1, email: 'example1@example.com'},
