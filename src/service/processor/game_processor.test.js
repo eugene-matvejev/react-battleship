@@ -1,6 +1,6 @@
 import GameProcessor from "./game_processor";
 
-describe(`processor:: Game`, () => {
+describe(`processor:: <GameProcessor/>`, () => {
     describe(`::constructor`, () => {
         it(` - mandatory fields are defined [size|opponents|battlefields]`, () => {
             const size = 10;

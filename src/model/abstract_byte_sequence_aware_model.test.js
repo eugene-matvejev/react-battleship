@@ -1,6 +1,6 @@
 import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
 
-describe(`model:: abstract byte sequence aware`, () => {
+describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
     const model = new AbstractByteSequenceAwareModel();
 
     describe(`::constructor`, () => {
