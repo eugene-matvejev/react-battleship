@@ -1,6 +1,6 @@
 import GameModel from "./game_model";
 
-describe(`model:: Game`, () => {
+describe(`model:: <GameModel/>`, () => {
     describe(`::constructor`, () => {
         it(` - mandatory fields [battlefields] are initialized`, () => {
             const model = new GameModel();
