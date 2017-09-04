@@ -30,7 +30,7 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
  * yarn
  
 ## how to install
- * `$ npm start` - execute start `$ npm run generate:all`, then starts lite-server and file watcher and `generate:css:w`
+ * `$ npm start` - execute `$ npm run generate:all`, then starts lite-server with file watcher and `generate:css:w`
  * OPTIONAL:
    * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
    * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
