@@ -13,10 +13,12 @@ describe(`handler:: <IndexHandler/>`, () => {
     });
 
     describe(`::slider`, () => {
-        const el = shallow(<IndexHandler size={1} opponents={1}/>);
+        it(` - should generate & render additional battlefield as opponets changed from 1 to 2`, () => {
+            const el = shallow(<IndexHandler size={1} opponents={1}/>);
 
-        el.find('Slider[min=1]').simulate('change', 2);
+            el.find('Slider[min=1]').simulate('change', 2);
 
-        expect(el.find('.battlefield-cells').children()).toBe(3);
+            expect(el.find('.battlefield-cells').children()).toBe(3);
+        });
     });
 });
