@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import AbstractComponent from "./abstract_component";
 import CellModel from "../model/cell_model";
-import "../stylesheets/css/cell.css";
+import "../../public/assets/css/cell.css";
 
 export default class Cell extends AbstractComponent {
     render() {
