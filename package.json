@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.15.2",
-    "bootstrap-grid": "^2.0.0",
+    "bootstrap": "^3.3.7",
     "lessc-each": "^1.1.0",
     "node-bytes-calculator": "^1.0.0",
     "node-parameter-handler": "^1.0.0",
