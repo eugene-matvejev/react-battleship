@@ -8,7 +8,7 @@
     "lessc-each": "^1.1.0",
     "node-bytes-calculator": "^1.0.0",
     "node-parameter-handler": "^1.0.0",
-    "prop-types": "^15.5.0",
+    "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-rangeslider": "^2.0.0",
