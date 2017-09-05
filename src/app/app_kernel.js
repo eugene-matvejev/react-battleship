@@ -1,12 +1,17 @@
 import React from "react";
-import {MemoryRouter, Switch, Route} from "react-router";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import IndexHandler from "../handler/index_handler";
+import GameHandler from "../handler/game_handler";
+import GameResultsHandler from "../handler/game_results_handler";
 
 const appKernel = () =>
-    <MemoryRouter>
+    <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={IndexHandler}/>
+            <Route exact path="/" component={(props) => <GameHandler {...props}/>}/>
+            <Route exact path="/game" component={(props) => <GameHandler {...props}/>}/>
+            <Route exact path="/index" component={(props) => <IndexHandler {...props}/>}/>
+            <Route exact path="/game-results" component={(props) => <GameResultsHandler {...props}/>}/>
         </Switch>
-    </MemoryRouter>;
+    </BrowserRouter>;
 
 export default appKernel;

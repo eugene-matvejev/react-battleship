@@ -4,7 +4,7 @@ import AbstractComponent from "./abstract_component";
 import Cell from "./cell";
 import BattlefieldModel from "../model/battlefield_model";
 import CellModel from "../model/cell_model";
-import "../../public/assets/css/battlefield.css";
+import "../stylesheets/css/battlefield.css";
 
 export default class Battlefield extends AbstractComponent {
     constructor(props) {
@@ -24,7 +24,7 @@ export default class Battlefield extends AbstractComponent {
         const rows = (new Array(size)).fill(1);
 
         return (
-            <div className={`battlefield-cells ${this.props.className || ''}`} {...this.getAttributes()}>
+            <fieldset className={`battlefield-cells ${this.props.className || ''}`} {...this.getAttributes()}>
                 <div className="battlefield-cells-row">
                     <Cell model={new CellModel('')}/>
                     {
@@ -46,7 +46,7 @@ export default class Battlefield extends AbstractComponent {
                         </div>
                     )
                 }
-            </div>
+            </fieldset>
         )
     }
 

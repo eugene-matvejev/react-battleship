@@ -12,7 +12,7 @@
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-rangeslider": "^2.0.0",
-    "react-router": "^4.0.0",
+    "react-router-dom": "^4.2.0",
     "react-scripts": "^1.0.0"
   },
   "devDependencies": {
@@ -28,8 +28,8 @@
     "test": "react-scripts test --env=jsdom --verbose",
     "generate:all": "npm run generate:settings; npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "node node_modules/lessc-each src/stylesheets/less/component public/assets/css --verbose; node node_modules/lessc-each src/stylesheets/less/handler public/assets/css --verbose; ",
-    "generate:css:w": "node node_modules/less-watch-compile -w src/stylesheets/less -o public/assets/css --verbose"
+    "generate:css": "node node_modules/lessc-each src/stylesheets/less/component src/stylesheets/css --verbose; node node_modules/lessc-each src/stylesheets/less/handler src/stylesheets/css --verbose; ",
+    "generate:css:w": "node node_modules/less-watch-compile -w src/stylesheets/less -o src/stylesheets/css --verbose"
   },
   "extra": {
     "node_parameter_handler": [

@@ -1,7 +1,7 @@
 import React from "react";
-import IndexHandler from "./index_handler";
+import GameResultsHandler from "./game_results_handler";
 
-describe(`handler:: <IndexhHandler/>`, () => {
+describe(`handler:: <GameResultsHandler/>`, () => {
     it(` - renders without crash`, () => {
         expect(true).toBe(true);
     })

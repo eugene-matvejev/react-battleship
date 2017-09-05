@@ -1,0 +1,23 @@
+.battlefield-player {
+  background: #d9ffcd;
+  position: relative;
+}
+.battlefield-player .player-avatar {
+  display: inline-block;
+}
+.battlefield-player .player-avatar,
+.battlefield-player .player-avatar img {
+  height: 6em;
+  width: 6em;
+}
+.battlefield-player .player-name,
+.battlefield-player .player-score {
+  position: absolute;
+  left: 7em;
+}
+.battlefield-player .player-name {
+  top: 0;
+}
+.battlefield-player .player-score {
+  top: 2em;
+}
