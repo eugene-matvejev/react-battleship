@@ -14,7 +14,7 @@ describe(`handler:: <IndexHandler/>`, () => {
     });
 
     describe(`::slider`, () => {
-        it(` - should generate & render additional battlefield as opponets changed from 1 to 2`, () => {
+        it(` - should generate & render additional battlefield as opponents changed from 1 to 2`, () => {
             const el = shallow(<IndexHandler size={1} opponents={1}/>);
 
             el.find('Slider[min=1]').simulate('change', 2);
