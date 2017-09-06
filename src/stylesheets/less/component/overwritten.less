@@ -1,3 +1,6 @@
+@link-color: #fff;
+@button-size: 3rem;
+
 .container {
     .content {
         .rangeslider__fill {
@@ -11,8 +14,82 @@
             background-color: #fff;
 
             &:after {
-                content:none;
+                content: none;
             }
         }
     }
+}
+
+body, html {
+}
+
+html, body, .navigator-container {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    font-family: monospace;
+
+    background: linear-gradient(to bottom, rgb(32, 23, 99) 0%, rgb(31, 19, 95) 40%, #a94442 100%) center center / cover fixed;
+}
+
+.handler {
+    height: 100vh;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+
+    &:link {
+        color: @link-color;
+    }
+    &:visited {
+        color: @link-color;
+    }
+    &:hover {
+        color: @link-color;
+    }
+    &:active {
+        color: @link-color;
+    }
+}
+
+@media all and (min-width: 960px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 599px) and (min-width: 320px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media all and (max-width: 319px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    color: @link-color;
+    width: @button-size;
+    height: @button-size;
+    line-height: @button-size;
+    font-size: @button-size;
+
+    cursor: pointer;
 }

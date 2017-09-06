@@ -1,0 +1,66 @@
+@navigation-handler-width: 20rem;
+
+.handler.navigation, .handler.navigation li, .handler.navigation .handler-label {
+    width: @navigation-handler-width;
+}
+
+.handler.navigation {
+    background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    position: relative;
+
+    text-transform: uppercase;
+
+    overflow-y: auto;
+    border-right: 1px solid white;
+
+    &.toggled {
+        width: 0;
+        transition: all 1.5s ease;
+    }
+
+    .handler-label {
+        font-size: 1.5rem;
+        color: white;
+        text-transform: lowercase;
+        border-bottom: 1px solid white;
+    }
+
+    ul {
+        margin: 2rem 0 0 0;
+        padding: 0;
+        display: inline-block;
+        list-style-type: none;
+
+        & > li {
+            font-size: 1rem;
+            text-align: right;
+            display: inline-block;
+
+            a {
+                padding: 0 1rem 0 0;
+
+            }
+
+            &:hover {
+                background: white;
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.btn-close:after {
+    content: '\002296';
+}
+
+.btn-open:after {
+    content: '\002295';
+}
