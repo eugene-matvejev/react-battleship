@@ -48,7 +48,7 @@
             }
 
             &:last-child {
-                border-right: 1px solid;
+                border-bottom: 1px solid;
             }
 
             &[data-bytes="@{flag_none_flag}"] {
@@ -72,21 +72,12 @@
             }
         }
 
-        &:not(:first-child) {
-            margin: -.17em 0;
-        }
-
-        &:first-child {
-            margin: 0 0 -.2em 0;
-        }
-
         &:first-child .battlefield-cell, .battlefield-cell:first-child {
             background: #b19fa3;
         }
 
         &:last-child .battlefield-cell {
-            border-bottom: 1px solid;
+            border-right: 1px solid;
         }
     }
 }
-
