@@ -17,7 +17,7 @@ describe(`handler:: <NavigationHandler/>`, () => {
             );
         });
 
-        describe(` ::onToggle`, () => {
+        describe(` ::onClick`, () => {
             it(` - onClick [.btn.btn-close] state: hidden toggled`, () => {
                 const el = shallow(<NavigationHandler hiddenOnMount={false}/>);
 
@@ -27,7 +27,7 @@ describe(`handler:: <NavigationHandler/>`, () => {
                 expect(state.hidden).toBe(true);
             });
 
-            it(` - onClick [.btn.btn-close] state: hidden toggled`, () => {
+            it(` - onClick [.btn.btn-close] onToggle callback works`, () => {
                 let toggled = false;
                 const onToggle = () => {
                     toggled = !toggled;
