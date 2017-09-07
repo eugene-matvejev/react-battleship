@@ -15,8 +15,6 @@ export default class NavigationHandler extends Component {
     render() {
         const hidden = this.state.hidden;
 
-        console.log(hidden);
-
         const onToggleClick = () => {
             this.setState({hidden: !hidden});
 
@@ -24,21 +22,33 @@ export default class NavigationHandler extends Component {
         };
 
         return (
-            <div>
-                <div className={`handler navigation ${ hidden ? 'toggled' : '' } ${this.props.className}`}>
-                    <div className="handler-label">
-                        {this.props.label}
-                    </div>
-                    <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
-
-                    <ul>
-                        <li><Link to="/game-current">current game</Link></li>
-                        <li><Link to="/game-new">new game</Link></li>
-                        <li><Link to="/game-results">previous game results</Link></li>
-                    </ul>
+            <div className={`handler navigation ${ hidden ? 'toggled' : '' } ${this.props.className}`}>
+                <div className="handler-label">
+                    {this.props.label}
                 </div>
-                    <span className="btn btn-open" onClick={onToggleClick.bind(this)}/>
+                <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
+
+                <ul>
+                    <li><Link to="/game-current">current game</Link></li>
+                    <li><Link to="/game-new">new game</Link></li>
+                    <li><Link to="/game-results">previous game results</Link></li>
+                </ul>
             </div>
+            // <div>
+            //     <div className={`handler navigation ${ hidden ? 'toggled' : '' } ${this.props.className}`}>
+            //         <div className="handler-label">
+            //             {this.props.label}
+            //         </div>
+            //         <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
+            //
+            //         <ul>
+            //             <li><Link to="/game-current">current game</Link></li>
+            //             <li><Link to="/game-new">new game</Link></li>
+            //             <li><Link to="/game-results">previous game results</Link></li>
+            //         </ul>
+            //     </div>
+            //     <span className="btn btn-open" onClick={onToggleClick.bind(this)}/>
+            // </div>
         )
     }
 
@@ -50,8 +60,8 @@ export default class NavigationHandler extends Component {
     };
 
     static propTypes = {
-        label: PropTypes.string,
         className: PropTypes.string,
+        label: PropTypes.string,
         onToggle: PropTypes.func,
         hiddenOnMount: PropTypes.bool,
     }
