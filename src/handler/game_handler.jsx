@@ -30,7 +30,8 @@ export default class GameHandler extends Component {
         const model = this.state.model;
 
         return (
-            <div>
+            <div className="handler game">
+                <div className="handler-label">{this.props.label}</div>
                 <fieldset className="col-md-3">
                     <div>opponents: {opponents}</div>
                     <Slider min={1} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)}/>
@@ -66,11 +67,13 @@ export default class GameHandler extends Component {
 
     static propTypes = {
         opponents: PropTypes.number,
-        size: PropTypes.number
+        size: PropTypes.number,
+        label: PropTypes.string
     };
 
     static defaultProps = {
         opponents: 1,
-        size: parameters.maxGameSize
+        size: parameters.maxGameSize,
+        label: 'current game'
     }
 }

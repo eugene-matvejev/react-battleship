@@ -40,17 +40,17 @@ export default class NavigationHandler extends Component {
         )
     }
 
+    static propTypes = {
+        className: PropTypes.string,
+        label: PropTypes.string,
+        onToggle: PropTypes.func,
+        hiddenOnMount: PropTypes.bool,
+    };
+
     static defaultProps = {
         className: '',
         label: 'Battleship Game [react.js]',
         onToggle: () => {},
         hiddenOnMount: false
     };
-
-    static propTypes = {
-        className: PropTypes.string,
-        label: PropTypes.string,
-        onToggle: PropTypes.func,
-        hiddenOnMount: PropTypes.bool,
-    }
 }

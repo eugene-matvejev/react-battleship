@@ -1,0 +1,28 @@
+.handler.game-results {
+    table {
+        color: white;
+        font-size: 1.5rem;
+
+        tr {
+            &:not(:last-child) {
+                td, th {
+                    border-bottom: 1px solid white;
+                }
+            }
+
+            td, th {
+                &:not(:last-child) {
+                    border-right: 1px solid white;
+                }
+            }
+        }
+    }
+}
+
+.handler-label {
+    font-size: 3rem;
+    color: white;
+    text-transform: lowercase;
+    border-bottom: 1px solid white;
+    margin: 0 0 2rem 0;
+}

@@ -8,6 +8,6 @@ describe(`handler:: <GameResultsHandler/>`, () => {
             const div = document.createElement('div');
 
             ReactDOM.render(<GameResultsHandler/>, div);
-        })
+        });
     })
 });
