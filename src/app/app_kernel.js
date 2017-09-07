@@ -1,12 +1,12 @@
 import React from "react";
-import {MemoryRouter, Switch, Route} from "react-router";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import IndexHandler from "../handler/index_handler";
 
 const appKernel = () =>
-    <MemoryRouter>
+    <BrowserRouter>
         <Switch>
             <Route exact path="/" component={IndexHandler}/>
         </Switch>
-    </MemoryRouter>;
+    </BrowserRouter>;
 
 export default appKernel;
