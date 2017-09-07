@@ -22,33 +22,21 @@ export default class NavigationHandler extends Component {
         };
 
         return (
-            <div className={`handler navigation ${ hidden ? 'toggled' : '' } ${this.props.className}`}>
-                <div className="handler-label">
-                    {this.props.label}
-                </div>
-                <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
+            <div>
+                <div className={`handler navigation ${ hidden ? 'toggled' : '' } ${this.props.className}`}>
+                    <div className="handler-label">
+                        {this.props.label}
+                    </div>
+                    <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
 
-                <ul>
-                    <li><Link to="/game-current">current game</Link></li>
-                    <li><Link to="/game-new">new game</Link></li>
-                    <li><Link to="/game-results">previous game results</Link></li>
-                </ul>
+                    <ul>
+                        <li><Link to="/game-current">current game</Link></li>
+                        <li><Link to="/game-new">new game</Link></li>
+                        <li><Link to="/game-results">previous game results</Link></li>
+                    </ul>
+                </div>
+                <span className="btn btn-open" onClick={onToggleClick.bind(this)}/>
             </div>
-            // <div>
-            //     <div className={`handler navigation ${ hidden ? 'toggled' : '' } ${this.props.className}`}>
-            //         <div className="handler-label">
-            //             {this.props.label}
-            //         </div>
-            //         <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
-            //
-            //         <ul>
-            //             <li><Link to="/game-current">current game</Link></li>
-            //             <li><Link to="/game-new">new game</Link></li>
-            //             <li><Link to="/game-results">previous game results</Link></li>
-            //         </ul>
-            //     </div>
-            //     <span className="btn btn-open" onClick={onToggleClick.bind(this)}/>
-            // </div>
         )
     }
 
