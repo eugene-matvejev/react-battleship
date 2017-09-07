@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import AbstractComponent from "./abstract_component";
 import PlayerModel from "../model/player_model";
-import "../../public/assets/css/player.css";
+import "../stylesheets/css/player.css";
 
 export default class Player extends AbstractComponent {
     render() {
