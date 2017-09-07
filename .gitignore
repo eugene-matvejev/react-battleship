@@ -9,5 +9,5 @@ var/
 !var/logs/.gitkeep
 dist/
 !dist/.gitkeep
-public/assets/css
-!public/assets/css/.gitkeep
+src/stylesheets/css/
+!src/stylesheets/css/.gitkeep

@@ -4,7 +4,7 @@ import AbstractComponent from "./abstract_component";
 import Cell from "./cell";
 import BattlefieldModel from "../model/battlefield_model";
 import CellModel from "../model/cell_model";
-import "../../public/assets/css/battlefield.css";
+import "../stylesheets/css/battlefield.css";
 
 export default class Battlefield extends AbstractComponent {
     constructor(props) {
