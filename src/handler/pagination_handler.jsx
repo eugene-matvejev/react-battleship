@@ -2,54 +2,55 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../stylesheets/css/pagination_handler.css";
 
-const PaginationHandler = () => {
-    const currentPage = this.props.currentPage;
+const PaginationHandler = (props) => {
+    const currentPage = props.currentPage;
     const nextPage = currentPage + 1;
     const prevPage = currentPage - 1;
-    const hasPrevPage = this.props.hasPrevPage;
-    const hasNextPage = this.props.hasNextPage;
-
-    const onNextCallback = () => {
-        if (!hasNextPage) {
-            return;
-        }
-
-        this.props.onNext(nextPage);
-    };
+    const hasPrevPage = props.hasPrevPage;
+    const hasNextPage = props.hasNextPage;
 
     const onPrevCallback = () => {
         if (!hasPrevPage) {
             return;
         }
 
-        this.props.onPrev(prevPage);
+        props.pageChangeCallback(prevPage);
+    };
+
+    const onNextCallback = () => {
+        if (!hasNextPage) {
+            return;
+        }
+
+        console.log(nextPage, props);
+        props.pageChangeCallback(nextPage);
     };
 
     return (
-        <div className={`handler pagination ${this.props.className}`}>
-            <span className={`${hasPrevPage ? '' : 'inactive'}`} onClick={onPrevCallback().bind(this)}>{hasPrevPage ? prevPage : ''}</span>
+        <div className={`handler pagination ${props.className}`}>
+            <span className={`prev ${hasPrevPage ? '' : 'inactive'}`}
+                  onClick={onPrevCallback}>{hasPrevPage ? prevPage : ''}</span>
             <span>{currentPage}</span>
-            <span className={`${hasNextPage ? '' : 'inactive'}`} onClick={onNextCallback().bind(this)}>{hasNextPage ? nextPage : ''}</span>
+            <span className={`next ${hasNextPage ? '' : 'inactive'}`}
+                  onClick={onNextCallback}>{hasNextPage ? nextPage : ''}</span>
             <span/>
-            <span>{this.props.totalPages}</span>
+            <span>{props.totalPages}</span>
         </div>
     );
 };
 
 PaginationHandler.defaultProps = {
     className: '',
-    hasPrevPage: false,
-    hasNextPage: false,
-    onPrev: () => {},
-    onNext: () => {},
+    hasPrevPage: true,
+    hasNextPage: true,
+    pageChangeCallback: () => {},
 };
 
 PaginationHandler.PropTypes = {
     className: PropTypes.string,
     hasPrevPage: PropTypes.bool,
     hasNextPage: PropTypes.bool,
-    onNext: PropTypes.func,
-    onPrev: PropTypes.func,
+    pageChangeCallback: PropTypes.func,
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired
 };
