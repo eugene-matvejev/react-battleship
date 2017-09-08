@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../stylesheets/css/pagination_handler.css";
 
 const PaginationHandler = () => {
     const currentPage = this.props.currentPage;
