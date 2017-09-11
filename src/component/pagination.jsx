@@ -30,8 +30,7 @@ const PaginationHandler = (props) => {
             <span className={`prev ${hasPrevPage ? '' : 'inactive'}`} onClick={onPrevCallback}>{hasPrevPage ? prevPage : ''}</span>
             <span>{currentPage}</span>
             <span className={`next ${hasNextPage ? '' : 'inactive'}`} onClick={onNextCallback}>{hasNextPage ? nextPage : ''}</span>
-            <span/>
-            <span>{props.totalPages}</span>
+            <span className={`total`}>{props.totalPages}</span>
         </div>
     );
 };

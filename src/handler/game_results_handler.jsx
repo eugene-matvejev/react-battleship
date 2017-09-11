@@ -4,40 +4,48 @@ import Pagination from "../component/pagination";
 import "../stylesheets/css/game_results_handler.css"
 
 export default class GameResultsHandler extends Component {
-    render() {
+    constructor() {
+        super();
 
-        const tableHeaders = this.props.tableHeaders;
-        const meta = {
-            currentPage: 1,
-            totalPages: 1
-        };
-        const tableData = [
-            {
-                id: 1,
-                name: 'test',
-                timestamp: (new Date()).toLocaleString()
-            },
-            {
-                id: 1,
-                name: 'test',
-                timestamp: (new Date()).toLocaleString()
-            },
-            {
-                id: 1,
-                name: 'test',
-                timestamp: (new Date()).toLocaleString()
-            },
-            {
-                id: 1,
-                name: 'test',
-                timestamp: (new Date()).toLocaleString()
-            },
-            {
-                id: 1,
-                name: 'test',
-                timestamp: (new Date()).toLocaleString()
+        this.state = {
+            data: [
+                {
+                    id: 1,
+                    name: 'test',
+                    timestamp: (new Date()).toLocaleString()
+                },
+                {
+                    id: 1,
+                    name: 'test',
+                    timestamp: (new Date()).toLocaleString()
+                },
+                {
+                    id: 1,
+                    name: 'test',
+                    timestamp: (new Date()).toLocaleString()
+                },
+                {
+                    id: 1,
+                    name: 'test',
+                    timestamp: (new Date()).toLocaleString()
+                },
+                {
+                    id: 1,
+                    name: 'test',
+                    timestamp: (new Date()).toLocaleString()
+                }
+            ],
+            meta: {
+                currentPage: 1,
+                totalPages: 1
             }
-        ];
+        }
+    }
+
+    render() {
+        const headers = this.props.tableHeaders;
+        const meta = this.state.meta;
+        const data = this.state.data;
 
         return (
             <div className="handler game-results">
@@ -47,11 +55,11 @@ export default class GameResultsHandler extends Component {
                         <tbody>
                         <tr>
                             <th>#</th>
-                            <th>{tableHeaders.playerName}</th>
-                            <th>{tableHeaders.timestamp}</th>
+                            <th>{headers.playerName}</th>
+                            <th>{headers.timestamp}</th>
                         </tr>
                         {
-                            tableData.map((data, key) => {
+                            data.map((data, key) => {
                                 return <tr key={key}>
                                     <td>{data.id}</td>
                                     <td>{data.name}</td>
@@ -61,10 +69,46 @@ export default class GameResultsHandler extends Component {
                         }
                         </tbody>
                     </table>
-                    <Pagination currentPage={meta.currentPage} totalPages={meta.totalPages}/>
+                    <Pagination
+                        currentPage={meta.currentPage}
+                        totalPages={meta.totalPages}
+                        pageChangeCallback={
+                            (page) => {
+                                const meta = this.state.meta;
+                                meta.currentPage = page;
+
+                                this.setState({meta: meta});
+                            }
+                        }
+                    />
                 </div>
             </div>
         );
+    }
+
+    keyDownEventHandler(event) {
+        const meta = this.state.meta;
+
+        switch (event.code) {
+            case 'ArrowRight':
+                meta.currentPage++;
+                this.setState({meta: meta});
+                break;
+            case 'ArrowLeft':
+                meta.currentPage--;
+                this.setState({meta: meta});
+                break;
+            default:
+                break;
+        }
+    };
+
+    componentWillMount() {
+        document.addEventListener("keydown", this.keyDownEventHandler.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.keyDownEventHandler.bind(this));
     }
 
     static propTyps = {

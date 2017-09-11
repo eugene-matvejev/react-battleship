@@ -22,7 +22,7 @@ export default class NavigationHandler extends Component {
         };
 
         return (
-            <div>
+            <div className={`wrapper navigation`}>
                 <div className={`handler navigation ${this.props.className} ${hidden ? 'toggled' : '' }`}>
                     <div className="handler-label">{this.props.label}</div>
                     <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
