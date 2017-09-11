@@ -4,7 +4,17 @@
     width: @navigation-handler-width;
 }
 
+.handler.navigation + .btn {
+    right: inherit;
+    visibility: hidden;
+
+    &.toggled {
+        visibility: visible;
+    }
+}
+
 .handler.navigation {
+    z-index: 1;
     background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
     position: relative;
 
@@ -39,7 +49,6 @@
 
             a {
                 padding: 0 1rem 0 0;
-
             }
 
             &:hover {
@@ -56,12 +65,13 @@
     position: absolute;
     right: 0;
     top: 0;
+
+    &.btn-close:after {
+        content: '\002296';
+    }
+
+    &.btn-open:after {
+        content: '\002295';
+    }
 }
 
-.btn-close:after {
-    content: '\002296';
-}
-
-.btn-open:after {
-    content: '\002295';
-}
