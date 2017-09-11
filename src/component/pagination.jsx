@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../stylesheets/css/pagination_handler.css";
+import "../stylesheets/css/pagination.css";
 
 const PaginationHandler = (props) => {
     const currentPage = props.currentPage;
@@ -22,17 +22,14 @@ const PaginationHandler = (props) => {
             return;
         }
 
-        console.log(nextPage, props);
         props.pageChangeCallback(nextPage);
     };
 
     return (
-        <div className={`handler pagination ${props.className}`}>
-            <span className={`prev ${hasPrevPage ? '' : 'inactive'}`}
-                  onClick={onPrevCallback}>{hasPrevPage ? prevPage : ''}</span>
+        <div className={`component pagination ${props.className}`}>
+            <span className={`prev ${hasPrevPage ? '' : 'inactive'}`} onClick={onPrevCallback}>{hasPrevPage ? prevPage : ''}</span>
             <span>{currentPage}</span>
-            <span className={`next ${hasNextPage ? '' : 'inactive'}`}
-                  onClick={onNextCallback}>{hasNextPage ? nextPage : ''}</span>
+            <span className={`next ${hasNextPage ? '' : 'inactive'}`} onClick={onNextCallback}>{hasNextPage ? nextPage : ''}</span>
             <span/>
             <span>{props.totalPages}</span>
         </div>

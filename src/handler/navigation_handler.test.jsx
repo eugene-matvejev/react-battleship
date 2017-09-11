@@ -17,7 +17,7 @@ describe(`handler:: <NavigationHandler/>`, () => {
             );
         });
 
-        describe(` ::onClick`, () => {
+        describe(`::onClick`, () => {
             it(` - onClick [.btn.btn-close] state: hidden toggled`, () => {
                 const el = shallow(<NavigationHandler hiddenOnMount={false}/>);
 
