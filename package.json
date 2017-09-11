@@ -2,6 +2,9 @@
   "name": "battleship-game-gui-react-js",
   "version": "0.2.0",
   "private": true,
+  "engines": {
+    "node" : ">=6"
+  },
   "dependencies": {
     "axios": "^0.15.2",
     "bootstrap": "^3.3.7",
