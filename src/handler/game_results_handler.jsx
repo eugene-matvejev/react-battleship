@@ -1,11 +1,16 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import Pagination from "../component/pagination";
 import "../stylesheets/css/game_results_handler.css"
 
 export default class GameResultsHandler extends Component {
     render() {
 
         const tableHeaders = this.props.tableHeaders;
+        const meta = {
+            currentPage: 1,
+            totalPages: 1
+        };
         const tableData = [
             {
                 id: 1,
@@ -56,6 +61,7 @@ export default class GameResultsHandler extends Component {
                         }
                         </tbody>
                     </table>
+                    <Pagination currentPage={meta.currentPage} totalPages={meta.totalPages}/>
                 </div>
             </div>
         );
