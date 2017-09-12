@@ -10,7 +10,7 @@ export default class Game extends Component {
         const model = this.props.model;
 
         return (
-            <div className={`battlefield-game ${this.props.className || ''}`}>
+            <div className={`component battlefield-game ${this.props.className || ''}`}>
                 {
                     model.battlefields.map((battlefield, key) =>
                         <div key={`${key}-${battlefield.size}`} className="col-md-6">
