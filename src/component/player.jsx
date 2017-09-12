@@ -15,7 +15,7 @@ export default class Player extends AbstractComponent {
         };
 
         return (
-            <div className={`battlefield-player ${this.props.className || ''}`} {...attributes}>
+            <div className={`component battlefield-player ${this.props.className || ''}`} {...attributes}>
                 <div className="player-avatar">
                     <img src="/assets/img/avatar-placeholder.png" alt="avatar pic"/>
                 </div>
