@@ -1,21 +1,18 @@
 @link-color: #fff;
 @button-size: 3rem;
 
-.container {
-    .content {
-        .rangeslider__fill {
-            background-color: #1e88e5;
-        }
-        .rangeslider__handle {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 1rem;
-            top: -.5rem;
-            background-color: #fff;
+.content-container {
+    .rangeslider__fill {
+        background-color: #1e88e5;
+    }
+    .rangeslider__handle {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1rem;
+        background-color: #fff;
 
-            &:after {
-                content: none;
-            }
+        &:after {
+            content: none;
         }
     }
 }
@@ -64,7 +61,13 @@ a {
     }
 }
 
-@media all and (min-width: 1100px) {
+@media all and (min-width: 1440px) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media all and (min-width: 1100px) and (min-width: 1339px) {
     html {
         font-size: 24px;
     }
@@ -97,6 +100,7 @@ a {
 .btn, .wrapper.navigation {
     width: @button-size;
 }
+
 .btn {
     display: inline-block;
     color: @link-color;
@@ -107,4 +111,10 @@ a {
     text-align: center;
 
     cursor: pointer;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
 }

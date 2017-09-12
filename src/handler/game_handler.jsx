@@ -6,7 +6,7 @@ import Slider from "react-rangeslider";
 import parameters from "../parameters.json";
 import "react-rangeslider/lib/index.css";
 import "../stylesheets/css/overwritten.css";
-import "../stylesheets/css/game_handler.css"
+import "../stylesheets/css/game_handler.css";
 
 export default class GameHandler extends Component {
     constructor(props) {
@@ -32,14 +32,14 @@ export default class GameHandler extends Component {
         return (
             <div className="handler game">
                 <div className="handler-label">{this.props.label}</div>
-                <fieldset className="col-md-3">
+                <fieldset>
                     <div>opponents: {opponents}</div>
                     <Slider min={1} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)}/>
                     <div>game size: {size}</div>
                     <Slider min={minSize} max={maxSize} value={size} onChange={(v) => this.reset('size', v)}/>
                 </fieldset>
 
-                <Game className="col-md-12" model={model}/>
+                <Game model={model}/>
             </div>
         );
     }
