@@ -13,7 +13,7 @@ export default class Cell extends AbstractComponent {
         };
 
         return (
-            <div className={`col-md-1 component battlefield-cell ${this.props.className || ''}`} {...attributes}>
+            <div className={`component battlefield-cell ${this.props.className || ''}`} {...attributes}>
                 {this.props.model.getCoordinate()}
             </div>
         );
