@@ -48,7 +48,7 @@ export default class NavigationHandler extends Component {
 
     static defaultProps = {
         className: '',
-        label: 'Battleship Game [react.js]',
+        label: 'Battleship Game',
         onToggle: () => {},
         hiddenOnMount: false
     };
