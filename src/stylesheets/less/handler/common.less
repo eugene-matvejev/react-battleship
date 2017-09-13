@@ -1,0 +1,20 @@
+@handler-label-size: 3rem;
+
+.handler {
+    .handler-label {
+        font-size: @handler-label-size / 2;
+        line-height: @handler-label-size;
+        height: @handler-label-size;
+
+        color: white;
+        text-transform: lowercase;
+        border: none;
+        border-bottom: 1px solid white;
+        margin: 0 0 2rem 0;
+        position: relative;
+
+        sub {
+            font-size: @handler-label-size / 4;
+        }
+    }
+}
