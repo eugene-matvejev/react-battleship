@@ -6,6 +6,7 @@ import Slider from "react-rangeslider";
 import parameters from "../parameters.json";
 import "react-rangeslider/lib/index.css";
 import "../stylesheets/css/overwritten.css";
+import "../stylesheets/css/common.css";
 import "../stylesheets/css/game_handler.css";
 
 export default class GameHandler extends Component {

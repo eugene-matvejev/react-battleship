@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import "../stylesheets/css/common.css";
 import "../stylesheets/css/navigation_handler.css";
 
 export default class NavigationHandler extends Component {
