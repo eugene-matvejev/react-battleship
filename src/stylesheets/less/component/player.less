@@ -1,20 +1,21 @@
-@avatarSize: 6rem;
+@player-field-avatar-size: 6rem;
+@player-field-bg-color: #d9ffcd;
 
 .battlefield-player {
-    background: #d9ffcd;
+    background: @player-field-bg-color;
     position: relative;
 
     .player-avatar {
         display: inline-block;
 
         &, img {
-            height: @avatarSize;
-            width: @avatarSize;
+            height: @player-field-avatar-size;
+            width: @player-field-avatar-size;
         }
     }
     .player-name, .player-score {
         position: absolute;
-        left: @avatarSize + 1;
+        left: @player-field-avatar-size + 1;
     }
 
     .player-name {
@@ -22,6 +23,6 @@
     }
 
     .player-score {
-        top: 2rem;
+        top: @player-field-avatar-size / 3;
     }
 }
