@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import "../stylesheets/css/common.css";
 import "../stylesheets/css/navigation_handler.css";
 
 export default class NavigationHandler extends Component {
@@ -24,7 +25,10 @@ export default class NavigationHandler extends Component {
         return (
             <div className={`wrapper navigation`}>
                 <div className={`handler navigation ${this.props.className} ${hidden ? 'toggled' : '' }`}>
-                    <div className="handler-label">{this.props.label}</div>
+                    <div className="handler-label">
+                        {this.props.label}
+                        <sub> v{React.version}</sub>
+                    </div>
                     <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
 
                     <ul>
@@ -47,7 +51,7 @@ export default class NavigationHandler extends Component {
 
     static defaultProps = {
         className: '',
-        label: 'Battleship Game [react.js]',
+        label: 'Battleship Game',
         onToggle: () => {},
         hiddenOnMount: false
     };

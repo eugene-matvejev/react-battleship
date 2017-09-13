@@ -1,4 +1,4 @@
-@navigation-handler-width: 20rem;
+@navigation-handler-width: 21rem;
 
 .handler.navigation, .handler.navigation li, .handler.navigation .handler-label {
     width: @navigation-handler-width;
@@ -29,11 +29,8 @@
         transition: all .5s ease;
     }
 
-    .handler-label {
-        font-size: 1.5rem;
-        color: white;
-        text-transform: lowercase;
-        border-bottom: 1px solid white;
+    .handler-label, ul li a {
+        padding: 0 1rem 0 1rem;
     }
 
     ul {
@@ -47,12 +44,9 @@
             text-align: right;
             display: inline-block;
 
-            a {
-                padding: 0 1rem 0 0;
-            }
-
             &:hover {
                 background: white;
+
                 a {
                     color: black;
                 }
