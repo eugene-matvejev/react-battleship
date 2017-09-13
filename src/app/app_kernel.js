@@ -1,11 +1,11 @@
 import React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import IndexHandler from "../handler/index_handler";
+import GameHandler from "../handler/game_handler";
 
 const appKernel = () =>
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={IndexHandler}/>
+            <Route exact path="/" component={GameHandler}/>
         </Switch>
     </BrowserRouter>;
 
