@@ -5,11 +5,10 @@ machine:
 dependencies:
     cache_directories:
         - ~/.npm/
+    post:
+        - npm run generate:all && npm install -g codecov
 
 test:
-    pre:
-        - npm install -g codecov
-        - npm run generate:settings && npm run generate:css
     override:
         - npm test -- --coverage
         - codecov
