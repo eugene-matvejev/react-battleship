@@ -4,7 +4,6 @@ import Game from "../component/game";
 import GameGenerator from "../service/generator/game_generator";
 import Slider from "react-rangeslider";
 import parameters from "../parameters.json";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "react-rangeslider/lib/index.css";
 import "../stylesheets/css/overwritten.css";
 import "../stylesheets/css/index.css"
