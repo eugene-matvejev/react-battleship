@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import IndexHandler from "./index_handler";
+import GameHandler from "./game_handler";
 import {shallow} from "enzyme";
 import parameters from "../parameters.json";
 
-describe(`handler:: <IndexHandler/>`, () => {
+describe(`handler:: <GameHandler/>`, () => {
     describe(`::render`, () => {
         it(' - renders without error', () => {
             const div = document.createElement('div');
 
-            ReactDOM.render(<IndexHandler size={1} opponents={1}/>, div);
+            ReactDOM.render(<GameHandler size={1} opponents={1}/>, div);
         });
     });
 
     describe(`::slider`, () => {
         it(` - should generate & render additional battlefield as opponents changed from 1 to 2`, () => {
-            const el = shallow(<IndexHandler size={1} opponents={1}/>);
+            const el = shallow(<GameHandler size={1} opponents={1}/>);
 
             el.find('Slider[min=1]').simulate('change', 2);
 
@@ -23,7 +23,7 @@ describe(`handler:: <IndexHandler/>`, () => {
         });
 
         it(` - should generate & render additional cells as game size changed from 1 to 2`, () => {
-            const el = shallow(<IndexHandler size={1} opponents={1}/>);
+            const el = shallow(<GameHandler size={1} opponents={1}/>);
 
             el.find(`Slider[min=${parameters.minGameSize}]`).simulate('change', parameters.maxGameSize);
 
