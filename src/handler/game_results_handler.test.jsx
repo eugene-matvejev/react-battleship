@@ -20,5 +20,13 @@ describe(`handler:: <GameResultsHandler/>`, () => {
 
             expect(component.state().currentPage).toBe(2);
         });
+
+        it(` - callback should modify state [currentPage]`, () => {
+            const component = mount(<GameResultsHandler currrentPage={1} totalPages={2}/>);
+
+            component.simulate('keydown', {code: 'ArrowRight'});
+
+            expect(component.state().currentPage).toBe(2);
+        });
     });
 });

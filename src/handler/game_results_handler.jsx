@@ -98,13 +98,13 @@ export default class GameResultsHandler extends Component {
         }
     };
 
-    // componentWillMount() {
-    //     document.addEventListener("keydown", this.keyDownEventHandler.bind(this));
-    // }
-    //
-    // componentWillUnmount() {
-    //     document.removeEventListener("keydown", this.keyDownEventHandler.bind(this));
-    // }
+    componentWillMount() {
+        document.addEventListener("keydown", this.keyDownEventHandler.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.keyDownEventHandler.bind(this));
+    }
 
     static propTyps = {
         label: PropTypes.string,
