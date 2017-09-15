@@ -5,8 +5,8 @@ import "../stylesheets/css/common.css";
 import "../stylesheets/css/game_results_handler.css";
 
 export default class GameResultsHandler extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             data: [
@@ -36,20 +36,21 @@ export default class GameResultsHandler extends Component {
                     timestamp: (new Date()).toLocaleString()
                 }
             ],
-            meta: {
-                currentPage: 1,
-                totalPages: 1
-            }
+            currentPage: props.currentPage,
+            totalPages: props.totalPages
         }
     }
 
     render() {
         const headers = this.props.tableHeaders;
-        const meta = this.state.meta;
         const data = this.state.data;
 
+        const paginationOnClickCallback = (page) => {
+            this.setState({currentPage: page});
+        };
+
         return (
-            <div className="handler game-results">
+            <div className="handler game-results" onKeyDown={this.keyDownEventHandler.bind(this)}>
                 <div className="handler-label">{this.props.label}</div>
                 <div className="handler-content">
                     <table>
@@ -71,16 +72,9 @@ export default class GameResultsHandler extends Component {
                         </tbody>
                     </table>
                     <Pagination
-                        currentPage={meta.currentPage}
-                        totalPages={meta.totalPages}
-                        pageChangeCallback={
-                            (page) => {
-                                const meta = this.state.meta;
-                                meta.currentPage = page;
-
-                                this.setState({meta: meta});
-                            }
-                        }
+                        currentPage={this.state.currentPage}
+                        totalPages={this.state.totalPages}
+                        onClickCallback={paginationOnClickCallback}
                     />
                 </div>
             </div>
@@ -88,16 +82,16 @@ export default class GameResultsHandler extends Component {
     }
 
     keyDownEventHandler(event) {
-        const meta = this.state.meta;
+        let v = this.state.currentPage;
 
         switch (event.code) {
             case 'ArrowRight':
-                meta.currentPage++;
-                this.setState({meta: meta});
+                v++;
+                this.setState({currentPage: v});
                 break;
             case 'ArrowLeft':
-                meta.currentPage--;
-                this.setState({meta: meta});
+                v--;
+                this.setState({currentPage: v});
                 break;
             default:
                 break;
@@ -114,15 +108,19 @@ export default class GameResultsHandler extends Component {
 
     static propTyps = {
         label: PropTypes.string,
+        currentPage: PropTypes.number,
+        totalPages: PropTypes.number,
         tableHeaders: PropTypes.object
     };
 
     static defaultProps = {
-        label: 'current game',
+        label: 'previous games results',
         tableHeaders: {
             index: '#',
             playerName: 'player name',
             timestamp: 'time'
-        }
+        },
+        currentPage: 1,
+        totalPages: 1
     };
 }
