@@ -50,7 +50,7 @@ export default class GameResultsHandler extends Component {
         };
 
         return (
-            <div className="handler game-results">
+            <div className="handler game-results" onKeyDown={this.keyDownEventHandler.bind(this)}>
                 <div className="handler-label">{this.props.label}</div>
                 <div className="handler-content">
                     <table>
@@ -98,13 +98,13 @@ export default class GameResultsHandler extends Component {
         }
     };
 
-    componentWillMount() {
-        document.addEventListener("keydown", this.keyDownEventHandler.bind(this));
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener("keydown", this.keyDownEventHandler.bind(this));
-    }
+    // componentWillMount() {
+    //     document.addEventListener("keydown", this.keyDownEventHandler.bind(this));
+    // }
+    //
+    // componentWillUnmount() {
+    //     document.removeEventListener("keydown", this.keyDownEventHandler.bind(this));
+    // }
 
     static propTyps = {
         label: PropTypes.string,
