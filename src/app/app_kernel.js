@@ -6,16 +6,6 @@ import GameHandler from "../handler/game_handler";
 import "../stylesheets/css/overwritten.css";
 
 const appKernel = () =>
-//     <BrowserRouter>
-//         <Switch>
-//             <Route exact path="/" component={(props) => <NavigationHandler {...props}/>}/>
-//             <Route exact path="/index" component={(props) => <NavigationHandler {...props}/>}/>
-
-//             <Route exact path="/game-new" component={(props) => <GameHandler {...props}/>}/>
-//             <Route exact path="/game-current" component={(props) => <GameHandler {...props}/>}/>
-//             <Route exact path="/game-results" component={(props) => <GameHandler {...props}/>}/>
-//         </Switch>
-//     </BrowserRouter>;
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={NavigationHandler}/>
