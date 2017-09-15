@@ -4,10 +4,9 @@ import PlayerModel from "../model/player_model";
 import "../stylesheets/css/player.css";
 
 const Player = (props) => {
-    const model = props.model;
     const attributes = {
-        'data-player-id': model.getId(),
-        'data-player-flag': model.getSequence(),
+        'data-player-id': props.model.getId(),
+        'data-player-flag': props.model.getSequence(),
     };
 
     return (
@@ -22,8 +21,8 @@ const Player = (props) => {
 };
 
 Player.propTypes = {
-    model: PropTypes.instanceOf(PlayerModel).isRequired,
     className: PropTypes.string,
+    model: PropTypes.instanceOf(PlayerModel).isRequired,
 };
 
 export default Player;
