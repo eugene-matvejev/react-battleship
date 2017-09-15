@@ -9,10 +9,12 @@ export default class Battlefield extends Component {
     constructor(props) {
         super(props);
 
-        this.state.model = props.model;
-        this.state.attributes = {
-            'data-player-id': 'unk',
-            'data-player-flags': 'unk'
+        this.state = {
+            model: props.model,
+            attributes: {
+                'data-player-id': 'unk',
+                'data-player-flags': 'unk'
+            }
         }
     }
 
@@ -50,7 +52,7 @@ export default class Battlefield extends Component {
     }
 
     static propTypes = {
-        model: PropTypes.instanceOf(BattlefieldModel).isRequired,
         className: PropTypes.string,
+        model: PropTypes.instanceOf(BattlefieldModel).isRequired,
     }
 }
