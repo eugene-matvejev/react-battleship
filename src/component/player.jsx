@@ -10,7 +10,7 @@ const Player = (props) => {
     };
 
     return (
-        <div className={`component battlefield-player ${props.className || ''}`} {...attributes}>
+        <div className={`component battlefield-player ${props.className}`} {...attributes}>
             <div className="player-avatar">
                 <img src="/assets/img/avatar-placeholder.png" alt="avatar pic"/>
             </div>
@@ -23,6 +23,10 @@ const Player = (props) => {
 Player.propTypes = {
     className: PropTypes.string,
     model: PropTypes.instanceOf(PlayerModel).isRequired,
+};
+
+Player.defaultProps = {
+    className: '',
 };
 
 export default Player;

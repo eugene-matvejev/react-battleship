@@ -67,12 +67,14 @@ export default class GameHandler extends Component {
     }
 
     static propTypes = {
+        className: PropTypes.string,
         opponents: PropTypes.number,
         size: PropTypes.number,
         label: PropTypes.string
     };
 
     static defaultProps = {
+        className: '',
         opponents: 1,
         size: parameters.maxGameSize,
         label: 'current game'

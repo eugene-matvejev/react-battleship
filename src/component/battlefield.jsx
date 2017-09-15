@@ -25,7 +25,7 @@ export default class Battlefield extends Component {
         const rows = (new Array(size)).fill(1);
 
         return (
-            <fieldset className={`component battlefield-cells ${this.props.className || ''}`} {...this.state.attributes}>
+            <fieldset className={`component battlefield-cells ${this.props.className}`} {...this.state.attributes}>
                 <div className="battlefield-cells-row">
                     <Cell model={new CellModel('')}/>
                     {
@@ -54,5 +54,9 @@ export default class Battlefield extends Component {
     static propTypes = {
         className: PropTypes.string,
         model: PropTypes.instanceOf(BattlefieldModel).isRequired,
-    }
+    };
+
+    static defaultProps = {
+        className: '',
+    };
 }

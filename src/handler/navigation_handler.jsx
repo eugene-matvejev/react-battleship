@@ -30,7 +30,6 @@ export default class NavigationHandler extends Component {
                         <sub> v{React.version}</sub>
                     </div>
                     <span className="btn btn-close" onClick={onToggleClick.bind(this)}/>
-
                     <ul>
                         <li><Link to="/game-current">current game</Link></li>
                         <li><Link to="/game-new">new game</Link></li>
@@ -45,14 +44,14 @@ export default class NavigationHandler extends Component {
     static propTypes = {
         className: PropTypes.string,
         label: PropTypes.string,
-        onToggle: PropTypes.func,
         hiddenOnMount: PropTypes.bool,
+        onToggle: PropTypes.func,
     };
 
     static defaultProps = {
         className: '',
         label: 'Battleship Game',
+        hiddenOnMount: false,
         onToggle: () => {},
-        hiddenOnMount: false
     };
 }

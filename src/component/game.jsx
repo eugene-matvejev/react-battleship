@@ -10,7 +10,7 @@ export default class Game extends Component {
         const model = this.props.model;
 
         return (
-            <div className={`component battlefield-game ${this.props.className || ''}`}>
+            <div className={`component battlefield-game ${this.props.className}`}>
                 {
                     model.battlefields.map((battlefield, key) =>
                         <div key={`${key}-${battlefield.size}`} className="col-md-6">
@@ -24,7 +24,11 @@ export default class Game extends Component {
     }
 
     static propTypes = {
-        model: PropTypes.instanceOf(GameModel).isRequired,
         className: PropTypes.string,
-    }
+        model: PropTypes.instanceOf(GameModel).isRequired,
+    };
+
+    static defaultProps = {
+        className: '',
+    };
 }

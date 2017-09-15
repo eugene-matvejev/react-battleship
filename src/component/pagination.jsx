@@ -35,16 +35,16 @@ const Pagination = (props) => {
     );
 };
 
-Pagination.defaultProps = {
-    className: '',
-    onClickCallback: () => {}
-};
-
 Pagination.propTypes = {
     className: PropTypes.string,
     onClickCallback: PropTypes.func,
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired
+};
+
+Pagination.defaultProps = {
+    className: '',
+    onClickCallback: () => {},
 };
 
 export default Pagination;
