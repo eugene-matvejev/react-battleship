@@ -36,8 +36,8 @@ export default class GameResultsHandler extends Component {
                     timestamp: (new Date()).toLocaleString()
                 }
             ],
-            currentPage: props.currentPage || 1,
-            totalPages: props.totalPages || 1
+            currentPage: props.currentPage,
+            totalPages: props.totalPages
         }
     }
 
@@ -119,6 +119,8 @@ export default class GameResultsHandler extends Component {
             index: '#',
             playerName: 'player name',
             timestamp: 'time'
-        }
+        },
+        currentPage: 1,
+        totalPages: 1
     };
 }
