@@ -11,15 +11,15 @@ const Cell = (props) => {
     };
 
     return (
-        <div className={`component battlefield-cell ${this.props.className || ''}`} {...attributes}>
-            {this.props.model.getCoordinate()}
+        <div className={`component battlefield-cell ${props.className || ''}`} {...attributes}>
+            {props.model.getCoordinate()}
         </div>
     );
 };
 
 Cell.propTypes = {
+    className: PropTypes.string,
     model: PropTypes.instanceOf(CellModel).isRequired,
-    className: PropTypes.string
 };
 
 export default Cell;
