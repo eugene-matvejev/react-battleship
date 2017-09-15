@@ -13,7 +13,6 @@ const appKernel = () =>
 
             <Route exact path="/game-new" component={GameHandler}/>
             <Route exact path="/game-current" component={GameHandler}/>
-//             <Route exact path="/game-results" component={GameResultsHandler}/>
             <Route exact path="/game-results" component={GameHandler}/>
         </Switch>
     </BrowserRouter>;
