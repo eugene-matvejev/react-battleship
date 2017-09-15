@@ -1,19 +1,20 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
-import AbstractComponent from "./abstract_component";
 import Cell from "./cell";
 import BattlefieldModel from "../model/battlefield_model";
 import CellModel from "../model/cell_model";
 import "../stylesheets/css/battlefield.css";
 
-export default class Battlefield extends AbstractComponent {
+export default class Battlefield extends Component {
     constructor(props) {
         super(props);
 
-        this.state.model = props.model;
-        this.state.attributes = {
-            'data-player-id': 'unk',
-            'data-player-flags': 'unk'
+        this.state = {
+            model: props.model,
+            attributes: {
+                'data-player-id': 'unk',
+                'data-player-flags': 'unk'
+            }
         }
     }
 
@@ -24,7 +25,7 @@ export default class Battlefield extends AbstractComponent {
         const rows = (new Array(size)).fill(1);
 
         return (
-            <fieldset className={`component battlefield-cells ${this.props.className || ''}`} {...this.getAttributes()}>
+            <fieldset className={`component battlefield-cells ${this.props.className || ''}`} {...this.state.attributes}>
                 <div className="battlefield-cells-row">
                     <Cell model={new CellModel('')}/>
                     {
@@ -51,7 +52,7 @@ export default class Battlefield extends AbstractComponent {
     }
 
     static propTypes = {
-        model: PropTypes.instanceOf(BattlefieldModel).isRequired,
         className: PropTypes.string,
+        model: PropTypes.instanceOf(BattlefieldModel).isRequired,
     }
 }
