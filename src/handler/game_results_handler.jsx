@@ -50,7 +50,7 @@ export default class GameResultsHandler extends Component {
         };
 
         return (
-            <div className="handler game-results" onKeyDown={this.keyDownEventHandler.bind(this)}>
+            <div className="handler game-results">
                 <div className="handler-label">{this.props.label}</div>
                 <div className="handler-content">
                     <table>
