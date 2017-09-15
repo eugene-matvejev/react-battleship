@@ -18,8 +18,8 @@ const Cell = (props) => {
 };
 
 Cell.propTypes = {
+    className: PropTypes.string,
     model: PropTypes.instanceOf(CellModel).isRequired,
-    className: PropTypes.string
 };
 
 export default Cell;
