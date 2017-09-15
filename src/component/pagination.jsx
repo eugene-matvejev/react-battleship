@@ -48,4 +48,3 @@ Pagination.propTypes = {
 };
 
 export default Pagination;
-
