@@ -41,6 +41,7 @@ describe(`handler:: <GameResultsHandler/>`, () => {
                 component.simulate('keydown', {code: el.code});
 
                 expect(component.state().currentPage).toBe(el.expected);
+                component.unmount();
             });
         });
     });
