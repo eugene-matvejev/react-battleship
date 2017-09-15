@@ -107,20 +107,22 @@ export default class GameResultsHandler extends Component {
     }
 
     static propTyps = {
-        label: PropTypes.string,
+        className: PropTypes.string,
         currentPage: PropTypes.number,
         totalPages: PropTypes.number,
+        label: PropTypes.string,
         tableHeaders: PropTypes.object
     };
 
     static defaultProps = {
+        className: '',
+        currentPage: 1,
+        totalPages: 1,
         label: 'previous games results',
         tableHeaders: {
             index: '#',
             playerName: 'player name',
             timestamp: 'time'
         },
-        currentPage: 1,
-        totalPages: 1
     };
 }

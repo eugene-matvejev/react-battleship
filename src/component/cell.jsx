@@ -11,7 +11,7 @@ const Cell = (props) => {
     };
 
     return (
-        <div className={`component battlefield-cell ${props.className || ''}`} {...attributes}>
+        <div className={`component battlefield-cell ${props.className}`} {...attributes}>
             {props.model.getCoordinate()}
         </div>
     );
@@ -20,6 +20,10 @@ const Cell = (props) => {
 Cell.propTypes = {
     className: PropTypes.string,
     model: PropTypes.instanceOf(CellModel).isRequired,
+};
+
+Cell.defaultProps = {
+    className: ''
 };
 
 export default Cell;
