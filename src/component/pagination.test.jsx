@@ -23,7 +23,6 @@ describe(`component:: <Pagination/>`, () => {
                 it(` - on '.${el.className}' current: ${el.current}, total: ${el.total}, expected: ${el.expected}`, () => {
                     let expectedPageNumber = el.current;
                     const onClickCallback = (v) => {
-                        // console.log(v);
                         expectedPageNumber = v;
                     };
 

@@ -9,5 +9,5 @@ describe(`component:: <AppKernel/>`, () => {
 
             ReactDOM.render(<AppKernel/>, div);
         });
-    })
+    });
 });
