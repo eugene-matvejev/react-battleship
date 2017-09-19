@@ -4,7 +4,7 @@ import Cell from "./cell";
 import CellModel from "../model/cell_model";
 
 describe(`component:: <Cell/>`, () => {
-    it(`::render`, () => {
+    describe(`::render`, () => {
         it(' - renders without error', () => {
             const model = new CellModel('A1');
             const div = document.createElement('div');
