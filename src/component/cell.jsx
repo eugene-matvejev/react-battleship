@@ -6,8 +6,7 @@ import "../stylesheets/css/cell.css";
 const Cell = (props) => {
     const attributes = {
         'data-id': '<cell-id>',
-        'data-bytes': props.model.getSequence(),
-        'data-coordinate': props.model.getCoordinate(),
+        'data-bytes': props.model.getSequence()
     };
 
     return (
