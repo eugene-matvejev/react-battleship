@@ -8,7 +8,7 @@ describe(`component:: <Pagination/>`, () => {
         it(` - renders without crash`, () => {
             const div = document.createElement('div');
 
-            ReactDOM.render(<Pagination currentPage={1} totalPages={1}/>, div);
+            ReactDOM.render(<Pagination currentPage={1} totalPages={1} onClickCallback={() => {}}/>, div);
         });
 
         describe(`::onClickCallback`, () => {
