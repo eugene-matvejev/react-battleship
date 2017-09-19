@@ -37,14 +37,13 @@ const Pagination = (props) => {
 
 Pagination.propTypes = {
     className: PropTypes.string,
-    onClickCallback: PropTypes.func,
+    onClickCallback: PropTypes.func.isRequired,
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired
 };
 
 Pagination.defaultProps = {
     className: '',
-    onClickCallback: () => {},
 };
 
 export default Pagination;
