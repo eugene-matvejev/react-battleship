@@ -13,6 +13,14 @@ export default class CellModel extends AbstractByteSequenceAwareModel {
         this.coordinate = coordinate;
     }
 
+    getId() {
+        return this.id;
+    }
+
+    setId(id) {
+        this.id = id;
+    }
+
     getCoordinate() {
         return this.coordinate;
     }
