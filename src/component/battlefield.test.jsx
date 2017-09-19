@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {shallow} from "enzyme";
 import Battlefield from "./battlefield";
 import BattlefieldGenerator from "../service/generator/battlefield_generator";
 
@@ -10,10 +10,9 @@ describe(`component:: <Battlefield/>`, () => {
             const model = BattlefieldGenerator.generate(size);
 
             it(` - renders ${expectedCellsAmount} cells for battlefield size: ${size} without error`, () => {
-                const div = document.createElement('div');
-                ReactDOM.render(<Battlefield model={model}/>, div);
+                const component = shallow(<Battlefield model={model}/>);
 
-                expect(div.querySelectorAll('.battlefield-cell').length).toBe(expectedCellsAmount)
+                expect(component.find('Cell').length).toBe(expectedCellsAmount)
             });
         });
     });
