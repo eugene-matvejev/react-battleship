@@ -39,7 +39,6 @@ describe(`handler:: <NavigationHandler/>`, () => {
 
                 expect(toggled).toBe(true);
             });
-
         });
     });
 });
