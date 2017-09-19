@@ -1,14 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {shallow, mount} from "enzyme";
 import GameResultsHandler from "./game_results_handler";
-import {mount} from "enzyme";
 
 describe(`handler:: <GameResultsHandler/>`, () => {
     describe(`::render`, () => {
         it(`- renders without crash`, () => {
             const div = document.createElement('div');
 
-            ReactDOM.render(<GameResultsHandler/>, div);
+            shallow(<GameResultsHandler/>, div);
         });
     });
 

@@ -1,15 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import GameHandler from "./game_handler";
 import {shallow} from "enzyme";
+import GameHandler from "./game_handler";
 import parameters from "../parameters.json";
 
 describe(`handler:: <GameHandler/>`, () => {
     describe(`::render`, () => {
         it(' - renders without error', () => {
-            const div = document.createElement('div');
-
-            ReactDOM.render(<GameHandler size={1} opponents={1}/>, div);
+            shallow(<GameHandler size={1} opponents={1}/>);
         });
     });
 
