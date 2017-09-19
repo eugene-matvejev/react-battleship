@@ -6,7 +6,6 @@
     "node": ">=6"
   },
   "dependencies": {
-    "axios": "^0.15.2",
     "lessc-each": "^1.1.0",
     "node-parameter-handler": "^1.0.0",
     "prop-types": "^15.5.10",
