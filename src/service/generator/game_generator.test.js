@@ -31,7 +31,7 @@ describe(`generator:: <GameGenerator/>`, () => {
 
                 /** @param {BattlefieldModel} battlefieldModel */
                 for (const battlefieldModel of model.getBattlefields()) {
-                    const cells = battlefieldModel.getCellsIndexedByCoordinate();
+                    const cells = battlefieldModel.getCells();
 
                     expect(Object.keys(cells).length).toBe(expectedCellAmount);
                 }
