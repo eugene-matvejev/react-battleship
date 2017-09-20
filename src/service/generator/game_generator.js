@@ -16,7 +16,11 @@ export default class GameGenerator {
         for (let i = 0; i < players; i++) {
             const battlefield = BattlefieldGenerator.generate(size);
             const player = new PlayerModel();
+            player.name = i;
             battlefield.setPlayer(player);
+            if ((i + 1) === players) {
+                player.setSequence(PlayerModel.getHumanFlag())
+            }
 
             model.addBattlefield(battlefield)
         }
@@ -31,7 +35,7 @@ export default class GameGenerator {
      */
     static alterPlayerBattlefield(model) {
         const shipCoordinates = ['A1', 'A2', 'A3', 'A5', 'C1', 'C2', 'C5'];
-        const attackedCoordinates = ['A3', 'B1', 'B2'];
+        const attackedCoordinates = ['A3', 'A4', 'B1', 'B2', 'B3', 'B4'];
 
         for (const battlefield of model.getBattlefields()) {
             if (!battlefield.getPlayer().isHumanControlled()) {
@@ -39,7 +43,7 @@ export default class GameGenerator {
             }
 
             shipCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.ship));
-            attackedCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.ship));
+            attackedCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.dead));
         }
     }
 }

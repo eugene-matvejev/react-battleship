@@ -30,7 +30,7 @@ export default class CellModel extends AbstractByteSequenceAwareModel {
     }
 
     static getCoordinateDigit(coordinate) {
-        return parseInt(coordinate.substring(1), 10);
+        return coordinate.substring(1);
     }
 
     static flags = {

@@ -1,28 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CellModel from "../model/cell_model";
 import "../stylesheets/css/cell.css";
 
 const Cell = (props) => {
     const attributes = {
-        'data-id': '<cell-id>',
-        'data-bytes': props.model.getSequence()
+        'data-id': props.id,
+        'data-byte-sequence': props.byte_sequence,
     };
 
-    return (
-        <div className={`component battlefield-cell ${props.className}`} {...attributes}>
-            {props.model.getCoordinate()}
-        </div>
-    );
+    return <div className={`component battlefield-cell ${props.className}`} {...attributes}>{props.coordinate}</div>;
 };
 
 Cell.propTypes = {
     className: PropTypes.string,
-    model: PropTypes.instanceOf(CellModel).isRequired,
+    coordinate: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+    ]),
+    id: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+    ]),
+    byte_sequence: PropTypes.number,
 };
 
 Cell.defaultProps = {
-    className: ''
+    className: '',
 };
 
 export default Cell;

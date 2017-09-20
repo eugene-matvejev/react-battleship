@@ -27,22 +27,29 @@ export default class Battlefield extends Component {
         return (
             <fieldset className={`component battlefield-cells ${this.props.className}`} {...this.state.attributes}>
                 <div className="battlefield-cells-row">
-                    <Cell model={new CellModel('')}/>
+                    <Cell/>
                     {
                         coordinates
                             .slice(0, size)
-                            .map(coordinate => <Cell key={CellModel.getCoordinateDigit(coordinate)}
-                                                     model={new CellModel(CellModel.getCoordinateDigit(coordinate))}/>)
+                            .map((v) => {
+                                const coordinate = CellModel.getCoordinateDigit(v);
+
+                                return <Cell key={coordinate} coordinate={coordinate}/>
+                            })
                     }
                 </div>
                 {
                     rows.map((value, index) =>
                         <div key={index} className="battlefield-cells-row">
-                            <Cell model={new CellModel(CellModel.getCoordinateCharacter(coordinates[size * index]))}/>
+                            <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])}/>
                             {
                                 coordinates
                                     .slice(size * index, size * (1 + index))
-                                    .map(coordinate => <Cell key={coordinate} model={model.getCellByCoordinate(coordinate)}/>)
+                                    .map((v) => {
+                                        const cell = model.getCellByCoordinate(v);
+
+                                        return <Cell key={cell.coordinate} {...cell}/>;
+                                    })
                             }
                         </div>
                     )
