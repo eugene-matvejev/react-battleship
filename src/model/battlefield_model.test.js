@@ -73,7 +73,7 @@ describe(`model:: <BattlefieldModel/>`, () => {
                     it(`::get`, () => {
                         expect(model.getCellById(c.getId())).toBe(c);
                     });
-                })
+                });
             });
         });
     });
