@@ -31,12 +31,10 @@ export default class GameGenerator {
      */
     static alterPlayerBattlefield(model) {
         const shipCoordinates = ['A1', 'A2', 'A3', 'A5', 'C1', 'C2', 'C5'];
-        const attackedCoordinates = ['A3', 'B1', 'B2'];
+        const attackedCoordinates = ['A3', 'A4', 'B1', 'B2', 'B3', 'B4'];
 
         for (const battlefield of model.getBattlefields()) {
-            const player = battlefield.getPlayer();
-
-            if (!player.isHumanControlled()) {
+            if (!battlefield.getPlayer().isHumanControlled()) {
                 continue;
             }
 
