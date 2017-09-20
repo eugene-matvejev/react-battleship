@@ -34,14 +34,12 @@ export default class GameGenerator {
         const attackedCoordinates = ['A3', 'B1', 'B2'];
 
         for (const battlefield of model.getBattlefields()) {
-            const player = battlefield.getPlayer();
-
-            if (!player.isHumanControlled()) {
+            if (!battlefield.getPlayer().isHumanControlled()) {
                 continue;
             }
 
-            shipCoordinates.forEach(coordinate => battlefield.getCell(coordinate).addSequence(CellModel.flags.ship));
-            attackedCoordinates.forEach(coordinate => battlefield.getCell(coordinate).addSequence(CellModel.flags.ship));
+            shipCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.ship));
+            attackedCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.ship));
         }
     }
 }

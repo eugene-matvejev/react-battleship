@@ -25,7 +25,7 @@ describe(`handler:: <GameHandler/>`, () => {
             el.find(`Slider[min=${parameters.minGameSize}]`).simulate('change', parameters.maxGameSize);
 
             const expected = parameters.maxGameSize ** 2;
-            const cells = el.find('Game').prop('model').battlefields[0].cells;
+            const cells = el.find('Game').prop('model').battlefields[0].cellsIndexedByCoordinate;
 
             expect(Object.keys(cells).length).toBe(expected);
         });

@@ -20,7 +20,7 @@ export default class Battlefield extends Component {
 
     render() {
         const model = this.state.model;
-        const coordinates = Object.keys(model.getCells());
+        const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
         const size = model.size;
         const rows = (new Array(size)).fill(1);
 
@@ -42,7 +42,7 @@ export default class Battlefield extends Component {
                             {
                                 coordinates
                                     .slice(size * index, size * (1 + index))
-                                    .map(coordinate => <Cell key={coordinate} model={model.getCell(coordinate)}/>)
+                                    .map(coordinate => <Cell key={coordinate} model={model.getCellByCoordinate(coordinate)}/>)
                             }
                         </div>
                     )

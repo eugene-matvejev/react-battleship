@@ -10,13 +10,13 @@ describe(`generator:: <GameGenerator/>`, () => {
             });
         });
 
-        [10].forEach(size => {
+        [1].forEach(size => {
             it(` - expected 2 battlefields with size ${size} attached`, () => {
                 const model = GameGenerator.generate(2, size);
 
                 /** @param {BattlefieldModel} battlefieldModel */
                 for (const battlefieldModel of model.getBattlefields()) {
-                    const cells = battlefieldModel.getCells();
+                    const cells = battlefieldModel.getCellsIndexedByCoordinate();
 
                     expect(Object.keys(cells).length).toBe(size ** 2);
                 }
