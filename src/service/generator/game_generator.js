@@ -19,6 +19,7 @@ export default class GameGenerator {
             if ((i + 1) === players) {
                 player.addSequence(PlayerModel.getHumanFlag())
             }
+
             battlefield.setPlayer(player);
             model.addBattlefield(battlefield)
         }
