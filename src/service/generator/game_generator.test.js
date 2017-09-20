@@ -10,7 +10,7 @@ describe(`generator:: <GameGenerator/>`, () => {
             });
         });
 
-        [10].forEach(size => {
+        [1].forEach(size => {
             it(` - expected 2 battlefields with size ${size} attached`, () => {
                 const model = GameGenerator.generate(2, size);
 
