@@ -16,6 +16,9 @@ export default class GameGenerator {
         for (let i = 0; i < players; i++) {
             const battlefield = BattlefieldGenerator.generate(size);
             const player = new PlayerModel();
+            if ((i + 1) === players) {
+                player.setSequence(PlayerModel.getHumanFlag())
+            }
             battlefield.setPlayer(player);
 
             model.addBattlefield(battlefield)
