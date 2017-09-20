@@ -17,10 +17,10 @@ export default class GameGenerator {
             const battlefield = BattlefieldGenerator.generate(size);
             const player = new PlayerModel();
             if ((i + 1) === players) {
-                player.setSequence(PlayerModel.getHumanFlag())
+                player.addSequence(PlayerModel.getHumanFlag())
             }
             battlefield.setPlayer(player);
-
+            battlefield.getPlayer().addSequence(1);
             model.addBattlefield(battlefield)
         }
 
@@ -41,8 +41,16 @@ export default class GameGenerator {
                 continue;
             }
 
-            shipCoordinates.forEach((v) => battlefield.getCell(v).addSequence(CellModel.flags.ship));
-            attackedCoordinates.forEach((v) => battlefield.getCell(v).addSequence(CellModel.flags.dead));
+            const callback = (coordinate, seq) => {
+                const cell = battlefield.getCellByCoordinate(coordinate);
+
+                if (undefined !== cell) {
+                    cell.addSequence(seq);
+                }
+            };
+
+            shipCoordinates.forEach((v) => callback(v, CellModel.flags.ship));
+            attackedCoordinates.forEach((v) => callback(v, CellModel.flags.dead));
         }
     }
 }
