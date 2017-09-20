@@ -10,8 +10,7 @@ describe(`model:: <PlayerModel/>`, () => {
     describe(`::constructor`, () => {
         it(` - mandatory fields [id|username|email|byte_sequence] should be initialized`, () => {
             expect(model.id).toBeDefined();
-            expect(model.username).toBeDefined();
-            expect(model.email).toBeDefined();
+            expect(model.name).toBeDefined();
             expect(model.byte_sequence).toBeDefined();
             expect(model.byte_sequence).toBe(0);
         });
@@ -24,14 +23,9 @@ describe(`model:: <PlayerModel/>`, () => {
                 expect(model.getId()).toBe(data.id)
             });
 
-            it(`::(get|set)Email - value "${data.email}" should be encapsulated`, () => {
-                model.setEmail(data.email);
-                expect(model.getEmail()).toBe(data.email)
-            });
-
-            it(`::(get|set)Username - value "${data.email}" should be encapsulated`, () => {
-                model.setUsername(data.email);
-                expect(model.getUsername()).toBe(data.email)
+            it(`::(get|set)Name - value "${data.email}" should be encapsulated`, () => {
+                model.setName(data.email);
+                expect(model.getName()).toBe(data.email)
             });
         });
     });
