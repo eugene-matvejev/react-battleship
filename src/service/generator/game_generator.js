@@ -34,7 +34,7 @@ export default class GameGenerator {
      */
     static alterPlayerBattlefield(model) {
         const shipCoordinates = ['A1', 'A2', 'A3', 'A5', 'C1', 'C2', 'C5'];
-        const attackedCoordinates = ['A3', 'A4', 'B1', 'B2', 'B3', 'B4'];
+        const deadCoordinates = ['A3', 'A4', 'B1', 'B2', 'B3', 'B4'];
 
         for (const battlefield of model.getBattlefields()) {
             if (!battlefield.getPlayer().isHumanControlled()) {
@@ -50,7 +50,7 @@ export default class GameGenerator {
             };
 
             shipCoordinates.forEach((v) => callback(v, CellModel.flags.ship));
-            attackedCoordinates.forEach((v) => callback(v, CellModel.flags.dead));
+            deadCoordinates.forEach((v) => callback(v, CellModel.flags.dead));
         }
     }
 }
