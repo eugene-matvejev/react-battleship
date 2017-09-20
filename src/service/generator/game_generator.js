@@ -41,8 +41,8 @@ export default class GameGenerator {
                 continue;
             }
 
-            shipCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.ship));
-            attackedCoordinates.forEach((c) => battlefield.getCellByCoordinate(c).addSequence(CellModel.flags.dead));
+            shipCoordinates.forEach((v) => battlefield.getCellByCoordinate(v).addSequence(CellModel.flags.ship));
+            attackedCoordinates.forEach((v) => battlefield.getCellByCoordinate(v).addSequence(CellModel.flags.dead));
         }
     }
 }
