@@ -8,7 +8,7 @@ const Player = (props) => {
         'data-id': props.id,
         'data-byte-sequence': props.byte_sequence,
     };
-    console.log(props);
+
     return (
         <div className={`component battlefield-player ${props.className}`} {...attributes}>
             <div className="player-avatar">
