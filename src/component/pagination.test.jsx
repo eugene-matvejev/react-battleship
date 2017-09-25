@@ -4,7 +4,7 @@ import Pagination from "./pagination";
 
 describe(`component:: <Pagination/>`, () => {
     describe(`::render`, () => {
-        it(` - renders without crash`, () => {
+        it(`renders without crash`, () => {
             shallow(<Pagination currentPage={1} totalPages={1} onClickCallback={() => {}}/>);
         });
 
@@ -17,7 +17,7 @@ describe(`component:: <Pagination/>`, () => {
                 {className: 'prev', current: 1, total: 2, expected: 1}, /** expected callback not to be called */
                 {className: 'prev', current: 2, total: 2, expected: 1},
             ].forEach((el) => {
-                it(` - on '.${el.className}' current: ${el.current}, total: ${el.total}, expected: ${el.expected}`, () => {
+                it(`on '.${el.className}' current: ${el.current}, total: ${el.total}, expected: ${el.expected}`, () => {
                     let expectedPageNumber = el.current;
                     const onClickCallback = (v) => {
                         expectedPageNumber = v;

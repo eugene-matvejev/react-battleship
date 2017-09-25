@@ -2,7 +2,7 @@ import GameProcessor from "./game_processor";
 
 describe(`processor:: <GameProcessor/>`, () => {
     describe(`::constructor`, () => {
-        it(` - mandatory fields are defined [size|opponents|battlefields]`, () => {
+        it(`mandatory fields are defined [size|opponents|battlefields]`, () => {
             const size = 10;
             const opponents = 2;
 

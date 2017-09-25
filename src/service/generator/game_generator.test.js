@@ -4,7 +4,7 @@ import PlayerModel from "../../model/player_model";
 describe(`generator:: <GameGenerator/>`, () => {
     describe(`::generate`, () => {
         [0, 1, 2, 10].forEach(v => {
-            it(` - expected ${v} battlefields`, () => {
+            it(`expected ${v} battlefields`, () => {
                 const model = GameGenerator.generate(v, 0);
 
                 expect(model.getBattlefields().length).toBe(v);
@@ -12,7 +12,7 @@ describe(`generator:: <GameGenerator/>`, () => {
         });
 
         [1, 2, 10].forEach(v => {
-            it(` - expected last player of ${v} to be market as Human Controlled`, () => {
+            it(`expected last player of ${v} to be market as Human Controlled`, () => {
                 const model = GameGenerator.generate(v, 0);
 
                 model.getBattlefields().forEach((bf, index) => {
@@ -26,7 +26,7 @@ describe(`generator:: <GameGenerator/>`, () => {
         [0, 1, 2, 10].forEach(size => {
             const expectedCellAmount = size ** 2;
 
-            it(` - expected 2 battlefields with size ${size} attached [expected ${expectedCellAmount} cells]`, () => {
+            it(`expected 2 battlefields with size ${size} attached [expected ${expectedCellAmount} cells]`, () => {
                 const model = GameGenerator.generate(2, size);
 
                 /** @param {BattlefieldModel} battlefieldModel */

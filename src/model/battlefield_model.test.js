@@ -4,7 +4,7 @@ import PlayerModel from "./player_model";
 
 describe(`model:: <BattlefieldModel/>`, () => {
     describe('::[get|set]Player', () => {
-        it(` - setter overwrite encapsulated value`, () => {
+        it(`setter overwrite encapsulated value`, () => {
             const player1 = new PlayerModel();
             const player2 = new PlayerModel();
 
