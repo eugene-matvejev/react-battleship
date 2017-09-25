@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import PlayerModel from "../model/player_model";
 import "../stylesheets/css/player.css";
 
 const Player = (props) => {
