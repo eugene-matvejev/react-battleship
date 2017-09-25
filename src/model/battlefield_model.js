@@ -9,7 +9,7 @@ export default class BattlefieldModel extends AbstractByteSequenceAwareModel {
         this.size = 0;
 
         this.cellsIndexedById = {};
-        this.cellsIndexedByCoordinate = {}
+        this.cellsIndexedByCoordinate = {};
     }
 
     /**
