@@ -26,10 +26,7 @@ Player.propTypes = {
         PropTypes.number,
         PropTypes.string,
     ]),
-    name: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-    ]),
+    name: PropTypes.string,
     score: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
