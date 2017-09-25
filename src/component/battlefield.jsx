@@ -20,29 +20,36 @@ export default class Battlefield extends Component {
 
     render() {
         const model = this.state.model;
-        const coordinates = Object.keys(model.getCells());
+        const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
         const size = model.size;
         const rows = (new Array(size)).fill(1);
 
         return (
             <fieldset className={`component battlefield-cells ${this.props.className}`} {...this.state.attributes}>
                 <div className="battlefield-cells-row">
-                    <Cell model={new CellModel('')}/>
+                    <Cell/>
                     {
                         coordinates
                             .slice(0, size)
-                            .map(coordinate => <Cell key={CellModel.getCoordinateDigit(coordinate)}
-                                                     model={new CellModel(CellModel.getCoordinateDigit(coordinate))}/>)
+                            .map((v) => {
+                                const coordinate = CellModel.getCoordinateDigit(v);
+
+                                return <Cell key={coordinate} coordinate={coordinate}/>
+                            })
                     }
                 </div>
                 {
                     rows.map((value, index) =>
                         <div key={index} className="battlefield-cells-row">
-                            <Cell model={new CellModel(CellModel.getCoordinateCharacter(coordinates[size * index]))}/>
+                            <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])}/>
                             {
                                 coordinates
                                     .slice(size * index, size * (1 + index))
-                                    .map(coordinate => <Cell key={coordinate} model={model.getCell(coordinate)}/>)
+                                    .map((v) => {
+                                        const cell = model.getCellByCoordinate(v);
+
+                                        return <Cell key={cell.coordinate} {...cell}/>;
+                                    })
                             }
                         </div>
                     )

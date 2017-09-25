@@ -42,7 +42,7 @@ export default class GameGenerator {
             }
 
             const callback = (c, seq) => {
-                const cell = battlefield.getCell(c);
+                const cell = battlefield.getCellByCoordinate(c);
 
                 if (undefined !== cell) {
                     cell.addSequence(seq);

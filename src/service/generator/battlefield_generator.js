@@ -8,18 +8,18 @@ export default class BattlefieldGenerator {
      * @returns {BattlefieldModel}
      */
     static generate(size) {
-        const model = new BattlefieldModel();
-        model.size = size;
-
+        const cells = [];
         for (let x = 1; x <= size; x++) {
-            model.addDecorationCell(CellGenerator.generate(x, x));
-
             for (let y = 1; y <= size; y++) {
                 const cell = CellGenerator.generate(x, y);
 
-                model.addCell(cell);
+                cells.push(cell);
             }
         }
+
+        const model = new BattlefieldModel();
+        model.size = size;
+        model.setCells(cells);
 
         return model;
     }

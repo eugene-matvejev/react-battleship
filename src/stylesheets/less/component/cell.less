@@ -53,23 +53,25 @@
                 border-bottom: @border-style;
             }
 
-            &[data-bytes="@{flag-none-flag}"] {
+            &[data-byte-sequence="@{flag-none-flag}"] {
                 background-color: @flag-none-color;
             }
 
-            &[data-bytes="@{flag-dead-flag}"] {
+            &[data-byte-sequence="@{flag-dead-flag}"] {
                 background-color: @flag-dead-color;
             }
 
-            &[data-bytes="@{flag-ship-flag}"] {
+            &[data-byte-sequence="@{flag-ship-flag}"] {
                 background-color: @flag-ship-color;
+                border-color: @flag-ship-color;
+                color: #fff;
             }
 
-            &[data-bytes="@{flag-ship-dead-flag}"] {
+            &[data-byte-sequence="@{flag-ship-dead-flag}"] {
                 background-color: @flag-ship-dead-color;
             }
 
-            &[data-bytes="@{flag-skip-flag}"] {
+            &[data-byte-sequence="@{flag-skip-flag}"] {
                 background-color: @flag-skip-color;
             }
         }
