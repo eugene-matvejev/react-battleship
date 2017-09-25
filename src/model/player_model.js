@@ -7,7 +7,9 @@ export default class PlayerModel extends AbstractByteSequenceAwareModel {
         super();
 
         this.id = 'undefined';
-        this.username = this.email = 'undefined';
+        this.name = 'undefined';
+        this.score = 0;
+        this.avatarSrc = `/assets/img/avatar-placeholder.png`;
     }
 
     getId() {
@@ -18,20 +20,28 @@ export default class PlayerModel extends AbstractByteSequenceAwareModel {
         this.id = id;
     }
 
-    getUsername() {
-        return this.username;
+    getName() {
+        return this.name;
     }
 
-    setUsername(username) {
-        this.username = username;
+    setName(v) {
+        this.name = v;
     }
 
-    getEmail() {
-        return this.email;
+    getScore() {
+        return this.score;
     }
 
-    setEmail(email) {
-        this.email = email;
+    setScore(v) {
+        this.score = v;
+    }
+
+    getAvatarSrc() {
+        return this.avatarSrc;
+    }
+
+    setAvatarSrc(v) {
+        this.avatarSrc = v;
     }
 
     isHumanControlled() {

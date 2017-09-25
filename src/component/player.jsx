@@ -1,32 +1,46 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import PlayerModel from "../model/player_model";
 import "../stylesheets/css/player.css";
 
 const Player = (props) => {
     const attributes = {
-        'data-player-id': props.model.getId(),
-        'data-player-flag': props.model.getSequence(),
+        'data-id': props.id,
+        'data-byte-sequence': props.byte_sequence,
     };
 
     return (
         <div className={`component battlefield-player ${props.className}`} {...attributes}>
             <div className="player-avatar">
-                <img src="/assets/img/avatar-placeholder.png" alt="avatar pic"/>
+                <img src={props.avatarSrc} alt="avatar pic"/>
             </div>
-            <div className="player-name">{`< playerName >`}</div>
-            <div className="player-score">{`< playerScore >`}</div>
+            <div className="player-name">{props.name}</div>
+            <div className="player-score">{props.score}</div>
         </div>
     );
 };
 
 Player.propTypes = {
     className: PropTypes.string,
-    model: PropTypes.instanceOf(PlayerModel).isRequired,
+    id: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+    ]),
+    name: PropTypes.string,
+    score: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+    ]),
+    byte_sequence: PropTypes.number,
+    avatarSrc: PropTypes.string
 };
 
 Player.defaultProps = {
-    className: '',
+    byte_sequence: 0,
+    className: ``,
+    id: `< player id >`,
+    name: `< player Name >`,
+    score: `< player Score >`,
+    avatarSrc: `/assets/img/avatar-placeholder.png`,
 };
 
 export default Player;

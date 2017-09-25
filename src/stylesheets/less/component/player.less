@@ -1,9 +1,14 @@
 @player-field-avatar-size: 6rem;
-@player-field-bg-color: #d9ffcd;
+@player-field-opponent-bg-color: #d9ffcd;
+@player-field-self-bg-color: #ff6341;
 
 .battlefield-player {
-    background: @player-field-bg-color;
+    background: @player-field-self-bg-color;
     position: relative;
+
+    &[data-byte-sequence="1"] {
+        background: @player-field-opponent-bg-color;
+    }
 
     .player-avatar {
         display: inline-block;
