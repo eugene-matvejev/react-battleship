@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import PlayerModel from "../model/player_model";
 import "../stylesheets/css/player.css";
 
 const Player = (props) => {
@@ -26,10 +25,7 @@ Player.propTypes = {
         PropTypes.number,
         PropTypes.string,
     ]),
-    name: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-    ]),
+    name: PropTypes.string,
     score: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,

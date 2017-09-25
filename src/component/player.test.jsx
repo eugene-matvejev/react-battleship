@@ -5,12 +5,26 @@ import PlayerModel from "../model/player_model";
 
 describe(`component:: <Player/>`, () => {
     describe(`::render`, () => {
-        it(` - renders without error`, () => {
-            const model = new PlayerModel();
-            model.setEmail('example@example.com');
-            model.setUsername('example-username');
+        const model = new PlayerModel();
+        model.setName('test');
+        model.setScore(123);
+        model.setAvatarSrc('/');
 
-            shallow(<Player model={model}/>);
+        it(`- renders without error`, () => {
+            shallow(<Player {...model}/>);
+        });
+
+        it(`- props been injected properly into DOMNode`, () => {
+            const component = shallow(<Player {...model}/>);
+
+            expect(component.find('.player-avatar').length).toBe(1);
+            expect(component.find('img').length).toBe(1);
+            expect(component.find('img').getNode().props.alt).toBeDefined();
+            expect(component.find('img').getNode().props.src).toBe(model.getAvatarSrc());
+            expect(component.find('.player-name').length).toBe(1);
+            expect(component.find('.player-name').text()).toBe(model.getName());
+            expect(component.find('.player-score').length).toBe(1);
+            expect(component.find('.player-score').text()).toBe(`${model.getScore()}`);
         });
     });
 });

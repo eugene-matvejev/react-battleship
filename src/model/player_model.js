@@ -8,6 +8,8 @@ export default class PlayerModel extends AbstractByteSequenceAwareModel {
 
         this.id = 'undefined';
         this.name = 'undefined';
+        this.score = 0;
+        this.avatarSrc = `/assets/img/avatar-placeholder.png`;
     }
 
     getId() {
@@ -24,6 +26,22 @@ export default class PlayerModel extends AbstractByteSequenceAwareModel {
 
     setName(v) {
         this.name = v;
+    }
+
+    getScore() {
+        return this.score;
+    }
+
+    setScore(v) {
+        this.score = v;
+    }
+
+    getAvatarSrc() {
+        return this.avatarSrc;
+    }
+
+    setAvatarSrc(v) {
+        this.avatarSrc = v;
     }
 
     isHumanControlled() {
