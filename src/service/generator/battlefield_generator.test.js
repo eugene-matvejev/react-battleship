@@ -9,7 +9,7 @@ describe(`generator:: <BattlefieldGenerator/>`, () => {
         it(`expected ${expected} cells in generated battlefield with size: ${size}`, () => {
             const battlefield = BattlefieldGenerator.generate(size);
 
-            expect(Object.keys(battlefield.getCellsIndexedByCoordinate()).length).toBe(expected)
-        })
-    })
+            expect(Object.keys(battlefield.getCellsIndexedByCoordinate()).length).toBe(expected);
+        });
+    });
 });
