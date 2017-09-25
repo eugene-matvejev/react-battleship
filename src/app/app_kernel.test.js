@@ -4,7 +4,7 @@ import AppKernel from "./app_kernel";
 
 describe(`component:: <AppKernel/>`, () => {
     describe('::render', () => {
-        it(' - without error', () => {
+        it(`renders without crash`, () => {
             shallow(<AppKernel/>);
         });
     });
