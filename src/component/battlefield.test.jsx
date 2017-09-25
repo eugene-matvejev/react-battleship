@@ -9,7 +9,7 @@ describe(`component:: <Battlefield/>`, () => {
             const expectedCellsAmount = (size + 1 /** because of 'decoration' cells */) ** 2;
             const model = BattlefieldGenerator.generate(size);
 
-            it(` - renders ${expectedCellsAmount} cells for battlefield size: ${size} without error`, () => {
+            it(`renders ${expectedCellsAmount} cells for battlefield size: ${size} without error`, () => {
                 const component = shallow(<Battlefield model={model}/>);
 
                 expect(component.find('Cell').length).toBe(expectedCellsAmount)

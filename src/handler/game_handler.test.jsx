@@ -11,7 +11,7 @@ describe(`handler:: <GameHandler/>`, () => {
     });
 
     describe(`::slider`, () => {
-        it(` - should generate & render additional battlefield as opponents changed from 1 to 2`, () => {
+        it(`should generate & render additional battlefield as opponents changed from 1 to 2`, () => {
             const el = shallow(<GameHandler size={1} opponents={1}/>);
 
             el.find('Slider[min=1]').simulate('change', 2);
@@ -19,7 +19,7 @@ describe(`handler:: <GameHandler/>`, () => {
             expect(el.find('Game').prop('model').battlefields.length).toBe(3);
         });
 
-        it(` - should generate & render additional cells as game size changed from 1 to 2`, () => {
+        it(`should generate & render additional cells as game size changed from 1 to 2`, () => {
             const el = shallow(<GameHandler size={1} opponents={1}/>);
 
             el.find(`Slider[min=${parameters.minGameSize}]`).simulate('change', parameters.maxGameSize);

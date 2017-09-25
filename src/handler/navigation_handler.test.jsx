@@ -4,12 +4,12 @@ import NavigationHandler from "./navigation_handler";
 
 describe(`handler:: <NavigationHandler/>`, () => {
     describe(`::render`, () => {
-        it(` - renders without crash`, () => {
+        it(`renders without crash`, () => {
             shallow(<NavigationHandler/>);
         });
 
         describe(`::onClick`, () => {
-            it(` - onClick [.btn.btn-close] state: hidden toggled`, () => {
+            it(`onClick [.btn.btn-close] state: hidden toggled`, () => {
                 const el = shallow(<NavigationHandler hiddenOnMount={false}/>);
 
                 el.find('.btn.btn-close').simulate('click');
@@ -18,7 +18,7 @@ describe(`handler:: <NavigationHandler/>`, () => {
                 expect(state.hidden).toBe(true);
             });
 
-            it(` - onClick [.btn.btn-close] onToggle callback works`, () => {
+            it(`onClick [.btn.btn-close] onToggle callback works`, () => {
                 let toggled = false;
                 const onToggle = () => {
                     toggled = !toggled;

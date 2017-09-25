@@ -10,11 +10,11 @@ describe(`component:: <Player/>`, () => {
         model.setScore(123);
         model.setAvatarSrc('/');
 
-        it(`- renders without error`, () => {
+        it(`renders without error`, () => {
             shallow(<Player {...model}/>);
         });
 
-        it(`- props been injected properly into DOMNode`, () => {
+        it(`props been injected properly into DOMNode`, () => {
             const component = shallow(<Player {...model}/>);
 
             expect(component.find('.player-avatar').length).toBe(1);

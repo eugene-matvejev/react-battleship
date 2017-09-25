@@ -4,7 +4,7 @@ describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
     const model = new AbstractByteSequenceAwareModel();
 
     describe(`::constructor`, () => {
-        it(` - mandatory fields [byte_sequence] are initialized`, () => {
+        it(`mandatory fields [byte_sequence] are initialized`, () => {
             expect(model.byte_sequence).toBeDefined();
         });
     });

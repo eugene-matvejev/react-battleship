@@ -8,7 +8,7 @@ describe(`model:: <PlayerModel/>`, () => {
     ];
 
     describe(`::constructor`, () => {
-        it(` - mandatory fields [id|username|email|byte_sequence] should be initialized`, () => {
+        it(`mandatory fields [id|username|email|byte_sequence] should be initialized`, () => {
             expect(model.id).toBeDefined();
             expect(model.name).toBeDefined();
             expect(model.byte_sequence).toBeDefined();
