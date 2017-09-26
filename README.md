@@ -21,7 +21,7 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
 
-## software requirments:
+## software requirements:
  * node.js v6+
  * npm v5+ or yarn
 
