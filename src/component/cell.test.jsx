@@ -1,11 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Compoment from "./cell";
+import {shallow} from "enzyme";
+import Cell from "./cell";
+import CellModel from "../model/cell_model";
 
-describe('component:: Cell', () => {
-    it('renders without error', () => {
-        const div = document.createElement('div');
+describe(`component:: <Cell/>`, () => {
+    describe(`::render`, () => {
+        it(' - renders without error', () => {
+            const model = new CellModel('A1');
 
-        ReactDOM.render(<Compoment/>, div);
+            shallow(<Cell model={model}/>);
+        });
     });
 });

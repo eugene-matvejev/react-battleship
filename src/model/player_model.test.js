@@ -1,33 +1,32 @@
 import PlayerModel from "./player_model";
 
-describe(`model:: Player`, () => {
+describe(`model:: <PlayerModel/>`, () => {
     const model = new PlayerModel();
+    const dataProvider = [
+        {id: 1, email: 'example1@example.com'},
+        {id: 2, email: 'example2@example.com'}
+    ];
 
-    it(`::constructor - mandatory fields [id|username|email|bytes] are initialized`, () => {
-        expect(model.id).toBeDefined();
-        expect(model.username).toBeDefined();
-        expect(model.email).toBeDefined();
-        expect(model.bytes).toBeDefined();
-    });
-
-    [1, 2, 3].forEach(id => {
-        it(`::(get|set)Id :: "${id}"`, () => {
-            model.setId(id);
-            expect(model.getId()).toBe(id)
+    describe(`::constructor`, () => {
+        it(`mandatory fields [id|username|email|byte_sequence] should be initialized`, () => {
+            expect(model.id).toBeDefined();
+            expect(model.name).toBeDefined();
+            expect(model.byte_sequence).toBeDefined();
+            expect(model.byte_sequence).toBe(0);
         });
     });
 
-    ['example@example.com', 'test@test.test'].forEach(username => {
-        it(`::(get|set)Username :: "${username}"`, () => {
-            model.setUsername(username);
-            expect(model.getUsername()).toBe(username)
-        });
-    });
+    describe(`::getters/setters`, () => {
+        dataProvider.forEach(data => {
+            it(`::(get|set)Id - value "${data.id}" should be encapsulated`, () => {
+                model.setId(data.id);
+                expect(model.getId()).toBe(data.id)
+            });
 
-    ['example@example.com', 'test@test.test'].forEach(email => {
-        it(`::(get|set)Email :: "${email}"`, () => {
-            model.setEmail(email);
-            expect(model.getEmail()).toBe(email)
+            it(`::(get|set)Name - value "${data.email}" should be encapsulated`, () => {
+                model.setName(data.email);
+                expect(model.getName()).toBe(data.email)
+            });
         });
     });
 });

@@ -1,6 +1,17 @@
-export default class GameModel {
+import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
+
+export default class GameModel extends AbstractByteSequenceAwareModel {
     constructor() {
-        this.size = 0;
+        super();
+
         this.battlefields = [];
+    }
+
+    addBattlefield(battlefield) {
+        this.battlefields.push(battlefield);
+    }
+
+    getBattlefields() {
+        return this.battlefields;
     }
 }

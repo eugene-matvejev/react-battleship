@@ -1,42 +1,68 @@
-export default class BattlefieldModel {
+import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model"
+
+export default class BattlefieldModel extends AbstractByteSequenceAwareModel {
     constructor() {
+        super();
+
         this.player = undefined;
         this.id = undefined;
         this.size = 0;
 
-        this.cells = {};
-        this.decorationCells = {};
+        this.cellsIndexedById = {};
+        this.cellsIndexedByCoordinate = {};
     }
 
+    /**
+     * @param {PlayerModel} player
+     */
     setPlayer(player) {
         this.player = player;
     }
 
+    /**
+     * @return {PlayerModel}
+     */
     getPlayer() {
         return this.player;
     }
 
-    addDecorationCell(cell) {
-        this.decorationCells[cell.coordinate] = cell;
+    hasCellByCoordinate(v) {
+        return undefined !== this.cellsIndexedByCoordinate[v];
     }
 
-    addCell(cell) {
-        this.cells[cell.coordinate] = cell;
+    hasCellById(v) {
+        return undefined !== this.cellsIndexedById[v];
     }
 
-    hasCell(cell) {
-        return undefined !== this.cells[cell.coordinate];
+    getCellByCoordinate(v) {
+        return this.cellsIndexedByCoordinate[v] || undefined;
     }
 
-    removeCell(cell) {
-        delete this.cells[cell.coordinate];
+    getCellById(v) {
+        return this.cellsIndexedById[v] || undefined;
     }
 
-    getCell(coordinate) {
-        return this.cells[coordinate] || undefined;
+    getCellsIndexedById() {
+        return this.cellsIndexedById;
     }
 
-    getCells() {
-        return this.cells;
+    getCellsIndexedByCoordinate() {
+        return this.cellsIndexedByCoordinate;
+    }
+
+    /**
+     * @param {{id: number, coordinate: string}[]} cells
+     */
+    setCells(cells) {
+        this.cellsIndexedByCoordinate = {};
+        this.cellsIndexedById = {};
+
+        for (const cell of cells) {
+            this.cellsIndexedByCoordinate[cell.coordinate] = cell;
+
+            if (undefined !== cell.id) {
+                this.cellsIndexedById[cell.id] = cell;
+            }
+        }
     }
 }

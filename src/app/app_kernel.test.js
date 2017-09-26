@@ -1,11 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {shallow} from "enzyme"
 import AppKernel from "./app_kernel";
 
-describe('kernel component', () => {
-    it('renders without error', () => {
-        const div = document.createElement('div');
-
-        ReactDOM.render(<AppKernel/>, div);
+describe(`component:: <AppKernel/>`, () => {
+    describe('::render', () => {
+        it(`renders without crash`, () => {
+            shallow(<AppKernel/>);
+        });
     });
 });

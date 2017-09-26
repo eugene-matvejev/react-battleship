@@ -1,18 +1,20 @@
 import React from "react";
-import {Router, Route, hashHistory} from "react-router";
-import IndexHandler from "../handler/index_handler";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import NavigationHandler from "../handler/navigation_handler";
+import GameHandler from "../handler/game_handler";
+import GameResultsHandler from "../handler/game_results_handler";
+import "../stylesheets/css/overwritten.css";
 
-export default class AppKernel extends React.Component {
-    render() {
-        return (
-            <Router history={hashHistory}>
-                <Route path="/" component={IndexHandler}/>
-                <Route path="/game">
-                    <Route path="/" component={IndexHandler}/>
-                    <Route path="/new" component={IndexHandler}/>
-                    <Route path="/results" component={IndexHandler}/>
-                </Route>
-            </Router>
-        );
-    }
-}
+const appKernel = () =>
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={NavigationHandler}/>
+            <Route exact path="/index" component={NavigationHandler}/>
+
+            <Route exact path="/game-new" component={GameHandler}/>
+            <Route exact path="/game-current" component={GameHandler}/>
+            <Route exact path="/game-results" component={GameResultsHandler}/>
+        </Switch>
+    </BrowserRouter>;
+
+export default appKernel;

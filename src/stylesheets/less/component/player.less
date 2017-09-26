@@ -1,0 +1,34 @@
+@player-field-avatar-size: 6rem;
+@player-field-opponent-bg-color: #d9ffcd;
+@player-field-self-bg-color: #ff6341;
+
+.battlefield-player {
+    background: @player-field-self-bg-color;
+    position: relative;
+
+    &[data-byte-sequence="1"] {
+        background: @player-field-opponent-bg-color;
+    }
+
+    .player-avatar {
+        display: inline-block;
+
+        &, img {
+            height: @player-field-avatar-size;
+            width: @player-field-avatar-size;
+        }
+    }
+    .player-name, .player-score {
+        position: absolute;
+        left: @player-field-avatar-size + 1;
+        line-height: @player-field-avatar-size / 3;
+    }
+
+    .player-name {
+        top: 0;
+    }
+
+    .player-score {
+        top: @player-field-avatar-size / 3;
+    }
+}

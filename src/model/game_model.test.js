@@ -1,11 +1,17 @@
 import GameModel from "./game_model";
 
-describe(`model:: Game`, () => {
-    it(`::constructor - mandatory fields [size|battlefields] are initialized`, () => {
-        const model = new GameModel();
+describe(`model:: <GameModel/>`, () => {
+    describe(`::constructor`, () => {
+        it(`mandatory fields [battlefields] are initialized`, () => {
+            const model = new GameModel();
 
-        expect(model.size).toBeDefined();
-        expect(model.battlefields).toBeDefined();
-        expect(Array.isArray(model.battlefields)).toBe(true);
-    })
+            expect(model.battlefields).toBeDefined();
+        });
+
+        it(`mandatory field [battlefields] should be array`, () => {
+            const model = new GameModel();
+
+            expect(Array.isArray(model.battlefields)).toBe(true);
+        });
+    });
 });

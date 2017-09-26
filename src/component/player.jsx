@@ -1,28 +1,46 @@
 import React from "react";
-import AbstractComponent from "./abstract_component";
+import PropTypes from 'prop-types';
+import "../stylesheets/css/player.css";
 
-export default class Player extends AbstractComponent {
-    constructor(props) {
-        super(props);
+const Player = (props) => {
+    const attributes = {
+        'data-id': props.id,
+        'data-byte-sequence': props.byte_sequence,
+    };
 
-        this.state.data = this.props.data;
-        this.state.attributes = {
-            'data-player-id': 'C6',
-            'data-player-flag': 0,
-            'data-player-type': 639
-        }
-    }
-
-    render() {
-        return (
-            <div className="col-md-12" {...this.getAttributes()}>
-
+    return (
+        <div className={`component battlefield-player ${props.className}`} {...attributes}>
+            <div className="player-avatar">
+                <img src={props.avatarSrc} alt="avatar pic"/>
             </div>
-        );
-    }
+            <div className="player-name">{props.name}</div>
+            <div className="player-score">{props.score}</div>
+        </div>
+    );
+};
 
-    static PropTypes = {
-        data: React.PropTypes.object.isRequired
-    }
-}
+Player.propTypes = {
+    className: PropTypes.string,
+    id: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+    ]),
+    name: PropTypes.string,
+    score: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+    ]),
+    byte_sequence: PropTypes.number,
+    avatarSrc: PropTypes.string
+};
 
+Player.defaultProps = {
+    byte_sequence: 0,
+    className: ``,
+    id: `< player id >`,
+    name: `< player Name >`,
+    score: `< player Score >`,
+    avatarSrc: `/assets/img/avatar-placeholder.png`,
+};
+
+export default Player;

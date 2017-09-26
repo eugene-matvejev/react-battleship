@@ -1,11 +1,15 @@
-import AbstractBytesAwareModel from "./abstract_bytes_aware_model";
+import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
 
-export default class PlayerModel extends AbstractBytesAwareModel {
+const FLAG_HUMAN_CONTROLLED = 0x01;
+
+export default class PlayerModel extends AbstractByteSequenceAwareModel {
     constructor() {
         super();
 
-        this.id = 0;
-        this.username = this.email = 'undefined';
+        this.id = 'undefined';
+        this.name = 'undefined';
+        this.score = 0;
+        this.avatarSrc = `/assets/img/avatar-placeholder.png`;
     }
 
     getId() {
@@ -16,19 +20,35 @@ export default class PlayerModel extends AbstractBytesAwareModel {
         this.id = id;
     }
 
-    getUsername() {
-        return this.username;
+    getName() {
+        return this.name;
     }
 
-    setUsername(username) {
-        this.username = username;
+    setName(v) {
+        this.name = v;
     }
 
-    getEmail() {
-        return this.email;
+    getScore() {
+        return this.score;
     }
 
-    setEmail(email) {
-        this.email = email;
+    setScore(v) {
+        this.score = v;
+    }
+
+    getAvatarSrc() {
+        return this.avatarSrc;
+    }
+
+    setAvatarSrc(v) {
+        this.avatarSrc = v;
+    }
+
+    isHumanControlled() {
+        return this.hasSequence(this.constructor.getHumanFlag());
+    }
+
+    static getHumanFlag() {
+        return FLAG_HUMAN_CONTROLLED;
     }
 }

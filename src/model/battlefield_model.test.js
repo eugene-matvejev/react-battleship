@@ -1,69 +1,80 @@
-import Battlefield from "./battlefield_model";
-import Player from "./player_model";
-import Cell from "./cell_model";
+import BattlefieldModel from "./battlefield_model";
+import CellModel from "./cell_model"
+import PlayerModel from "./player_model";
 
-describe(`model:: Battlefield`, () => {
+describe(`model:: <BattlefieldModel/>`, () => {
+    describe('::[get|set]Player', () => {
+        it(`setter overwrite encapsulated value`, () => {
+            const player1 = new PlayerModel();
+            const player2 = new PlayerModel();
+
+            const model = new BattlefieldModel();
+            model.setPlayer(player1);
+
+            expect(model.getPlayer()).toBe(player1);
+            model.setPlayer(player2);
+            expect(model.getPlayer()).toBe(player2);
+        });
+    });
+
     const dataProvider = [
-        'A1', 'A2', 'B2'
+        'A1', 'A2', 'B3'
     ];
+    const cellsWithUndefinedId = dataProvider.map((v) => new CellModel(v));
+    const cellsWithDefinedId = dataProvider.map((v) => {
+        const cell = new CellModel(v);
 
-    describe('add|get cell', () => {
-        it(`on single cell`, () => {
-            const battlefield = new Battlefield();
+        cell.setId(v.slice(-1));
 
-            battlefield.addCell(new Cell('A1'));
-
-            const keys = Object.keys(battlefield.getCells());
-
-            expect(battlefield.getCell('A1')).toBeDefined();
-            expect(keys.length).toBe(1);
-            expect(keys).toEqual(['A1']);
-        });
-
-        it(`expect cells ${dataProvider.toString()} to be present`, () => {
-            const battlefield = new Battlefield();
-
-            dataProvider.forEach(coordinate => battlefield.addCell(new Cell(coordinate)));
-
-            const keys = Object.keys(battlefield.getCells());
-
-            expect(keys.length).toBe(dataProvider.length);
-            expect(keys).toEqual(dataProvider);
-        });
+        return cell;
     });
 
-    describe('has|get cell', () => {
-        dataProvider.forEach(coordinate => {
-            it(`expect cell ${coordinate} to be present`, () => {
-                const battlefield = new Battlefield();
-                const cell = new Cell(coordinate);
+    describe(`::[get|set]Cells(IndexedBy[Coordinate|Id])`, () => {
+        it(`cells been indexed ONLY by coordinate`, () => {
+            const model = new BattlefieldModel();
+            model.setCells(cellsWithUndefinedId);
 
-                battlefield.addCell(cell);
+            expect(model.getCellsIndexedById()).toEqual({});
 
-                expect(battlefield.hasCell(cell)).toBe(true);
-                expect(battlefield.getCell(coordinate)).toBeDefined();
+            dataProvider.forEach((v) => {
+                expect(model.getCellsIndexedByCoordinate()[v].getCoordinate()).toBe(v);
             });
         });
-    });
 
-    describe('remove|get cell', () => {
-        dataProvider.forEach(coordinate => {
-            it(`expect cell ${coordinate} to be not present`, () => {
-                const battlefield = new Battlefield();
-                const cell = new Cell(coordinate);
+        it(`cells been indexed BOTH by coordinate and by`, () => {
+            const model = new BattlefieldModel();
+            model.setCells(cellsWithDefinedId);
 
-                battlefield.addCell(cell);
-                battlefield.removeCell(cell);
+            dataProvider.forEach((v) => {
+                const id = v.slice(-1);
 
-                expect(battlefield.hasCell(cell)).toBe(false);
-                expect(battlefield.getCell(coordinate)).toBeUndefined();
+                expect(model.getCellsIndexedByCoordinate()[v].getCoordinate()).toBe(v);
+                expect(model.getCellsIndexedById()[id].getId()).toBe(id);
             });
         });
-    });
 
-    describe('get|set Player', () => {
-       const player1 = new Player();
-       const player2 = new Player();
+        describe(`::[has|get]CellBy[Coordinate|Id]`, () => {
+            const model = new BattlefieldModel();
+            model.setCells(cellsWithDefinedId);
 
+            cellsWithDefinedId.forEach((c) => {
+                describe(`::byCoordinate ${c.getCoordinate()}`, () => {
+                    it(`::has`, () => {
+                        expect(model.hasCellByCoordinate(c.getCoordinate())).toBe(true);
+                    });
+                    it(`::get`, () => {
+                        expect(model.getCellByCoordinate(c.getCoordinate())).toBe(c);
+                    });
+                });
+                describe(`::byId ${c.getId()}`, () => {
+                    it(`::has`, () => {
+                        expect(model.hasCellById(c.getId())).toBe(true);
+                    });
+                    it(`::get`, () => {
+                        expect(model.getCellById(c.getId())).toBe(c);
+                    });
+                });
+            });
+        });
     });
 });

@@ -1,11 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Compoment from "./game";
+import {shallow} from "enzyme";
+import Game from "./game";
+import GameGenerator from "../service/generator/game_generator";
 
-describe('component:: Game', () => {
-    it('renders without error', () => {
-        const div = document.createElement('div');
+describe(`component:: <Game/>`, () => {
+    describe('::render', () => {
+        it('- renders without error', () => {
+            const model = GameGenerator.generate(1, 1);
 
-        ReactDOM.render(<Compoment/>, div);
+            shallow(<Game model={model}/>);
+        });
     });
 });

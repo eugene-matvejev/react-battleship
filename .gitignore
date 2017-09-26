@@ -1,15 +1,13 @@
 build/
 coverage/
+node_modules/
 npm-debug.log
 
-node_modules/
-
 src/parameters.json
-src/stylesheets/css/
-!src/stylesheets/css/.gitkeep
 
 var/
 !var/logs/.gitkeep
-
 dist/
 !dist/.gitkeep
+src/stylesheets/css/
+!src/stylesheets/css/.gitkeep
