@@ -5,9 +5,7 @@ import GameResultsHandler from "./game_results_handler";
 describe(`handler:: <GameResultsHandler/>`, () => {
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            const div = document.createElement('div');
-
-            shallow(<GameResultsHandler/>, div);
+            shallow(<GameResultsHandler/>);
         });
     });
 
