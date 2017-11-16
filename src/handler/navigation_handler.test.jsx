@@ -2,7 +2,7 @@ import React from "react";
 import {shallow} from "enzyme";
 import NavigationHandler from "./navigation_handler";
 
-describe(`handler:: <NavigationHandler/>`, () => {
+describe(`<NavigationHandler/>`, () => {
     describe(`::render`, () => {
         it(`renders without crash`, () => {
             shallow(<NavigationHandler/>);

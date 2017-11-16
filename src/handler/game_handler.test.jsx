@@ -3,7 +3,7 @@ import {shallow} from "enzyme";
 import GameHandler from "./game_handler";
 import parameters from "../parameters.json";
 
-describe(`handler:: <GameHandler/>`, () => {
+describe(`<GameHandler/>`, () => {
     describe(`::render`, () => {
         it(' - renders without error', () => {
             shallow(<GameHandler size={1} opponents={1}/>);

@@ -1,69 +1,127 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Cell from "./cell";
 import BattlefieldModel from "../model/battlefield_model";
 import CellModel from "../model/cell_model";
 import "../stylesheets/css/battlefield.css";
 
-export default class Battlefield extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            model: props.model,
-            attributes: {
-                'data-player-id': 'unk',
-                'data-player-flags': 'unk'
-            }
-        }
+const Battlefield = ({ model, className }) => {
+    const attributes = {
+        'data-player-id': 'unk',
+        'data-player-flags': 'unk'
     }
 
-    render() {
-        const model = this.state.model;
-        const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
-        const size = model.size;
-        const rows = (new Array(size)).fill(1);
+    const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
+    const size = model.size;
+    const rows = (new Array(size)).fill(1);
 
-        return (
-            <fieldset className={`component battlefield-cells ${this.props.className}`} {...this.state.attributes}>
-                <div className="battlefield-cells-row">
-                    <Cell/>
-                    {
-                        coordinates
-                            .slice(0, size)
-                            .map((v) => {
-                                const coordinate = CellModel.getCoordinateDigit(v);
-
-                                return <Cell key={coordinate} coordinate={coordinate}/>
-                            })
-                    }
-                </div>
+    return (
+        <fieldset className={`component battlefield-cells ${className}`} {...attributes}>
+            <div className="battlefield-cells-row">
+                <Cell />
                 {
-                    rows.map((value, index) =>
-                        <div key={index} className="battlefield-cells-row">
-                            <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])}/>
-                            {
-                                coordinates
-                                    .slice(size * index, size * (1 + index))
-                                    .map((v) => {
-                                        const cell = model.getCellByCoordinate(v);
+                    coordinates
+                        .slice(0, size)
+                        .map((v) => {
+                            const coordinate = CellModel.getCoordinateDigit(v);
 
-                                        return <Cell key={cell.coordinate} {...cell}/>;
-                                    })
-                            }
-                        </div>
-                    )
+                            return <Cell key={coordinate} coordinate={coordinate} />
+                        })
                 }
-            </fieldset>
-        )
-    }
+            </div>
+            {
+                rows.map((value, index) =>
+                    <div key={index} className="battlefield-cells-row">
+                        <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])} />
+                        {
+                            coordinates
+                                .slice(size * index, size * (1 + index))
+                                .map((v) => {
+                                    const cell = model.getCellByCoordinate(v);
 
-    static propTypes = {
-        className: PropTypes.string,
-        model: PropTypes.instanceOf(BattlefieldModel).isRequired,
-    };
+                                    return <Cell key={cell.coordinate} {...cell} />;
+                                })
+                        }
+                    </div>
+                )
+            }
+        </fieldset>
+    )
+};
 
-    static defaultProps = {
-        className: '',
-    };
-}
+Battlefield.propTypes = {
+    className: PropTypes.string,
+    model: PropTypes.instanceOf(BattlefieldModel).isRequired,
+};
+
+Battlefield.defaultProps = {
+    className: '',
+};
+
+export default Battlefield;
+
+
+
+
+// export default class Battlefield extends Component {
+//     constructor(props) {
+//         super(props);
+
+//         this.state = {
+//             model: props.model,
+//             attributes: {
+//                 'data-player-id': 'unk',
+//                 'data-player-flags': 'unk'
+//             }
+//         }
+//     }
+
+//     render() {
+//         const model = this.state.model;
+//         const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
+//         const size = model.size;
+//         const rows = (new Array(size)).fill(1);
+
+//         return (
+//             <fieldset className={`component battlefield-cells ${this.props.className}`} {...this.state.attributes}>
+//                 <div className="battlefield-cells-row">
+//                     <Cell/>
+//                     {
+//                         coordinates
+//                             .slice(0, size)
+//                             .map((v) => {
+//                                 const coordinate = CellModel.getCoordinateDigit(v);
+
+//                                 return <Cell key={coordinate} coordinate={coordinate}/>
+//                             })
+//                     }
+//                 </div>
+//                 {
+//                     rows.map((value, index) =>
+//                         <div key={index} className="battlefield-cells-row">
+//                             <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])}/>
+//                             {
+//                                 coordinates
+//                                     .slice(size * index, size * (1 + index))
+//                                     .map((v) => {
+//                                         const cell = model.getCellByCoordinate(v);
+
+//                                         return <Cell key={cell.coordinate} {...cell}/>;
+//                                     })
+//                             }
+//                         </div>
+//                     )
+//                 }
+//             </fieldset>
+//         )
+//     }
+
+//     static propTypes = {
+//         className: PropTypes.string,
+//         model: PropTypes.instanceOf(BattlefieldModel).isRequired,
+//     };
+
+//     static defaultProps = {
+//         className: '',
+//     };
+// }

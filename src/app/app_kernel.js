@@ -1,14 +1,19 @@
-import React from "react";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
-import NavigationHandler from "../handler/navigation_handler";
-import GameHandler from "../handler/game_handler";
-import GameResultsHandler from "../handler/game_results_handler";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { GameHandler, GameInitiationHandler, GameResultsHandler, NavigationHandler } from '../handler';
+import parameters, { game } from "../parameters.json";
 import "../stylesheets/css/overwritten.css";
+
+const inititationConfigs = {
+    minSize: game.minSize,
+    maxSize: game.maxSize,
+    maxOpponents: game.maxOpponents,
+};
 
 const appKernel = () =>
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={NavigationHandler}/>
+            <Route exact path="/" component={() => <GameInitiationHandler {...inititationConfigs}/> }/>
             <Route exact path="/index" component={NavigationHandler}/>
 
             <Route exact path="/game-new" component={GameHandler}/>

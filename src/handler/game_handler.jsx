@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import Game from "../component/game";
+import { Game } from "../component";
 import GameGenerator from "../service/generator/game_generator";
 import Slider from "react-rangeslider";
 import parameters from "../parameters.json";
@@ -10,14 +10,16 @@ import "../stylesheets/css/common.css";
 import "../stylesheets/css/game_handler.css";
 
 export default class GameHandler extends Component {
-    constructor(props) {
-        super(props);
+    constructor({opponents, size}) {
+        super();
 
         this.state = {
-            opponents: props.opponents,
-            size: props.size,
-            model: this.constructor.generateModel(props.opponents, props.size)
+            opponents: opponents,
+            size: size,
+            model: this.constructor.generateModel(opponents, size),
         }
+
+        this.reset.bind(this);
     }
 
     render() {
@@ -30,6 +32,8 @@ export default class GameHandler extends Component {
 
         const model = this.state.model;
 
+        const state = this.state;
+        console.log({state});
         return (
             <div className="handler game">
                 <div className="handler-label">{this.props.label}</div>
@@ -70,13 +74,13 @@ export default class GameHandler extends Component {
         className: PropTypes.string,
         opponents: PropTypes.number,
         size: PropTypes.number,
-        label: PropTypes.string
+        label: PropTypes.string,
     };
 
     static defaultProps = {
         className: '',
         opponents: 1,
         size: parameters.maxGameSize,
-        label: 'current game'
+        label: 'current game',
     }
 }

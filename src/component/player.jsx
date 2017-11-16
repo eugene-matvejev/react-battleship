@@ -2,42 +2,36 @@ import React from "react";
 import PropTypes from 'prop-types';
 import "../stylesheets/css/player.css";
 
-const Player = (props) => {
+const Player = ({ className, name, score, byteSeq, avatarSrc }) => {
     const attributes = {
-        'data-id': props.id,
-        'data-byte-sequence': props.byte_sequence,
+        'data-byte-sequence': byteSeq,
     };
 
     return (
-        <div className={`component battlefield-player ${props.className}`} {...attributes}>
+        <div className={`component battlefield-player ${className}`} {...attributes}>
             <div className="player-avatar">
-                <img src={props.avatarSrc} alt="avatar pic"/>
+                <img src={avatarSrc} alt="avatar pic" />
             </div>
-            <div className="player-name">{props.name}</div>
-            <div className="player-score">{props.score}</div>
+            <div className="player-name">{name}</div>
+            <div className="player-score">{score}</div>
         </div>
     );
 };
 
 Player.propTypes = {
     className: PropTypes.string,
-    id: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-    ]),
     name: PropTypes.string,
     score: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
     ]),
-    byte_sequence: PropTypes.number,
+    byteSeq: PropTypes.number,
     avatarSrc: PropTypes.string
 };
 
 Player.defaultProps = {
-    byte_sequence: 0,
+    byteSeq: 0,
     className: ``,
-    id: `< player id >`,
     name: `< player Name >`,
     score: `< player Score >`,
     avatarSrc: `/assets/img/avatar-placeholder.png`,

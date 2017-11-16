@@ -2,12 +2,10 @@ import React from "react";
 import {shallow, mount} from "enzyme";
 import GameResultsHandler from "./game_results_handler";
 
-describe(`handler:: <GameResultsHandler/>`, () => {
+describe(`<GameResultsHandler/>`, () => {
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            const div = document.createElement('div');
-
-            shallow(<GameResultsHandler/>, div);
+            shallow(<GameResultsHandler/>);
         });
     });
 
