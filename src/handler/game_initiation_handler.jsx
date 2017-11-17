@@ -19,18 +19,19 @@ export default class GameInitiationHandler extends Component {
     }
 
     render() {
-        const { minSize, maxSize, minOpponents, maxOpponents } = this.props;
+        const { onSubmit, minSize, maxSize, minOpponents, maxOpponents } = this.props;
         const { opponents, size, model } = this.state;
 
-        return <div className="handler game-initiation">
-                <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)} />
-                <div className="opponents-placeholder">
-                    {opponents} x <span className={`fa fa-user-circle`} />
-                </div>
-                <Slider min={minSize} max={maxSize} value={size} onChange={(v) => this.reset('size', v)} />
-                <Battlefield model={model} />
 
-                <button>inititate game</button>
+        return <div className="handler game-initiation">
+            <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)} />
+            <div className="opponents-placeholder">
+                {opponents} x <span className={`fa fa-user-circle`} />
+            </div>
+            <Slider min={minSize} max={maxSize} value={size} onChange={(v) => this.reset('size', v)} />
+            <Battlefield model={model} />
+
+            <button onSubmit={onSubmit}>inititate game</button>
         </div>
     }
 
@@ -49,6 +50,7 @@ export default class GameInitiationHandler extends Component {
     static propTypes = {
         className: PropTypes.string,
         defaultSize: PropTypes.number,
+        onSubmit: PropTypes.number.isRequired,
         minSize: PropTypes.number.isRequired,
         maxSize: PropTypes.number.isRequired,
         defaultOpponents: PropTypes.number,
