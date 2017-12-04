@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { GameHandler, GameInitiationHandler, GameResultsHandler, NavigationHandler } from '../handler';
-import parameters, { game } from "../parameters.json";
+import { game } from "../parameters.json";
 import "../stylesheets/css/overwritten.css";
 
 const inititationConfigs = {
