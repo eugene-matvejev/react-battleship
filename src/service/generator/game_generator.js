@@ -1,4 +1,4 @@
-import BattlefieldGenerator from "./battlefield_generator";
+import generateBattlefield from "./battlefield_generator";
 import CellModel from "../../model/cell_model";
 import PlayerModel from "../../model/player_model";
 import GameModel from "../../model/game_model";
@@ -14,7 +14,7 @@ export default class GameGenerator {
         const model = new GameModel();
 
         for (let i = 0; i < players; i++) {
-            const battlefield = BattlefieldGenerator.generate(size);
+            const battlefield = generateBattlefield(size);
             const player = new PlayerModel();
             if ((i + 1) === players) {
                 player.addSequence(PlayerModel.getHumanFlag())
