@@ -8,24 +8,24 @@ describe(`model:: <PlayerModel/>`, () => {
     ];
 
     describe(`::constructor`, () => {
-        it(`mandatory fields [id|username|email|byte_sequence] should be initialized`, () => {
+        it(`mandatory fields [id|username|email|byteSeq] should be initialized`, () => {
             expect(model.id).toBeDefined();
             expect(model.name).toBeDefined();
-            expect(model.byte_sequence).toBeDefined();
-            expect(model.byte_sequence).toBe(0);
+            expect(model.byteSeq).toBeDefined();
+            expect(model.byteSeq).toBe(0);
         });
     });
 
     describe(`::getters/setters`, () => {
-        dataProvider.forEach(data => {
-            it(`::(get|set)Id - value "${data.id}" should be encapsulated`, () => {
-                model.setId(data.id);
-                expect(model.getId()).toBe(data.id)
+        dataProvider.forEach((el) => {
+            it(`::(get|set)Id - value "${el.id}" should be encapsulated`, () => {
+                model.setId(el.id);
+                expect(model.getId()).toBe(el.id)
             });
 
-            it(`::(get|set)Name - value "${data.email}" should be encapsulated`, () => {
-                model.setName(data.email);
-                expect(model.getName()).toBe(data.email)
+            it(`::(get|set)Name - value "${el.email}" should be encapsulated`, () => {
+                model.setName(el.email);
+                expect(model.getName()).toBe(el.email)
             });
         });
     });

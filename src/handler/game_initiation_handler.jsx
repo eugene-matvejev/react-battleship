@@ -19,11 +19,10 @@ export default class GameInitiationHandler extends Component {
     }
 
     render() {
-        const { onSubmit, minSize, maxSize, minOpponents, maxOpponents } = this.props;
+        const { className, onSubmit, minSize, maxSize, minOpponents, maxOpponents } = this.props;
         const { opponents, size, model } = this.state;
 
-
-        return <div className="handler game-initiation">
+        return <div className={`handler game-initiation ${className}`}>
             <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)} />
             <div className="opponents-placeholder">
                 {opponents} x <span className={`fa fa-user-circle`} />
@@ -50,7 +49,7 @@ export default class GameInitiationHandler extends Component {
     static propTypes = {
         className: PropTypes.string,
         defaultSize: PropTypes.number,
-        onSubmit: PropTypes.number.isRequired,
+        onSubmit: PropTypes.func.isRequired,
         minSize: PropTypes.number.isRequired,
         maxSize: PropTypes.number.isRequired,
         defaultOpponents: PropTypes.number,

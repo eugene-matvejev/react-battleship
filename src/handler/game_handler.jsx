@@ -66,9 +66,7 @@ export default class GameHandler extends Component {
      * @param {Number} size
      * @return {GameModel}
      */
-    static generateModel(opponents, size) {
-        return GameGenerator.generate((opponents + 1), size);
-    }
+    static generateModel = (opponents, size) => GameGenerator.generate((opponents + 1), size);
 
     static propTypes = {
         className: PropTypes.string,

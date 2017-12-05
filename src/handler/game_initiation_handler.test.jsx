@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount } from "enzyme";
-import GameInitiationHandler from "./";
+import { shallow } from 'enzyme';
+import { GameInitiationHandler } from './';
 
 describe(`handler:: <GameInitiationHandler/>`, () => {
     describe(`render`, () => {
