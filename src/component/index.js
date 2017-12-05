@@ -9,5 +9,5 @@ export {
     Cell,
     Game,
     Pagination,
-    Player
-};
+    Player,
+}

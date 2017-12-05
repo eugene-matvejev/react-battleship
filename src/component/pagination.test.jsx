@@ -1,6 +1,6 @@
-import React from "react";
-import {shallow} from "enzyme";
-import Pagination from "./pagination";
+import React from 'react';
+import { shallow } from 'enzyme';
+import Pagination from './pagination';
 
 describe(`component:: <Pagination/>`, () => {
     describe(`::render`, () => {

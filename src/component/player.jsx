@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import "../stylesheets/css/player.css";
+import '../stylesheets/css/player.css';
 
 const Player = ({ className, name, score, byteSeq, avatarSrc }) => {
     const attributes = {
@@ -9,11 +9,11 @@ const Player = ({ className, name, score, byteSeq, avatarSrc }) => {
 
     return (
         <div className={`component battlefield-player ${className}`} {...attributes}>
-            <div className="player-avatar">
-                <img src={avatarSrc} alt="avatar pic" />
+            <div className='player-avatar'>
+                <img src={avatarSrc} alt='avatar pic' />
             </div>
-            <div className="player-name">{name}</div>
-            <div className="player-score">{score}</div>
+            <div className='player-name'>{name}</div>
+            <div className='player-score'>{score}</div>
         </div>
     );
 };

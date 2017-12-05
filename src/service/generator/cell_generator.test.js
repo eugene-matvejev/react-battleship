@@ -1,4 +1,4 @@
-import generateCell from "./cell_generator";
+import { generateCell } from './cell_generator';
 
 describe(`generator:: Cell`, () => {
     [

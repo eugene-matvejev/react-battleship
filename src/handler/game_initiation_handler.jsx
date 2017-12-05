@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-rangeslider';
-import { generateBattlefield } from '../service';
-import { Battlefield } from '../component/index';
+import Battlefield from '../component/battlefield';
+import { generateBattlefield } from '../service/generator';
 import '../stylesheets/css/game_initiation_handler.css';
 
 export default class GameInitiationHandler extends Component {
@@ -16,22 +16,30 @@ export default class GameInitiationHandler extends Component {
         };
 
         this.reset.bind(this);
+        this.handleOnClick = this.handleOnClick.bind(this);
     }
 
     render() {
-        const { className, onSubmit, minSize, maxSize, minOpponents, maxOpponents } = this.props;
+        const { className, minSize, maxSize, minOpponents, maxOpponents } = this.props;
         const { opponents, size, model } = this.state;
 
         return <div className={`handler game-initiation ${className}`}>
             <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)} />
-            <div className="opponents-placeholder">
+            <div className='opponents-placeholder'>
                 {opponents} x <span className={`fa fa-user-circle`} />
             </div>
             <Slider min={minSize} max={maxSize} value={size} onChange={(v) => this.reset('size', v)} />
             <Battlefield model={model} />
 
-            <button onSubmit={onSubmit}>inititate game</button>
+            <button onClick={this.handleOnClick}>inititate game</button>
         </div>
+    }
+
+    handleOnClick() {
+        const { model } = this.state;
+        const { onSubmit } = this.props;
+
+        onSubmit(model);
     }
 
     /**

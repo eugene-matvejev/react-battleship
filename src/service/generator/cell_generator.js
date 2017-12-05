@@ -1,4 +1,4 @@
-import CellModel from "../../model/cell_model";
+import CellModel from '../../model/cell_model';
 
 /**
  * @param {Number} x
@@ -6,6 +6,4 @@ import CellModel from "../../model/cell_model";
  *
  * @returns {CellModel}
  */
-const generateCell = (x, y) => new CellModel(`${String.fromCharCode(96 + x).toUpperCase()}${y}`);
-
-export default generateCell;
+export const generateCell = (x, y) => new CellModel(`${String.fromCharCode(96 + x).toUpperCase()}${y}`);
