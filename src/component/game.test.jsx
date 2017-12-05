@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import Game from './game';
 import { generateGame } from '../service/generator';
 
@@ -8,7 +8,7 @@ describe(`component:: <Game/>`, () => {
         it('- renders without error', () => {
             const model = generateGame(2, 1);
 
-            shallow(<Game model={model}/>);
+            shallow(<Game model={model} />);
         });
     });
 });

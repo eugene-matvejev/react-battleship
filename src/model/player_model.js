@@ -1,4 +1,4 @@
-import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
+import AbstractByteSequenceAwareModel from './abstract_byte_sequence_aware_model';
 
 const FLAG_HUMAN_CONTROLLED = 0x01;
 
@@ -48,7 +48,5 @@ export default class PlayerModel extends AbstractByteSequenceAwareModel {
         return this.hasSequence(this.constructor.getHumanFlag());
     }
 
-    static getHumanFlag() {
-        return FLAG_HUMAN_CONTROLLED;
-    }
+    static getHumanFlag = () => FLAG_HUMAN_CONTROLLED;
 }

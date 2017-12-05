@@ -1,9 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Cell from "./cell";
-import BattlefieldModel from "../model/battlefield_model";
-import CellModel from "../model/cell_model";
-import "../stylesheets/css/battlefield.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Cell } from './';
+import { BattlefieldModel, CellModel } from '../model';
+import '../stylesheets/css/battlefield.css';
 
 const Battlefield = ({ model, className }) => {
     const attributes = {
@@ -17,7 +16,7 @@ const Battlefield = ({ model, className }) => {
 
     return (
         <fieldset className={`component battlefield-cells ${className}`} {...attributes}>
-            <div className="battlefield-cells-row">
+            <div className='battlefield-cells-row'>
                 <Cell />
                 {
                     coordinates
@@ -31,7 +30,7 @@ const Battlefield = ({ model, className }) => {
             </div>
             {
                 rows.map((value, index) =>
-                    <div key={index} className="battlefield-cells-row">
+                    <div key={index} className='battlefield-cells-row'>
                         <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])} />
                         {
                             coordinates

@@ -1,4 +1,4 @@
-import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
+import AbstractByteSequenceAwareModel from './abstract_byte_sequence_aware_model';
 
 const FLAG_NONE = 0x00;
 const FLAG_DEAD = 0x01;

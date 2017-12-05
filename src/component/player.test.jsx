@@ -1,7 +1,7 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import Player from './player';
-import PlayerModel from '../model/player_model';
+import { shallow } from 'enzyme';
+import { Player } from './';
+import { PlayerModel } from '../model';
 
 describe(`component:: <Player/>`, () => {
     describe(`::render`, () => {
@@ -11,11 +11,11 @@ describe(`component:: <Player/>`, () => {
         model.setAvatarSrc('/');
 
         it(`renders without error`, () => {
-            shallow(<Player {...model}/>);
+            shallow(<Player {...model} />);
         });
 
         it(`props been injected properly into DOMNode`, () => {
-            const component = shallow(<Player {...model}/>);
+            const component = shallow(<Player {...model} />);
 
             expect(component.find('.player-avatar').length).toBe(1);
             expect(component.find('img').length).toBe(1);

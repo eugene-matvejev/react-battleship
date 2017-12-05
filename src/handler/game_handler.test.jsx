@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { generateGame } from '../service/generator';
-import GameHandler from './game_handler';
+import { GameHandler } from './';
 
 describe(`<GameHandler/>`, () => {
     describe(`::render`, () => {

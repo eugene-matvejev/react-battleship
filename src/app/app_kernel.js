@@ -9,7 +9,7 @@ const inititationConfigs = {
     maxSize: game.maxSize,
     maxOpponents: game.maxOpponents,
     onSubmit: (arg1) => {
-        console.log('onSubmit', arg1);
+        console.log('validation passed, callback called, appKernel::inititationConfigs::onSubmit', arg1);
     }
 };
 

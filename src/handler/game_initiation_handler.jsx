@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-rangeslider';
-import Battlefield from '../component/battlefield';
-import { generateBattlefield } from '../service/generator';
+import { Battlefield } from '../component';
+import { generateBattlefield, generateGame } from '../service/generator';
 import '../stylesheets/css/game_initiation_handler.css';
 
 export default class GameInitiationHandler extends Component {
@@ -36,8 +36,10 @@ export default class GameInitiationHandler extends Component {
     }
 
     handleOnClick() {
-        const { model } = this.state;
+        const { size, opponents } = this.state;
         const { onSubmit } = this.props;
+
+        const model = generateGame(1 + opponents, size);
 
         onSubmit(model);
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Game } from '../component';
-import GameModel from '../model/game_model';
+import { GameModel } from '../model';
 import 'react-rangeslider/lib/index.css';
 import '../stylesheets/css/overwritten.css';
 import '../stylesheets/css/common.css';

@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import GameInitiationHandler from './game_initiation_handler';
-// import { minGameSize, maxGameSize } from '../parameters.json';
+import { GameInitiationHandler } from './';
 
 describe(`handler:: <GameInitiationHandler/>`, () => {
     const defaultProps = {
@@ -12,7 +11,7 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
         onSubmit: () => { }
     };
 
-    const {minSize, maxSize, minOpponents, maxOpponents} = defaultProps;
+    const { minSize, maxSize, minOpponents, maxOpponents } = defaultProps;
 
     describe(`render`, () => {
         it(`it renders without crash`, () => {

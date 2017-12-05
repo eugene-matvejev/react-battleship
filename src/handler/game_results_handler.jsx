@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Pagination from '../component/pagination';
+import { Pagination } from '../component';
 import '../stylesheets/css/common.css';
 import '../stylesheets/css/game_results_handler.css';
 

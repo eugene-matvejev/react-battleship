@@ -1,10 +1,10 @@
-import PlayerModel from "./player_model";
+import { PlayerModel } from './';
 
 describe(`model:: <PlayerModel/>`, () => {
     const model = new PlayerModel();
     const dataProvider = [
-        {id: 1, email: 'example1@example.com'},
-        {id: 2, email: 'example2@example.com'}
+        { id: 1, email: 'example1@example.com' },
+        { id: 2, email: 'example2@example.com' }
     ];
 
     describe(`::constructor`, () => {

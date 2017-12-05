@@ -1,4 +1,4 @@
-import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
+import { AbstractByteSequenceAwareModel } from './';
 
 describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
     const model = new AbstractByteSequenceAwareModel();
