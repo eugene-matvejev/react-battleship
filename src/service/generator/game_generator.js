@@ -34,21 +34,22 @@ export const generateGame = (players, size) => {
 const injectPlayerShips = (model) => {
     const shipCoordinates = ['A1', 'A2', 'A3', 'A5', 'C1', 'C2', 'C5'];
     const deadCoordinates = ['A3', 'A4', 'B1', 'B2', 'B3', 'B4'];
+    const { ship, dead } = CellModel.flags;
 
     for (const battlefield of model.getBattlefields()) {
         if (!battlefield.getPlayer().isHumanControlled()) {
             continue;
         }
 
-        const callback = (c, seq) => {
-            const cell = battlefield.getCellByCoordinate(c);
-
-            if (undefined !== cell) {
-                cell.addSequence(seq);
-            }
-        };
-
-        shipCoordinates.forEach((v) => callback(v, CellModel.flags.ship));
-        deadCoordinates.forEach((v) => callback(v, CellModel.flags.dead));
+        shipCoordinates.forEach((v) => callback(v, ship, battlefield));
+        deadCoordinates.forEach((v) => callback(v, dead, battlefield));
     }
 }
+
+const callback = (c, seq, battlefield) => {
+    const cell = battlefield.getCellByCoordinate(c);
+
+    if (undefined !== cell) {
+        cell.addSequence(seq);
+    }
+};

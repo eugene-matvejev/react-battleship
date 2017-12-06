@@ -21,11 +21,7 @@ const Battlefield = ({ model, className }) => {
                 {
                     coordinates
                         .slice(0, size)
-                        .map((v) => {
-                            const coordinate = CellModel.getCoordinateDigit(v);
-
-                            return <Cell key={coordinate} coordinate={coordinate} />
-                        })
+                        .map((v) => <Cell key={v} coordinate={CellModel.getCoordinateDigit(v)} />)
                 }
             </div>
             {

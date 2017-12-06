@@ -25,13 +25,9 @@ export default class CellModel extends AbstractByteSequenceAwareModel {
         return this.coordinate;
     }
 
-    static getCoordinateCharacter(coordinate) {
-        return coordinate.charAt(0);
-    }
+    static getCoordinateCharacter = (coordinate) => coordinate.charAt(0);
 
-    static getCoordinateDigit(coordinate) {
-        return parseInt(coordinate.substring(1), 10);
-    }
+    static getCoordinateDigit = (coordinate) => parseInt(coordinate.substring(1), 10)
 
     static flags = {
         none: FLAG_NONE,
