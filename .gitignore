@@ -2,6 +2,7 @@ build/
 coverage/
 node_modules/
 npm-debug.log
+.gitignore/
 
 src/parameters.json
 
