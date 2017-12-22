@@ -18,7 +18,7 @@ describe(`generator:: Game`, () => {
                 model.getBattlefields().forEach((bf, index) => {
                     const expectedSeq = index === (v - 1) ? PlayerModel.getHumanFlag() : 0;
 
-                    expect(bf.getPlayer().byte_sequence).toBe(expectedSeq);
+                    expect(bf.getPlayer().byteSeq).toBe(expectedSeq);
                 });
             });
         });
