@@ -1,6 +1,6 @@
 import React from "react";
-import {shallow} from "enzyme";
-import GameHandler from "./game_handler";
+import { shallow } from "enzyme";
+import { GameHandler } from "./";
 import parameters from "../parameters.json";
 
 describe(`handler:: <GameHandler/>`, () => {
