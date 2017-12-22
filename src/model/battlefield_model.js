@@ -1,4 +1,4 @@
-import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model"
+import AbstractByteSequenceAwareModel from './abstract_byte_sequence_aware_model'
 
 export default class BattlefieldModel extends AbstractByteSequenceAwareModel {
     constructor() {
