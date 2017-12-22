@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { Cell } from './';
 import { CellModel } from '../model';
+
+configure({ adapter: new Adapter() });
 
 describe(`component:: <Cell/>`, () => {
     describe(`::render`, () => {
