@@ -1,26 +1,24 @@
-import BattlefieldModel from "../../model/battlefield_model";
-import CellGenerator from "./cell_generator";
+import BattlefieldModel from '../../model/battlefield_model';
+import { generateCell } from './cell_generator';
 
-export default class BattlefieldGenerator {
-    /**
-     * @param {Number} size
-     *
-     * @returns {BattlefieldModel}
-     */
-    static generate(size) {
-        const cells = [];
-        for (let x = 1; x <= size; x++) {
-            for (let y = 1; y <= size; y++) {
-                const cell = CellGenerator.generate(x, y);
+/**
+ * @param {Number} size
+ *
+ * @returns {BattlefieldModel}
+ */
+export const generateBattlefield = (size) => {
+    const cells = [];
+    for (let x = 1; x <= size; x++) {
+        for (let y = 1; y <= size; y++) {
+            const cell = generateCell(x, y);
 
-                cells.push(cell);
-            }
+            cells.push(cell);
         }
-
-        const model = new BattlefieldModel();
-        model.size = size;
-        model.setCells(cells);
-
-        return model;
     }
-}
+
+    const model = new BattlefieldModel();
+    model.size = size;
+    model.setCells(cells);
+
+    return model;
+};
