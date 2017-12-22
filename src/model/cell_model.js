@@ -1,4 +1,4 @@
-import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
+import AbstractByteSequenceAwareModel from './abstract_byte_sequence_aware_model';
 
 const FLAG_NONE = 0x00;
 const FLAG_DEAD = 0x01;
@@ -25,13 +25,9 @@ export default class CellModel extends AbstractByteSequenceAwareModel {
         return this.coordinate;
     }
 
-    static getCoordinateCharacter(coordinate) {
-        return coordinate.charAt(0);
-    }
+    static getCoordinateCharacter = (coordinate) => coordinate.charAt(0);
 
-    static getCoordinateDigit(coordinate) {
-        return parseInt(coordinate.substring(1), 10);
-    }
+    static getCoordinateDigit = (coordinate) => parseInt(coordinate.substring(1), 10)
 
     static flags = {
         none: FLAG_NONE,
