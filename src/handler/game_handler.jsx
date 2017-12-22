@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Game from "../component/game";
-import GameGenerator from "../service/generator/game_generator";
+import { generateGame } from "../service/generator";
 import Slider from "react-rangeslider";
 import parameters from "../parameters.json";
 import "react-rangeslider/lib/index.css";
@@ -62,9 +62,7 @@ export default class GameHandler extends Component {
      * @param {Number} size
      * @return {GameModel}
      */
-    static generateModel(opponents, size) {
-        return GameGenerator.generate((opponents + 1), size);
-    }
+    static generateModel = (opponents, size) => generateGame((opponents + 1), size);
 
     static propTypes = {
         className: PropTypes.string,
