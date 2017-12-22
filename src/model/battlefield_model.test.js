@@ -1,6 +1,4 @@
-import BattlefieldModel from "./battlefield_model";
-import CellModel from "./cell_model"
-import PlayerModel from "./player_model";
+import { BattlefieldModel, CellModel, PlayerModel } from './';
 
 describe(`model:: <BattlefieldModel/>`, () => {
     describe('::[get|set]Player', () => {
