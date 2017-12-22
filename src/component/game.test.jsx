@@ -1,6 +1,6 @@
 import React from "react";
-import {shallow} from "enzyme";
-import Game from "./game";
+import { shallow } from "enzyme";
+import { Game } from "./";
 import { generateGame } from "../service/generator";
 
 describe(`component:: <Game/>`, () => {

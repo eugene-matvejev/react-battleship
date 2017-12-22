@@ -1,6 +1,6 @@
 import React from "react";
-import {shallow} from "enzyme";
-import Battlefield from "./battlefield";
+import { shallow } from "enzyme";
+import { Battlefield } from "./";
 import { generateBattlefield } from "../service/generator";
 
 describe(`component:: <Battlefield/>`, () => {
