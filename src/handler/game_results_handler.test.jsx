@@ -1,6 +1,6 @@
 import React from "react";
-import {shallow, mount} from "enzyme";
-import GameResultsHandler from "./game_results_handler";
+import { shallow, mount } from "enzyme";
+import { GameResultsHandler } from "./";
 
 describe(`handler:: <GameResultsHandler/>`, () => {
     describe(`::render`, () => {

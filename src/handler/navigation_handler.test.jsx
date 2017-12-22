@@ -1,6 +1,6 @@
 import React from "react";
-import {shallow} from "enzyme";
-import NavigationHandler from "./navigation_handler";
+import { shallow } from "enzyme";
+import { NavigationHandler } from "./";
 
 describe(`handler:: <NavigationHandler/>`, () => {
     describe(`::render`, () => {

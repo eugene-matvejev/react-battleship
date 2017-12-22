@@ -1,7 +1,7 @@
 import React from "react";
-import {shallow} from "enzyme";
-import Player from "./player";
-import PlayerModel from "../model/player_model";
+import { shallow } from "enzyme";
+import { Player } from "./";
+import { PlayerModel } from "../model";
 
 describe(`component:: <Player/>`, () => {
     describe(`::render`, () => {

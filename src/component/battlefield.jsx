@@ -1,8 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Cell from "./cell";
-import BattlefieldModel from "../model/battlefield_model";
-import CellModel from "../model/cell_model";
+import { Cell } from "./";
+import { BattlefieldModel, CellModel } from "../model";
 import "../stylesheets/css/battlefield.css";
 
 export default class Battlefield extends Component {

@@ -1,7 +1,7 @@
 import React from "react";
-import {shallow} from "enzyme";
-import Cell from "./cell";
-import CellModel from "../model/cell_model";
+import { shallow } from "enzyme";
+import { Cell } from "./";
+import { CellModel } from "../model";
 
 describe(`component:: <Cell/>`, () => {
     describe(`::render`, () => {

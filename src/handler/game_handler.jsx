@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import Game from "../component/game";
+import { Game } from "../component";
 import { generateGame } from "../service/generator";
 import Slider from "react-rangeslider";
 import parameters from "../parameters.json";
