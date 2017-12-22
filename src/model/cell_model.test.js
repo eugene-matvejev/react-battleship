@@ -1,19 +1,30 @@
-import CellModel from "./cell_model";
+import { CellModel } from './';
 
 describe(`model:: <CellModel/>`, () => {
-    const dataProvider = [
-        {coordinate: 'A1', letter: 'A', digit: 1},
-        {coordinate: 'A2', letter: 'A', digit: 2},
-        {coordinate: 'B2', letter: 'B', digit: 2}
+    const dataProvider = [{
+            coordinate: 'A1',
+            letter: 'A',
+            digit: 1
+        },
+        {
+            coordinate: 'A2',
+            letter: 'A',
+            digit: 2
+        },
+        {
+            coordinate: 'B2',
+            letter: 'B',
+            digit: 2
+        }
     ];
 
     describe(`::constructor`, () => {
-        it(`mandatory fields [coordinate|byte_sequence] should be initialized`, () => {
+        it(`mandatory fields [coordinate|byteSeq] should be initialized`, () => {
             const model = new CellModel('A1');
 
             expect(model.coordinate).toBeDefined();
-            expect(model.byte_sequence).toBeDefined();
-            expect(model.byte_sequence).toBe(0);
+            expect(model.byteSeq).toBeDefined();
+            expect(model.byteSeq).toBe(0);
         });
 
         dataProvider.forEach(data => it(`injected coordinate "${data.coordinate}" should be encapsulated`, () => {

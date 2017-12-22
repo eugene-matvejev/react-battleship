@@ -1,12 +1,12 @@
-import BattlefieldModel from "../../model/battlefield_model";
-import generateCell from "./cell_generator";
+import BattlefieldModel from '../../model/battlefield_model';
+import { generateCell } from './cell_generator';
 
 /**
  * @param {Number} size
  *
  * @returns {BattlefieldModel}
  */
-const generateBattlefield = (size) => {
+export const generateBattlefield = (size) => {
     const cells = [];
     for (let x = 1; x <= size; x++) {
         for (let y = 1; y <= size; y++) {
@@ -22,5 +22,3 @@ const generateBattlefield = (size) => {
 
     return model;
 };
-
-export default generateBattlefield;

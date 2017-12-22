@@ -7,5 +7,5 @@ export {
     GameHandler,
     GameInitiationHandler,
     GameResultsHandler,
-    NavigationHandler
-};
+    NavigationHandler,
+}

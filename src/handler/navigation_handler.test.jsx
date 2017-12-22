@@ -1,16 +1,19 @@
-import React from "react";
-import {shallow} from "enzyme";
-import NavigationHandler from "./navigation_handler";
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { NavigationHandler } from './';
+
+configure({ adapter: new Adapter() });
 
 describe(`<NavigationHandler/>`, () => {
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            shallow(<NavigationHandler/>);
+            shallow(<NavigationHandler />);
         });
 
         describe(`::onClick`, () => {
             it(`onClick [.btn.btn-close] state: hidden toggled`, () => {
-                const el = shallow(<NavigationHandler hiddenOnMount={false}/>);
+                const el = shallow(<NavigationHandler hiddenOnMount={false} />);
 
                 el.find('.btn.btn-close').simulate('click');
                 const state = el.state();
@@ -24,7 +27,7 @@ describe(`<NavigationHandler/>`, () => {
                     toggled = !toggled;
                 };
 
-                const el = shallow(<NavigationHandler onToggle={onToggle}/>);
+                const el = shallow(<NavigationHandler onToggle={onToggle} />);
 
                 el.find('.btn.btn-close').simulate('click');
 

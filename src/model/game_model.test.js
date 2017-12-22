@@ -1,4 +1,4 @@
-import GameModel from "./game_model";
+import { GameModel } from './';
 
 describe(`model:: <GameModel/>`, () => {
     describe(`::constructor`, () => {
