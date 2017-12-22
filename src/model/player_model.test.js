@@ -1,4 +1,4 @@
-import PlayerModel from "./player_model";
+import { PlayerModel } from './';
 
 describe(`model:: <PlayerModel/>`, () => {
     const model = new PlayerModel();
