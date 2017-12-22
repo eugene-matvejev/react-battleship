@@ -16,7 +16,7 @@
 | _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link] | [![coverage][codecov.io-heroku-badge]][codecov.io-heroku-link]
 
 # Battleship Game GUI [on react.js]
-project target re-do https://github.com/eugene-matvejev/battleship-game-gui using react-js
+project target re-do https://github.com/eugene-matvejev/battleship-game-gui using react.js
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
 
