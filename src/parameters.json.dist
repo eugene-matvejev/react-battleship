@@ -6,10 +6,12 @@
             "ship": 2
         }
     },
-    "maxOpponents": 3,
-    "minGameSize": 5,
-    "maxGameSize": 10,
+    "game": {
+        "maxOpponents": 3,
+        "minSize": 5,
+        "maxSize": 10
+    },
     "api": {
-        "host": "http://kitchen.kafoodle.local/app_dev.php"
+        "host": "http://localhost:80/app_dev.php"
     }
 }
