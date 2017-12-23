@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "../stylesheets/css/cell.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../stylesheets/css/cell.css';
 
-const Cell = (props) => {
+const Cell = ({ className, coordinate, byteSeq }) => {
     const attributes = {
-        'data-id': props.id,
-        'data-byte-sequence': props.byte_sequence,
+        'data-byte-sequence': byteSeq,
     };
 
-    return <div className={`component battlefield-cell ${props.className}`} {...attributes}>{props.coordinate}</div>;
+    return <div className={`component battlefield-cell ${className}`} {...attributes}>{coordinate}</div>;
 };
 
 Cell.propTypes = {
@@ -17,15 +16,12 @@ Cell.propTypes = {
         PropTypes.number,
         PropTypes.string,
     ]),
-    id: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-    ]),
-    byte_sequence: PropTypes.number,
+    byteSeq: PropTypes.number,
 };
 
 Cell.defaultProps = {
     className: '',
+    byteSeq: 0,
 };
 
 export default Cell;
