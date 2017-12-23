@@ -1,4 +1,4 @@
-import CellModel from "./cell_model";
+import { CellModel } from './';
 
 describe(`model:: <CellModel/>`, () => {
     const dataProvider = [
