@@ -6,7 +6,6 @@
     "node": ">=6"
   },
   "dependencies": {
-    "node-parameter-handler": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -20,6 +19,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "lessc-each": "^1.1.0",
     "less-watch-compiler": "^1.10.0",
+    "node-parameter-handler": "^1.0.0",
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
