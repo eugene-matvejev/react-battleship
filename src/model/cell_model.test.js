@@ -2,9 +2,9 @@ import { CellModel } from './';
 
 describe(`model:: <CellModel/>`, () => {
     const dataProvider = [
-        {coordinate: 'A1', letter: 'A', digit: 1},
-        {coordinate: 'A2', letter: 'A', digit: 2},
-        {coordinate: 'B2', letter: 'B', digit: 2}
+        { coordinate: 'A1', letter: 'A', digit: 1 },
+        { coordinate: 'A2', letter: 'A', digit: 2 },
+        { coordinate: 'B2', letter: 'B', digit: 2 },
     ];
 
     describe(`::constructor`, () => {

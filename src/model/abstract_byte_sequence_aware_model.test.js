@@ -14,7 +14,7 @@ describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
             0x00,
             0x02,
             0xFF,
-        ].forEach(seq => {
+        ].forEach((seq) => {
             it(`when setter been called with ${seq} getter should return them too`, () => {
                 model.setSequence(seq);
 
@@ -30,7 +30,7 @@ describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
             {currentSequence: 0x02, sequenceModifier: 0x02, expectedSequence: 0x02},
             {currentSequence: 0x00, sequenceModifier: 0x02, expectedSequence: 0x02},
             {currentSequence: 0xF0, sequenceModifier: 0x0F, expectedSequence: 0xFF},
-        ].forEach(el => {
+        ].forEach((el) => {
             it(`add bytes ${el.bytes} to ${el.currentSequence}, expected sequenceModifier: ${el.expectedSequence}`, () => {
                 model.setSequence(el.currentSequence);
                 model.addSequence(el.sequenceModifier);
@@ -48,7 +48,7 @@ describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
             {currentSequence: 0x00, sequenceModifier: 0x02, expectedSequence: 0x00},
             {currentSequence: 0xF0, sequenceModifier: 0x0F, expectedSequence: 0xF0},
             {currentSequence: 0x0F, sequenceModifier: 0xFF, expectedSequence: 0x00},
-        ].forEach(el => {
+        ].forEach((el) => {
             it(`remove bytes ${el.bytes} from ${el.currentSequence}, expected sequenceModifier: ${el.expectedSequence}`, () => {
                 model.setSequence(el.currentSequence);
                 model.removeSequence(el.sequenceModifier);
@@ -65,7 +65,7 @@ describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
             {currentSequence: 0x07, sequence: 0x03},
             {currentSequence: 0xFF, sequence: 0xF0},
             {currentSequence: 0xFF, sequence: 0xFF},
-        ].forEach(el => {
+        ].forEach((el) => {
             it(`expected true as bytes ${el.bytes} are presented in ${el.currentSequence}`, () => {
                 model.setSequence(el.currentSequence);
 
@@ -79,7 +79,7 @@ describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
             {currentSequence: 0x07, sequence: 0x08},
             {currentSequence: 0x0F, sequence: 0xF0},
             {currentSequence: 0x1F, sequence: 0xF0},
-        ].forEach(el => {
+        ].forEach((el) => {
             it(`expected false as bytes ${el.bytes} are not presented in ${el.currentSequence}`, () => {
                 model.setSequence(el.currentSequence);
 
