@@ -15,13 +15,12 @@
 | __coverage__     |
 | _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link] | [![coverage][codecov.io-heroku-badge]][codecov.io-heroku-link]
 
-
-# Battleship Game GUI on react.js [WIP]
-project target: re-do https://github.com/eugene-matvejev/battleship-game-gui using react-js
+# Battleship Game GUI [on react.js]
+project target re-do https://github.com/eugene-matvejev/battleship-game-gui using react.js
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
 
-## software requirments:
+## software requirements
  * node.js v6+
  * npm v5+ or yarn
 
@@ -32,6 +31,10 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
  * enzyme
  * npm
  * yarn
+  
+## used enviroment variables
+ * __BASE_URL__ - API endpoint host example: `https://api.game.local`
+   * `$ export BASE_URL="https://api.game.local"`
  
 ## how to install
  * `$ npm start` - execute `$ npm run generate:all`, then starts lite-server with file watcher and `generate:css:w`
@@ -42,10 +45,6 @@ project target: re-do https://github.com/eugene-matvejev/battleship-game-gui usi
    * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
  * TO DEPLOY:
    * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
-  
-## used enviroment variables
- * __BASE_URL__ - API endpoint host example: `https://api.game.local`
-   * `$ export BASE_URL="https://api.game.local"`
 
 ## how to run tests
  * `$ npm test`

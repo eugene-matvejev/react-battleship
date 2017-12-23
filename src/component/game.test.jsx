@@ -1,14 +1,17 @@
-import React from "react";
-import {shallow} from "enzyme";
-import Game from "./game";
-import GameGenerator from "../service/generator/game_generator";
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Game from './game';
+import { generateGame } from '../service/generator';
+
+configure({ adapter: new Adapter() });
 
 describe(`component:: <Game/>`, () => {
     describe('::render', () => {
         it('- renders without error', () => {
-            const model = GameGenerator.generate(1, 1);
+            const model = generateGame(2, 1);
 
-            shallow(<Game model={model}/>);
+            shallow(<Game model={model} />);
         });
     });
 });

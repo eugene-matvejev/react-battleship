@@ -1,34 +1,28 @@
-import React, {Component} from "react";
-import PropTypes from "prop-types";
-import Battlefield from "./battlefield";
-import Player from "./player";
-import GameModel from "../model/game_model";
-import "../stylesheets/css/game.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Battlefield, Player } from './';
+import { GameModel } from '../model';
+import '../stylesheets/css/game.css';
 
-export default class Game extends Component {
-    render() {
-        const model = this.props.model;
+const Game = ({ model, className }) =>
+    <div className={`component battlefield-game ${className}`}>
+        {
+            model.battlefields.map((battlefield, key) =>
+                <div key={key} className='col-md-6'>
+                    <Player {...battlefield.getPlayer() } />
+                    <Battlefield model={battlefield} />
+                </div>
+            )
+        }
+    </div>;
 
-        return (
-            <div className={`component battlefield-game ${this.props.className}`}>
-                {
-                    model.battlefields.map((battlefield, key) =>
-                        <div key={`${key}-${battlefield.size}`} className="col-md-6">
-                            <Player {...battlefield.getPlayer()}/>
-                            <Battlefield model={battlefield}/>
-                        </div>
-                    )
-                }
-            </div>
-        );
-    }
+Game.propTypes = {
+    model: PropTypes.instanceOf(GameModel).isRequired,
+    className: PropTypes.string,
+};
 
-    static propTypes = {
-        className: PropTypes.string,
-        model: PropTypes.instanceOf(GameModel).isRequired,
-    };
+Game.defaultProps = {
+    className: '',
+};
 
-    static defaultProps = {
-        className: '',
-    };
-}
+export default Game;
