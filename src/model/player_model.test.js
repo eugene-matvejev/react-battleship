@@ -20,12 +20,12 @@ describe(`model:: <PlayerModel/>`, () => {
         dataProvider.forEach((el) => {
             it(`::(get|set)Id - value "${el.id}" should be encapsulated`, () => {
                 model.setId(el.id);
-                expect(model.getId()).toBe(el.id)
+                expect(model.getId()).toBe(el.id);
             });
 
             it(`::(get|set)Name - value "${el.email}" should be encapsulated`, () => {
                 model.setName(el.email);
-                expect(model.getName()).toBe(el.email)
+                expect(model.getName()).toBe(el.email);
             });
         });
     });
