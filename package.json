@@ -6,12 +6,12 @@
     "node": ">=6"
   },
   "dependencies": {
-    "node-parameter-handler": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rangeslider": "^2.2.0",
     "react-router-dom": "^4.2.0",
+    "node-parameter-handler": "^1.0.0",
     "react-scripts": "^1.0.0"
   },
   "devDependencies": {
@@ -22,14 +22,20 @@
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
-    "start": "npm run generate:all; concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
+    "start": "npm run generate:all && concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
     "start:lite-server": "react-scripts start",
-    "build": "npm run generate:all; react-scripts build",
+    "build": "npm run generate:all && react-scripts build",
     "test": "react-scripts test --env=jsdom --verbose",
-    "generate:all": "npm run generate:settings; npm run generate:css",
+    "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
     "generate:css": "npm run generate:css:w -- --run-once",
     "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
   },
   "extra": {
     "node_parameter_handler": [
