@@ -35,11 +35,11 @@ export default class BattlefieldModel extends AbstractByteSequenceAwareModel {
     }
 
     getCellByCoordinate(v) {
-        return this.cellsIndexedByCoordinate[v] || undefined;
+        return this.cellsIndexedByCoordinate[v];
     }
 
     getCellById(v) {
-        return this.cellsIndexedById[v] || undefined;
+        return this.cellsIndexedById[v];
     }
 
     getCellsIndexedById() {
