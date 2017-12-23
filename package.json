@@ -22,11 +22,11 @@
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
-    "start": "npm run generate:all; concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
+    "start": "npm run generate:all && concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
     "start:lite-server": "react-scripts start",
-    "build": "npm run generate:all; react-scripts build",
+    "build": "npm run generate:all && react-scripts build",
     "test": "react-scripts test --env=jsdom --verbose",
-    "generate:all": "npm run generate:settings; npm run generate:css",
+    "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
     "generate:css": "npm run generate:css:w -- --run-once",
     "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
