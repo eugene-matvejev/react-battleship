@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "lessc-each": "^1.1.0",
-    "node-parameter-handler": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -16,6 +15,7 @@
     "react-scripts": "^1.0.0"
   },
   "devDependencies": {
+    "node-parameter-handler": "^1.0.0",
     "concurrently": "^3.5.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
