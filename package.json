@@ -6,7 +6,6 @@
     "node": ">=6"
   },
   "dependencies": {
-    "lessc-each": "^1.1.0",
     "node-parameter-handler": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -19,7 +18,7 @@
     "concurrently": "^3.5.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "less-watch-compile": "^1.1.8",
+    "less-watch-compiler": "^1.10.0",
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
@@ -29,8 +28,8 @@
     "test": "react-scripts test --env=jsdom --verbose",
     "generate:all": "npm run generate:settings; npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "lessc-each src/stylesheets/less/component src/stylesheets/css --verbose; lessc-each src/stylesheets/less/handler src/stylesheets/css --verbose;",
-    "generate:css:w": "node node_modules/less-watch-compile -w src/stylesheets/less -o src/stylesheets/css --verbose"
+    "generate:css": "npm run generate:css:w -- --run-once",
+    "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
   },
   "extra": {
     "node_parameter_handler": [
