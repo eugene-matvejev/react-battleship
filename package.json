@@ -32,6 +32,13 @@
     "generate:css": "lessc-each src/stylesheets/less/component src/stylesheets/css --verbose; lessc-each src/stylesheets/less/handler src/stylesheets/css --verbose;",
     "generate:css:w": "node node_modules/less-watch-compile -w src/stylesheets/less -o src/stylesheets/css --verbose"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!src/index.js"
+    ]
+  },
   "extra": {
     "node_parameter_handler": [
       {
