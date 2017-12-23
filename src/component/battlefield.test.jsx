@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import { Battlefield } from "./";
-import { generateBattlefield } from "../service/generator";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Battlefield } from './';
+import { generateBattlefield } from '../service/generator';
 
 describe(`component:: <Battlefield/>`, () => {
     describe(`::render`, () => {
@@ -10,7 +10,7 @@ describe(`component:: <Battlefield/>`, () => {
             const model = generateBattlefield(size);
 
             it(`renders ${expectedCellsAmount} cells for battlefield size: ${size} without error`, () => {
-                const component = shallow(<Battlefield model={model}/>);
+                const component = shallow(<Battlefield model={model} />);
 
                 expect(component.find('Cell').length).toBe(expectedCellsAmount)
             });
