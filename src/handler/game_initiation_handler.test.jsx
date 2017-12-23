@@ -40,4 +40,19 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
             expect(Object.keys(cells).length).toBe(expected);
         });
     });
+
+    describe(`::onSubmit`, () => {
+        it(`on click onSubmit handler should be called`, () => {
+            let model = undefined;
+
+            const onSubmit = (m) => { model = m; }
+            const props = { ...defaultProps };
+            props.onSubmit = onSubmit;
+
+            const component = shallow(<GameInitiationHandler {...props} />);
+            component.find(`button`).simulate('click');
+
+            expect(model).toBeDefined();
+        })
+    });
 });
