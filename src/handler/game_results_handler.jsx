@@ -10,34 +10,14 @@ export default class GameResultsHandler extends Component {
 
         this.state = {
             data: [
-                {
-                    id: 1,
-                    name: 'test',
-                    timestamp: (new Date()).toLocaleString()
-                },
-                {
-                    id: 1,
-                    name: 'test',
-                    timestamp: (new Date()).toLocaleString()
-                },
-                {
-                    id: 1,
-                    name: 'test',
-                    timestamp: (new Date()).toLocaleString()
-                },
-                {
-                    id: 1,
-                    name: 'test',
-                    timestamp: (new Date()).toLocaleString()
-                },
-                {
-                    id: 1,
-                    name: 'test',
-                    timestamp: (new Date()).toLocaleString()
-                }
+                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
             ],
             currentPage: currentPage,
-            totalPages: totalPages
+            totalPages: totalPages,
         }
 
         this.keyDownEventHandler = this.keyDownEventHandler.bind(this);
@@ -122,7 +102,7 @@ export default class GameResultsHandler extends Component {
         tableHeaders: {
             index: '#',
             playerName: 'player name',
-            timestamp: 'time'
+            timestamp: 'time',
         },
     };
 }
