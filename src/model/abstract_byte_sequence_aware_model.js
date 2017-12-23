@@ -1,25 +1,25 @@
 export default class AbstractByteSequenceAwareModel {
     constructor() {
-        this.byte_sequence = 0x00;
+        this.byteSeq = 0x00;
     }
 
     getSequence() {
-        return this.byte_sequence;
+        return this.byteSeq;
     }
 
     setSequence(seq) {
-        this.byte_sequence = seq;
+        this.byteSeq = seq;
     }
 
     addSequence(seq) {
-        this.byte_sequence |= seq;
+        this.byteSeq |= seq;
     }
 
     removeSequence(seq) {
-        this.byte_sequence &= ~seq;
+        this.byteSeq &= ~seq;
     }
 
     hasSequence(seq) {
-        return (this.byte_sequence & seq) === seq;
+        return (this.byteSeq & seq) === seq;
     }
 }
