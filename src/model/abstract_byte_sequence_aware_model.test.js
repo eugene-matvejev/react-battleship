@@ -1,11 +1,11 @@
-import AbstractByteSequenceAwareModel from "./abstract_byte_sequence_aware_model";
+import { AbstractByteSequenceAwareModel } from './';
 
 describe(`model:: <AbstractByteSequenceAwareModel/>`, () => {
     const model = new AbstractByteSequenceAwareModel();
 
     describe(`::constructor`, () => {
-        it(`mandatory fields [byte_sequence] are initialized`, () => {
-            expect(model.byte_sequence).toBeDefined();
+        it(`mandatory fields [byteSeq] are initialized`, () => {
+            expect(model.byteSeq).toBeDefined();
         });
     });
 
