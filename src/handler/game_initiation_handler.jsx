@@ -15,7 +15,7 @@ export default class GameInitiationHandler extends Component {
             model: generateBattlefield(defaultSize),
         };
 
-        this.reset.bind(this);
+        this.reset = this.reset.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
     }
 
