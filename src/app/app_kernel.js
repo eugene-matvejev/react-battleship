@@ -13,7 +13,7 @@ const inititationConfigs = {
     }
 };
 
-const appKernel = () =>
+const AppKernel = () =>
     <BrowserRouter>
         <Switch>
             <Route exact path='/' component={() => <GameInitiationHandler {...inititationConfigs}/> }/>
@@ -25,4 +25,4 @@ const appKernel = () =>
         </Switch>
     </BrowserRouter>;
 
-export default appKernel;
+export default AppKernel;
