@@ -1,8 +1,8 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Player } from './';
-import { PlayerModel } from '../model';
+import { Player } from '../';
+import { PlayerModel } from '../../model';
 
 configure({ adapter: new Adapter() });
 

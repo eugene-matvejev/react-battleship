@@ -8,7 +8,7 @@ export default class GameProcessor {
     /**
      * @param {{id: {number}, coordinate: {string}}} criteria
      */
-    findCellByCriteria(criteria) {
+    /** findCellByCriteria(criteria) {
         let cell = this.cells.find(cell =>
             (undefined !== criteria.id && cell.id === criteria.id) ||
             (undefined !== criteria.coordinate && cell.coordinate === criteria.coordinate)
@@ -18,5 +18,5 @@ export default class GameProcessor {
         }
 
         throw `cell by criteria ${JSON.stringify(criteria)} not found`;
-    }
+    } */
 }
