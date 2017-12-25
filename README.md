@@ -26,7 +26,7 @@ project target re-do https://github.com/eugene-matvejev/battleship-game-gui usin
 
 ## used technologies
  * node.js v6+
- * react.js
+ * react.js v16+
  * jest
  * enzyme
  * npm
