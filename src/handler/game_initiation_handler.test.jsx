@@ -7,14 +7,14 @@ configure({ adapter: new Adapter() });
 
 describe(`handler:: <GameInitiationHandler/>`, () => {
     const defaultProps = {
-        minSize: 1,
-        maxSize: 2,
-        minOpponents: 3,
-        maxOpponents: 4,
-        onSubmit: () => { }
+        minGameSize: 1,
+        maxGameSize: 2,
+        minOpponents: 1,
+        maxOpponents: 2,
+        onSubmit: () => { },
     };
 
-    const { minSize, maxSize, minOpponents, maxOpponents } = defaultProps;
+    const { minGameSize, maxGameSize, minOpponents, maxOpponents } = defaultProps;
 
     describe(`render`, () => {
         it(`it renders without crash`, () => {
@@ -22,19 +22,19 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
         });
     });
 
-    describe(`::slider`, () => {
-        it(`should generate & render additional battlefield as opponents changed from ${minOpponents} to ${maxOpponents}`, () => {
+    describe(`embedded <Slider/> behaviour`, () => {
+        it(`should change opponents from ${minOpponents} to ${maxOpponents}`, () => {
             const component = shallow(<GameInitiationHandler {...defaultProps} />);
-            component.find(`Slider[min=${minOpponents}]`).simulate('change', maxOpponents);
+            component.find(`Slider`).at(0).simulate('change', maxOpponents);
 
             expect(component.state('opponents')).toBe(maxOpponents);
         });
 
-        it(`should generate & render additional cells as game size changed from ${minSize} to ${maxSize}`, () => {
+        it(`should generate & render additional cells as game size changed from ${minGameSize} to ${maxGameSize}`, () => {
             const component = shallow(<GameInitiationHandler {...defaultProps} />);
-            component.find(`Slider[min=${minSize}]`).simulate('change', maxSize);
+            component.find(`Slider`).at(1).simulate('change', maxGameSize);
 
-            const expected = maxSize ** 2;
+            const expected = maxGameSize ** 2;
             const cells = component.find('Battlefield').prop('model').cellsIndexedByCoordinate;
 
             expect(Object.keys(cells).length).toBe(expected);
@@ -45,14 +45,13 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
         it(`on click onSubmit handler should be called`, () => {
             let model = undefined;
 
-            const onSubmit = (m) => { model = m; }
             const props = { ...defaultProps };
-            props.onSubmit = onSubmit;
+            props.onSubmit = (v) => { model = v; };
 
             const component = shallow(<GameInitiationHandler {...props} />);
             component.find(`button`).simulate('click');
 
             expect(model).toBeDefined();
-        })
+        });
     });
 });

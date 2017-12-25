@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 describe(`component:: <AppKernel/>`, () => {
     describe('::render', () => {
         it(' - renders without error', () => {
-            shallow(<AppKernel />);
+            shallow(<AppKernel config={{}}/>);
         });
     });
 });
