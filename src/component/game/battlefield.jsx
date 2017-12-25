@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Cell } from './';
-import { BattlefieldModel, CellModel } from '../model';
-import '../stylesheets/css/battlefield.css';
+import { Cell } from '../';
+import { BattlefieldModel, CellModel } from '../../model';
+import '../../stylesheets/css/battlefield.css';
 
 const Battlefield = ({ model, className }) => {
     const attributes = {
