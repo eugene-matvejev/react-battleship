@@ -18,6 +18,6 @@ const AppKernel = ({config, closures}) =>
 
 AppKernel.propTypes = {
     config: PropTypes.object.isRequired,
-}
+};
 
 export default AppKernel;
