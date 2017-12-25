@@ -6,13 +6,13 @@ import { generateBattlefield, generateGame } from '../service/generator';
 import '../stylesheets/css/game_initiation_handler.css';
 
 export default class GameInitiationHandler extends Component {
-    constructor({ defaultSize, defaultOpponents }) {
+    constructor({ minGameSize, minOpponents }) {
         super();
 
         this.state = {
-            opponents: defaultOpponents,
-            size: defaultSize,
-            model: generateBattlefield(defaultSize),
+            opponents: minOpponents,
+            size: minGameSize,
+            model: generateBattlefield(minGameSize),
         };
 
         this.reset = this.reset.bind(this);
@@ -20,7 +20,7 @@ export default class GameInitiationHandler extends Component {
     }
 
     render() {
-        const { className, minSize, maxSize, minOpponents, maxOpponents } = this.props;
+        const { className, minGameSize, maxGameSize, minOpponents, maxOpponents } = this.props;
         const { opponents, size, model } = this.state;
 
         return <div className={`handler game-initiation ${className}`}>
@@ -28,7 +28,7 @@ export default class GameInitiationHandler extends Component {
             <div className='opponents-placeholder'>
                 {opponents} x <span className={`fa fa-user-circle`} />
             </div>
-            <Slider min={minSize} max={maxSize} value={size} onChange={(v) => this.reset('size', v)} />
+            <Slider min={minGameSize} max={maxGameSize} value={size} onChange={(v) => this.reset('size', v)} />
             <Battlefield model={model} />
 
             <button onClick={this.handleOnClick}>inititate game</button>
@@ -58,19 +58,15 @@ export default class GameInitiationHandler extends Component {
 
     static propTypes = {
         className: PropTypes.string,
-        defaultSize: PropTypes.number,
         onSubmit: PropTypes.func.isRequired,
-        minSize: PropTypes.number.isRequired,
-        maxSize: PropTypes.number.isRequired,
-        defaultOpponents: PropTypes.number,
+        minGameSize: PropTypes.number.isRequired,
+        maxGameSize: PropTypes.number.isRequired,
         minOpponents: PropTypes.number,
         maxOpponents: PropTypes.number.isRequired,
     };
 
     static defaultProps = {
         className: '',
-        defaultOpponents: 1,
-        defaultSize: 10,
         minOpponents: 1,
     }
 }
