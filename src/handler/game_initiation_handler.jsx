@@ -32,7 +32,6 @@ export default class GameInitiationHandler extends Component {
             </div>
             <Slider min={minGameSize} max={maxGameSize} value={size} onChange={this.handleGameSizeChange} />
             <Battlefield model={model} />
-
             <button onClick={this.handleOnSubmit}>inititate game</button>
         </div>;
     }

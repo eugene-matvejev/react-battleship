@@ -14,7 +14,6 @@ import config from './parameters.json';
 const store = {
     game: generateGame(2, 10),
 };
-
 const routes = [
     {
         path: '/game/new',
@@ -32,15 +31,12 @@ const routes = [
         component: () => <GameResultsHandler currentPage={1} totalPage={5} />,
     },
 ];
+
 const RouteSwitch = ({routes}) => <Switch>
 {
     routes.map(({ path, component }, key) => <Route key={key} path={path} component={component}/>)
 }
 </Switch>;
-
-// RouteSwitch.propTypes = {
-//     routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
 
 ReactDOM.render(
     <BrowserRouter forceRefresh={true}>
