@@ -8,40 +8,38 @@ const Battlefield = ({ model, className }) => {
     const attributes = {
         'data-player-id': 'unk',
         'data-player-flags': 'unk'
-    }
+    };
 
     const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
     const size = model.size;
     const rows = (new Array(size)).fill(1);
 
-    return (
-        <fieldset className={`component battlefield-cells ${className}`} {...attributes}>
-            <div className='battlefield-cells-row'>
-                <Cell />
-                {
-                    coordinates
-                        .slice(0, size)
-                        .map((v) => <Cell key={v} coordinate={CellModel.getCoordinateDigit(v)} />)
-                }
-            </div>
+    return <fieldset className={`component battlefield-cells ${className}`} {...attributes}>
+        <div className='battlefield-cells-row'>
+            <Cell />
             {
-                rows.map((value, index) =>
-                    <div key={index} className='battlefield-cells-row'>
-                        <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])} />
-                        {
-                            coordinates
-                                .slice(size * index, size * (1 + index))
-                                .map((v) => {
-                                    const cell = model.getCellByCoordinate(v);
-
-                                    return <Cell key={cell.coordinate} {...cell} />;
-                                })
-                        }
-                    </div>
-                )
+                coordinates
+                    .slice(0, size)
+                    .map((v) => <Cell key={v} coordinate={CellModel.getCoordinateDigit(v)} />)
             }
-        </fieldset>
-    )
+        </div>
+        {
+            rows.map((value, index) =>
+                <div key={index} className='battlefield-cells-row'>
+                    <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])} />
+                    {
+                        coordinates
+                            .slice(size * index, size * (1 + index))
+                            .map((v) => {
+                                const cell = model.getCellByCoordinate(v);
+
+                                return <Cell key={cell.coordinate} {...cell} />;
+                            })
+                    }
+                </div>
+            )
+        }
+    </fieldset>;
 };
 
 Battlefield.propTypes = {
