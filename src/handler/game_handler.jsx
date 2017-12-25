@@ -8,10 +8,10 @@ import '../stylesheets/css/common.css';
 import '../stylesheets/css/game_handler.css';
 
 const GameHandler = ({ label, model }) =>
-<div className='handler game'>
-    <div className='handler-label'>{label}</div>
-    <Game model={model} />
-</div>;
+    <div className='handler game'>
+        <div className='handler-label'>{label}</div>
+        <Game model={model} />
+    </div>;
 
 GameHandler.propTypes = {
     className: PropTypes.string,
