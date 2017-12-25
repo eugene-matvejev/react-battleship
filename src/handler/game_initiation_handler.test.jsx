@@ -30,11 +30,11 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
             expect(component.state('opponents')).toBe(maxOpponents);
         });
 
-        it(`should generate & render additional cells as game size changed from ${minSize} to ${maxSize}`, () => {
+        it(`should generate & render additional cells as game size changed from ${minGameSize} to ${maxGameSize}`, () => {
             const component = shallow(<GameInitiationHandler {...defaultProps} />);
-            component.find(`Slider`).at(1).simulate('change', maxSize);
+            component.find(`Slider`).at(1).simulate('change', maxGameSize);
 
-            const expected = maxSize ** 2;
+            const expected = maxGameSize ** 2;
             const cells = component.find('Battlefield').prop('model').cellsIndexedByCoordinate;
 
             expect(Object.keys(cells).length).toBe(expected);
