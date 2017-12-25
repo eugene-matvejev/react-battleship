@@ -7,14 +7,14 @@ configure({ adapter: new Adapter() });
 
 describe(`handler:: <GameInitiationHandler/>`, () => {
     const defaultProps = {
-        minSize: 1,
-        maxSize: 2,
-        minOpponents: 3,
-        maxOpponents: 4,
-        onSubmit: () => { }
+        minGameSize: 1,
+        maxGameSize: 2,
+        minOpponents: 1,
+        maxOpponents: 2,
+        onSubmit: () => { },
     };
 
-    const { minSize, maxSize, minOpponents, maxOpponents } = defaultProps;
+    const { minGameSize, maxGameSize, minOpponents, maxOpponents } = defaultProps;
 
     describe(`render`, () => {
         it(`it renders without crash`, () => {

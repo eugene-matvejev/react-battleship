@@ -1,16 +1,9 @@
 {
-    "cell": {
-        "flags": {
-            "none": 0,
-            "dead": 1,
-            "ship": 2
-        }
-    },
-    "game": {
-        "maxOpponents": 3,
-        "minSize": 5,
-        "maxSize": 10
-    },
+    "minGameSize": 5,
+    "maxGameSize": 10,
+    "minOpponents": 1,
+    "maxOpponents": 3,
+
     "api": {
         "host": "http://localhost:80/app_dev.php"
     }
