@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { generateGame } from './service/generator';
+import { NavigationSideBar } from './component'
 import {
     GameHandler,
     GameInitiationHandler,
     GameResultsHandler,
-    NavigationHandler as NavigationSideBar,
 } from './handler';
 import config from './parameters.json';
 

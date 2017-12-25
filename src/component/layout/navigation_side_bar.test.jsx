@@ -1,11 +1,11 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { NavigationHandler } from './';
+import { NavigationSideBar } from '../';
 
 configure({ adapter: new Adapter() });
 
-describe(`<NavigationHandler/>`, () => {
+describe(`<NavigationSideBar/>`, () => {
     const props = {
         routes: [
             { path: '/1', label: 'label1' },
@@ -15,14 +15,14 @@ describe(`<NavigationHandler/>`, () => {
 
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            shallow(<NavigationHandler {...props} />);
+            shallow(<NavigationSideBar {...props} />);
         });
 
         describe(`::onClick [.btn.btn-close]`, () => {
             describe(`internal state {hidden} get toggled`, () => {
                 [true, false].forEach((v) => {
                     it(`inititial: ${v}, expected: ${!v}`, () => {
-                        const el = shallow(<NavigationHandler {...props} hiddenOnMount={v} />);
+                        const el = shallow(<NavigationSideBar {...props} hiddenOnMount={v} />);
 
                         el.find('.btn.btn-close').simulate('click');
                         const { hidden } = el.state();
@@ -40,7 +40,7 @@ describe(`<NavigationHandler/>`, () => {
                             result = val;
                         };
 
-                        const el = shallow(<NavigationHandler {...props} onToggle={onToggle} hiddenOnMount={v} />);
+                        const el = shallow(<NavigationSideBar {...props} onToggle={onToggle} hiddenOnMount={v} />);
 
                         el.find('.btn.btn-close').simulate('click');
 
