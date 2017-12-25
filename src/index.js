@@ -31,7 +31,7 @@ const routes = [
     },
 ];
 
-const WebApp = ({routes, children}) => [
+const WebApp = ({routes}) => [
     <NavigationSideBar routes={routes} key={'navbar'}/>,
     <Switch key={'content'}>
     {
@@ -43,7 +43,6 @@ const WebApp = ({routes, children}) => [
 ReactDOM.render(
     <BrowserRouter forceRefresh={true}>
         <WebApp routes={routes}/>
-        {/* </WebApp> */}
     </BrowserRouter>,
     document.getElementById('content-area')
 );
