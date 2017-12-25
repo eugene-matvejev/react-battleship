@@ -6,14 +6,21 @@ import { NavigationHandler } from './';
 configure({ adapter: new Adapter() });
 
 describe(`<NavigationHandler/>`, () => {
+    const props = {
+        routes: [
+            { path: '/1', label: 'label1' },
+            { path: '/2', label: 'label2' },
+        ],
+    };
+
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            shallow(<NavigationHandler />);
+            shallow(<NavigationHandler {...props}/>);
         });
 
         describe(`::onClick`, () => {
             it(`onClick [.btn.btn-close] state: hidden toggled`, () => {
-                const el = shallow(<NavigationHandler hiddenOnMount={false} />);
+                const el = shallow(<NavigationHandler {...props} hiddenOnMount={false} />);
 
                 el.find('.btn.btn-close').simulate('click');
                 const state = el.state();
@@ -27,7 +34,7 @@ describe(`<NavigationHandler/>`, () => {
                     toggled = !toggled;
                 };
 
-                const el = shallow(<NavigationHandler onToggle={onToggle} />);
+                const el = shallow(<NavigationHandler {...props} onToggle={onToggle} />);
 
                 el.find('.btn.btn-close').simulate('click');
 
