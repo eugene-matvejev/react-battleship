@@ -26,7 +26,7 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 
 ## used technologies
  * node.js v6+
- * react.js
+ * react.js v16+
  * jest
  * enzyme
  * npm
