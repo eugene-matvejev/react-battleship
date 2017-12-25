@@ -16,7 +16,9 @@ export default class GameInitiationHandler extends Component {
         };
 
         this.reset = this.reset.bind(this);
-        this.handleOnClick = this.handleOnClick.bind(this);
+        this.handleOnSubmit = this.handleOnSubmit.bind(this);
+        this.handleGameSizeChange = this.handleGameSizeChange.bind(this);
+        this.handleOpponentsChange = this.handleOpponentsChange.bind(this);
     }
 
     render() {
@@ -24,24 +26,31 @@ export default class GameInitiationHandler extends Component {
         const { opponents, size, model } = this.state;
 
         return <div className={`handler game-initiation ${className}`}>
-            <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={(v) => this.reset('opponents', v)} />
+            <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={this.handleOpponentsChange} />
             <div className='opponents-placeholder'>
-                {opponents} x <span className={`fa fa-user-circle`} />
+                opponents x {opponents}
             </div>
-            <Slider min={minGameSize} max={maxGameSize} value={size} onChange={(v) => this.reset('size', v)} />
+            <Slider min={minGameSize} max={maxGameSize} value={size} onChange={this.handleGameSizeChange} />
             <Battlefield model={model} />
-
-            <button onClick={this.handleOnClick}>inititate game</button>
-        </div>
+            <button onClick={this.handleOnSubmit}>inititate game</button>
+        </div>;
     }
 
-    handleOnClick() {
+    handleOnSubmit() {
         const { size, opponents } = this.state;
         const { onSubmit } = this.props;
 
         const model = generateGame(1 + opponents, size);
 
         onSubmit(model);
+    }
+
+    handleGameSizeChange(v) {
+        this.reset('size', v);
+    }
+
+    handleOpponentsChange(v) {
+        this.reset('opponents', v);
     }
 
     /**
