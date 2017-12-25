@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../stylesheets/css/common.css';
+import '../stylesheets/css/overwritten.css';
 import '../stylesheets/css/navigation_handler.css';
 
 export default class NavigationHandler extends Component {
@@ -25,7 +26,7 @@ export default class NavigationHandler extends Component {
 
     render() {
         const { hidden } = this.state;
-        const { className, label } = this.props;
+        const { className, label, routes } = this.props;
 
         return <div className={`wrapper navigation`}>
             <div className={`handler navigation ${className} ${hidden ? 'toggled' : ''}`}>
@@ -34,11 +35,9 @@ export default class NavigationHandler extends Component {
                     <sub> v{React.version}</sub>
                 </div>
                 <span className='btn btn-close' onClick={this.onToggleClick} />
-                <ul>
-                    <li><Link to='/game-current'>current game</Link></li>
-                    <li><Link to='/game-new'>new game</Link></li>
-                    <li><Link to='/game-results'>previous game results</Link></li>
-                </ul>
+                <ul> {
+                    routes.map((el, key) => <li key={key}><Link to={el.path}>{el.label}</Link></li>)
+                } </ul>
             </div>
             <span className={`btn btn-open ${hidden ? 'toggled' : ''}`} onClick={this.onToggleClick} />
         </div>;
@@ -46,6 +45,7 @@ export default class NavigationHandler extends Component {
 
     static propTypes = {
         className: PropTypes.string,
+        routes: PropTypes.arrayOf(PropTypes.object).isRequired,
         label: PropTypes.string,
         hiddenOnMount: PropTypes.bool,
         onToggle: PropTypes.func,

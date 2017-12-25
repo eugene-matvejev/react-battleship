@@ -1,13 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppKernel from './app/app_kernel';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+// import { RouteSwitch } from './webapp';
+import { generateGame } from './service/generator';
+import {
+    GameHandler,
+    GameInitiationHandler,
+    GameResultsHandler,
+    NavigationHandler
+} from './handler';
 import config from './parameters.json';
 
-const props = {
-    config: config,
-    closures: {
-        gameInitiation: (v) => console.log('props.config.onSubmit called'),
-    }
-}
+const store = {
+    game: generateGame(2, 10),
+};
 
-ReactDOM.render(<AppKernel {...props} />, document.getElementById('content-area'));
+const routes = [
+    {
+        path: '/game/new',
+        label: 'start new game',
+        component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }}/>,
+    },
+    {
+        path: '/game',
+        label: 'game in process',
+        component: () => <GameHandler model={store.game} />,
+    },
+    {
+        path: '/game/results',
+        label: 'previous game results',
+        component: () => <GameResultsHandler currentPage={1} totalPage={5} />,
+    },
+];
+const RouteSwitch = ({routes}) => <Switch>
+{
+    routes.map(({ path, component }, key) => <Route key={key} path={path} component={component}/>)
+}
+</Switch>;
+
+// RouteSwitch.propTypes = {
+//     routes: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
+
+ReactDOM.render(
+    <BrowserRouter forceRefresh={true}>
+        <NavigationHandler routes={routes}>
+            <RouteSwitch routes={routes}/>
+        </NavigationHandler>
+    </BrowserRouter>,
+    document.getElementById('content-area')
+);

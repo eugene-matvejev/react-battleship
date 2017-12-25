@@ -24,7 +24,7 @@ export default class GameInitiationHandler extends Component {
     render() {
         const { className, minGameSize, maxGameSize, minOpponents, maxOpponents } = this.props;
         const { opponents, size, model } = this.state;
-
+        debugger;
         return <div className={`handler game-initiation ${className}`}>
             <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={this.handleOpponentsChange} />
             <div className='opponents-placeholder'>
