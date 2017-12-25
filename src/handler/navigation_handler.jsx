@@ -5,7 +5,7 @@ import '../stylesheets/css/common.css';
 import '../stylesheets/css/overwritten.css';
 import '../stylesheets/css/navigation_handler.css';
 
-export default class SidebarNav extends Component {
+export default class NavigationHandler extends Component {
     constructor({ hiddenOnMount }) {
         super();
 
