@@ -28,7 +28,7 @@ export default class GameInitiationHandler extends Component {
             <div className='opponents-placeholder'>
                 {opponents} x <span className={`fa fa-user-circle`} />
             </div>
-            <Slider min={minSize} max={maxSize} value={size} onChange={(v) => this.reset('size', v)} />
+            <Slider min={minGameSize} max={maxGameSize} value={size} onChange={(v) => this.reset('size', v)} />
             <Battlefield model={model} />
 
             <button onClick={this.handleOnClick}>inititate game</button>
