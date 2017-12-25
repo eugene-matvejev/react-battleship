@@ -15,30 +15,38 @@ describe(`<NavigationHandler/>`, () => {
 
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            shallow(<NavigationHandler {...props}/>);
+            shallow(<NavigationHandler {...props} />);
         });
 
-        describe(`::onClick`, () => {
-            it(`onClick [.btn.btn-close] state: hidden toggled`, () => {
-                const el = shallow(<NavigationHandler {...props} hiddenOnMount={false} />);
+        describe(`::onClick [.btn.btn-close]`, () => {
+            describe(`internal state {hidden} get toggled`, () => {
+                [true, false].forEach((v) => {
+                    it(`inititial: ${v}, expected: ${!v}`, () => {
+                        const el = shallow(<NavigationHandler {...props} hiddenOnMount={v} />);
 
-                el.find('.btn.btn-close').simulate('click');
-                const state = el.state();
+                        el.find('.btn.btn-close').simulate('click');
+                        const { hidden } = el.state();
 
-                expect(state.hidden).toBe(true);
+                        expect(hidden).toBe(!v);
+                    });
+                });
             });
 
-            it(`onClick [.btn.btn-close] onToggle callback works`, () => {
-                let toggled = false;
-                const onToggle = () => {
-                    toggled = !toggled;
-                };
+            describe(`onToggle callback`, () => {
+                [true, false].forEach((v) => {
+                    it(`new value of internal state {hidden} get passed to callback: initial ${v}, expected on callback: ${!v}`, () => {
+                        let result = undefined;
+                        const onToggle = (val) => {
+                            result = val;
+                        };
 
-                const el = shallow(<NavigationHandler {...props} onToggle={onToggle} />);
+                        const el = shallow(<NavigationHandler {...props} onToggle={onToggle} hiddenOnMount={v} />);
 
-                el.find('.btn.btn-close').simulate('click');
+                        el.find('.btn.btn-close').simulate('click');
 
-                expect(toggled).toBe(true);
+                        expect(result).toBe(!v);
+                    });
+                });
             });
         });
     });

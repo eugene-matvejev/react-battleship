@@ -16,12 +16,14 @@ export default class NavigationHandler extends Component {
         this.onToggleClick = this.onToggleClick.bind(this);
     }
 
-    onToggleClick(v) {
+    onToggleClick() {
         const { onToggle } = this.props;
+        const { hidden } = this.state;
+        const v = !hidden;
 
-        this.setState({ hidden: !v });
+        this.setState({ hidden: v });
 
-        onToggle();
+        onToggle(v);
     };
 
     render() {
