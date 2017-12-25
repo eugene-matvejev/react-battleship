@@ -9,7 +9,7 @@ export default class GameResultsHandler extends Component {
         super();
 
         this.state = {
-            data: [
+            data: [ /** mocked data */
                 { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
                 { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
                 { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },

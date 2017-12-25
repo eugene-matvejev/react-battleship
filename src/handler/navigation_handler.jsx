@@ -5,7 +5,7 @@ import '../stylesheets/css/common.css';
 import '../stylesheets/css/overwritten.css';
 import '../stylesheets/css/navigation_handler.css';
 
-export default class NavigationHandler extends Component {
+export default class SidebarNav extends Component {
     constructor({ hiddenOnMount }) {
         super();
 
@@ -26,7 +26,7 @@ export default class NavigationHandler extends Component {
 
     render() {
         const { hidden } = this.state;
-        const { className, label, routes } = this.props;
+        const { className, label, routes, children } = this.props;
 
         return <div className={`wrapper navigation`}>
             <div className={`handler navigation ${className} ${hidden ? 'toggled' : ''}`}>
@@ -35,11 +35,10 @@ export default class NavigationHandler extends Component {
                     <sub> v{React.version}</sub>
                 </div>
                 <span className='btn btn-close' onClick={this.onToggleClick} />
-                <ul> {
-                    routes.map((el, key) => <li key={key}><Link to={el.path}>{el.label}</Link></li>)
-                } </ul>
+                <ul>{ routes.map(({path, label}, key) => <li key={key}><Link to={path}>{label}</Link></li>) }</ul>
             </div>
             <span className={`btn btn-open ${hidden ? 'toggled' : ''}`} onClick={this.onToggleClick} />
+            <div>{ children }</div>
         </div>;
     }
 

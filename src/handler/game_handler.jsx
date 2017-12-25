@@ -7,14 +7,11 @@ import '../stylesheets/css/overwritten.css';
 import '../stylesheets/css/common.css';
 import '../stylesheets/css/game_handler.css';
 
-const GameHandler = ({ label, model }) => {
-    debugger;
-
-    return <div className='handler game'>
-        <div className='handler-label'>{label}</div>
-        <Game model={model} />
-    </div>
-};
+const GameHandler = ({ label, model }) =>
+<div className='handler game'>
+    <div className='handler-label'>{label}</div>
+    <Game model={model} />
+</div>;
 
 GameHandler.propTypes = {
     className: PropTypes.string,
