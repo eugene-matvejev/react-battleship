@@ -6,7 +6,10 @@ html, body, .navigator-container {
 }
 
 body {
-    display: flex;
+    &, & > .content-container { 
+        display: flex;
+    }
+
     margin: 0;
     padding: 0;
 
