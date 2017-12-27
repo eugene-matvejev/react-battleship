@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/css/common.css';
-import '../../stylesheets/css/overwritten.css';
-import '../../stylesheets/css/navigation_handler.css';
+import '../../stylesheets/css/navigation_side_bar.css';
 
 export default class NavigationSideBar extends Component {
     constructor({ hiddenOnMount }) {
@@ -31,8 +30,8 @@ export default class NavigationSideBar extends Component {
         const { className, label, routes } = this.props;
 
         return <div className={`wrapper navigation`}>
-            <div className={`handler navigation ${className} ${hidden ? 'toggled' : ''}`}>
-                <div className='handler-label'>
+            <div className={`component navigation ${className} ${hidden ? 'toggled' : ''}`}>
+                <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
                 </div>
