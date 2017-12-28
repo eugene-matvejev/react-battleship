@@ -6,6 +6,10 @@
         width: @navigation-handler-width;
     }
 
+    &.label, ul li a {
+        padding: 0 1rem 0 1rem;
+    }
+
     & + .btn {
         right: inherit;
         visibility: hidden;
@@ -28,10 +32,6 @@
     &.toggled {
         width: 0;
         transition: all .5s ease;
-    }
-
-    .component-label, ul li a {
-        padding: 0 1rem 0 1rem;
     }
 
     ul {

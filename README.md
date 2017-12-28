@@ -16,7 +16,7 @@
 | _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link] | [![coverage][codecov.io-heroku-badge]][codecov.io-heroku-link]
 
 # Battleship Game GUI [on react.js]
-project target re-do https://github.com/eugene-matvejev/battleship-game-gui using react.js
+project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-matvejev/battleship-game-gui) on react.js, [DEMO](https://battleship-game-gui-react-js.herokuapp.com/)
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
 
@@ -26,15 +26,15 @@ project target re-do https://github.com/eugene-matvejev/battleship-game-gui usin
 
 ## used technologies
  * node.js v6+
- * react.js
+ * react.js v16+
  * jest
  * enzyme
  * npm
  * yarn
   
 ## used enviroment variables
- * __BASE_URL__ - API endpoint host example: `https://api.game.local`
-   * `$ export BASE_URL="https://api.game.local"`
+ * __BASE_URL__ - API endpoint host
+   * example: `$ export BASE_URL="https://api.game.local"`
  
 ## how to install
  * `$ npm start` - execute `$ npm run generate:all`, then starts lite-server with file watcher and `generate:css:w`
