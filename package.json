@@ -29,7 +29,7 @@
     "test": "react-scripts test --env=jsdom --verbose",
     "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "lessc-each src/stylesheets/less/component src/stylesheets/css --verbose; lessc-each src/stylesheets/less/handler src/stylesheets/css --verbose;",
+    "generate:css": "lessc-each src/stylesheets/less/component src/stylesheets/css/component --verbose; lessc-each src/stylesheets/less/handler src/stylesheets/css/handler --verbose; lessc src/stylesheets/less/common.less src/stylesheets/css/common.css --verbose;",
     "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
   },
   "jest": {
