@@ -24,7 +24,7 @@ const Battlefield = ({ model, className }) => {
             }
         </div>
         {
-            rows.map(({}, index) =>
+            rows.map((v, index) =>
                 <div key={index} className='battlefield-cells-row'>
                     { /** left decoration cell */ }
                     <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])} />
