@@ -1,19 +1,24 @@
 @navigation-handler-width: 21rem;
 
-.handler.navigation, .handler.navigation li, .handler.navigation .handler-label {
-    width: @navigation-handler-width;
-}
-
-.handler.navigation + .btn {
-    right: inherit;
-    visibility: hidden;
-
-    &.toggled {
-        visibility: visible;
+.component.navigation {
+    &,  & li, & > .label {
+        height: 100%;
+        width: @navigation-handler-width;
     }
-}
 
-.handler.navigation {
+    &.label, ul li a {
+        padding: 0 1rem 0 1rem;
+    }
+
+    & + .btn {
+        right: inherit;
+        visibility: hidden;
+
+        &.toggled {
+            visibility: visible;
+        }
+    }
+
     z-index: 1;
     background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
     position: relative;
@@ -27,10 +32,6 @@
     &.toggled {
         width: 0;
         transition: all .5s ease;
-    }
-
-    .handler-label, ul li a {
-        padding: 0 1rem 0 1rem;
     }
 
     ul {
