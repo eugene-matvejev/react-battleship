@@ -10,7 +10,7 @@
         background: @player-field-opponent-bg-color;
     }
 
-    .player-avatar {
+    .avatar {
         display: inline-block;
 
         &, img {
@@ -18,17 +18,18 @@
             width: @player-field-avatar-size;
         }
     }
-    .player-name, .player-score {
+
+    .name, .score {
         position: absolute;
         left: @player-field-avatar-size + 1;
         line-height: @player-field-avatar-size / 3;
     }
 
-    .player-name {
+    .name {
         top: 0;
     }
 
-    .player-score {
+    .score {
         top: @player-field-avatar-size / 3;
     }
 }

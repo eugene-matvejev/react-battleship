@@ -5,7 +5,7 @@ import { GameModel } from '../../model';
 import '../../stylesheets/css/game.css';
 
 const Game = ({ model, className }) =>
-    <div className={`component battlefield-game ${className}`}>
+    <div className={`component game ${className}`}>
         {
             model.battlefields.map((battlefield, key) =>
                 <div key={key} className='col-md-6'>

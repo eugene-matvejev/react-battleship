@@ -8,12 +8,12 @@ const Player = ({ className, name, score, byteSeq, avatarSrc }) => {
     };
 
     return (
-        <div className={`component battlefield-player ${className}`} {...attributes}>
-            <div className='player-avatar'>
+        <div className={`component player ${className}`} {...attributes}>
+            <div className='avatar'>
                 <img src={avatarSrc} alt='avatar pic' />
             </div>
-            <div className='player-name'>{name}</div>
-            <div className='player-score'>{score}</div>
+            <div className='name'>{name}</div>
+            <div className='score'>{score}</div>
         </div>
     );
 };
@@ -26,7 +26,7 @@ Player.propTypes = {
         PropTypes.string,
     ]),
     byteSeq: PropTypes.number,
-    avatarSrc: PropTypes.string
+    avatarSrc: PropTypes.string,
 };
 
 Player.defaultProps = {
