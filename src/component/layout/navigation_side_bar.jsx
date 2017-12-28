@@ -34,9 +34,9 @@ export default class NavigationSideBar extends Component {
                 <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
+                    <span className='btn btn-close' onClick={this.onToggleClick} />
                 </div>
-                <span className='btn btn-close' onClick={this.onToggleClick} />
-                <ul>{ routes.map(({path, label}, key) => <li key={key}><Link to={path}>{label}</Link></li>) }</ul>
+                <ul>{routes.map(({ path, label }, key) => <li key={key}><Link to={path}>{label}</Link></li>)}</ul>
             </div>
             <span className={`btn btn-open ${hidden ? 'toggled' : ''}`} onClick={this.onToggleClick} />
         </div>;
