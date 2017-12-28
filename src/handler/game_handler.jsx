@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Game } from '../component';
 import { GameModel } from '../model';
-import 'react-rangeslider/lib/index.css';
-import '../stylesheets/css/game_handler.css';
+import '../stylesheets/css/handler/game_handler.css';
 
 const GameHandler = ({ label, model }) =>
     <div className='handler game'>
