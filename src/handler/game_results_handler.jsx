@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Pagination } from '../component';
-import '../stylesheets/css/common.css';
-import '../stylesheets/css/game_results_handler.css';
+import '../stylesheets/css/handler/game_results_handler.css';
 
 export default class GameResultsHandler extends Component {
     constructor({currentPage, totalPages}) {
@@ -33,8 +32,8 @@ export default class GameResultsHandler extends Component {
 
         return (
             <div className='handler game-results' onKeyDown={this.keyDownEventHandler}>
-                <div className='handler-label'>{label}</div>
-                <div className='handler-content'>
+                <div className='label'>{label}</div>
+                <div className='content'>
                     <table>
                         <tbody>
                         <tr>

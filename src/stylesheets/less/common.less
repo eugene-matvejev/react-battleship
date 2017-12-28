@@ -1,12 +1,14 @@
+@handler-label-size: 3rem;
+
 @link-color: #fff;
 @button-size: 3rem;
 
-html, body, .navigator-container {
+html, body, .component.navigation {
     height: 100%;
 }
 
 body {
-    &, & > .content-container { 
+    &, & > .content-container {
         display: flex;
     }
 
@@ -18,29 +20,16 @@ body {
     background: linear-gradient(to bottom, rgb(32, 23, 99) 0%, rgb(31, 19, 95) 40%, #a94442 100%) center center / cover fixed;
 }
 
-.handler {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-
-    .handler-content {
-        width: 100%;
-    }
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 a {
     text-decoration: none;
 
-    &:link {
-        color: @link-color;
-    }
-    &:visited {
-        color: @link-color;
-    }
-    &:hover {
-        color: @link-color;
-    }
-    &:active {
+    &:active, &:link, &:visited, &:hover {
         color: @link-color;
     }
 }
@@ -97,8 +86,29 @@ a {
     cursor: pointer;
 }
 
-fieldset {
-    margin: 0;
-    padding: 0;
-    border: none;
+.handler {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    &.content {
+        width: 100%;
+    }
+
+    &.label {
+        font-size: @handler-label-size / 2;
+        line-height: @handler-label-size;
+        height: @handler-label-size;
+
+        color: white;
+        text-transform: lowercase;
+        border: none;
+        border-bottom: 1px solid white;
+        margin: 0 0 2rem 0;
+        position: relative;
+
+        sub {
+            font-size: @handler-label-size / 4;
+        }
+    }
 }
