@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Slider from 'react-rangeslider';
 import { Battlefield } from '../component';
 import { generateBattlefield, generateGame } from '../service/generator';
-import '../stylesheets/css/game_initiation_handler.css';
+import 'react-rangeslider/lib/index.css';
+import '../stylesheets/css/handler/game_initiation_handler.css';
 
 export default class GameInitiationHandler extends Component {
     constructor({ minGameSize, minOpponents }) {
