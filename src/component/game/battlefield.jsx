@@ -7,7 +7,7 @@ import '../../stylesheets/css/battlefield.css';
 const Battlefield = ({ model, className }) => {
     const attributes = {
         'data-player-id': 'unk',
-        'data-player-flags': 'unk'
+        'data-player-flags': 'unk',
     };
 
     const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
