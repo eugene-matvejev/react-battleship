@@ -51,13 +51,12 @@ export default class GameResultsHandler extends Component {
                         </tbody>
                     </table>
                     <Pagination
-                        current={currentPage}
-                        total={totalPages}
-                        onClickCallback={paginationOnClickCallback}
+                        current={current}
+                        total={total}
+                        onClickCallback={this.handleOnClickCallback}
                     />
                 </div>
-            </div>
-        </div>;
+            </div>;
     }
 
     keyDownEventHandler(event) {
