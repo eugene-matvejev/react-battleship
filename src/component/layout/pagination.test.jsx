@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 describe(`component:: <Pagination/>`, () => {
     describe(`::render`, () => {
         it(`renders without crash`, () => {
-            shallow(<Pagination currentPage={1} totalPages={1} onClickCallback={() => { }} />);
+            shallow(<Pagination current={1} total={1} onClickCallback={() => { }} />);
         });
 
         describe(`::onClickCallback`, () => {
@@ -19,20 +19,19 @@ describe(`component:: <Pagination/>`, () => {
                 { className: 'prev', current: 1, total: 1, expected: 1 }, /** expected callback not to be called */
                 { className: 'prev', current: 1, total: 2, expected: 1 }, /** expected callback not to be called */
                 { className: 'prev', current: 2, total: 2, expected: 1 },
-            ].forEach((el) => {
-                it(`on '.${el.className}' current: ${el.current}, total: ${el.total}, expected: ${el.expected}`, () => {
-                    let expectedPageNumber = el.current;
+            ].forEach(({className, current, total, expected}) => {
+                it(`on '.${className}' current: ${current}, total: ${total}, expected: ${expected}`, () => {
+                    let val = current;
+
                     const onClickCallback = (v) => {
-                        expectedPageNumber = v;
+                        val = v;
                     };
+                    const props = { current, total, onClickCallback };
+                    const component = shallow(<Pagination {...props} />);
 
-                    const component = shallow(
-                        <Pagination currentPage={el.current} totalPages={el.total} onClickCallback={onClickCallback} />
-                    );
+                    component.find(`.${className}`).simulate('click');
 
-                    component.find(`.${el.className}`).simulate('click');
-
-                    expect(expectedPageNumber).toBe(el.expected);
+                    expect(val).toBe(expected);
                 });
             });
         });
