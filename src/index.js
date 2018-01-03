@@ -23,7 +23,7 @@ const routes = [
     {
         path: '/results',
         label: 'previous game results',
-        component: () => <GameResultsHandler currentPage={1} totalPages={5} />,
+        component: () => <GameResultsHandler current={1} total={5} />,
     },
 ];
 
