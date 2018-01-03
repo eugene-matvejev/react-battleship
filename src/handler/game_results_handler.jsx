@@ -51,8 +51,8 @@ export default class GameResultsHandler extends Component {
                         </tbody>
                     </table>
                     <Pagination
-                        currentPage={currentPage}
-                        totalPages={totalPages}
+                        current={currentPage}
+                        total={totalPages}
                         onClickCallback={paginationOnClickCallback}
                     />
                 </div>
