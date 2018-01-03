@@ -30,16 +30,18 @@ export default class NavigationSideBar extends Component {
         const { hidden } = this.state;
         const toggledClassName = hidden ? 'toggled' : '';
 
-        return <div className={`wrapper navigation`}>
-            <div className={`component navigation ${className} ${toggledClassName}`}>
+        return <div className={`wrapper navigation ${toggledClassName}`}>
+            <div className='component navigation'>
                 <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
                     <span className='btn btn-close' onClick={this.onToggleClick} />
                 </div>
-                <ul>{ routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>) }</ul>
+                <ul>
+                    {routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>)}
+                </ul>
             </div>
-            <span className={`btn btn-open ${toggledClassName}`} onClick={this.onToggleClick} />
+            <span className='btn btn-open' onClick={this.onToggleClick} />
         </div>;
     }
 
