@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Slider from 'react-rangeslider';
 import { Battlefield } from '../component';
 import { generateBattlefield, generateGame } from '../service/generator';
-import '../stylesheets/css/game_initiation_handler.css';
+import 'react-rangeslider/lib/index.css';
+import '../stylesheets/css/handler/game_initiation_handler.css';
 
 export default class GameInitiationHandler extends Component {
     constructor({ minGameSize, minOpponents }) {
@@ -22,10 +23,11 @@ export default class GameInitiationHandler extends Component {
     }
 
     render() {
-        const { className, minGameSize, maxGameSize, minOpponents, maxOpponents } = this.props;
+        const { className, label, minGameSize, maxGameSize, minOpponents, maxOpponents } = this.props;
         const { opponents, size, model } = this.state;
 
         return <div className={`handler game-initiation ${className}`}>
+            <div className='label'>{label}</div>
             <Slider min={minOpponents} max={maxOpponents} value={opponents} onChange={this.handleOpponentsChange} />
             <div className='opponents-placeholder'>
                 opponents x {opponents}
@@ -67,6 +69,7 @@ export default class GameInitiationHandler extends Component {
 
     static propTypes = {
         className: PropTypes.string,
+        label: PropTypes.label,
         onSubmit: PropTypes.func.isRequired,
         minGameSize: PropTypes.number.isRequired,
         maxGameSize: PropTypes.number.isRequired,
@@ -76,6 +79,7 @@ export default class GameInitiationHandler extends Component {
 
     static defaultProps = {
         className: '',
+        label: '',
         minOpponents: 1,
     }
 }
