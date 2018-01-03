@@ -47,15 +47,14 @@ export default class NavigationSideBar extends Component {
 
     static propTypes = {
         className: PropTypes.string,
+        label: PropTypes.string.isRequired,
         routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-        label: PropTypes.string,
         hiddenOnMount: PropTypes.bool,
         onToggle: PropTypes.func,
     };
 
     static defaultProps = {
         className: '',
-        label: 'Battleship Game',
         hiddenOnMount: false,
         onToggle: () => { },
     };

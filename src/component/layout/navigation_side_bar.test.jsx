@@ -7,6 +7,7 @@ configure({ adapter: new Adapter() });
 
 describe(`<NavigationSideBar/>`, () => {
     const props = {
+        label: 'label',
         routes: [
             { path: '/1', label: 'label1' },
             { path: '/2', label: 'label2' },
