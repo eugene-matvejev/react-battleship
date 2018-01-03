@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { generateGame } from './service/generator';
 import { NavigationSideBar } from './component'
-import {
-    GameHandler,
-    GameInitiationHandler,
-    GameResultsHandler,
-} from './handler';
+import { GameHandler, GameInitiationHandler, GameResultsHandler } from './handler';
 import config from './parameters.json';
 
 const store = {
