@@ -1,5 +1,14 @@
 @navigation-handler-width: 21rem;
 
+.wrapper.navigation.toggled .component.navigation {
+    & + .btn {
+        visibility: visible;
+    }
+
+    width: 0;
+    transition: all .5s ease;
+}
+
 .component.navigation {
     width: @navigation-handler-width;
 
@@ -20,15 +29,6 @@
     & + .btn {
         right: inherit;
         visibility: hidden;
-
-        &.toggled {
-            visibility: visible;
-        }
-    }
-
-    &.toggled {
-        width: 0;
-        transition: all .5s ease;
     }
 
     transition: all .5s ease;
