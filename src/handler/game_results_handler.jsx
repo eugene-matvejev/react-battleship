@@ -48,13 +48,14 @@ export default class GameResultsHandler extends Component {
                                 <td>{timestamp}</td>
                             </tr>)
                         }
-                    </tbody>
-                </table>
-                <Pagination
-                    current={current}
-                    total={total}
-                    onClickCallback={this.handleOnClickCallback}
-                />
+                        </tbody>
+                    </table>
+                    <Pagination
+                        current={currentPage}
+                        total={totalPages}
+                        onClickCallback={paginationOnClickCallback}
+                    />
+                </div>
             </div>
         </div>;
     }
