@@ -69,7 +69,7 @@ export default class GameInitiationHandler extends Component {
 
     static propTypes = {
         className: PropTypes.string,
-        label: PropTypes.label,
+        label: PropTypes.string,
         onSubmit: PropTypes.func.isRequired,
         minGameSize: PropTypes.number.isRequired,
         maxGameSize: PropTypes.number.isRequired,
