@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe(`component:: <Battlefield/>`, () => {
     describe(`::render`, () => {
-        [2, 3, 5, 10, 15].forEach(size => {
+        [2, 3, 5, 10, 15].forEach((size) => {
             const expectedCellsAmount = (size + 1 /** because of 'decoration' cells */) ** 2;
             const model = generateBattlefield(size);
 
