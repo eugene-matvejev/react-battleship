@@ -30,7 +30,7 @@ export default class NavigationSideBar extends Component {
         const { hidden } = this.state;
         const toggledClassName = hidden ? 'toggled' : '';
 
-        return <div className={`wrapper navigation ${toggledClassName}`}>
+        return <div className={`wrapper navigation ${className} ${toggledClassName}`}>
             <div className='component navigation'>
                 <div className='label'>
                     {label}
