@@ -4,73 +4,72 @@ import { Pagination } from '../component';
 import '../stylesheets/css/handler/game_results_handler.css';
 
 export default class GameResultsHandler extends Component {
-    constructor({currentPage, totalPages}) {
+    constructor({ current, total }) {
         super();
 
         this.state = {
             data: [ /** mocked data */
                 { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 2, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 3, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 4, name: 'test', timestamp: (new Date()).toLocaleString(), },
+                { id: 5, name: 'test', timestamp: (new Date()).toLocaleString(), },
             ],
-            currentPage: currentPage,
-            totalPages: totalPages,
+            current,
+            total,
         }
 
         this.keyDownEventHandler = this.keyDownEventHandler.bind(this);
+        this.handleOnClickCallback = this.handleOnClickCallback.bind(this);
+    }
+
+    handleOnClickCallback(current) {
+        this.setState({ current });
     }
 
     render() {
-        const { label, tableHeaders } = this.props;
-        const { data, currentPage, totalPages } = this.state;
+        const { label, tableHeaders: { index: col0, col1, col2 } } = this.props;
+        const { data, current, total } = this.state;
 
-        const paginationOnClickCallback = (page) => {
-            this.setState({currentPage: page});
-        };
-
-        return (
-            <div className='handler game-results' onKeyDown={this.keyDownEventHandler}>
-                <div className='label'>{label}</div>
-                <div className='content'>
-                    <table>
-                        <tbody>
+        return <div className='handler game-results' onKeyDown={this.keyDownEventHandler}>
+            <div className='label'>{label}</div>
+            <div className='content'>
+                <table>
+                    <tbody>
                         <tr>
-                            <th>#</th>
-                            <th>{tableHeaders.playerName}</th>
-                            <th>{tableHeaders.timestamp}</th>
+                            <th>{col0}</th>
+                            <th>{col1}</th>
+                            <th>{col2}</th>
                         </tr>
                         {
-                            data.map((data, key) => <tr key={key}>
-                                <td>{data.id}</td>
-                                <td>{data.name}</td>
-                                <td>{data.timestamp}</td>
+                            data.map(({ id, name, timestamp }) => <tr key={id}>
+                                <td>{id}</td>
+                                <td>{name}</td>
+                                <td>{timestamp}</td>
                             </tr>)
                         }
-                        </tbody>
-                    </table>
-                    <Pagination
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        onClickCallback={paginationOnClickCallback}
-                    />
-                </div>
+                    </tbody>
+                </table>
+                <Pagination
+                    current={current}
+                    total={total}
+                    onClickCallback={this.handleOnClickCallback}
+                />
             </div>
-        );
+        </div>;
     }
 
     keyDownEventHandler(event) {
-        let v = this.state.currentPage;
+        let v = this.state.current;
 
         switch (event.code) {
             case 'ArrowRight':
                 v++;
-                this.setState({currentPage: v});
+                this.handleOnClickCallback(v);
                 break;
             case 'ArrowLeft':
                 v--;
-                this.setState({currentPage: v});
+                this.handleOnClickCallback(v);
                 break;
             default:
                 break;
@@ -78,30 +77,29 @@ export default class GameResultsHandler extends Component {
     };
 
     componentWillMount() {
-        document.addEventListener('keydown', this.keyDownEventHandler.bind(this));
+        document.addEventListener('keydown', this.keyDownEventHandler);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('keydown', this.keyDownEventHandler.bind(this));
+        document.removeEventListener('keydown', this.keyDownEventHandler);
     }
 
     static propTyps = {
+        label: PropTypes.string.isRequired,
         className: PropTypes.string,
-        currentPage: PropTypes.number,
-        totalPages: PropTypes.number,
-        label: PropTypes.string,
-        tableHeaders: PropTypes.object
+        current: PropTypes.number,
+        total: PropTypes.number,
+        tableHeaders: PropTypes.object,
     };
 
     static defaultProps = {
         className: '',
-        currentPage: 1,
-        totalPages: 1,
-        label: 'previous games results',
+        current: 1,
+        total: 1,
         tableHeaders: {
             index: '#',
-            playerName: 'player name',
-            timestamp: 'time',
+            col1: 'player name',
+            col2: 'time',
         },
     };
 }
