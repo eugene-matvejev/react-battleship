@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/css/common.css';
-import '../../stylesheets/css/overwritten.css';
-import '../../stylesheets/css/navigation_handler.css';
+import '../../stylesheets/css/component/navigation_side_bar.css';
 
 export default class NavigationSideBar extends Component {
     constructor({ hiddenOnMount }) {
@@ -11,7 +10,7 @@ export default class NavigationSideBar extends Component {
 
         this.state = {
             hidden: hiddenOnMount,
-        }
+        };
 
         this.onToggleClick = this.onToggleClick.bind(this);
     }
@@ -24,22 +23,23 @@ export default class NavigationSideBar extends Component {
         this.setState({ hidden: v });
 
         onToggle(v);
-    };
+    }
 
     render() {
-        const { hidden } = this.state;
         const { className, label, routes } = this.props;
+        const { hidden } = this.state;
+        const toggledClassName = hidden ? 'toggled' : '';
 
         return <div className={`wrapper navigation`}>
-            <div className={`handler navigation ${className} ${hidden ? 'toggled' : ''}`}>
-                <div className='handler-label'>
+            <div className={`component navigation ${className} ${toggledClassName}`}>
+                <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
+                    <span className='btn btn-close' onClick={this.onToggleClick} />
                 </div>
-                <span className='btn btn-close' onClick={this.onToggleClick} />
-                <ul>{ routes.map(({path, label}, key) => <li key={key}><Link to={path}>{label}</Link></li>) }</ul>
+                <ul>{ routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>) }</ul>
             </div>
-            <span className={`btn btn-open ${hidden ? 'toggled' : ''}`} onClick={this.onToggleClick} />
+            <span className={`btn btn-open ${toggledClassName}`} onClick={this.onToggleClick} />
         </div>;
     }
 

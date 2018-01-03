@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/css/cell.css';
+import '../../stylesheets/css/component/cell.css';
 
 const Cell = ({ className, coordinate, byteSeq }) => {
     const attributes = {
         'data-byte-sequence': byteSeq,
     };
 
-    return <div className={`component battlefield-cell ${className}`} {...attributes}>{coordinate}</div>;
+    return <div className={`component cell ${className}`} {...attributes}>{coordinate}</div>;
 };
 
 Cell.propTypes = {

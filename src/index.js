@@ -15,7 +15,7 @@ const store = {
 };
 const routes = [
     {
-        path: '/new',
+        path: '/',
         label: 'start new game',
         component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }}/>,
     },
@@ -32,7 +32,7 @@ const routes = [
 ];
 
 const WebApp = ({routes}) => [
-    <NavigationSideBar routes={routes} key={'navbar'}/>,
+    <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
     <Switch key={'content'}>
     {
         routes.map(({path, component}, key) => <Route key={key} path={path} component={component}/>)

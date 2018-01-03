@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Cell } from '../';
 import { BattlefieldModel, CellModel } from '../../model';
-import '../../stylesheets/css/battlefield.css';
+import '../../stylesheets/css/component/battlefield.css';
 
 const Battlefield = ({ model, className }) => {
     const attributes = {
         'data-player-id': 'unk',
-        'data-player-flags': 'unk'
+        'data-player-flags': 'unk',
     };
 
     const coordinates = Object.keys(model.getCellsIndexedByCoordinate());
     const { size } = model;
     const rows = (new Array(size)).fill(1);
 
-    return <fieldset className={`component battlefield-cells ${className}`} {...attributes}>
-        <div className='battlefield-cells-row'>
+    return <fieldset className={`component battlefield ${className}`} {...attributes}>
+        <div className='cells-container'>
             <Cell />
             { /** top decoration cells */
                 coordinates
@@ -24,8 +24,8 @@ const Battlefield = ({ model, className }) => {
             }
         </div>
         {
-            rows.map(({}, index) =>
-                <div key={index} className='battlefield-cells-row'>
+            rows.map((v, index) =>
+                <div key={index} className='cells-container'>
                     { /** left decoration cell */ }
                     <Cell coordinate={CellModel.getCoordinateCharacter(coordinates[size * index])} />
                     {
