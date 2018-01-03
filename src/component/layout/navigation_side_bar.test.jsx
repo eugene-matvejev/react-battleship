@@ -37,8 +37,8 @@ describe(`<NavigationSideBar/>`, () => {
                 [true, false].forEach((v) => {
                     it(`new value of internal state {hidden} get passed to callback: initial ${v}, expected on callback: ${!v}`, () => {
                         let result = undefined;
-                        const onToggle = (val) => {
-                            result = val;
+                        const onToggle = (v) => {
+                            result = v;
                         };
 
                         const el = shallow(<NavigationSideBar {...props} onToggle={onToggle} hiddenOnMount={v} />);
