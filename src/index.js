@@ -15,7 +15,7 @@ const store = {
 };
 const routes = [
     {
-        path: '/new',
+        path: '/',
         label: 'start new game',
         component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }}/>,
     },
