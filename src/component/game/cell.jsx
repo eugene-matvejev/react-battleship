@@ -7,7 +7,7 @@ const Cell = ({ className, coordinate, byteSeq }) => {
         'data-byte-sequence': byteSeq,
     };
 
-    return <div className={`component battlefield-cell ${className}`} {...attributes}>{coordinate}</div>;
+    return <div className={`component cell ${className}`} {...attributes}>{coordinate}</div>;
 };
 
 Cell.propTypes = {

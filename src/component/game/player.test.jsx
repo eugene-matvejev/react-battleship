@@ -20,14 +20,14 @@ describe(`component:: <Player/>`, () => {
         it(`props been injected properly into DOMNode`, () => {
             const component = shallow(<Player {...model} />);
 
-            expect(component.find('.player-avatar').length).toBe(1);
+            expect(component.find('.avatar').length).toBe(1);
             expect(component.find('img').length).toBe(1);
             expect(component.find('img').getElement().props.alt).toBeDefined();
             expect(component.find('img').getElement().props.src).toBe(model.getAvatarSrc());
-            expect(component.find('.player-name').length).toBe(1);
-            expect(component.find('.player-name').text()).toBe(model.getName());
-            expect(component.find('.player-score').length).toBe(1);
-            expect(component.find('.player-score').text()).toBe(`${model.getScore()}`);
+            expect(component.find('.name').length).toBe(1);
+            expect(component.find('.name').text()).toBe(model.getName());
+            expect(component.find('.score').length).toBe(1);
+            expect(component.find('.score').text()).toBe(`${model.getScore()}`);
         });
     });
 });
