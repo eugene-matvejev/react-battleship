@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Battlefield, Player } from '../';
 import { GameModel } from '../../model';
-import '../../stylesheets/css/game.css';
+import '../../stylesheets/css/component/game.css';
 
 const Game = ({ model, className }) =>
     <div className={`component game ${className}`}>
