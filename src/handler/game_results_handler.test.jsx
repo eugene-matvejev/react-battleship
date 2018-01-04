@@ -32,10 +32,10 @@ describe(`<GameResultsHandler/>`, () => {
     describe(`::keyDownEventHandler`, () => {
         [
             { current: 1, total: 2, code: 'ArrowRight', expected: 2 },
-            { current: 2, total: 2, code: 'ArrowRight', expected: 2 },
+            { current: 2, total: 2, code: 'ArrowRight', expected: 2 }, /** should not change a page */
             { current: 2, total: 2, code: 'ArrowLeft', expected: 1 },
-            { current: 1, total: 2, code: 'ArrowLeft', expected: 1 },
-            { current: 1, total: 2, code: 'unknown', expected: 1 },
+            { current: 1, total: 2, code: 'ArrowLeft', expected: 1 },  /** should not change a page */
+            { current: 1, total: 2, code: 'unknown', expected: 1 },    /** is not binded key */
         ].forEach(({ current, total, code, expected }) => {
             it(`current: ${current}, total: ${total}, on: '${code}', expected: ${expected}`, () => {
                 const component = shallow(<GameResultsHandler current={current} total={total} />);
