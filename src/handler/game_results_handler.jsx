@@ -66,10 +66,10 @@ export default class GameResultsHandler extends Component {
         </div>;
     }
 
-    keyDownEventHandler(event) {
+    keyDownEventHandler({ code }) {
         let v = this.state.current;
 
-        switch (event.code) {
+        switch (code) {
             case 'ArrowRight':
                 v++;
                 this.handleOnClickCallback(v);
