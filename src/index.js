@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { generateGame } from './service/generator';
 import { NavigationSideBar } from './component'
-import {
-    GameHandler,
-    GameInitiationHandler,
-    GameResultsHandler,
-} from './handler';
+import { GameHandler, GameInitiationHandler, GameResultsHandler } from './handler';
 import config from './parameters.json';
 
 const store = {
@@ -15,7 +11,7 @@ const store = {
 };
 const routes = [
     {
-        path: '/new',
+        path: '/',
         label: 'start new game',
         component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }}/>,
     },
@@ -27,15 +23,15 @@ const routes = [
     {
         path: '/results',
         label: 'previous game results',
-        component: () => <GameResultsHandler currentPage={1} totalPage={5} />,
+        component: () => <GameResultsHandler current={1} total={5} />,
     },
 ];
 
 const WebApp = ({routes}) => [
-    <NavigationSideBar routes={routes} key={'navbar'}/>,
+    <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
     <Switch key={'content'}>
     {
-        routes.map(({path, component}, key) => <Route key={key} path={path} component={component}/>)
+        routes.map(({ path, component }) => <Route exact key={path} path={path} component={component}/>)
     }
     </Switch>
 ];

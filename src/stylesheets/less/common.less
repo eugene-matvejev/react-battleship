@@ -86,9 +86,17 @@ a {
     cursor: pointer;
 }
 
+.component, .handler {
+    & > .label {
+        padding: 1rem 1rem 0 1rem;
+        color: #fff;
+        font-size: 1.25rem;
+        line-height: 3rem;
+    }
+}
+
 .handler {
-    height: 100vh;
-    width: 100vw;
+    width: 35rem;
     position: relative;
 
     &.content {

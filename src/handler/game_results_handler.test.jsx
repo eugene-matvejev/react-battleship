@@ -13,17 +13,17 @@ describe(`<GameResultsHandler/>`, () => {
     });
 
     describe(`::paginationOnClickCallback`, () => {
-        describe(` - callback should modify state [currentPage]`, () => {
+        describe(`callback should modify state [current]`, () => {
             [
                 { current: 1, total: 2, selector: '.next', expected: 2 },
                 { current: 2, total: 2, selector: '.prev', expected: 1 },
-            ].forEach((el) => {
-                it(`current: ${el.current}, total: ${el.total}, on: '${el.selector}', expected: ${el.expected}`, () => {
-                    const component = mount(<GameResultsHandler currentPage={el.current} totalPages={el.total} />);
+            ].forEach(({ current, total, selector, expected }) => {
+                it(`current: ${current}, total: ${total}, on: '${selector}', expected: ${expected}`, () => {
+                    const component = mount(<GameResultsHandler current={current} total={total} />);
 
-                    component.find(el.selector).simulate('click');
+                    component.find(selector).simulate('click');
 
-                    expect(component.state().currentPage).toBe(el.expected);
+                    expect(component.state().current).toBe(expected);
                 });
             });
         });
@@ -32,15 +32,17 @@ describe(`<GameResultsHandler/>`, () => {
     describe(`::keyDownEventHandler`, () => {
         [
             { current: 1, total: 2, code: 'ArrowRight', expected: 2 },
+            { current: 2, total: 2, code: 'ArrowRight', expected: 2 },
             { current: 2, total: 2, code: 'ArrowLeft', expected: 1 },
+            { current: 1, total: 2, code: 'ArrowLeft', expected: 1 },
             { current: 1, total: 2, code: 'unknown', expected: 1 },
-        ].forEach((el) => {
-            it(`current: ${el.current}, total: ${el.total}, on: '${el.code}', expected: ${el.expected}`, () => {
-                const component = mount(<GameResultsHandler currentPage={el.current} totalPages={el.total} />);
+        ].forEach(({ current, total, code, expected }) => {
+            it(`current: ${current}, total: ${total}, on: '${code}', expected: ${expected}`, () => {
+                const component = shallow(<GameResultsHandler current={current} total={total} />);
 
-                component.simulate('keydown', { code: el.code });
+                component.simulate('keydown', { code });
 
-                expect(component.state().currentPage).toBe(el.expected);
+                expect(component.state().current).toBe(expected);
                 component.unmount();
             });
         });

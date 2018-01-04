@@ -21,67 +21,65 @@
 
 @border-style: 1px solid;
 
-.battlefield-cells {
-    .battlefield-cells-row {
-        display: inline-block;
+.cells-container {
+    display: inline-block;
 
-        &:not(:first-child) {
-            .battlefield-cell:not(:first-child) {
-                &:hover {
-                    background-color: @hover-color;
-                }
-            }
-        }
-
-        .battlefield-cell {
-            height: @size;
-            width: @size;
-
-            border-left: @border-style;
-            border-top: @border-style;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            font-size: @size/3;
-            line-height: @size;
-
+    &:not(:first-child) {
+        .cell:not(:first-child) {
             &:hover {
                 background-color: @hover-color;
             }
+        }
+    }
 
-            &:last-child {
-                border-bottom: @border-style;
-            }
+    .cell {
+        height: @size;
+        width: @size;
 
-            &[data-byte-sequence="@{flag-none-flag}"] {
-                background-color: @flag-none-color;
-            }
+        border-left: @border-style;
+        border-top: @border-style;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: @size/3;
+        line-height: @size;
 
-            &[data-byte-sequence="@{flag-dead-flag}"] {
-                background-color: @flag-dead-color;
-            }
-
-            &[data-byte-sequence="@{flag-ship-flag}"] {
-                background-color: @flag-ship-color;
-                border-color: @flag-ship-color;
-                color: #fff;
-            }
-
-            &[data-byte-sequence="@{flag-ship-dead-flag}"] {
-                background-color: @flag-ship-dead-color;
-            }
-
-            &[data-byte-sequence="@{flag-skip-flag}"] {
-                background-color: @flag-skip-color;
-            }
+        &:hover {
+            background-color: @hover-color;
         }
 
-        &:first-child .battlefield-cell, .battlefield-cell:first-child {
-            background: #b19fa3;
+        &:last-child {
+            border-bottom: @border-style;
         }
 
-        &:last-child .battlefield-cell {
-            border-right: @border-style;
+        &[data-byte-sequence="@{flag-none-flag}"] {
+            background-color: @flag-none-color;
         }
+
+        &[data-byte-sequence="@{flag-dead-flag}"] {
+            background-color: @flag-dead-color;
+        }
+
+        &[data-byte-sequence="@{flag-ship-flag}"] {
+            background-color: @flag-ship-color;
+            border-color: @flag-ship-color;
+            color: #fff;
+        }
+
+        &[data-byte-sequence="@{flag-ship-dead-flag}"] {
+            background-color: @flag-ship-dead-color;
+        }
+
+        &[data-byte-sequence="@{flag-skip-flag}"] {
+            background-color: @flag-skip-color;
+        }
+    }
+
+    &:first-child .cell, .cell:first-child {
+        background: #b19fa3;
+    }
+
+    &:last-child .cell {
+        border-right: @border-style;
     }
 }

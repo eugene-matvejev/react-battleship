@@ -7,6 +7,7 @@ configure({ adapter: new Adapter() });
 
 describe(`<NavigationSideBar/>`, () => {
     const props = {
+        label: 'label',
         routes: [
             { path: '/1', label: 'label1' },
             { path: '/2', label: 'label2' },
@@ -36,8 +37,8 @@ describe(`<NavigationSideBar/>`, () => {
                 [true, false].forEach((v) => {
                     it(`new value of internal state {hidden} get passed to callback: initial ${v}, expected on callback: ${!v}`, () => {
                         let result = undefined;
-                        const onToggle = (val) => {
-                            result = val;
+                        const onToggle = (v) => {
+                            result = v;
                         };
 
                         const el = shallow(<NavigationSideBar {...props} onToggle={onToggle} hiddenOnMount={v} />);

@@ -10,7 +10,7 @@ export default class NavigationSideBar extends Component {
 
         this.state = {
             hidden: hiddenOnMount,
-        }
+        };
 
         this.onToggleClick = this.onToggleClick.bind(this);
     }
@@ -23,36 +23,38 @@ export default class NavigationSideBar extends Component {
         this.setState({ hidden: v });
 
         onToggle(v);
-    };
+    }
 
     render() {
-        const { hidden } = this.state;
         const { className, label, routes } = this.props;
+        const { hidden } = this.state;
+        const toggledClassName = hidden ? 'toggled' : '';
 
-        return <div className={`wrapper navigation`}>
-            <div className={`component navigation ${className} ${hidden ? 'toggled' : ''}`}>
+        return <div className={`wrapper navigation ${className} ${toggledClassName}`}>
+            <div className='component navigation'>
                 <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
+                    <span className='btn btn-close' onClick={this.onToggleClick} />
                 </div>
-                <span className='btn btn-close' onClick={this.onToggleClick} />
-                <ul>{ routes.map(({path, label}, key) => <li key={key}><Link to={path}>{label}</Link></li>) }</ul>
+                <ul>
+                    {routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>)}
+                </ul>
             </div>
-            <span className={`btn btn-open ${hidden ? 'toggled' : ''}`} onClick={this.onToggleClick} />
+            <span className='btn btn-open' onClick={this.onToggleClick} />
         </div>;
     }
 
     static propTypes = {
         className: PropTypes.string,
+        label: PropTypes.string.isRequired,
         routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-        label: PropTypes.string,
         hiddenOnMount: PropTypes.bool,
         onToggle: PropTypes.func,
     };
 
     static defaultProps = {
         className: '',
-        label: 'Battleship Game',
         hiddenOnMount: false,
         onToggle: () => { },
     };
