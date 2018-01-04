@@ -23,8 +23,15 @@ export default class GameResultsHandler extends Component {
         this.handleOnClickCallback = this.handleOnClickCallback.bind(this);
     }
 
-    handleOnClickCallback(current) {
-        this.setState({ current });
+    handleOnClickCallback(page) {
+        const { total } = this.state;
+
+        /** dublicated check from <Pagination/> need think how to avoid such stuff */
+        if (page <= 0 || page > total) {
+            return;
+        }
+
+        this.setState({ current: page });
     }
 
     render() {
