@@ -31,7 +31,7 @@ const WebApp = ({routes}) => [
     <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
     <Switch key={'content'}>
     {
-        routes.map(({path, component}) => <Route exact key={path} path={path} component={component}/>)
+        routes.map(({ path, component }) => <Route exact key={path} path={path} component={component}/>)
     }
     </Switch>
 ];
