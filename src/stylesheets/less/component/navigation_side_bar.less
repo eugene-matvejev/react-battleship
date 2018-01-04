@@ -69,11 +69,9 @@
     right: 0;
     top: 0;
 
-    &.btn-close:after {
-        content: '\002296';
-    }
-
-    &.btn-open:after {
-        content: '\002295';
+    &.btn-open, &.btn-close {
+        &:after {
+            content: '\2261';
+        }
     }
 }
