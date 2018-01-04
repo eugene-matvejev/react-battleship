@@ -21,23 +21,22 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
 
 ## software requirements
- * node.js v6+
- * npm v5+ or yarn
+ * [node.js](https://nodejs.org/) v8+
+ * [less](http://lesscss.org/)
+ * [npm](https://www.npmjs.com/) v5+ or [yarn](https://yarnpkg.com/)
 
 ## used technologies
- * node.js v6+
- * react.js v16+
- * jest
- * enzyme
- * npm
- * yarn
+ * [react.js](https://reactjs.org/) v16+
+ * [jest](https://facebook.github.io/jest/)
+ * [enzyme](http://airbnb.io/enzyme/)
+ * [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
   
 ## used enviroment variables
  * __BASE_URL__ - API endpoint host
    * example: `$ export BASE_URL="https://api.game.local"`
  
 ## how to install
- * `$ npm start` - execute `$ npm run generate:all`, then starts lite-server with file watcher and `generate:css:w`
+ * `$ npm start` - execute `$ npm run generate:all`, then starts concurrently `lite-server` and `generate:css:w`
  * OPTIONAL:
    * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
    * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
@@ -50,3 +49,10 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
  * `$ npm test`
  * OPTIONAL:
    * `-- --coverage` to generate coverage report [located in __./coverage__ directory]
+   * [additional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)
+   
+## gitlow
+ * master -> most upto date 'production' version
+ * heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
+ * other branches -> 'feature branches' get merged into master
+ * coverage report check / CI build is mandatory checks for every PR to be merged in
