@@ -4,7 +4,7 @@ import { Battlefield, Player } from '../';
 import { GameModel } from '../../model';
 import '../../stylesheets/css/component/game.css';
 
-const Game = ({ model, className }) =>
+const Game = ({ className, model }) =>
     <div className={`component game ${className}`}>
         {
             model.battlefields.map((battlefield, key) =>

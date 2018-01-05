@@ -4,7 +4,7 @@ import { Cell } from '../';
 import { BattlefieldModel, CellModel } from '../../model';
 import '../../stylesheets/css/component/battlefield.css';
 
-const Battlefield = ({ model, className }) => {
+const Battlefield = ({ className, model }) => {
     const attributes = {
         'data-player-id': 'unk',
         'data-player-flags': 'unk',
