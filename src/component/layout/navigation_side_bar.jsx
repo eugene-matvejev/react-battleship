@@ -35,13 +35,13 @@ export default class NavigationSideBar extends Component {
                 <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
-                    <span className='btn btn-close' onClick={this.onToggleClick} />
+                    <span className='btn' onClick={this.onToggleClick} />
                 </div>
                 <ul>
                     {routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>)}
                 </ul>
             </div>
-            <span className='btn btn-open' onClick={this.onToggleClick} />
+            <span className='btn' onClick={this.onToggleClick} />
         </div>;
     }
 
