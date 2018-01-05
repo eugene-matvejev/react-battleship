@@ -35,10 +35,10 @@ export default class GameResultsHandler extends Component {
     }
 
     render() {
-        const { label, headers: { index: col0, col1, col2 } } = this.props;
+        const { label, className, headers: { index: col0, col1, col2 } } = this.props;
         const { data, current, total } = this.state;
 
-        return <div className='handler game-results' onKeyDown={this.keyDownEventHandler}>
+        return <div className={`handler game-results ${className}`} onKeyDown={this.keyDownEventHandler}>
             <div className='label'>{label}</div>
             <div className='content'>
                 <table>
