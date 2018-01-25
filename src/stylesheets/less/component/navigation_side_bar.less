@@ -1,19 +1,34 @@
-@navigation-handler-width: 21rem;
+@navigation-component-width: 21rem;
+@navigation-component-animation-style: all .5s ease;
 
-.wrapper.navigation.toggled .component.navigation {
-    & + .btn {
-        visibility: visible;
+.wrapper.navigation {
+    position: relative;
+
+    .btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:after {
+            content: '\2261';
+        }
     }
 
-    width: 0;
-    transition: all .5s ease;
+    &.toggled .component.navigation {
+        & + .btn {
+            visibility: visible;
+        }
+
+        width: 0;
+        transition: @navigation-component-animation-style;
+    }
 }
 
 .component.navigation {
-    width: @navigation-handler-width;
+    width: @navigation-component-width;
 
     & li, & > .label {
-        width: @navigation-handler-width - 2rem;
+        width: @navigation-component-width - 2rem;
         padding: 0 1rem 0 1rem;
     }
 
@@ -26,12 +41,7 @@
         }
     }
 
-    & + .btn {
-        right: inherit;
-        visibility: hidden;
-    }
-
-    transition: all .5s ease;
+    transition: @navigation-component-animation-style;
 
     z-index: 1;
     background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
@@ -61,19 +71,5 @@
                 }
             }
         }
-    }
-}
-
-.btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    &.btn-close:after {
-        content: '\002296';
-    }
-
-    &.btn-open:after {
-        content: '\002295';
     }
 }

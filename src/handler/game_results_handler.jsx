@@ -23,15 +23,22 @@ export default class GameResultsHandler extends Component {
         this.handleOnClickCallback = this.handleOnClickCallback.bind(this);
     }
 
-    handleOnClickCallback(current) {
-        this.setState({ current });
+    handleOnClickCallback(page) {
+        const { total } = this.state;
+
+        /** dublicated check from <Pagination/> need think how to avoid such stuff */
+        if (page <= 0 || page > total) {
+            return;
+        }
+
+        this.setState({ current: page });
     }
 
     render() {
-        const { label, tableHeaders: { index: col0, col1, col2 } } = this.props;
+        const { label, className, headers: { index: col0, col1, col2 } } = this.props;
         const { data, current, total } = this.state;
 
-        return <div className='handler game-results' onKeyDown={this.keyDownEventHandler}>
+        return <div className={`handler game-results ${className}`} onKeyDown={this.keyDownEventHandler}>
             <div className='label'>{label}</div>
             <div className='content'>
                 <table>
@@ -59,10 +66,10 @@ export default class GameResultsHandler extends Component {
         </div>;
     }
 
-    keyDownEventHandler(event) {
+    keyDownEventHandler({ code }) {
         let v = this.state.current;
 
-        switch (event.code) {
+        switch (code) {
             case 'ArrowRight':
                 v++;
                 this.handleOnClickCallback(v);
@@ -89,14 +96,14 @@ export default class GameResultsHandler extends Component {
         className: PropTypes.string,
         current: PropTypes.number,
         total: PropTypes.number,
-        tableHeaders: PropTypes.object,
+        headers: PropTypes.object,
     };
 
     static defaultProps = {
         className: '',
         current: 1,
         total: 1,
-        tableHeaders: {
+        headers: {
             index: '#',
             col1: 'player name',
             col2: 'time',

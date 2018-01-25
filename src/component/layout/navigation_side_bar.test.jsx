@@ -19,13 +19,13 @@ describe(`<NavigationSideBar/>`, () => {
             shallow(<NavigationSideBar {...props} />);
         });
 
-        describe(`::onClick [.btn.btn-close]`, () => {
+        describe(`::onClick [.btn]`, () => {
             describe(`internal state {hidden} get toggled`, () => {
                 [true, false].forEach((v) => {
                     it(`inititial: ${v}, expected: ${!v}`, () => {
                         const el = shallow(<NavigationSideBar {...props} hiddenOnMount={v} />);
 
-                        el.find('.btn.btn-close').simulate('click');
+                        el.find('.btn').at(0).simulate('click');
                         const { hidden } = el.state();
 
                         expect(hidden).toBe(!v);
@@ -43,7 +43,7 @@ describe(`<NavigationSideBar/>`, () => {
 
                         const el = shallow(<NavigationSideBar {...props} onToggle={onToggle} hiddenOnMount={v} />);
 
-                        el.find('.btn.btn-close').simulate('click');
+                        el.find('.btn').at(0).simulate('click');
 
                         expect(result).toBe(!v);
                     });
