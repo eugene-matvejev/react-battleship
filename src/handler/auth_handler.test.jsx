@@ -29,13 +29,13 @@ describe('<AuthHandler/>', () => {
     });
 
     describe('buttons', () => {
-        it('if button.btn-submit been clicked handler will be called', () => {
+        it('if button.btn-submit been clicked handler will be called with expected payload', () => {
             const changedProps = Object.assign({}, props);
-            let called = false;
+            let expectedPayload;
 
             changedProps.callback = (payload, onSuccess, onFail) => Promise
                 .resolve(true)
-                .then((arg) => { called = arg });
+                .then((arg) => { expectedPayload = payload });
 
             const component = shallow(<AuthHandler {...changedProps} />);
             component.find('button.btn-submit').simulate('click');
@@ -43,7 +43,7 @@ describe('<AuthHandler/>', () => {
             Promise
                 .resolve(component)
                 .then((c) => c.update())
-                .then(() => expect(called).toBe(true));
+                .then(() => expect(expectedPayload).toEqual({username: '', password: ''}));
         });
     });
 });

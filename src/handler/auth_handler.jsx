@@ -41,11 +41,9 @@ class AuthHandler extends Component {
             { username, password },
             ( payload ) => {
                 this.onSuccess();
-                this.setState({payload: payload.data});
             },
             ( payload ) => {
                 this.onError();
-                this.setState({payload: payload.data});
             },
         ).then();
     }
