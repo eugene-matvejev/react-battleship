@@ -33,19 +33,17 @@ describe('<AuthHandler/>', () => {
             const changedProps = Object.assign({}, props);
             let called = false;
 
-            changedProps.callback = () => {
-                return {
-                    then() {
-                        called = true;
-                    }
-                }
-            };
+            changedProps.callback = (payload, onSuccess, onFail) => Promise
+                .resolve(true)
+                .then((arg) => { called = arg });
 
             const component = shallow(<AuthHandler {...changedProps} />);
-
             component.find('button.btn-submit').simulate('click');
 
-            expect(called).toBe(true);
+            Promise
+                .resolve(component)
+                .then((c) => c.update())
+                .then(() => expect(called).toBe(true));
         });
     });
 });
