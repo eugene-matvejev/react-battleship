@@ -35,7 +35,7 @@ describe('<AuthHandler/>', () => {
 
             changedProps.callback = (payload, onSuccess, onFail) => Promise
                 .resolve(true)
-                .then((arg) => { expectedPayload = payload });
+                .then(() => { expectedPayload = payload; });
 
             const component = shallow(<AuthHandler {...changedProps} />);
             component.find('button.btn-submit').simulate('click');

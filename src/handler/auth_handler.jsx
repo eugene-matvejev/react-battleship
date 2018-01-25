@@ -50,11 +50,10 @@ class AuthHandler extends Component {
 
     render() {
         const { className, signedUpLink, resetPasswordLink, callback } = this.props;
-        const { payload, color } = this.state;
+        const { color } = this.state;
 
         return <div className={`handler auth ${className}`} style={{background: color}}>
             <h1>Login required</h1>
-            { payload && JSON.stringify(payload) }
             <div className="input-wrapper">
                 <input type="text" onChange={(e) => this.onUsernameChange(e.target.value)}/>
             </div>
