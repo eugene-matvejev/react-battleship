@@ -6,7 +6,7 @@ import { generateGame } from '../../service/generator';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Game/>`, () => {
+describe(`<Game/>`, () => {
     describe('::render', () => {
         it('- renders without error', () => {
             const model = generateGame(2, 1);

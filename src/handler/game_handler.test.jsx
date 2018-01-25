@@ -7,8 +7,8 @@ import { GameHandler } from './';
 configure({ adapter: new Adapter() });
 
 describe(`<GameHandler/>`, () => {
-    describe(`::render`, () => {
-        it(' - renders without error', () => {
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             const model = generateGame(2, 1); /* two players */
 
             shallow(<GameHandler model={model} />);

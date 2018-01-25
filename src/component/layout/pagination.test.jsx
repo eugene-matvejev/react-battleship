@@ -6,7 +6,7 @@ import { Pagination } from '../';
 configure({ adapter: new Adapter() });
 
 describe(`component:: <Pagination/>`, () => {
-    describe(`::render`, () => {
+    describe(`rendering`, () => {
         it(`renders without crash`, () => {
             shallow(<Pagination current={1} total={1} onClickCallback={() => { }} />);
         });

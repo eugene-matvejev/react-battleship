@@ -6,7 +6,7 @@ import { GameResultsHandler } from './';
 configure({ adapter: new Adapter() });
 
 describe(`<GameResultsHandler/>`, () => {
-    describe(`::render`, () => {
+    describe(`rendering`, () => {
         it(`renders without crash`, () => {
             shallow(<GameResultsHandler />);
         });

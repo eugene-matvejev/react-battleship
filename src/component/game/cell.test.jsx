@@ -6,9 +6,9 @@ import { CellModel } from '../../model';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Cell/>`, () => {
-    describe(`::render`, () => {
-        it(' - renders without error', () => {
+describe(`<Cell/>`, () => {
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             const model = new CellModel('A1');
 
             shallow(<Cell model={model} />);

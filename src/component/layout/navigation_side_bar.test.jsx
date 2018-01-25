@@ -14,7 +14,7 @@ describe(`<NavigationSideBar/>`, () => {
         ],
     };
 
-    describe(`::render`, () => {
+    describe(`rendering`, () => {
         it(`renders without crash`, () => {
             shallow(<NavigationSideBar {...props} />);
         });

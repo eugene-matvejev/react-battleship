@@ -6,8 +6,8 @@ import { PlayerModel } from '../../model';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Player/>`, () => {
-    describe(`::render`, () => {
+describe(`<Player/>`, () => {
+    describe(`rendering`, () => {
         const model = new PlayerModel();
         model.setName('test');
         model.setScore(123);
