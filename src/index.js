@@ -3,12 +3,40 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { generateGame } from './service/generator';
 import { NavigationSideBar } from './component'
-import { GameHandler, GameInitiationHandler, GameResultsHandler } from './handler';
+import { AuthHandler, GameHandler, GameInitiationHandler, GameResultsHandler } from './handler';
 import config from './parameters.json';
+
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
+const mock = new MockAdapter(axios, { delayResponse: 500 });
+mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
+    201,
+    {
+        user: {
+            id: 'id',
+            username: 's',
+        },
+        session: {
+            id: 'test-session-hash'
+        },
+    }
+);
+mock.onPost('/login', { params: { username: 'f500', password: ''}}).reply(500);
+mock.onPost('/login').reply(401);
 
 const store = {
     game: generateGame(2, 10),
+    isAuthenticated: false,
 };
+const authRoute = '/login';
+const createAuthCallback = (route) => (payload, onSuccess, onError) => {
+    return axios
+        .post(route, { params: payload })
+        .then((r) => onSuccess(r))
+        .catch((r) => onError(r));
+};
+const authCallback = createAuthCallback(authRoute);
 const routes = [
     {
         path: '/',
@@ -38,7 +66,7 @@ const WebApp = ({routes}) => [
 
 ReactDOM.render(
     <BrowserRouter forceRefresh={true}>
-        <WebApp routes={routes}/>
+        { store.isAuthenticated ? <WebApp routes={routes}/> : <AuthHandler callback={authCallback}/>}
     </BrowserRouter>,
     document.getElementById('content-area')
 );
