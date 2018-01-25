@@ -5,7 +5,7 @@ import { GameModel } from '../model';
 import { Link } from 'react-router-dom';
 import '../stylesheets/css/handler/auth_handler.css';
 
-class AuthHandler extends Component {
+export default class AuthHandler extends Component {
     constructor() {
         super();
 
@@ -83,5 +83,3 @@ class AuthHandler extends Component {
         resetPasswordLink: '',
     };
 }
-
-export default AuthHandler;
