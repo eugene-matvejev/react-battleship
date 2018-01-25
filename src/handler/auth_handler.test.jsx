@@ -46,4 +46,27 @@ describe('<AuthHandler/>', () => {
                 .then(() => expect(expectedPayload).toEqual({username: '', password: ''}));
         });
     });
+
+    describe('async update', () => {
+        [
+            {success: true, desc: 'success'},
+            {success: false, desc: 'fail'},
+        ].forEach(({success, desc}) => {
+            it(`on${desc[0].toUpperCase() + desc.slice(1)}`, () => {
+                const changedProps = Object.assign({}, props);
+
+                changedProps.callback = (payload, onSuccess, onFail) => Promise
+                    .resolve(true)
+                    .then(() => success ? onSuccess(payload) : onFail(payload))
+
+                const component = shallow(<AuthHandler {...changedProps} />);
+                component.find('button.btn-submit').simulate('click');
+
+                Promise
+                    .resolve(component)
+                    .then((c) => c.update())
+                    .then((c) => expect(c.state().color).toBe(success ? 'green' : 'red'));
+            });
+        });
+    });
 });
