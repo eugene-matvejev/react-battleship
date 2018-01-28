@@ -5,13 +5,15 @@ import { Pagination } from '../';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Pagination/>`, () => {
+describe(`<Pagination/>`, () => {
     describe(`rendering`, () => {
-        it(`renders without crash`, () => {
+        it('with default/required props', () => {
             shallow(<Pagination current={1} total={1} onClickCallback={() => { }} />);
         });
+    });
 
-        describe(`::onClickCallback`, () => {
+    describe(`callbacks`, () => {
+        describe(`onClickCallback`, () => {
             [
                 { className: 'next', current: 1, total: 1, expected: 1 }, /** expected callback not to be called */
                 { className: 'next', current: 1, total: 2, expected: 2 },

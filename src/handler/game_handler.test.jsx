@@ -7,10 +7,10 @@ import { GameHandler } from './';
 configure({ adapter: new Adapter() });
 
 describe(`<GameHandler/>`, () => {
+    const model = generateGame(2, 1); /* two players */
+
     describe(`rendering`, () => {
         it('with default/required props', () => {
-            const model = generateGame(2, 1); /* two players */
-
             shallow(<GameHandler model={model} />);
         });
     });

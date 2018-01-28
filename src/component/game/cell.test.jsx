@@ -7,10 +7,10 @@ import { CellModel } from '../../model';
 configure({ adapter: new Adapter() });
 
 describe(`<Cell/>`, () => {
+    const model = new CellModel('A1');
+
     describe(`rendering`, () => {
         it('with default/required props', () => {
-            const model = new CellModel('A1');
-
             shallow(<Cell model={model} />);
         });
     });

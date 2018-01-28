@@ -7,10 +7,10 @@ import { generateGame } from '../../service/generator';
 configure({ adapter: new Adapter() });
 
 describe(`<Game/>`, () => {
-    describe('::render', () => {
-        it('renders without error', () => {
-            const model = generateGame(2, 1);
+    const model = generateGame(2, 1);
 
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             shallow(<Game model={model} />);
         });
     });
