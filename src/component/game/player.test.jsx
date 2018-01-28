@@ -6,18 +6,18 @@ import { PlayerModel } from '../../model';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Player/>`, () => {
-    describe(`::render`, () => {
-        const model = new PlayerModel();
-        model.setName('test');
-        model.setScore(123);
-        model.setAvatarSrc('/');
+describe(`<Player/>`, () => {
+    const model = new PlayerModel();
+    model.setName('test');
+    model.setScore(123);
+    model.setAvatarSrc('/');
 
-        it(`renders without error`, () => {
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             shallow(<Player {...model} />);
         });
 
-        it(`props been injected properly into DOMNode`, () => {
+        it(`props been properly injected into DOMNode`, () => {
             const component = shallow(<Player {...model} />);
 
             expect(component.find('.avatar').length).toBe(1);

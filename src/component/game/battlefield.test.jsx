@@ -6,8 +6,8 @@ import { generateBattlefield } from '../../service/generator';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Battlefield/>`, () => {
-    describe(`::render`, () => {
+describe(`<Battlefield/>`, () => {
+    describe(`rendering`, () => {
         [2, 3, 5, 10, 15].forEach((size) => {
             const expectedCellsAmount = (size + 1 /** because of 'decoration' cells */) ** 2;
             const model = generateBattlefield(size);

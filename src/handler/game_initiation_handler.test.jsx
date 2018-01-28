@@ -5,7 +5,7 @@ import { GameInitiationHandler } from './';
 
 configure({ adapter: new Adapter() });
 
-describe(`handler:: <GameInitiationHandler/>`, () => {
+describe(`<GameInitiationHandler/>`, () => {
     const defaultProps = {
         minGameSize: 1,
         maxGameSize: 2,
@@ -16,9 +16,25 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
 
     const { minGameSize, maxGameSize, minOpponents, maxOpponents } = defaultProps;
 
-    describe(`render`, () => {
-        it(`it renders without crash`, () => {
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             shallow(<GameInitiationHandler {...defaultProps} />);
+        });
+    });
+
+    describe(`callbacks`, () => {
+        describe(`onSubmit`, () => {
+            it(`on click onSubmit handler should be called`, () => {
+                let model = undefined;
+
+                const props = { ...defaultProps };
+                props.onSubmit = (v) => { model = v; };
+
+                const component = shallow(<GameInitiationHandler {...props} />);
+                component.find(`button`).simulate('click');
+
+                expect(model).toBeDefined();
+            });
         });
     });
 
@@ -38,20 +54,6 @@ describe(`handler:: <GameInitiationHandler/>`, () => {
             const cells = component.find('Battlefield').prop('model').cellsIndexedByCoordinate;
 
             expect(Object.keys(cells).length).toBe(expected);
-        });
-    });
-
-    describe(`::onSubmit`, () => {
-        it(`on click onSubmit handler should be called`, () => {
-            let model = undefined;
-
-            const props = { ...defaultProps };
-            props.onSubmit = (v) => { model = v; };
-
-            const component = shallow(<GameInitiationHandler {...props} />);
-            component.find(`button`).simulate('click');
-
-            expect(model).toBeDefined();
         });
     });
 });
