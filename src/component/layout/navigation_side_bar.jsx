@@ -38,7 +38,9 @@ export default class NavigationSideBar extends Component {
                     <span className='btn' onClick={this.onToggleClick} />
                 </div>
                 <ul>
-                    {routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>)}
+                    {
+                        routes.map(({ path, label, onClick }) => <li key={label}><Link to={path} onClick={onClick}>{label}</Link></li>)
+                    }
                 </ul>
             </div>
             <span className='btn' onClick={this.onToggleClick} />

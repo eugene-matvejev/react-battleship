@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { generateGame } from './service/generator';
@@ -9,8 +9,11 @@ import config from './parameters.json';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
+const authRoute = '/login';
+const resultsRoute = '/results';
+
 const mock = new MockAdapter(axios, { delayResponse: 500 });
-mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
+mock.onPost(authRoute, { params: { username: 's', password: ''}}).reply(
     201,
     {
         user: {
@@ -22,51 +25,104 @@ mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
         },
     }
 );
-mock.onPost('/login', { params: { username: 'f500', password: ''}}).reply(500);
-mock.onPost('/login').reply(401);
+mock.onPost(authRoute, { params: { username: 'f500', password: ''}}).reply(500);
+mock.onPost(authRoute).reply(401);
+mock.onGet(resultsRoute).reply(
+    500,
+    [
+        { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+        { id: 2, name: 'test', timestamp: (new Date()).toLocaleString(), },
+        { id: 3, name: 'test', timestamp: (new Date()).toLocaleString(), },
+        { id: 4, name: 'test', timestamp: (new Date()).toLocaleString(), },
+        { id: 5, name: 'test', timestamp: (new Date()).toLocaleString(), },
+    ]
+);
 
-const store = {
-    game: generateGame(2, 10),
-    isAuthenticated: false,
-};
-const authRoute = '/login';
-const createAuthCallback = (route) => (payload, onSuccess, onError) => {
+const createAxiosCallback = (route, callback) => (payload, onSuccess, onError) => {
     return axios
         .post(route, { params: payload })
-        .then((r) => onSuccess(r))
-        .catch((r) => onError(r));
-};
-const authCallback = createAuthCallback(authRoute);
-const routes = [
-    {
-        path: '/',
-        label: 'start new game',
-        component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }}/>,
-    },
-    {
-        path: '/game',
-        label: 'game in process',
-        component: () => <GameHandler model={store.game} />,
-    },
-    {
-        path: '/results',
-        label: 'previous game results',
-        component: () => <GameResultsHandler current={1} total={5} />,
-    },
-];
+        .then((r) => {
+            onSuccess(r);
 
-const WebApp = ({routes}) => [
-    <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
-    <Switch key={'content'}>
-    {
-        routes.map(({ path, component }) => <Route exact key={path} path={path} component={component}/>)
+            callback(true);
+        })
+        .catch((r) => {
+            onError(r);
+
+            callback(false);
+        });
+};
+
+class WebApp extends Component {
+    constructor() {
+        super();
+
+        this.authCallback = this.authCallback.bind(this);
+
+        const resultsCallback = createAxiosCallback(resultsRoute, (payload) => {
+
+        });
+
+        const routes = [
+            {
+                path: '/',
+                label: 'start new game',
+                component: () => <GameInitiationHandler {...config} onSubmit={(game) => { this.setState({game}); }}/>,
+            },
+            {
+                path: '/game',
+                label: 'game in process',
+                component: () => <GameHandler model={this.state.game} />,
+            },
+            {
+                path: '/results',
+                label: 'previous game results',
+                component: () => <GameResultsHandler
+                    current={1}
+                    total={5}
+                    callback={resultsCallback}
+                />,
+            },
+            {
+                path: '/',
+                label: 'logout',
+                component: undefined,
+                onClick: () => this.authCallback(false),
+            },
+        ];
+
+        this.state = {
+            isAuthenticated: !false,
+            routes,
+            game: generateGame(2, 10),
+        };
     }
-    </Switch>
-];
+
+    authCallback(isAuthenticated) {
+        this.setState({isAuthenticated});
+    }
+
+    render() {
+        const { isAuthenticated, routes } = this.state;
+
+        if (!isAuthenticated) {
+            return <AuthHandler callback={createAxiosCallback(authRoute, this.authCallback)}/>;
+        }
+
+        return [
+            <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
+            <Switch key={'content'}>
+            {
+                routes.map(({ path, component, customRoute }) => customRoute  || <Route exact key={path} path={path} component={component}/>)
+            }
+            </Switch>
+        ];
+    }
+}
 
 ReactDOM.render(
     <BrowserRouter forceRefresh={true}>
-        { store.isAuthenticated ? <WebApp routes={routes}/> : <AuthHandler callback={authCallback}/>}
+        <WebApp/>
     </BrowserRouter>,
     document.getElementById('content-area')
 );

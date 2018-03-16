@@ -9,11 +9,7 @@ export default class GameResultsHandler extends Component {
 
         this.state = {
             data: [ /** mocked data */
-                { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 2, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 3, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 4, name: 'test', timestamp: (new Date()).toLocaleString(), },
-                { id: 5, name: 'test', timestamp: (new Date()).toLocaleString(), },
+
             ],
             current,
             total,
@@ -25,13 +21,25 @@ export default class GameResultsHandler extends Component {
 
     handleOnClickCallback(page) {
         const { total } = this.state;
+        const { callback } = this.props;
 
         /** dublicated check from <Pagination/> need think how to avoid such stuff */
         if (page <= 0 || page > total) {
             return;
         }
 
-        this.setState({ current: page });
+        callback({page},
+            ({response}) => {
+                const { data, page } = response;
+
+                this.setState({ data, page});
+            },
+            ({response}) => {
+                const { data, page } = response;
+
+                this.setState({ data, page, failed: true});
+            },
+        )
     }
 
     render() {

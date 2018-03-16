@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Game } from '../component';
-import { GameModel } from '../model';
 import { Link } from 'react-router-dom';
 import '../stylesheets/css/handler/auth_handler.css';
 
@@ -25,34 +23,25 @@ export default class AuthHandler extends Component {
         this.setState({ username });
     }
 
-    onSuccess() {
-        this.setState({color: 'green'});
-    }
-
-    onError() {
-        this.setState({color: 'red'});
-    }
-
     onSubmit() {
-        const { callback } = this.props;
+        const { onSubmit, onResolve } = this.props;
         const { username, password } = this.state;
 
-        callback(
+        onSubmit(
             { username, password },
             ( payload ) => {
-                this.onSuccess();
+                onResolve(true);
             },
             ( payload ) => {
-                this.onError();
+                onResolve(false);
             },
         ).then();
     }
 
     render() {
-        const { className, signedUpLink, resetPasswordLink, callback } = this.props;
-        const { color } = this.state;
+        const { className, signedUpLink, resetPasswordLink } = this.props;
 
-        return <div className={`handler auth ${className}`} style={{background: color}}>
+        return <div className={`handler auth ${className}`}>
             <h1>Login required</h1>
             <div className="input-wrapper">
                 <input type="text" onChange={(e) => this.onUsernameChange(e.target.value)}/>
@@ -68,10 +57,12 @@ export default class AuthHandler extends Component {
         </div>;
     }
 
-
     static propTypes = {
         className: PropTypes.string,
-        callback: PropTypes.func.isRequired,
+        signedUpLink: PropTypes.string,
+        resetPasswordLink: PropTypes.string,
+        onSubmit: PropTypes.func.isRequired,
+        onResolve: PropTypes.func.isRequired,
     };
 
     static defaultProps = {
