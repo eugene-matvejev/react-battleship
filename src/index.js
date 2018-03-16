@@ -28,30 +28,45 @@ mock.onPost(authRoute, { params: { username: 's', password: ''}}).reply(
 mock.onPost(authRoute, { params: { username: 'f500', password: ''}}).reply(500);
 mock.onPost(authRoute).reply(401);
 mock.onGet(resultsRoute).reply(
-    500,
+    200,
     [
         { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
         { id: 2, name: 'test', timestamp: (new Date()).toLocaleString(), },
         { id: 3, name: 'test', timestamp: (new Date()).toLocaleString(), },
         { id: 4, name: 'test', timestamp: (new Date()).toLocaleString(), },
         { id: 5, name: 'test', timestamp: (new Date()).toLocaleString(), },
-    ]
+    ],
+    {
+        'x-page-current': 1,
+        'x-page-total': 2,
+    }
+);
+mock.onGet(resultsRoute).reply(
+    200,
+    [
+        { id: 6, name: 'test', timestamp: (new Date()).toLocaleString(), },
+        { id: 7, name: 'test', timestamp: (new Date()).toLocaleString(), },
+    ],
+    {
+        'x-page-current': 1,
+        'x-page-total': 2,
+    }
 );
 
-const createAxiosCallback = (route, callback) => (payload, onSuccess, onError) => {
+const createAxiosCallback = (route, method) => (params, onSuccess, onError) => {
+    params['method'] = method;
+
     return axios
-        .post(route, { params: payload })
+        .request(route, { params })
         .then((r) => {
             onSuccess(r);
-
-            callback(true);
         })
         .catch((r) => {
             onError(r);
-
-            callback(false);
         });
 };
+const authCallback = createAxiosCallback(authRoute, 'POST');
+const gameResulsCallback = createAxiosCallback(resultsRoute, 'GET');
 
 class WebApp extends Component {
     constructor() {
@@ -59,34 +74,31 @@ class WebApp extends Component {
 
         this.authCallback = this.authCallback.bind(this);
 
-        const resultsCallback = createAxiosCallback(resultsRoute, (payload) => {
-
-        });
-
         const routes = [
-            {
-                path: '/',
-                label: 'start new game',
-                component: () => <GameInitiationHandler {...config} onSubmit={(game) => { this.setState({game}); }}/>,
-            },
+            // {
+            //     path: '/',
+            //     label: 'start new game',
+            //     component: () => <GameInitiationHandler {...config} onSubmit={(game) => { this.setState({game}); }}/>,
+            // },
             {
                 path: '/game',
                 label: 'game in process',
                 component: () => <GameHandler model={this.state.game} />,
             },
             {
-                path: '/results',
+                // path: '/results',
+                path: '/',
                 label: 'previous game results',
                 component: () => <GameResultsHandler
                     current={1}
                     total={5}
-                    callback={resultsCallback}
+                    callback={gameResulsCallback}
                 />,
             },
             {
                 path: '/',
                 label: 'logout',
-                component: undefined,
+                component: null,
                 onClick: () => this.authCallback(false),
             },
         ];
@@ -99,21 +111,29 @@ class WebApp extends Component {
     }
 
     authCallback(isAuthenticated) {
-        this.setState({isAuthenticated});
+        this.setState({ isAuthenticated });
     }
 
     render() {
         const { isAuthenticated, routes } = this.state;
 
         if (!isAuthenticated) {
-            return <AuthHandler callback={createAxiosCallback(authRoute, this.authCallback)}/>;
+            return <AuthHandler
+                onSubmit={authCallback}
+                onResolve={this.authCallback}
+            />;
         }
 
         return [
             <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
             <Switch key={'content'}>
             {
-                routes.map(({ path, component, customRoute }) => customRoute  || <Route exact key={path} path={path} component={component}/>)
+                routes.map(({ path, component }, key ) => <Route
+                    exact
+                    key={key}
+                    path={path}
+                    component={component}
+                />)
             }
             </Switch>
         ];
@@ -121,7 +141,7 @@ class WebApp extends Component {
 }
 
 ReactDOM.render(
-    <BrowserRouter forceRefresh={true}>
+    <BrowserRouter forceRefresh >
         <WebApp/>
     </BrowserRouter>,
     document.getElementById('content-area')

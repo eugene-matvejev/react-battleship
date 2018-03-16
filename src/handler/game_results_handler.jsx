@@ -28,7 +28,8 @@ export default class GameResultsHandler extends Component {
             return;
         }
 
-        callback({page},
+        callback(
+            {page},
             ({response}) => {
                 const { data, page } = response;
 
@@ -45,6 +46,7 @@ export default class GameResultsHandler extends Component {
     render() {
         const { label, className, headers: { index: col0, col1, col2 } } = this.props;
         const { data, current, total } = this.state;
+        debugger;
 
         return <div className={`handler game-results ${className}`} onKeyDown={this.keyDownEventHandler}>
             <div className='label'>{label}</div>
