@@ -21,6 +21,7 @@
   "devDependencies": {
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "less-watch-compiler": "^1.10.0",
     "react-test-renderer": "^16.2.0"
   },
@@ -38,7 +39,8 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/index.js"
-    ]
+    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "extra": {
     "node_parameter_handler": [
