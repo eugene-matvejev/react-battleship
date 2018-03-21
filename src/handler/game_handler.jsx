@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Game } from '../component';
 import { GameModel } from '../model';
-import '../stylesheets/css/handler/game_handler.css';
+
+
 
 const GameHandler = ({ className, label, model }) =>
     <div className={`handler game ${className}`}>
