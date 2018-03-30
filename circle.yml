@@ -6,9 +6,9 @@ dependencies:
     cache_directories:
         - ~/.npm/
     override:
-        - npm install --no-progress
+        - npm i --no-progress
     post:
-        - npm run generate:all && npm install -g codecov
+        - npm i -g codecov
 
 test:
     override:
