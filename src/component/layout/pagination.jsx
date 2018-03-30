@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/css/component/pagination.css';
 
 const Pagination = ({className, current, total, onClickCallback}) => {
     const hasPrevPage = current - 1 >= 1;
