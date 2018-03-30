@@ -8,7 +8,7 @@ dependencies:
     override:
         - npm install --no-progress
     post:
-        - npm run generate:all && npm install -g codecov
+        - npm install -g codecov
 
 test:
     override:
