@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/css/component/cell.css';
 
 const Cell = ({ className, coordinate, byteSeq }) => {
     const attributes = {
