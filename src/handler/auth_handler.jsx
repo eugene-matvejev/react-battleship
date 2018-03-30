@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Game } from '../component';
 import { GameModel } from '../model';
 import { Link } from 'react-router-dom';
+import '../stylesheets/css/handler/auth_handler.css';
 
 export default class AuthHandler extends Component {
     constructor() {
