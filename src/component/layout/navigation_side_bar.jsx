@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import '../../stylesheets/css/common.css';
-import '../../stylesheets/css/component/navigation_side_bar.css';
 
 export default class NavigationSideBar extends Component {
     constructor({ hiddenOnMount }) {
@@ -35,13 +33,13 @@ export default class NavigationSideBar extends Component {
                 <div className='label'>
                     {label}
                     <sub> v{React.version}</sub>
-                    <span className='btn btn-close' onClick={this.onToggleClick} />
+                    <span className='btn' onClick={this.onToggleClick} />
                 </div>
                 <ul>
                     {routes.map(({ path, label }) => <li key={path}><Link to={path}>{label}</Link></li>)}
                 </ul>
             </div>
-            <span className='btn btn-open' onClick={this.onToggleClick} />
+            <span className='btn' onClick={this.onToggleClick} />
         </div>;
     }
 

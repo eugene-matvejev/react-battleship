@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Pagination } from '../component';
-import '../stylesheets/css/handler/game_results_handler.css';
 
 export default class GameResultsHandler extends Component {
     constructor({ current, total }) {
@@ -35,10 +34,10 @@ export default class GameResultsHandler extends Component {
     }
 
     render() {
-        const { label, headers: { index: col0, col1, col2 } } = this.props;
+        const { label, className, headers: { index: col0, col1, col2 } } = this.props;
         const { data, current, total } = this.state;
 
-        return <div className='handler game-results' onKeyDown={this.keyDownEventHandler}>
+        return <div className={`handler game-results ${className}`} onKeyDown={this.keyDownEventHandler}>
             <div className='label'>{label}</div>
             <div className='content'>
                 <table>

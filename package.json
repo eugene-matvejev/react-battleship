@@ -6,6 +6,8 @@
     "node": ">=6"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "axios-mock-adapter": "^1.11.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -13,12 +15,13 @@
     "react-router-dom": "^4.2.0",
     "node-parameter-handler": "^1.0.0",
     "react-scripts": "^1.0.0",
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "less": "^3.0.1",
+    "less-watch-compiler": "^1.11.0"
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "less-watch-compiler": "^1.10.0",
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {

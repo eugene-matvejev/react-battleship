@@ -10,6 +10,10 @@ html, body, .component.navigation {
 body {
     &, & > .content-container {
         display: flex;
+
+        width: 100vw;
+
+        position: relative;
     }
 
     margin: 0;
@@ -87,9 +91,15 @@ a {
 }
 
 .component, .handler {
+    h1, h2, h3 {
+        line-height: 2rem;
+        font-size: 2rem;
+    }
+}
+
+.component, .handler {
     & > .label {
         padding: 1rem 1rem 0 1rem;
-        color: #fff;
         font-size: 1.25rem;
         line-height: 3rem;
     }

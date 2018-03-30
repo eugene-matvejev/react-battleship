@@ -14,39 +14,39 @@ describe(`<NavigationSideBar/>`, () => {
         ],
     };
 
-    describe(`::render`, () => {
-        it(`renders without crash`, () => {
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             shallow(<NavigationSideBar {...props} />);
         });
+    });
 
-        describe(`::onClick [.btn.btn-close]`, () => {
-            describe(`internal state {hidden} get toggled`, () => {
-                [true, false].forEach((v) => {
-                    it(`inititial: ${v}, expected: ${!v}`, () => {
-                        const el = shallow(<NavigationSideBar {...props} hiddenOnMount={v} />);
+    describe(`::onClick [.btn]`, () => {
+        describe(`internal state {hidden} get toggled`, () => {
+            [true, false].forEach((v) => {
+                it(`inititial: ${v}, expected: ${!v}`, () => {
+                    const el = shallow(<NavigationSideBar {...props} hiddenOnMount={v} />);
 
-                        el.find('.btn.btn-close').simulate('click');
-                        const { hidden } = el.state();
+                    el.find('.btn').at(0).simulate('click');
+                    const { hidden } = el.state();
 
-                        expect(hidden).toBe(!v);
-                    });
+                    expect(hidden).toBe(!v);
                 });
             });
+        });
 
-            describe(`onToggle callback`, () => {
-                [true, false].forEach((v) => {
-                    it(`new value of internal state {hidden} get passed to callback: initial ${v}, expected on callback: ${!v}`, () => {
-                        let result = undefined;
-                        const onToggle = (v) => {
-                            result = v;
-                        };
+        describe(`onToggle callback`, () => {
+            [true, false].forEach((v) => {
+                it(`new value of internal state {hidden} get passed to callback: initial ${v}, expected on callback: ${!v}`, () => {
+                    let result = undefined;
+                    const onToggle = (v) => {
+                        result = v;
+                    };
 
-                        const el = shallow(<NavigationSideBar {...props} onToggle={onToggle} hiddenOnMount={v} />);
+                    const el = shallow(<NavigationSideBar {...props} onToggle={onToggle} hiddenOnMount={v} />);
 
-                        el.find('.btn.btn-close').simulate('click');
+                    el.find('.btn').at(0).simulate('click');
 
-                        expect(result).toBe(!v);
-                    });
+                    expect(result).toBe(!v);
                 });
             });
         });

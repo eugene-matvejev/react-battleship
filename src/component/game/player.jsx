@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheets/css/component/player.css';
 
 const Player = ({ className, name, score, byteSeq, avatarSrc }) => {
     const attributes = {
         'data-byte-sequence': byteSeq,
     };
 
-    return (
-        <div className={`component player ${className}`} {...attributes}>
-            <div className='avatar'>
-                <img src={avatarSrc} alt='avatar pic' />
-            </div>
-            <div className='name'>{name}</div>
-            <div className='score'>{score}</div>
+    return <div className={`component player ${className}`} {...attributes}>
+        <div className='avatar'>
+            <img src={avatarSrc} alt='avatar pic' />
         </div>
-    );
+        <div className='name'>{name}</div>
+        <div className='score'>{score}</div>
+    </div>;
 };
 
 Player.propTypes = {
