@@ -30,7 +30,7 @@
     "test": "react-scripts test --env=jsdom --verbose",
     "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "npm run generate:css:w --run-once",
+    "generate:css": "npm run generate:css:w -- --run-once",
     "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
   },
   "jest": {

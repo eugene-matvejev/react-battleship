@@ -23,17 +23,17 @@
 # Battleship Game GUI [on react.js]
 project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-matvejev/battleship-game-gui) on react.js, [DEMO](https://battleship-game-gui-react-js.herokuapp.com/)
 
-## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
+## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
 ## software requirements
  * [node.js](https://nodejs.org/) v8+
- * [less](http://lesscss.org/)
  * [npm](https://www.npmjs.com/) v5+ or [yarn](https://yarnpkg.com/)
 
 ## used technologies
  * [react.js](https://reactjs.org/) v16+
- * [jest](https://facebook.github.io/jest/)
  * [enzyme](http://airbnb.io/enzyme/)
+ * [jest](https://facebook.github.io/jest/)
+ * [less](http://lesscss.org/)
  * [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
   
 ## used enviroment variables
