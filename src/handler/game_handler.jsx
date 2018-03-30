@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Game } from '../component';
 import { GameModel } from '../model';
 
-
-
 const GameHandler = ({ className, label, model }) =>
     <div className={`handler game ${className}`}>
         <div className='label'>{label}</div>
