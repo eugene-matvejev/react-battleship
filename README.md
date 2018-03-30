@@ -23,7 +23,7 @@
 # Battleship Game GUI [on react.js]
 project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-matvejev/battleship-game-gui) on react.js, [DEMO](https://battleship-game-gui-react-js.herokuapp.com/)
 
-## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
+## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
 ## software requirements
  * [node.js](https://nodejs.org/) v8+
