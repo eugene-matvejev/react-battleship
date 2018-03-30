@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../../stylesheets/css/common.css';
+import '../../stylesheets/css/component/navigation_side_bar.css';
 
 export default class NavigationSideBar extends Component {
     constructor({ hiddenOnMount }) {

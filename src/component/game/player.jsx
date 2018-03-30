@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../stylesheets/css/component/player.css';
 
 const Player = ({ className, name, score, byteSeq, avatarSrc }) => {
     const attributes = {
