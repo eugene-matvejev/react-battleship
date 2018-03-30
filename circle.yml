@@ -1,12 +1,14 @@
 machine:
     node:
-        version: 8.9
+        version: 6.9
 
 dependencies:
     cache_directories:
         - ~/.npm/
     override:
-        - npm i --no-progress
+        - npm install --no-progress
+    post:
+        - npm install -g codecov
 
 test:
     override:
