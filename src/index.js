@@ -9,11 +9,11 @@ import config from './parameters.json';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
+import './stylesheets/css/common.css';
 import './stylesheets/css/component/battlefield.css';
 import './stylesheets/css/component/cell.css';
 import './stylesheets/css/component/game.css';
 import './stylesheets/css/component/player.css';
-import './stylesheets/css/common.css';
 import './stylesheets/css/component/navigation_side_bar.css';
 import './stylesheets/css/component/pagination.css';
 import './stylesheets/css/handler/auth_handler.css';
