@@ -6,11 +6,11 @@ import { CellModel } from '../../model';
 
 configure({ adapter: new Adapter() });
 
-describe(`component:: <Cell/>`, () => {
-    describe(`::render`, () => {
-        it(' - renders without error', () => {
-            const model = new CellModel('A1');
+describe(`<Cell/>`, () => {
+    const model = new CellModel('A1');
 
+    describe(`rendering`, () => {
+        it('with default/required props', () => {
             shallow(<Cell model={model} />);
         });
     });
