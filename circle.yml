@@ -7,8 +7,6 @@ dependencies:
         - ~/.npm/
     override:
         - npm i --no-progress
-    post:
-        - npm i -g codecov
 
 test:
     override:
