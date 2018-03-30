@@ -9,7 +9,6 @@ export default class GameResultsHandler extends Component {
 
         this.state = {
             data: [ /** mocked data */
-
             ],
             current,
             total,
