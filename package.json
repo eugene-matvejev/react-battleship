@@ -21,7 +21,8 @@
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.1"
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3"
   },
   "scripts": {
     "start": "npm run generate:all && concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
@@ -37,7 +38,8 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/index.js"
-    ]
+    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "extra": {
     "node_parameter_handler": [

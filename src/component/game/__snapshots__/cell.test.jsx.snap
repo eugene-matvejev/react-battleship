@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cell/> rendering match snapshot 1`] = `
+<div
+  className="component cell "
+  data-byte-sequence={0}
+/>
+`;

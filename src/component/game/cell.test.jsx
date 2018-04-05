@@ -13,5 +13,11 @@ describe(`<Cell/>`, () => {
         it('with default/required props', () => {
             shallow(<Cell model={model} />);
         });
+
+        it('match snapshot', () => {
+            const c = shallow(<Cell model={model} />);
+
+            expect(c).toMatchSnapshot();
+        });
     });
 });
