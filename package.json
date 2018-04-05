@@ -6,24 +6,23 @@
     "node": ">=6"
   },
   "dependencies": {
-    "axios": "^0.17.1",
-    "axios-mock-adapter": "^1.11.0",
+    "axios": "^0.18.0",
+    "axios-mock-adapter": "^1.14.0",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
     "react-rangeslider": "^2.2.0",
     "react-router-dom": "^4.2.0",
     "node-parameter-handler": "^1.0.0",
-    "react-scripts": "^1.0.0",
+    "react-scripts": "^1.1.0",
     "concurrently": "^3.5.0",
-    "lessc-each": "^1.1.0"
+    "less": "^3.0.1",
+    "less-watch-compiler": "^1.11.0"
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.3",
-    "less-watch-compiler": "^1.10.0",
-    "react-test-renderer": "^16.2.0"
+    "enzyme-to-json": "^3.3.3"
   },
   "scripts": {
     "start": "npm run generate:all && concurrently \"npm run generate:css:w\" \"npm run start:lite-server\"",
@@ -32,7 +31,7 @@
     "test": "react-scripts test --env=jsdom --verbose",
     "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "lessc-each src/stylesheets/less/component src/stylesheets/css/component --verbose; lessc-each src/stylesheets/less/handler src/stylesheets/css/handler --verbose; lessc src/stylesheets/less/common.less src/stylesheets/css/common.css --verbose;",
+    "generate:css": "npm run generate:css:w -- --run-once",
     "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
   },
   "jest": {
