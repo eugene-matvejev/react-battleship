@@ -39,7 +39,9 @@
       "src/**/*.{js,jsx}",
       "!src/index.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "extra": {
     "node_parameter_handler": [
