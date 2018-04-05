@@ -1,0 +1,75 @@
+$navigation-component-width: 21rem;
+$navigation-component-animation-style: all .5s ease;
+
+.wrapper.navigation {
+    position: relative;
+
+    .btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:after {
+            content: '\2261';
+        }
+    }
+
+    &.toggled .component.navigation {
+        & + .btn {
+            visibility: visible;
+        }
+
+        width: 0;
+        transition: $navigation-component-animation-style;
+    }
+}
+
+.component.navigation {
+    width: $navigation-component-width;
+
+    & li, & > .label {
+        width: $navigation-component-width - 2rem;
+        padding: 0 1rem 0 1rem;
+    }
+
+    & li {
+        text-align: left;
+
+        a {
+            width: 100%;
+            padding: 0 1rem 0 1rem;
+        }
+    }
+
+    transition: $navigation-component-animation-style;
+
+    z-index: 1;
+    background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    position: relative;
+
+    text-transform: uppercase;
+    border-right: 1px solid white;
+
+    overflow-y: auto;
+
+    ul {
+        margin: 2rem 0 0 0;
+        padding: 0;
+        display: inline-block;
+        list-style-type: none;
+
+        & > li {
+            font-size: 1rem;
+            text-align: right;
+            display: inline-block;
+
+            &:hover {
+                background: white;
+
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}

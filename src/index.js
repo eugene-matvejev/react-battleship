@@ -9,18 +9,19 @@ import config from './parameters.json';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
-import './stylesheets/css/common.css';
-import './stylesheets/css/component/battlefield.css';
-import './stylesheets/css/component/cell.css';
-import './stylesheets/css/component/game.css';
-import './stylesheets/css/component/player.css';
-import './stylesheets/css/component/navigation_side_bar.css';
-import './stylesheets/css/component/pagination.css';
-import './stylesheets/css/handler/auth_handler.css';
-import './stylesheets/css/handler/game_handler.css';
-import './stylesheets/css/handler/game_initiation_handler.css';
-import './stylesheets/css/handler/game_results_handler.css';
-import 'react-rangeslider/lib/index.css';
+import './stylesheets/css/main.css';
+// import './stylesheets/css/common.css';
+// import './stylesheets/css/component/battlefield.css';
+// import './stylesheets/css/component/cell.css';
+// import './stylesheets/css/component/game.css';
+// import './stylesheets/css/component/player.css';
+// import './stylesheets/css/component/navigation_side_bar.css';
+// import './stylesheets/css/component/pagination.css';
+// import './stylesheets/css/handler/auth_handler.css';
+// import './stylesheets/css/handler/game_handler.css';
+// import './stylesheets/css/handler/game_initiation_handler.css';
+// import './stylesheets/css/handler/game_results_handler.css';
+// import 'react-rangeslider/lib/index.css';
 
 const mock = new MockAdapter(axios, { delayResponse: 500 });
 mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
