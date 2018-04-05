@@ -1,5 +1,5 @@
-@navigation-component-width: 21rem;
-@navigation-component-animation-style: all .5s ease;
+$navigation-component-width: 21rem;
+$navigation-component-animation-style: all .5s ease;
 
 .wrapper.navigation {
     position: relative;
@@ -20,15 +20,15 @@
         }
 
         width: 0;
-        transition: @navigation-component-animation-style;
+        transition: $navigation-component-animation-style;
     }
 }
 
 .component.navigation {
-    width: @navigation-component-width;
+    width: $navigation-component-width;
 
     & li, & > .label {
-        width: @navigation-component-width - 2rem;
+        width: $navigation-component-width - 2rem;
         padding: 0 1rem 0 1rem;
     }
 
@@ -41,7 +41,7 @@
         }
     }
 
-    transition: @navigation-component-animation-style;
+    transition: $navigation-component-animation-style;
 
     z-index: 1;
     background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);

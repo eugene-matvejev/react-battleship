@@ -1,4 +1,4 @@
-@border-style: 1px solid #556980;
+$border-style: 1px solid #556980;
 
 .handler.auth {
     margin: auto;
@@ -24,7 +24,7 @@
     }
 
     button, .input-wrapper input {
-        border: @border-style;
+        border: $border-style;
     }
 
     a {

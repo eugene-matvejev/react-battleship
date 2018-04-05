@@ -16,8 +16,7 @@
     "node-parameter-handler": "^1.0.0",
     "react-scripts": "^1.1.0",
     "concurrently": "^3.5.0",
-    "less": "^3.0.1",
-    "less-watch-compiler": "^1.11.0"
+    "node-sass-chokidar": "^1.2.2"
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
@@ -31,8 +30,8 @@
     "test": "react-scripts test --env=jsdom --verbose",
     "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
-    "generate:css": "npm run generate:css:w -- --run-once",
-    "generate:css:w": "node node_modules/less-watch-compiler src/stylesheets/less src/stylesheets/css --verbose"
+    "generate:css": "node-sass-chokidar src/stylesheets/scss/ -o src/stylesheets/css/",
+    "generate:css:w": "npm run generate:css -- --watch --recursive"
   },
   "jest": {
     "collectCoverageFrom": [
