@@ -13,5 +13,11 @@ describe(`<Game/>`, () => {
         it('with default/required props', () => {
             shallow(<Game model={model} />);
         });
+
+        it('match snapshot', () => {
+            const c = shallow(<Game model={model} />);
+
+            expect(c).toMatchSnapshot();
+        });
     });
 });

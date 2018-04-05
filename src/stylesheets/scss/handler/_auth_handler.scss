@@ -1,4 +1,4 @@
-@border-style: 1px solid #556980;
+$border-style: 1px solid #556980;
 
 .handler.auth {
     opacity: 1;
@@ -27,7 +27,7 @@
     }
 
     button, .input-wrapper input {
-        border: @border-style;
+        border: $border-style;
     }
 
     a {

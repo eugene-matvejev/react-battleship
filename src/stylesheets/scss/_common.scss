@@ -1,7 +1,7 @@
-@handler-label-size: 3rem;
+$handler-label-size: 3rem;
 
-@link-color: #fff;
-@button-size: 3rem;
+$link-color: #fff;
+$button-size: 3rem;
 
 html, body, .component.navigation {
     height: 100%;
@@ -34,7 +34,7 @@ a {
     text-decoration: none;
 
     &:active, &:link, &:visited, &:hover {
-        color: @link-color;
+        color: $link-color;
     }
 }
 
@@ -75,16 +75,16 @@ a {
 }
 
 .btn, .wrapper.navigation {
-    width: @button-size;
+    width: $button-size;
 }
 
 .btn {
     display: inline-block;
-    color: @link-color;
-    height: @button-size;
-    width: @button-size;
-    line-height: @button-size;
-    font-size: @button-size;
+    color: $link-color;
+    height: $button-size;
+    width: $button-size;
+    line-height: $button-size;
+    font-size: $button-size;
     text-align: center;
 
     cursor: pointer;
@@ -114,9 +114,9 @@ a {
     }
 
     &.label {
-        font-size: @handler-label-size / 2;
-        line-height: @handler-label-size;
-        height: @handler-label-size;
+        font-size: $handler-label-size / 2;
+        line-height: $handler-label-size;
+        height: $handler-label-size;
 
         color: white;
         text-transform: lowercase;
@@ -126,7 +126,7 @@ a {
         position: relative;
 
         sub {
-            font-size: @handler-label-size / 4;
+            font-size: $handler-label-size / 4;
         }
     }
 }

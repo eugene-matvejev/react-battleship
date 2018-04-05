@@ -1,9 +1,9 @@
-@border-config: 1px dotted rgba(255, 255, 255, .5);
+$border-config: 1px dotted rgba(255, 255, 255, .5);
 
 .component.pagination {
     margin-top: 2rem;
-    border-top: @border-config;
-    border-bottom: @border-config;
+    border-top: $border-config;
+    border-bottom: $border-config;
 
     font-size: 1.25rem;
     color: white;
@@ -19,10 +19,10 @@
         min-width: 3rem;
         text-align: center;
 
-        border-left: @border-config;
+        border-left: $border-config;
 
         &:last-child {
-            border-right: @border-config;
+            border-right: $border-config;
         }
 
         &.prev, &.next {
