@@ -31,12 +31,12 @@ $border-config: 1px dotted rgba(255, 255, 255, .5);
 
         &.prev {
             &:before {
-                content: '<';
+                content: '< ';
             }
         }
         &.next {
             &:after {
-                content: '>';
+                content: ' >';
             }
         }
     }
