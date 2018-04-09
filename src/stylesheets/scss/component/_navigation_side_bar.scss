@@ -44,11 +44,11 @@ $navigation-component-animation-style: all .5s ease;
     transition: $navigation-component-animation-style;
 
     z-index: 1;
-    background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
     position: relative;
 
     text-transform: uppercase;
-    border-right: 1px solid white;
+    border-right: 1px solid #fff;
 
     overflow-y: auto;
 
@@ -64,10 +64,10 @@ $navigation-component-animation-style: all .5s ease;
             display: inline-block;
 
             &:hover {
-                background: white;
+                background: #fff;
 
                 a {
-                    color: black;
+                    color: #000;
                 }
             }
         }

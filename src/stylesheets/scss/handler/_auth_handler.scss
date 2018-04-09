@@ -1,6 +1,9 @@
 $border-style: 1px solid #556980;
 
 .handler.auth {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+
     margin: auto;
     text-align: center;
     background: #fff;

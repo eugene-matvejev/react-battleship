@@ -6,13 +6,13 @@ $border-config: 1px dotted rgba(255, 255, 255, .5);
     border-bottom: $border-config;
 
     font-size: 1.25rem;
-    color: white;
+    color: #fff;
     text-align: center;
 
     & > span {
         &:hover {
-            color: black;
-            background: white;
+            color: #000;
+            background: #fff;
         }
 
         display: inline-block;
