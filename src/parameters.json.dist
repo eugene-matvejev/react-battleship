@@ -5,6 +5,13 @@
     "maxOpponents": 3,
 
     "api": {
-        "host": "http://localhost:80/app_dev.php"
+        "host": "http://localhost:80/app_dev.php",
+
+        "routes": {
+            "login": "/login",
+            "game": {
+                "results": "/game/results"
+            }
+        }
     }
 }

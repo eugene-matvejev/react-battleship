@@ -23,25 +23,17 @@ export default class AuthHandler extends Component {
     }
 
     onSubmit() {
-        const { onSubmit, onResolve } = this.props;
+        const { callback } = this.props;
         const { username, password } = this.state;
 
-        onSubmit(
-            { username, password },
-            ( payload ) => {
-                onResolve(true);
-            },
-            ( payload ) => {
-                onResolve(false);
-            },
-        ).then();
+        callback({ username, password });
     }
 
     render() {
-        const { className, signedUpLink, resetPasswordLink } = this.props;
+        const { className, label, signUpLink, resetPasswordLink } = this.props;
 
         return <div className={`handler auth ${className}`}>
-            <h1>Login required</h1>
+            <h1>{ label }</h1>
             <div className="input-wrapper">
                 <input type="text" onChange={(e) => this.onUsernameChange(e.target.value)}/>
             </div>
@@ -51,22 +43,20 @@ export default class AuthHandler extends Component {
             <div>
                 <button className="btn-submit" onClick={this.onSubmit}>log in</button>
             </div>
-            <Link to={signedUpLink}>sign up</Link>
+            <Link to={signUpLink}>sign up</Link>
             <Link to={resetPasswordLink}>forgotten password</Link>
         </div>;
     }
 
     static propTypes = {
+        callback: PropTypes.func.isRequired,
+        label: PropTypes.string.isRequired,
+        signUpLink: PropTypes.string.isRequired,
+        resetPasswordLink: PropTypes.string.isRequired,
         className: PropTypes.string,
-        signedUpLink: PropTypes.string,
-        resetPasswordLink: PropTypes.string,
-        onSubmit: PropTypes.func.isRequired,
-        onResolve: PropTypes.func.isRequired,
     };
 
     static defaultProps = {
         className: '',
-        signedUpLink: '',
-        resetPasswordLink: '',
     };
 }

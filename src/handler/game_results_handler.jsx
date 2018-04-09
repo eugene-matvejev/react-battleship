@@ -7,7 +7,8 @@ export default class GameResultsHandler extends Component {
         super();
 
         this.state = {
-            data: [ /** mocked data */
+            data: [
+                /** mocked data */
             ],
             current,
             total,
@@ -20,24 +21,35 @@ export default class GameResultsHandler extends Component {
     handleOnClickCallback(page) {
         const { total } = this.state;
         const { callback } = this.props;
-
         /** dublicated check from <Pagination/> need think how to avoid such stuff */
         if (page <= 0 || page > total) {
             return;
         }
 
+        console.log('handleOnClickCallback', {total, page});
         callback(
             {page},
-            ({response}) => {
-                const { data, page } = response;
+            (v) => {
+                console.log({v});
+                const current = v.headers['x-page-page'];
+                const total = v.headers['x-page-total'];
+                const { data } = v;
 
-                this.setState({ data, page});
-            },
-            ({response}) => {
-                const { data, page } = response;
+                const self = this;
+                console.log({v, self, current, total, data});
 
-                this.setState({ data, page, failed: true});
+                this.setState({ data, current });
             },
+            (v) => {
+                console.log({v});
+                const current = v.headers['x-page-page'];
+                const total = v.headers['x-page-total'];
+
+                const self = this;
+                console.log({v, self, current, total});
+
+                this.setState({ data: []});
+            }
         )
     }
 
@@ -74,16 +86,14 @@ export default class GameResultsHandler extends Component {
     }
 
     keyDownEventHandler({ code }) {
-        let v = this.state.current;
+        const { current } = this.state;
 
         switch (code) {
             case 'ArrowRight':
-                v++;
-                this.handleOnClickCallback(v);
+                this.handleOnClickCallback(current + 1);
                 break;
             case 'ArrowLeft':
-                v--;
-                this.handleOnClickCallback(v);
+                this.handleOnClickCallback(current - 1);
                 break;
             default:
                 break;
@@ -99,17 +109,16 @@ export default class GameResultsHandler extends Component {
     }
 
     static propTyps = {
+        current: PropTypes.number.isRequired,
+        total: PropTypes.number.isRequired,
         label: PropTypes.string.isRequired,
+        callback: PropTypes.func.isRequired,
         className: PropTypes.string,
-        current: PropTypes.number,
-        total: PropTypes.number,
         headers: PropTypes.object,
     };
 
     static defaultProps = {
         className: '',
-        current: 1,
-        total: 1,
         headers: {
             index: '#',
             col1: 'player name',
