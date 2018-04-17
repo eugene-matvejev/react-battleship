@@ -50,8 +50,8 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 * __optional__
   * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
   * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
-  * `$ npm run generate:css` - to generate CSS from LESS
-  * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
+  * `$ npm run generate:css` - to generate CSS from SCSS
+  * `$ npm run generate:css:w` - watch SCSS files for changes and compile CSS in runtime
 * __to assemble static assets__
   * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
 
