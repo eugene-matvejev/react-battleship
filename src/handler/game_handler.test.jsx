@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() });
 describe(`<GameHandler/>`, () => {
     const model = generateGame(2, 1); /* two players */
 
-    describe(`rendering`, () => {
+    describe(`render`, () => {
         it('with default/required props', () => {
             shallow(<GameHandler model={model} />);
         });
