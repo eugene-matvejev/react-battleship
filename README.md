@@ -26,39 +26,46 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
 ## software requirements
- * [node.js](https://nodejs.org/) v8+
- * [npm](https://www.npmjs.com/) v5+ or [yarn](https://yarnpkg.com/)
+
+* [node.js](https://nodejs.org/) v8+
+* [npm](https://www.npmjs.com/) v5+ or [yarn](https://yarnpkg.com/)
 
 ## used technologies
- * [react.js](https://reactjs.org/) v16+
- * [enzyme](http://airbnb.io/enzyme/)
- * [jest](https://facebook.github.io/jest/)
- * [sass](https://sass-lang.com/)
- * [docker](https://www.docker.com/)
- * [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
+
+* [react.js](https://reactjs.org/) v16+
+* [enzyme](http://airbnb.io/enzyme/)
+* [jest](https://facebook.github.io/jest/)
+* [sass](https://sass-lang.com/)
+* [docker](https://www.docker.com/)
+* [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
   
 ## used enviroment variables
- * __BASE_URL__ - API endpoint host
-   * example: `$ export BASE_URL="https://api.game.local"`
+
+* __BASE_URL__ - API endpoint host
+  * example: `$ export BASE_URL="https://api.game.local"`
  
 ## how to install
- * `$ npm start` - execute `$ npm run generate:all`, then starts concurrently `lite-server` and `generate:css:w`
- * OPTIONAL:
-   * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
-   * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
-   * `$ npm run generate:css` - to generate CSS from LESS
-   * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
- * TO DEPLOY:
-   * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
+
+* `$ npm start` - execute `$ npm run generate:all`, then starts concurrently `lite-server` and `generate:css:w`
+* __optional__
+  * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
+  * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
+  * `$ npm run generate:css` - to generate CSS from LESS
+  * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
+* __to assemble static assets__
+  * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
 
 ## how to run tests
- * `$ npm test`
- * OPTIONAL:
-   * `-- --coverage` to generate coverage report [located in __./coverage__ directory]
-   * [additional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)
+
+* `$ npm test`
+* __optional__
+  * `--coverage` to generate coverage report [located in __./coverage__ directory]
+  * example: `$ npm test -- --coverage`
+  * [additional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)
    
 ## gitlow
- * master -> most upto date 'production' version
- * heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
- * other branches -> 'feature branches' get merged into master
- * coverage report check / CI build is mandatory checks for every PR to be merged in
+
+* master -> most upto date 'production' version
+* heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
+* other branches -> 'feature branches' get merged into master
+* coverage report check / CI build is mandatory checks for every PR to be merged in
