@@ -38,7 +38,7 @@ build: dependencies
 		--rm  \
 		-it  \
 		$(.WORKSPACE_VOLUMES) \
-		$(.CWA_IMAGE)
+		$(.CWA_IMAGE) -c 'npm run build'
 
 test: dependencies
 	docker run \
