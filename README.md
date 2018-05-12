@@ -36,6 +36,7 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 * [enzyme](http://airbnb.io/enzyme/)
 * [jest](https://facebook.github.io/jest/)
 * [sass](https://sass-lang.com/)
+* [docker](https://www.docker.com/)
 * [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
   
 ## used enviroment variables
