@@ -16,7 +16,8 @@
     "node-parameter-handler": "^1.0.0",
     "react-scripts": "^1.1.0",
     "concurrently": "^3.5.0",
-    "node-sass-chokidar": "^1.2.2"
+    "node-sass-chokidar": "^1.2.2",
+    "snyk": "^1.85.0"
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
@@ -31,7 +32,9 @@
     "generate:all": "npm run generate:settings && npm run generate:css",
     "generate:settings": "node node_modules/node-parameter-handler",
     "generate:css": "node-sass-chokidar src/stylesheets/scss/ -o src/stylesheets/css/",
-    "generate:css:w": "npm run generate:css -- --watch --recursive"
+    "generate:css:w": "npm run generate:css -- --watch --recursive",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -52,5 +55,6 @@
         }
       }
     ]
-  }
+  },
+  "snyk": true
 }
