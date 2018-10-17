@@ -1,16 +1,19 @@
-machine:
-    node:
-        version: 8.9
-
-dependencies:
-    cache_directories:
-        - ~/.npm/
-    override:
-        - npm i --no-progress
-    post:
-        - npm i -g codecov
-
-test:
-    override:
-        - npm test -- --coverage
-        - codecov
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10.4.0
+    steps:
+      - checkout
+      - run: npm i --verbose
+      - run: sudo npm i -g codecov
+      - run: npm test -- --coverage
+      - run: codecov
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+workflows:
+  version: 2
+  test-only:
+    jobs:
+      - test
