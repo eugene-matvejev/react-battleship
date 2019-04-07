@@ -5,10 +5,3 @@ npm-debug.log
 .vscode/
 
 src/parameters.json
-
-var/
-!var/logs/.gitkeep
-dist/
-!dist/.gitkeep
-src/stylesheets/css/
-!src/stylesheets/css/.gitkeep
