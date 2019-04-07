@@ -5,9 +5,8 @@ RUN apk add --no-cache nodejs nodejs-npm
 WORKDIR /www
 
 COPY serve.json ./
-COPY production.package.json ./package.json
 
-RUN npm i --verbose
+RUN npm i serve --verbose -g
 
 COPY build ./build
 

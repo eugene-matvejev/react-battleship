@@ -72,5 +72,5 @@ production: prod-image
 		$(.ENVIROMENT_VARIABLES) \
 		-e NO_UPDATE_CHECK=1 \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
-		--entrypoint=node \
-		$(.PROD_IMAGE) node_modules/.bin/serve
+		--entrypoint=/usr/bin/serve \
+		$(.PROD_IMAGE)
