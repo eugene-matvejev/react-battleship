@@ -1,7 +1,8 @@
+.vscode/
+
 build/
 coverage/
+
 node_modules/
-npm-debug.log
-.vscode/
 
 src/parameters.json
