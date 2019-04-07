@@ -1,12 +1,5 @@
 .git/
 .vscode/
 
-.gitignore
-circle.yml
-
 coverage/
 node_modules/
-
-Makefile
-LICENSE
-README.md
