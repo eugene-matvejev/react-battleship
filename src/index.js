@@ -10,7 +10,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import 'react-rangeslider/lib/index.css';
-import './stylesheets/scss/main.scss';
+import './stylesheets/main.scss';
 
 const mock = new MockAdapter(axios, { delayResponse: 500 });
 mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
