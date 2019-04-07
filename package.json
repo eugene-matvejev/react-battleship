@@ -20,8 +20,7 @@
     "enzyme-to-json": "^3.3.5",
     "node-parameter-handler": "^2.0.0",
     "node-sass": "^4.11.0",
-    "react-scripts": "^2.1.8",
-    "serve": "^11.0.0"
+    "react-scripts": "^2.1.8"
   },
   "scripts": {
     "start": "generate-parameters && react-scripts start",

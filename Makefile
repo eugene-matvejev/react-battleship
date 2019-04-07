@@ -65,7 +65,7 @@ interactive: dev-image
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run start
 
-production: prod-image
+production: build prod-image
 	docker run \
 		--rm \
 		-it \
