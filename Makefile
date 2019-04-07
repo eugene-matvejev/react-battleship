@@ -65,11 +65,12 @@ interactive: dev-image
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run start
 
-production: prod-image
+production: build prod-image
 	docker run \
 		--rm \
 		-it \
 		$(.ENVIROMENT_VARIABLES) \
+		-e NO_UPDATE_CHECK=1 \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
-		--entrypoint=npm \
-		$(.PROD_IMAGE) start
+		--entrypoint=/usr/bin/serve \
+		$(.PROD_IMAGE)

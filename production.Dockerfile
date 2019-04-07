@@ -1,16 +1,13 @@
 FROM alpine
 
-RUN apk add --no-cache nodejs
+RUN apk add --no-cache nodejs nodejs-npm
 
 WORKDIR /www
 
-ENV PATH /www/node_modules/.bin:$PATH
+COPY serve.json ./
 
-COPY package.json ./
+RUN npm i serve --verbose -g
 
-RUN npm i --verbose
+COPY build ./build
 
-COPY src ./src
-COPY public ./public
-
-ENTRYPOINT npm run build
+ENTRYPOINT /bin/sh

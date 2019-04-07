@@ -4,7 +4,6 @@
 .gitignore
 circle.yml
 
-build/
 coverage/
 node_modules/
 
