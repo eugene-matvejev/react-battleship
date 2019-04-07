@@ -70,6 +70,7 @@ production: prod-image
 		--rm \
 		-it \
 		$(.ENVIROMENT_VARIABLES) \
+		-e NO_UPDATE_CHECK=1 \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
-		--entrypoint=npm \
-		$(.PROD_IMAGE) start
+		--entrypoint=node \
+		$(.PROD_IMAGE) node_modules/.bin/serve

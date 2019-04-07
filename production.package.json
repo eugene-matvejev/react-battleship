@@ -1,0 +1,15 @@
+{
+  "name": "battleship-game-gui-react-js-production",
+  "version": "0.2.0",
+  "private": true,
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "serve": "^11.0.0"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  }
+}
