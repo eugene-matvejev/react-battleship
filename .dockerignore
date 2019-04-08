@@ -1,7 +1,5 @@
-node_modules/
 .git/
-.gitignore
 .vscode/
+
 coverage/
-Makefile
-package-lock.json
+node_modules/
