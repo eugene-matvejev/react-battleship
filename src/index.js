@@ -9,10 +9,10 @@ import { createAxiosCallback } from './utils';
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-
-import 'react-rangeslider/lib/index.css';
-import './stylesheets/main.scss';
 import config from './parameters.json';
+
+import 'react-rangeslider/index.scss';
+import './stylesheets/main.scss';
 
 const { api: { routes: { login: authRoute, game: { results: gameResultsRoute } } } } = config;
 
