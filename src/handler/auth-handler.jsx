@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FormHandler from './form-handler';
-import Text from '../component/form/input/text';
+import Text from '../component/form/input/generic-input';
 
 export default class AuthHandler extends PureComponent {
     constructor() {
@@ -38,7 +38,7 @@ export default class AuthHandler extends PureComponent {
             config={
                 [
                     {
-                        title: 'account details',
+                        title: 'account details [ private details ]',
                         items: [
                             {
                                 c: Text,
@@ -47,11 +47,13 @@ export default class AuthHandler extends PureComponent {
                                     'error 1',
                                     'error 2',
                                 ],
+                                value: 'example@example.com',
                             },
                             {
                                 c: Text,
                                 label: 'password',
-                                type: 'password'
+                                type: 'password',
+                                value: 'query'
                             },
                         ],
                     },
@@ -60,19 +62,20 @@ export default class AuthHandler extends PureComponent {
                         items: [
                             {
                                 c: Text,
-                                label: 'nickname'
+                                label: 'nickname',
+                                value: 'example'
                             },
                         ],
                     },
                 ]
             }
-            cancelCTRL = {{
+            cancelCTRL={{
                 label: 'cancel',
             }}
-            updateCTRL = {{
+            updateCTRL={{
                 label: 'update',
             }}
-            submitCTRL = {{
+            submitCTRL={{
                 label: 'submit',
             }}
         />;

@@ -69,9 +69,9 @@ export default class FormHandler extends PureComponent {
 
     render() {
         const { config, data } = this.state;
-        const { qaSelector, className, submitCTRL, updateCTRL, cancelCTRL, onCancel } = this.props;
+        const { cy, className, submitCTRL, updateCTRL, cancelCTRL, onCancel } = this.props;
 
-        return <form className={`form ${className}`} data-cy={qaSelector}>
+        return <form className={`form ${className}`} data-cy={cy}>
             {
                 config.map(({ className, title, isCollapsed, items }, i) =>
                     <Accordion
@@ -79,51 +79,53 @@ export default class FormHandler extends PureComponent {
                         title={title}
                         onCollapse={this.onCollapse}
                         isCollapsed={isCollapsed}
-                        data-cy={`${qaSelector}section-${i}`}
+                        data-cy={`${cy}section-${i}`}
                         data-section={i}
                         key={i}
                     >
                         {
                             items.map(({ c: Component, ...props }, j) =>
-                                <Component {...props} qaSelector={`${qaSelector}section-${i}-input-${j}`} data-section={i} data-field={j} key={j} />
+                                <Component {...props} data-cy={`${cy}section-${i}-input-${j}`} data-section={i} data-field={j} key={j} />
                             )
                         }
                     </Accordion>
                 )
             }
-            {
-                updateCTRL && data &&
-                <Button
-                    className={updateCTRL.className}
-                    qaSelector={`${qaSelector}form-action-update`}
-                    label={updateCTRL.label}
-                    onClick={this.onSubmit}
-                />
-            }
-            {
-                submitCTRL && !data &&
-                <Button
-                    className={submitCTRL.className}
-                    qaSelector={`${qaSelector}form-action-submit`}
-                    label={submitCTRL.label}
-                    onClick={this.onSubmit}
-                />
-            }
-            {
-                cancelCTRL &&
-                <Button
-                    className={cancelCTRL.className}
-                    qaSelector={`${qaSelector}form-action-cancel`}
-                    label={cancelCTRL.label}
-                    onClick={onCancel}
-                />
-            }
+            <div className="form_controls">
+                {
+                    updateCTRL && data &&
+                    <Button
+                        className={updateCTRL.className}
+                        data-cy={`${cy}form-action-update`}
+                        label={updateCTRL.label}
+                        onClick={this.onSubmit}
+                    />
+                }
+                {
+                    submitCTRL && !data &&
+                    <Button
+                        className={submitCTRL.className}
+                        data-cy={`${cy}form-action-submit`}
+                        label={submitCTRL.label}
+                        onClick={this.onSubmit}
+                    />
+                }
+                {
+                    cancelCTRL &&
+                    <Button
+                        className={cancelCTRL.className}
+                        data-cy={`${cy}form-action-cancel`}
+                        label={cancelCTRL.label}
+                        onClick={onCancel}
+                    />
+                }
+            </div>
         </form>;
     }
 
     static propTypes = {
-        qaSelector: PropTypes.string,
         className: PropTypes.string,
+        cy: PropTypes.string,
         config: PropTypes.arrayOf(
             PropTypes.shape({
                 className: PropTypes.string,
@@ -162,7 +164,7 @@ export default class FormHandler extends PureComponent {
     }
 
     static defaultProps = {
-        qaSelector: '',
         className: '',
+        cy: '',
     }
 }

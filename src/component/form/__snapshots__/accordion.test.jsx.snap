@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Accordion/> render with default/required props 1`] = `
+<section
+  className="accordion "
+/>
+`;

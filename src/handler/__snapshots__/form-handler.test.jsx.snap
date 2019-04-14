@@ -11,14 +11,16 @@ exports[`<FormHandler/> render with default/required props 1`] = `
     data-section={0}
     key="0"
     onCollapse={[Function]}
-    qaSelector=""
   >
     <c
+      data-cy="section-0-input-0"
       data-field={0}
       data-section={0}
       key="0"
-      qaSelector="section-0-input-0"
     />
   </Accordion>
+  <div
+    className="form_controls"
+  />
 </form>
 `;

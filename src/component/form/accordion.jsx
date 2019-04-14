@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Accordion = ({ className, title, onCollapse, isCollapsed, children, ...props }) =>
-    <section className={`accordion ${className}`}>
-        {title && <h2 onClick={onCollapse} {...props}>{title}</h2>}
+    <section className={`accordion${isCollapsed ? '--collapsed' : ''} ${className}`}>
+        {title && <h2 className="accordion_title" onClick={onCollapse} {...props}>{title}</h2>}
         {!isCollapsed && children}
     </section>;
 

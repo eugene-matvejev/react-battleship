@@ -7,35 +7,42 @@ exports[`<AuthHandler/> render with default/required props 1`] = `
       "label": "cancel",
     }
   }
-  className=""
+  className="form--rounded"
   config={
     Array [
       Object {
         "items": Array [
           Object {
             "c": [Function],
+            "errors": Array [
+              "error 1",
+              "error 2",
+            ],
             "label": "username",
+            "value": "example@example.com",
           },
           Object {
             "c": [Function],
             "label": "password",
             "type": "password",
+            "value": "query",
           },
         ],
-        "title": "account details",
+        "title": "account details [ private details ]",
       },
       Object {
         "items": Array [
           Object {
             "c": [Function],
             "label": "nickname",
+            "value": "example",
           },
         ],
         "title": "public details",
       },
     ]
   }
-  qaSelector=""
+  cy=""
   submitCTRL={
     Object {
       "label": "submit",
