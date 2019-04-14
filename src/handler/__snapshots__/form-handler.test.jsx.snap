@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormHandler/> render with default/required props 1`] = `
+<form
+  className="form "
+  data-cy=""
+>
+  <Accordion
+    className=""
+    data-cy="section-0"
+    data-section={0}
+    key="0"
+    onCollapse={[Function]}
+    qaSelector=""
+  >
+    <c
+      data-field={0}
+      data-section={0}
+      key="0"
+      qaSelector="section-0-input-0"
+    />
+  </Accordion>
+</form>
+`;

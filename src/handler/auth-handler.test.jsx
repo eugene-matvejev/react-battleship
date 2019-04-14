@@ -1,7 +1,7 @@
-import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { AuthHandler } from './';
+import React from 'react';
+import { AuthHandler } from '.';
 
 configure({ adapter: new Adapter() });
 
@@ -16,10 +16,6 @@ describe('<AuthHandler/>', () => {
 
     describe(`render`, () => {
         it('with default/required props', () => {
-            shallow(<AuthHandler {...props} />);
-        });
-
-        it('match snapshop', () => {
             const c = shallow(<AuthHandler {...props} />);
 
             expect(c).toMatchSnapshot();

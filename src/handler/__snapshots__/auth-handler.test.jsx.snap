@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AuthHandler/> render with default/required props 1`] = `
+<FormHandler
+  cancelCTRL={
+    Object {
+      "label": "cancel",
+    }
+  }
+  className=""
+  config={
+    Array [
+      Object {
+        "items": Array [
+          Object {
+            "c": [Function],
+            "label": "username",
+          },
+          Object {
+            "c": [Function],
+            "label": "password",
+            "type": "password",
+          },
+        ],
+        "title": "account details",
+      },
+      Object {
+        "items": Array [
+          Object {
+            "c": [Function],
+            "label": "nickname",
+          },
+        ],
+        "title": "public details",
+      },
+    ]
+  }
+  qaSelector=""
+  submitCTRL={
+    Object {
+      "label": "submit",
+    }
+  }
+  title="login required"
+  updateCTRL={
+    Object {
+      "label": "update",
+    }
+  }
+/>
+`;

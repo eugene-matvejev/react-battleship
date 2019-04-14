@@ -11,8 +11,8 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import config from './parameters.json';
 
-import 'react-rangeslider/index.scss';
 import './stylesheets/main.scss';
+import 'react-rangeslider/lib/index.css';
 
 const { api: { routes: { login: authRoute, game: { results: gameResultsRoute } } } } = config;
 
