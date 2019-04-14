@@ -14,7 +14,6 @@
 
 help:
 	@echo ""
-	@echo ""
 	@echo " Battleship Game CWA [ client web application ] "
 	@echo "------------------------------------------------"
 	@echo ""
@@ -26,7 +25,6 @@ help:
 	@echo " make test\t\texecute unit and functional tests"
 	@echo " make interactive\tprepares local dev. env., CWA become available on http://localhost:$(.LINKED_PORT)"
 	@echo " make production\tprepares local prod. env., CWA become available on http://localhost:$(.LINKED_PORT)"
-	@echo ""
 	@echo ""
 
 dev-image:
