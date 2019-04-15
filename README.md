@@ -32,7 +32,7 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 
 ## used technologies
 
-* [react.js](https://reactjs.org/) v16+
+* [react.js](https://reactjs.org/)
 * [enzyme](http://airbnb.io/enzyme/)
 * [jest](https://facebook.github.io/jest/)
 * [sass](https://sass-lang.com/)
@@ -58,7 +58,7 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
   * example: `$ npm test -- --coverage`
   * [additional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)
 
-## gitlow
+## gitflow
 
 * master -> most upto date 'production' version
 * heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
