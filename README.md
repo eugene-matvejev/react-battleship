@@ -8,10 +8,10 @@
 [codecov.io-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
 [codecov.io-heroku-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
 
-[slack_logo]: https://a.slack-edge.com/436da/marketing/img/slack_logo.png
-[slack_url]: https://join.slack.com/t/myth-project/shared_invite/enQtMjk2NTM0MDA5ODQ3LTg3ZDlmYTBiODIwODI0ZjhhMjc2NTgwMDMwNDc0NWMxNzExYzliM2UwYTEzNGMyMGRiZjg0ZTEyOTYwYzM0OTQ
+[slack-logo]: https://a.slack-edge.com/436da/marketing/img/slack_logo.png
+[slack-url]: https://join.slack.com/t/myth-project/shared_invite/enQtMjk2NTM0MDA5ODQ3LTg3ZDlmYTBiODIwODI0ZjhhMjc2NTgwMDMwNDc0NWMxNzExYzliM2UwYTEzNGMyMGRiZjg0ZTEyOTYwYzM0OTQ
 
-## join our [![join_us_on_slack][slack_logo]][slack_url] channel
+## join our [![join_us_on_slack][slack-logo]][slack-url] channel
 
 |                  | master                                                         | heroku
 |---               |---                                                             |---
@@ -38,12 +38,7 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 * [sass](https://sass-lang.com/)
 * [docker](https://www.docker.com/)
 * [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
-  
-## used enviroment variables
 
-* __BASE_URL__ - API endpoint host
-  * example: `$ export BASE_URL="https://api.game.local"`
- 
 ## how to install
 
 * `$ npm start` - execute `$ npm run generate:all`, then starts concurrently `lite-server` and `generate:css:w`
@@ -62,10 +57,21 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
   * `--coverage` to generate coverage report [located in __./coverage__ directory]
   * example: `$ npm test -- --coverage`
   * [additional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)
-   
+
 ## gitlow
 
 * master -> most upto date 'production' version
 * heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
 * other branches -> 'feature branches' get merged into master
 * coverage report check / CI build is mandatory checks for every PR to be merged in
+
+## used enviroment variables
+
+* **REACT_APP_GAME-MIN-SIZE** [default 5] as number
+* **REACT_APP_GAME-MAX-SIZE** [default 10] as number
+* **REACT_APP_GAME-MIN-OPPONENTS** [default 1] as number
+* **REACT_APP_GAME-MAX-OPPONENTS** [default 3] as number
+
+* **REACT_APP_API_PROTOCOL** [default "http"]
+* **REACT_APP_API_HOST** [default "localhost"]
+* **REACT_APP_API_PORT** [default 8081] as number

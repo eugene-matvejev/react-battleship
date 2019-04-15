@@ -4,16 +4,18 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { generateGame } from './service/generator';
 import { NavigationSideBar } from './component'
 import { AuthHandler, GameHandler, GameInitiationHandler, GameResultsHandler } from './handler';
-import config from './parameters.json';
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
+import config from './parameters';
+
 import 'react-rangeslider/lib/index.css';
 import './stylesheets/main.scss';
 
+
 const mock = new MockAdapter(axios, { delayResponse: 500 });
-mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
+mock.onPost('/login', { params: { username: 's', password: '' } }).reply(
     201,
     {
         user: {
@@ -25,7 +27,7 @@ mock.onPost('/login', { params: { username: 's', password: ''}}).reply(
         },
     }
 );
-mock.onPost('/login', { params: { username: 'f500', password: ''}}).reply(500);
+mock.onPost('/login', { params: { username: 'f500', password: '' } }).reply(500);
 mock.onPost('/login').reply(401);
 
 const store = {
@@ -44,7 +46,7 @@ const routes = [
     {
         path: '/',
         label: 'start new game',
-        component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }}/>,
+        component: () => <GameInitiationHandler {...config} onSubmit={(v) => { store.game = v; }} />,
     },
     {
         path: '/game',
@@ -58,18 +60,18 @@ const routes = [
     },
 ];
 
-const WebApp = ({routes}) => [
-    <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'}/>,
+const WebApp = ({ routes }) => [
+    <NavigationSideBar routes={routes} key={'navbar'} label={'battleship game'} />,
     <Switch key={'content'}>
-    {
-        routes.map(({ path, component }) => <Route exact key={path} path={path} component={component}/>)
-    }
+        {
+            routes.map(({ path, component }) => <Route exact key={path} path={path} component={component} />)
+        }
     </Switch>
 ];
 
 ReactDOM.render(
     <BrowserRouter forceRefresh={true}>
-        { store.isAuthenticated ? <WebApp routes={routes}/> : <AuthHandler callback={authCallback}/>}
+        {store.isAuthenticated ? <WebApp routes={routes} /> : <AuthHandler callback={authCallback} />}
     </BrowserRouter>,
     document.getElementById('content-area')
 );
