@@ -18,13 +18,12 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.0",
     "enzyme-to-json": "^3.3.5",
-    "node-parameter-handler": "^2.0.0",
     "node-sass": "^4.11.0",
     "react-scripts": "^2.1.8"
   },
   "scripts": {
-    "start": "generate-parameters && react-scripts start",
-    "build": "generate-parameters && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --verbose",
     "eject": "react-scripts eject"
   },
@@ -44,17 +43,6 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
-  },
-  "extra": {
-    "node_parameter_handler": [
-      {
-        "source": "src/parameters.json.dist",
-        "output": "src/parameters.json",
-        "envMap": {
-          "api.host": "BASE_URL"
-        }
-      }
     ]
   }
 }
