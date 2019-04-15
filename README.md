@@ -41,14 +41,9 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 
 ## how to install
 
-* `$ npm start` - execute `$ npm run generate:all`, then starts concurrently `lite-server` and `generate:css:w`
-* __optional__
-  * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
-  * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
-  * `$ npm run generate:css` - to generate CSS from SCSS
-  * `$ npm run generate:css:w` - watch SCSS files for changes and compile CSS in runtime
+* `$ npm start`
 * __to assemble static assets__
-  * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
+  * `$ npm run build` - assets will be located in __./build__ directory
 
 ## how to run tests
 
@@ -61,11 +56,11 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 ## gitflow
 
 * master -> most upto date 'production' version
-* heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
+* heroku -> demo branch [master is not deployed to heroku with every push, because of constrains of 'free account']
 * other branches -> 'feature branches' get merged into master
 * coverage report check / CI build is mandatory checks for every PR to be merged in
 
-## used enviroment variables
+## used environment variables
 
 * **REACT_APP_GAME-MIN-SIZE** [default 5] as number
 * **REACT_APP_GAME-MAX-SIZE** [default 10] as number
