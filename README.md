@@ -32,17 +32,12 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 
 ## used technologies
 
-* [react.js](https://reactjs.org/) v16+
+* [react.js](https://reactjs.org/)
 * [enzyme](http://airbnb.io/enzyme/)
 * [jest](https://facebook.github.io/jest/)
 * [sass](https://sass-lang.com/)
 * [docker](https://www.docker.com/)
 * [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
-  
-## used enviroment variables
-
-* __BASE_URL__ - API endpoint host
-  * example: `$ export BASE_URL="https://api.game.local"`
  
 ## how to install
 
@@ -69,3 +64,8 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 * heroku -> demo branch [master is not deployed to heroku with every push, because of constrains on 'free account']
 * other branches -> 'feature branches' get merged into master
 * coverage report check / CI build is mandatory checks for every PR to be merged in
+  
+## used enviroment variables
+
+* __BASE_URL__ - API endpoint host
+  * example: `$ export BASE_URL="https://api.game.local"`
