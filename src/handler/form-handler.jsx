@@ -69,9 +69,10 @@ export default class FormHandler extends PureComponent {
 
     render() {
         const { config, data } = this.state;
-        const { cy, className, submitCTRL, updateCTRL, cancelCTRL, onCancel } = this.props;
+        const { cy, className, title, submitCTRL, updateCTRL, cancelCTRL, onCancel } = this.props;
 
-        return <form className={`form ${className}`} data-cy={cy}>
+        return <form className={`form ${className}`}>
+            {title && <h1 className="form_title" data-cy={`${cy}form-title`}>{title}</h1>}
             {
                 config.map(({ className, title, isCollapsed, items }, i) =>
                     <Accordion
