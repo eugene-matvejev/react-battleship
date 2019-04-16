@@ -14,7 +14,7 @@ import config from './parameters';
 import './stylesheets/main.scss';
 import 'react-rangeslider/lib/index.css';
 
-const { api: { routes: { login: authRoute, game: { results: gameResultsRoute } } } } = config;
+const { routes: { login: authRoute, game: { results: gameResultsRoute } } } = config;
 
 const mock = new MockAdapter(axios, { delayResponse: 500 });
 mock.onAny(authRoute, { params: { username: 's', password: '', method: 'POST' }}).reply(
