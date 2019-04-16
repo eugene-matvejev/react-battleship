@@ -86,8 +86,8 @@ targets/goals : WIP
 
 ## gitflow
 
-* master -> most upto date 'production' version
-* __proxxy branch__ heroku -> master is not deployed to heroku with every push, because of limiations of 'free account'
+* master -> most upto date __production__ version
+* __proxy branch__ heroku -> master is not deployed to heroku with every push, because of limiations of 'free account'
 * other branches -> 'feature branches' get merged into master
 CI build is mandatory check for every PR into master/heroku branches
 
