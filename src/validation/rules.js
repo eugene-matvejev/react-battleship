@@ -1,15 +1,55 @@
-const composeRule = (fn, errorMsg, ...args) => (c, v) => fn(v, ...args) || typeof errorMsg === 'function' ? errorMsg(c, v, ...args) : errorMsg;
+/**
+ * @param {Function}        fn
+ * @param {Function|String} message
+ * @param {Array}           args
+ *
+ * examples:
+ *  composeRule(isRequired, 'message')
+ *  composeRule(isRequired, (value, ...args) => 'message')
+ *  composeRule(isMatchRegex, 'message', [/regexp/])
+ *  composeRule(isLengthBetween, 'message', [1, 2])
+ */
+export const composeRule = (fn, message, args = []) => (v) => fn(v, ...args) || (typeof message === 'function' ? message(v, ...args) : message);
+/**
+ * @param {Function} condition
+ * @param {Function} fn
+ *
+ * examples:
+ *  composeConditionalRule(
+ *      (value, config) => true,
+ *      composeRule(isRequired, 'message')
+ *  )
+ *  composeConditionalRule(
+ *      (value, config) => true,
+ *      composeRule(isMatchRegex, 'message', [/regexp/])
+ *  )
+ *  composeConditionalRule(
+ *      (value, config) => true,
+ *      composeRule(isLengthBetween, 'message', [1, 2])
+ *  )
+ */
+export const composeConditionalRule = (condition, fn) => (v, c) => !condition(v, c) || fn(v);
 
-const composeCustomRule
-
-
-const isRequired = (c, v) => !!v || v !== false;
-const isMatchRegex = (c, v, [regex]) => {
-
-};
-const isLenghBetween = (c, v, [ min, max ]) => {
-    if (min && max ) {
-        return  min >= v.length && v.length <= max;
+export const isRequired = (v) => "" !== v && v !== undefined && v !== null;
+export const isMatchRegex = (v, pattern) => {
+    if (pattern instanceof RegExp) {
+        return pattern.test(v);
     }
-    if ( min )
+
+    return new RegExp(pattern).test(v);
+};
+export const isLengthBetween = (v, min, max) => {
+    if (undefined !== min) {
+        if (min > v.length) {
+            return false;
+        }
+    }
+
+    if (undefined !== max) {
+        if (max < v.length) {
+            return false;
+        }
+    }
+
+    return true;
 }
