@@ -58,11 +58,10 @@ targets/goals : WIP
 * [snyk.io](https://snyk.io/)
 * [heroku](https://www.heroku.com/)
 
-
 ## how to install
 
-* if you use `make` commands no actions required, apart of having docker v18.09+ installed,
-  * if dont't use make commands you need node & npm, and execute `$ npm i`
+* if you use `make` commands no actions required, apart of having docker v18.09+ installed
+  * otherwise you need node & npm, then execute `$ npm i`
 
 ## how to execute tests
 
