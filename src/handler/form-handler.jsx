@@ -57,14 +57,18 @@ export default class FormHandler extends PureComponent {
 
     onChange({ target }) {
         const { config } = this.state;
+        const { validationEngine, onChange } = this.props;
 
         const section = target.getAttribute('data-section');
         const field = target.getAttribute('data-field');
 
         config[section].items[field].value = target.value;
 
+        validationEngine && validationEngine(config, [{ section, field }]);
+
         this.setState({ config: [...config] })
-        this.props.onChange && this.props.onChange(this.props, this.state);
+
+        onChange && onChange(this.props, this.state);
     }
 
     render() {
@@ -162,6 +166,8 @@ export default class FormHandler extends PureComponent {
 
         onCollapse: PropTypes.func,
         onChange: PropTypes.func,
+
+        validationEngine: PropTypes.func,
     }
 
     static defaultProps = {
