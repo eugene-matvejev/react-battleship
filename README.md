@@ -21,7 +21,18 @@
 | _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link] | [![coverage][codecov.io-heroku-badge]][codecov.io-heroku-link]
 
 # Battleship Game GUI [on react.js]
-project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-matvejev/battleship-game-gui) on react.js, [DEMO](https://battleship-game-gui-react-js.herokuapp.com/)
+instructions are written, assuming you work in unix / MacOS env. it still should work with W10 Pro and cygwin
+
+```
+targets/goals : WIP
+* to demostrate:
+    * unit/functional testing best practices
+    * integration testing best practices
+    * react best practices
+    * DRY/KISS/SOLID principles
+    * DevOps knowledge [Docker/CI/CD etc]
+    * graphql knowledge
+```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
@@ -29,6 +40,7 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 
 * [node.js](https://nodejs.org/) v8+
 * [npm](https://www.npmjs.com/) v5+ or [yarn](https://yarnpkg.com/)
+* __optional__ [makefile](https://en.wikipedia.org/wiki/Makefile) comes out of the box in *nix enviroments
 
 ## used technologies
 
@@ -37,28 +49,47 @@ project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-
 * [jest](https://facebook.github.io/jest/)
 * [sass](https://sass-lang.com/)
 * [docker](https://www.docker.com/)
-* [node-parameter-handler](https://www.npmjs.com/package/node-parameter-handler)
+
+## used services
+
+* [CircleCI](https://circleci.com/dashboard)
+* [codecov.io](https://codecov.io/)
+* [CodeClimate](https://codeclimate.com/)
+* [snyk.io](https://snyk.io/)
+* [heroku](https://www.heroku.com/)
 
 ## how to install
 
-* `$ npm start`
+* if you use `make` commands no actions required, apart of having docker v18.09+ installed,
+  * if dont't use make commands you need node & npm, and execute `$ npm i`
+
+## how to execute tests
+
+* `$ make test` or `$ npm test`
+* __[optional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
+  * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
+  * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
+
+## how to serve in 'development' mode
+
+* `$ make`
+
+## how to serve in 'production' mode
+
+* `$ make production`
 * __to assemble static assets__
-  * `$ npm run build` - assets will be located in __./build__ directory
+  * `$ make build` - compiled assets will be located in __./build__ directory
 
 ## how to run tests
 
-* `$ npm test`
-* __optional__
-  * `--coverage` to generate coverage report [located in __./coverage__ directory]
-  * example: `$ npm test -- --coverage`
-  * [additional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)
+* `$ make test` or `$ npm test`
 
 ## gitflow
 
 * master -> most upto date 'production' version
-* heroku -> demo branch [master is not deployed to heroku with every push, because of constrains of 'free account']
+* __proxxy branch__ heroku -> master is not deployed to heroku with every push, because of limiations of 'free account'
 * other branches -> 'feature branches' get merged into master
-* coverage report check / CI build is mandatory checks for every PR to be merged in
+CI build is mandatory check for every PR into master/heroku branches
 
 ## used environment variables
 
