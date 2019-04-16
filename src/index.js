@@ -9,7 +9,7 @@ import { createAxiosCallback } from './utils';
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import config from './parameters.json';
+import config from './parameters';
 
 import './stylesheets/main.scss';
 import 'react-rangeslider/lib/index.css';
