@@ -3,105 +3,29 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FormHandler from './form-handler';
 import Text from '../component/form/input/generic-input';
+import { validationEngine } from '../validation/engine';
+import UserContext from '../context/user-context';
 
 export default class AuthHandler extends PureComponent {
-    constructor() {
+    constructor({ user }) {
         super();
 
         this.state = {
-            username: undefined,
-            password: undefined,
-            errors: [],
+            user,
         };
-
-        this.onSubmit = this.onSubmit.bind(this);
-    }
-
-    onPasswordChange({ target: { value: password } }) {
-        this.setState({ password });
-    }
-
-    onUsernameChange({ target: { value: username } }) {
-        this.setState({ username });
-    }
-
-    onSubmit() {
-        this.props.callback(this.state, this.props);
     }
 
     render() {
-        const { className, label, signUpLink, resetPasswordLink } = this.props;
+        const { children } = this.props;
+        const { user } = this.state;
 
-        return <FormHandler
-            title="login required"
-            className="form--rounded"
-            config={
-                [
-                    {
-                        title: 'account details [ private details ]',
-                        items: [
-                            {
-                                c: Text,
-                                label: 'username',
-                                errors: [
-                                    'error 1',
-                                    'error 2',
-                                ],
-                                value: 'example@example.com',
-                            },
-                            {
-                                c: Text,
-                                label: 'password',
-                                type: 'password',
-                                value: 'query'
-                            },
-                        ],
-                    },
-                    {
-                        title: 'public details',
-                        items: [
-                            {
-                                c: Text,
-                                label: 'nickname',
-                                value: 'example'
-                            },
-                        ],
-                    },
-                ]
-            }
-            cancelCTRL={{
-                label: 'cancel',
-            }}
-            updateCTRL={{
-                label: 'update',
-            }}
-            submitCTRL={{
-                label: 'submit',
-            }}
-        />;
-
-        return <section className={`handler auth ${className}`}>
-            <h1>{label}</h1>
-            <div className="input-wrapper">
-                <input type="text" onChange={this.onUsernameChange} />
-            </div>
-            <div className="input-wrapper">
-                <input type="password" onChange={this.onPasswordChange} />
-            </div>
-            <div>
-                <button className="btn-submit" onClick={this.onSubmit}>log in</button>
-            </div>
-            <Link to={signUpLink}>sign up</Link>
-            <Link to={resetPasswordLink}>forgotten password</Link>
-        </section>;
+        return <UserContext.Provider value={user}>
+            {children}
+        </UserContext.Provider>;
     }
 
     static propTypes = {
         callback: PropTypes.func.isRequired,
-        label: PropTypes.string.isRequired,
-        signUpLink: PropTypes.string.isRequired,
-        resetPasswordLink: PropTypes.string.isRequired,
-        className: PropTypes.string,
     };
 
     static defaultProps = {
