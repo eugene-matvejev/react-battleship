@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { GameResultsHandler } from './';
+import GameResultsHandler from './game_results_handler';
 
 configure({ adapter: new Adapter() });
 

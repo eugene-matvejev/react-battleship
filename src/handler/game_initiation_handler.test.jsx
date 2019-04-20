@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { GameInitiationHandler } from './';
+import GameInitiationHandler from './game_initiation_handler';
 
 configure({ adapter: new Adapter() });
 

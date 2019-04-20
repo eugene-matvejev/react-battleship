@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { generateGame } from '../service/generator';
-import { GameHandler } from './';
+import GameHandler from './game_handler';
 
 configure({ adapter: new Adapter() });
 
