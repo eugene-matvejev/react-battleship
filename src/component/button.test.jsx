@@ -1,14 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Button from './button';
 
-const Button = ({ className, label, ...props }) => <button className={`button ${className}`} {...props}>{label}</button>;
+configure({ adapter: new Adapter() });
 
-Button.propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.string.isRequired,
-};
-Button.defaultProps = {
-    className: '',
-};
+describe('<Button/>', () => {
+    const props = {
+    };
 
-export default Button;
+    describe('render', () => {
+        it('with default/required props', () => {
+            const c = shallow(<Button {...props} />);
+
+            expect(c).toMatchSnapshot();
+        });
+
+        describe('with optional props', () => {
+            [
+                ['className', '{{className}}'],
+                ['data-cy', '{{data-cy}}'], /** should be passed 'as is' */
+            ].forEach(([prop, v]) => {
+                it(`[::${prop}] as "${v}"`, () => {
+                    const c = shallow(<Button {...props} {...{ [prop]: v }} />);
+
+                    expect(c).toMatchSnapshot();
+                });
+            });
+        });
+    });
+});

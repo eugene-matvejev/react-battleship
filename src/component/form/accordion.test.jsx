@@ -15,5 +15,21 @@ describe('<Accordion/>', () => {
 
             expect(c).toMatchSnapshot();
         });
+
+        describe('with optional props', () => {
+            [
+                ['className', '{{className}}'],
+                ['title', '{{title}}'],
+                ['data-cy', '{{data-cy}}'], /** should be passed 'as is' */
+                ['isCollapsed', true],
+                ['isCollapsed', false],
+            ].forEach(([prop, v]) => {
+                it(`[::${prop}] as "${v}"`, () => {
+                    const c = shallow(<Accordion {...props} {...{ [prop]: v }} />);
+
+                    expect(c).toMatchSnapshot();
+                });
+            });
+        });
     });
 });

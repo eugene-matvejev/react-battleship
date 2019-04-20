@@ -1,5 +1,5 @@
 import React from 'react';
-import composeInput from './composeInput';
+import composeInput from './compose-input';
 
 const GenericInput = (props) => <input {...props} />;
 

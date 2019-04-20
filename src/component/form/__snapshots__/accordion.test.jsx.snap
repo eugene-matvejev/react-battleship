@@ -5,3 +5,39 @@ exports[`<Accordion/> render with default/required props 1`] = `
   className="accordion "
 />
 `;
+
+exports[`<Accordion/> render with optional props [::className] as "{{className}}" 1`] = `
+<section
+  className="accordion {{className}}"
+/>
+`;
+
+exports[`<Accordion/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<section
+  className="accordion "
+/>
+`;
+
+exports[`<Accordion/> render with optional props [::isCollapsed] as "false" 1`] = `
+<section
+  className="accordion "
+/>
+`;
+
+exports[`<Accordion/> render with optional props [::isCollapsed] as "true" 1`] = `
+<section
+  className="accordion--collapsed "
+/>
+`;
+
+exports[`<Accordion/> render with optional props [::title] as "{{title}}" 1`] = `
+<section
+  className="accordion "
+>
+  <h2
+    className="accordion_title"
+  >
+    {{title}}
+  </h2>
+</section>
+`;

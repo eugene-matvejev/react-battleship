@@ -4,25 +4,26 @@ import Accordion from '../component/form/accordion';
 import Button from '../component/button';
 
 export default class FormHandler extends PureComponent {
-    constructor({ config, data }) {
+    constructor({ config, data, isValid }) {
         super();
 
         this.state = {
             config,
             data,
+            isValid,
         }
 
-        this.onMount = this.onMount.bind(this);
         this.onSuccess = this.onSuccess.bind(this);
         this.onError = this.onError.bind(this);
 
         this.onSubmit = this.onSubmit.bind(this);
+        this.onCancel = this.onCancel.bind(this);
 
         this.onCollapse = this.onCollapse.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
-    onMount() {
+    componentDidMount() {
         this.props.onMount && this.props.onMount(this.props, this.state, this.onSuccess, this.onError);
     }
 
@@ -40,40 +41,60 @@ export default class FormHandler extends PureComponent {
 
     onSubmit(e) {
         e.preventDefault();
-        e.stopPropogation();
+        e.stopPropagation();
 
-        this.props.onSubmit && this.props.onSubmit(this.props, this.state, this.onSuccess, this.onError);
-    }
-
-    onCollapse({ target }) {
         const { config } = this.state;
 
-        const section = target.getAttribute('data-section');
+        if (!this.props.validate || this.props.validate(config)) {
+            this.setState({ isValid: true });
+
+            this.props.onSubmit && this.props.onSubmit(this.props, this.state, this.onSuccess, this.onError);
+        } else {
+            this.setState({ config: [...config], isValid: false });
+        }
+    }
+
+    onCancel(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        this.props.onCancel && this.props.onCancel(this.props, this.state, this.onSuccess, this.onError);
+    }
+
+    onCollapse(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const { config } = this.state;
+
+        const section = e.target.getAttribute('data-section');
 
         config[section].isCollapsed = !config[section].isCollapsed;
 
         this.setState({ config: [...config] });
     }
 
-    onChange({ target }) {
+    onChange(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
         const { config } = this.state;
-        const { validationEngine, onChange } = this.props;
 
-        const section = target.getAttribute('data-section');
-        const field = target.getAttribute('data-field');
+        const section = e.target.getAttribute('data-section');
+        const field = e.target.getAttribute('data-field');
 
-        config[section].items[field].value = target.value;
+        config[section].items[field].value = e.target.value;
 
-        validationEngine && validationEngine(config, [{ section, field }]);
+        this.props.validate && this.props.validate(config, [[section, field]]);
 
-        this.setState({ config: [...config] })
+        const isValid = config.every(({ items }) => items.every(({ errors }) => !Array.isArray(errors) || !errors.length));
 
-        onChange && onChange(this.props, this.state);
+        this.setState({ config: [...config], isValid });
     }
 
     render() {
-        const { config, data } = this.state;
-        const { cy, className, title, submitCTRL, updateCTRL, cancelCTRL, onCancel } = this.props;
+        const { config, data, isValid } = this.state;
+        const { cy, className, title, submitCTRL, updateCTRL, cancelCTRL } = this.props;
 
         return <form className={`form ${className}`}>
             {title && <h1 className="form_title" data-cy={`${cy}form-title`}>{title}</h1>}
@@ -81,16 +102,23 @@ export default class FormHandler extends PureComponent {
                 config.map(({ className, title, isCollapsed, items }, i) =>
                     <Accordion
                         className={className}
-                        title={title}
-                        onCollapse={this.onCollapse}
                         isCollapsed={isCollapsed}
-                        data-cy={`${cy}section-${i}`}
-                        data-section={i}
+                        onCollapse={this.onCollapse}
+                        title={title}
                         key={i}
+                        data-section={i}
+                        data-cy={`${cy}section-${i}`}
                     >
                         {
-                            items.map(({ c: Component, ...props }, j) =>
-                                <Component {...props} data-cy={`${cy}section-${i}-input-${j}`} data-section={i} data-field={j} key={j} />
+                            items.map(({ c: C, ...props }, j) =>
+                                <C
+                                    {...props}
+                                    key={j}
+                                    onChange={this.onChange}
+                                    data-cy={`${cy}section-${i}-input-${j}`}
+                                    data-section={i}
+                                    data-field={j}
+                                />
                             )
                         }
                     </Accordion>
@@ -104,6 +132,7 @@ export default class FormHandler extends PureComponent {
                         data-cy={`${cy}form-action-update`}
                         label={updateCTRL.label}
                         onClick={this.onSubmit}
+                        disabled={!isValid}
                     />
                 }
                 {
@@ -113,6 +142,7 @@ export default class FormHandler extends PureComponent {
                         data-cy={`${cy}form-action-submit`}
                         label={submitCTRL.label}
                         onClick={this.onSubmit}
+                        disabled={!isValid}
                     />
                 }
                 {
@@ -121,7 +151,7 @@ export default class FormHandler extends PureComponent {
                         className={cancelCTRL.className}
                         data-cy={`${cy}form-action-cancel`}
                         label={cancelCTRL.label}
-                        onClick={onCancel}
+                        onClick={this.onCancel}
                     />
                 }
             </div>
@@ -131,6 +161,7 @@ export default class FormHandler extends PureComponent {
     static propTypes = {
         className: PropTypes.string,
         cy: PropTypes.string,
+
         config: PropTypes.arrayOf(
             PropTypes.shape({
                 className: PropTypes.string,
@@ -138,11 +169,14 @@ export default class FormHandler extends PureComponent {
                 isCollapsed: PropTypes.bool,
                 items: PropTypes.arrayOf(
                     PropTypes.shape({
-                        c: PropTypes.func,
+                        c: PropTypes.func.isRequired,
+                        errors: PropTypes.array,
                     })
                 ).isRequired,
             })
         ).isRequired,
+        data: PropTypes.object,
+        isValid: PropTypes.bool,
 
         updateCTRL: PropTypes.shape({
             className: PropTypes.string,
@@ -164,10 +198,7 @@ export default class FormHandler extends PureComponent {
         onSubmit: PropTypes.func,
         onCancel: PropTypes.func,
 
-        onCollapse: PropTypes.func,
-        onChange: PropTypes.func,
-
-        validationEngine: PropTypes.func,
+        validate: PropTypes.func,
     }
 
     static defaultProps = {

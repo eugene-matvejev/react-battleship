@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button/> render with default/required props 1`] = `
+<button
+  className="button "
+/>
+`;
+
+exports[`<Button/> render with optional props [::className] as "{{className}}" 1`] = `
+<button
+  className="button {{className}}"
+/>
+`;
+
+exports[`<Button/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<button
+  className="button "
+  data-cy="{{data-cy}}"
+/>
+`;

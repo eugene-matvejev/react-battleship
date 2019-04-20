@@ -1,9 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<FormHandler/> internal callbacks ::onChange should mutate state field [::config] and set [::value] for relevant field from payload 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "c": [Function],
+        "value": "{{value}}",
+      },
+      Object {
+        "c": [Function],
+      },
+    ],
+  },
+]
+`;
+
+exports[`<FormHandler/> internal callbacks ::onCollapse should mutate state field [::config] and toggle [::isCollapsed] field for relevant section, from click on <Accordion/> 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "c": [Function],
+      },
+    ],
+    "title": "{{section 0}}",
+  },
+]
+`;
+
 exports[`<FormHandler/> render with default/required props 1`] = `
 <form
   className="form "
-  data-cy=""
 >
   <Accordion
     className=""
@@ -11,16 +39,112 @@ exports[`<FormHandler/> render with default/required props 1`] = `
     data-section={0}
     key="0"
     onCollapse={[Function]}
+    title="{{section 0}}"
   >
     <c
       data-cy="section-0-input-0"
       data-field={0}
       data-section={0}
       key="0"
+      onChange={[Function]}
     />
   </Accordion>
   <div
     className="form_controls"
-  />
+  >
+    <Button
+      className=""
+      data-cy="form-action-submit"
+      disabled={true}
+      label="{{submit}}"
+      onClick={[Function]}
+    />
+    <Button
+      className=""
+      data-cy="form-action-cancel"
+      label="{{cancel}}"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`<FormHandler/> render with optional props [::cy] as "{{cy}}" 1`] = `
+<form
+  className="form "
+>
+  <Accordion
+    className=""
+    data-cy="{{cy}}section-0"
+    data-section={0}
+    key="0"
+    onCollapse={[Function]}
+    title="{{section 0}}"
+  >
+    <c
+      data-cy="{{cy}}section-0-input-0"
+      data-field={0}
+      data-section={0}
+      key="0"
+      onChange={[Function]}
+    />
+  </Accordion>
+  <div
+    className="form_controls"
+  >
+    <Button
+      className=""
+      data-cy="{{cy}}form-action-submit"
+      disabled={true}
+      label="{{submit}}"
+      onClick={[Function]}
+    />
+    <Button
+      className=""
+      data-cy="{{cy}}form-action-cancel"
+      label="{{cancel}}"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`<FormHandler/> render with optional props [::data] as "[object Object]" 1`] = `
+<form
+  className="form "
+>
+  <Accordion
+    className=""
+    data-cy="section-0"
+    data-section={0}
+    key="0"
+    onCollapse={[Function]}
+    title="{{section 0}}"
+  >
+    <c
+      data-cy="section-0-input-0"
+      data-field={0}
+      data-section={0}
+      key="0"
+      onChange={[Function]}
+    />
+  </Accordion>
+  <div
+    className="form_controls"
+  >
+    <Button
+      className=""
+      data-cy="form-action-update"
+      disabled={true}
+      label="{{update}}"
+      onClick={[Function]}
+    />
+    <Button
+      className=""
+      data-cy="form-action-cancel"
+      label="{{cancel}}"
+      onClick={[Function]}
+    />
+  </div>
 </form>
 `;
