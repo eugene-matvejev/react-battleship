@@ -1,8 +1,9 @@
 /**
  * main file to give single output
  */
-@import '../stylesheets/variables';
 @import '../stylesheets/common';
+@import '../stylesheets/media';
+@import '../stylesheets/variables';
 
 @import '../handler/auth_handler';
 @import '../handler/game_handler';
