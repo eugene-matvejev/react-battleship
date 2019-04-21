@@ -1,0 +1,446 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validation engine [default mode] should return FALSE when all defined validators FAIL, expected error messages in snapshot 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [
+          "{{error message}}",
+        ],
+        "validators": Array [
+          [Function],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {},
+      Object {},
+    ],
+  },
+]
+`;
+
+exports[`validation engine [default mode] should return FALSE when at least one of defined validators FAIL, expected error messages in snapshot 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [
+          "{{error message}}",
+        ],
+        "validators": Array [
+          [Function],
+          [Function],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {},
+      Object {},
+    ],
+  },
+]
+`;
+
+exports[`validation engine [default mode] should return TRUE when all defined validators PASS, expected NO error messages in snapshot 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [],
+        "validators": Array [
+          [Function],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {},
+      Object {},
+    ],
+  },
+]
+`;
+
+exports[`validation engine [default mode] should return TRUE when validators are NOT defined, expected NO error messages in snapshot 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {},
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {},
+      Object {},
+    ],
+  },
+]
+`;
+
+exports[`validation engine [default mode] should return TRUE when validators are empty, expected NO error messages in snapshot 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [],
+        "validators": Array [],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {},
+      Object {},
+    ],
+  },
+]
+`;
+
+exports[`validation engine [enforced scope mode] [scope limited to entire section] should return FALSE when all validators in a scope FAIL 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [
+          "error",
+        ],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-0}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": "error",
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-0}}",
+      },
+      Object {
+        "errors": Array [
+          "error",
+        ],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": "error",
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-1}}",
+      },
+    ],
+  },
+]
+`;
+
+exports[`validation engine [enforced scope mode] [scope limited to entire section] should return FALSE when at least one validator in a scope FAIL 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-0}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-0}}",
+      },
+      Object {
+        "errors": Array [
+          "error",
+        ],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": "error",
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-1}}",
+      },
+    ],
+  },
+]
+`;
+
+exports[`validation engine [enforced scope mode] [scope limited to entire section] should return TRUE when all validators in a scope PASS 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "errors": Array [],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-0}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-0}}",
+      },
+      Object {
+        "errors": Array [],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-1}}",
+      },
+    ],
+  },
+]
+`;
+
+exports[`validation engine [enforced scope mode] [scope limited to specific item] should return FALSE when all validators in a scope FAIL 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+      Object {
+        "errors": Array [
+          "error",
+          "error",
+        ],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": "error",
+              },
+            ],
+          },
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": "error",
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-1}}",
+      },
+    ],
+  },
+]
+`;
+
+exports[`validation engine [enforced scope mode] [scope limited to specific item] should return FALSE when at least one validator in a scope FAIL 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+      Object {
+        "errors": Array [
+          "error",
+        ],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          },
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": "error",
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-1}}",
+      },
+    ],
+  },
+]
+`;
+
+exports[`validation engine [enforced scope mode] [scope limited to specific item] should return TRUE when all validators in a scope PASS 1`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "validators": Array [
+          [MockFunction],
+        ],
+      },
+      Object {
+        "errors": Array [],
+        "validators": Array [
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "{{item-1-1}}",
+                [Circular],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          },
+        ],
+        "value": "{{item-1-1}}",
+      },
+    ],
+  },
+]
+`;

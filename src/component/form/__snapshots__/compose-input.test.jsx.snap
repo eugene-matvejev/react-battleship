@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ComposedInput/> render with default/required props 1`] = `
+<div
+  className="form-input "
+>
+  <label
+    className="form-input_label"
+  >
+    <Component />
+  </label>
+</div>
+`;
+
+exports[`<ComposedInput/> render with optional props [::errors] as "{{error}}" 1`] = `
+<div
+  className="form-input "
+>
+  <label
+    className="form-input_label"
+  >
+    <Component />
+    <ul
+      className="form-input_errors"
+    >
+      <li
+        className="form-input_error"
+        data-cy="undefined-error-0"
+        key="0"
+      >
+        {{error}}
+      </li>
+    </ul>
+  </label>
+</div>
+`;
