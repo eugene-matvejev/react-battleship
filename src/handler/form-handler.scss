@@ -1,0 +1,49 @@
+.form {
+    margin: auto;
+    padding: 5rem;
+    border: 1rem solid;
+    display: flex;
+    flex-direction: column;
+
+    &--rounded {
+        background: #fff;
+        border-radius: 5rem;
+    }
+
+    &_title {
+        font-size: 1.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    &-input {
+        padding: 0 0 2.5rem 0;
+
+        &_label {
+            font-size: 1.5rem;
+        }
+
+        input {
+            font-size: 1.25rem;
+            width: 100%;
+            border: none;
+            border-bottom: 1px dashed #000;
+        }
+
+        &_error {
+            color: #a94442;
+            font-size: 1.25rem;
+        }
+
+        &_errors {
+            margin-top: 0;
+            list-style: none;
+            padding: .5rem 0 0 0;
+        }
+    }
+
+    &_controls {
+        // margin-top: 2rem;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

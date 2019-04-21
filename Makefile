@@ -1,58 +1,74 @@
-.DEFAULT_GOAL := demo
-.NODE_ALPINE_IMAGE := cwa-node.alpine
-.CWA_IMAGE := cwa
+.DEFAULT_GOAL := interactive
+.DEV_IMAGE := cwa
+.PROD_IMAGE := cwa-production
 
-.EXPOSED_PORT := 3000
-.LINKED_PORT := 9000
+.EXPOSED_PORT := 8080
+.LINKED_PORT := 8080
 
 .WORKSPACE_VOLUMES := \
 	-v $(PWD)/public:/www/public \
-	-v $(PWD)/src:/www/src \
-	-v $(PWD)/README.md:/www/README.md \
-	-v $(PWD)/LICENSE:/www/LICENSE
+	-v $(PWD)/src:/www/src
+
+.ENVIROMENT_VARIABLES := \
+	-e PORT=$(.EXPOSED_PORT)
 
 help:
-	@echo " "
-	@echo " Available commands: "
-	@echo " ------------------- "
-	@echo " "
-	@echo "  make \t\t\t\t alias for make build"
-	@echo "  make help \t\t\t displays current help"
-	@echo "  make dependencies \t\t create build environment base image"
-	@echo "  make build \t\t\t [default] triggers the component build"
-	@echo "  make tests \t\t\t runs unit tests"
-	@echo "  make demo \t\t\t creates the demo pages (triggered by the build command already)"
-	@echo " "
-	@echo "  make demo will make http://localhost:$(.LINKED_PORT)"
-	@echo " "
-	@echo " "
+	@echo ""
+	@echo " Battleship Game CWA [ client web application ] "
+	@echo "------------------------------------------------"
+	@echo ""
+	@echo " make help\t\tdisplay help"
+	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
+	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync of src|public directories"
+	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
+	@echo " make build\t\tgenerate static assets into $(PWD)/build directory"
+	@echo " make test\t\texecute unit and functional tests"
+	@echo " make interactive\tprepares local dev. env., CWA become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make production\tprepares local prod. env., CWA become available on http://localhost:$(.LINKED_PORT)"
+	@echo ""
 
-node.alpine:
-	docker build -t $(.NODE_ALPINE_IMAGE) . -f node.alpine.Dockerfile
+dev-image:
+	docker build -t $(.DEV_IMAGE) .
 
-dependencies: node.alpine
-	docker build -t $(.CWA_IMAGE) .
+prod-image:
+	docker build -t $(.PROD_IMAGE) . -f production.Dockerfile
 
-build: dependencies
-	docker run \
-		--rm  \
-		-it  \
-		$(.WORKSPACE_VOLUMES) \
-		$(.CWA_IMAGE) -c 'npm run build'
-
-test: dependencies
+build: dev-image
+	mkdir $(PWD)/build -p
 	docker run \
 		--rm \
 		-it \
 		$(.WORKSPACE_VOLUMES) \
-		--entrypoint /bin/sh \
-		$(.CWA_IMAGE) -c 'npm test'
+		-v $(PWD)/build:/www/build \
+		$(.ENVIROMENT_VARIABLES) \
+		--entrypoint=npm \
+		$(.DEV_IMAGE) run build
 
-demo: dependencies
+test: dev-image
 	docker run \
 		--rm \
 		-it \
 		$(.WORKSPACE_VOLUMES) \
-		--entrypoint /bin/sh \
+		$(.ENVIROMENT_VARIABLES) \
+		--entrypoint=npm \
+		$(.DEV_IMAGE) run test
+
+interactive: dev-image
+	docker run \
+		--rm \
+		-it \
+		$(.WORKSPACE_VOLUMES) \
+		$(.ENVIROMENT_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
-		$(.CWA_IMAGE) -c 'npm start'
+		--entrypoint=npm \
+		$(.DEV_IMAGE) run start
+
+production: build prod-image
+	docker run \
+		--rm \
+		-it \
+		$(.ENVIROMENT_VARIABLES) \
+		-e NO_UPDATE_CHECK=1 \
+		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
+		--entrypoint=/usr/bin/serve \
+		$(.PROD_IMAGE)

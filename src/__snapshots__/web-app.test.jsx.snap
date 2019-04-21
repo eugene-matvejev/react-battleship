@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WebApp/> render with default/required props 1`] = `
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    key="0"
+    path="/"
+  />
+</Switch>
+`;
+
+exports[`<WebApp/> render with optional props [::user] as "[object Object]" 1`] = `
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    key="0"
+    path="/"
+  />
+</Switch>
+`;

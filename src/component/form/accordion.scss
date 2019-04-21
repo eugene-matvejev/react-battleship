@@ -1,0 +1,21 @@
+.accordion {
+    &_title {
+        font-size: 1.5rem;
+
+        &::before {
+            padding-right: 1rem;
+        }
+    }
+
+    &--collapsed > &_title {
+        &::before {
+            content: '\002B';
+        }
+    }
+
+    & > &_title {
+        &::before {
+            content: '\2013';
+        }
+    }
+}
