@@ -7,8 +7,8 @@ import MockAdapter from 'axios-mock-adapter';
 
 import WebApp from './web-app';
 
-import unauthorizedRoutes from './_configs/unauthorized.routes';
-import authorizedRoutes from './_configs/authorized.routes';
+import unauthorizedRoutes from './__configs/unauthorized.routes';
+import authorizedRoutes from './__configs/authorized.routes';
 
 import './stylesheets/main.scss';
 import 'react-rangeslider/lib/index.css';
