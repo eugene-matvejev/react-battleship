@@ -67,8 +67,8 @@ production: build prod-image
 	docker run \
 		--rm \
 		-it \
-		$(.ENVIROMENT_VARIABLES) \
 		-e NO_UPDATE_CHECK=1 \
+		$(.ENVIROMENT_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=/usr/bin/serve \
 		$(.PROD_IMAGE)

@@ -1,0 +1,16 @@
+{
+  "name": "cwa-cypress",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "cypress": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "cypress open",
+    "test": "cypress run"
+  }
+}
