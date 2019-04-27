@@ -69,7 +69,7 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 * 'jest' unit and functional tests `$ make test` or `$ npm test`
   * __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
     * to generate coverage report `--coverage`, example: `$ npm test -- --coverage`, report will be located in __./coverage__ directory
-    * to run tests __only__ in specific file, example `$ npm test src/validation/rules.test.js`
+    * to run tests __only__ in specific file, example: `$ npm test src/validation/rules.test.js`
 
 ### how to run in 'development' mode
 
