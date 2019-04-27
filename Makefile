@@ -5,12 +5,12 @@
 .EXPOSED_PORT := 8080
 .LINKED_PORT := 8080
 
-.WORKSPACE_VOLUMES := \
+.SHARED_VOLUMES := \
 	-v $(PWD)/public:/www/public \
 	-v $(PWD)/src:/www/src \
 	-v $(PWD)/.env:/www/.env
 
-.ENVIROMENT_VARIABLES := \
+.ENV_VARIABLES := \
 	-e PORT=$(.EXPOSED_PORT)
 
 help:
@@ -43,9 +43,9 @@ build: dev-image
 	docker run \
 		--rm \
 		-it \
-		$(.WORKSPACE_VOLUMES) \
 		-v $(PWD)/build:/www/build \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.SHARED_VOLUMES) \
+		$(.ENV_VARIABLES) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run build
 
@@ -53,8 +53,8 @@ test: dev-image
 	docker run \
 		--rm \
 		-it \
-		$(.WORKSPACE_VOLUMES) \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.SHARED_VOLUMES) \
+		$(.ENV_VARIABLES) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run test
 
@@ -62,8 +62,8 @@ interactive: dev-image
 	docker run \
 		--rm \
 		-it \
-		$(.WORKSPACE_VOLUMES) \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.SHARED_VOLUMES) \
+		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run start
@@ -73,7 +73,7 @@ production: build prod-image
 		--rm \
 		-it \
 		-e NO_UPDATE_CHECK=1 \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=/usr/bin/serve \
 		$(.PROD_IMAGE)
