@@ -68,8 +68,8 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 * 'cypress' integration tests `$ make cypress` or `$ npm test` inside `./cypress` directory
 * 'jest' unit and functional tests `$ make test` or `$ npm test`
   * __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
-    * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
-    * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
+    * to generate coverage report `--coverage`, example: `$ npm test -- --coverage`, report will be located in __./coverage__ directory
+    * to run tests __only__ in specific file, example `$ npm test src/validation/rules.test.js`
 
 ### how to run in 'development' mode
 
