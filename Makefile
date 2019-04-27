@@ -1,5 +1,4 @@
 .DEFAULT_GOAL := interactive
-.CY_IMAGE := cwa-cypress
 .DEV_IMAGE := cwa
 .PROD_IMAGE := cwa-production
 
@@ -14,15 +13,6 @@
 .ENV_VARIABLES := \
 	-e PORT=$(.EXPOSED_PORT)
 
-# ********************* CYPRESS ONLY! *********************
-.CYPRESS_VARIABLES := \
-	-e CYPRESS_BASE_URL=http://host.docker.internal:$(.EXPOSED_PORT)/
-
-.CYPRESS_VOLUMES := \
-	-v $(PWD)/cypress/specs:/www/specs \
-	-v $(PWD)/cypress/cypress.json:/www/cypress.json
-# *********************************************************
-
 help:
 	@echo ""
 	@echo " Battleship Game CWA [ client web application ] "
@@ -32,6 +22,7 @@ help:
 	@echo ""
 	@echo "-- DOCKER IMAGE PREPARATION"
 	@echo " make dev-image\t\tbuild [$(.DEV_IMAGE)] image which encapsulate dev-dependencies, nothing else"
+	@echo " make prod-image\tbuild [$(.PROD_IMAGE)] image which encapsulate 'serve', nothing else"
 	@echo " make prod-image\tbuild [$(.PROD_IMAGE)] image which encapsulate 'serve', nothing else"
 	@echo ""
 	@echo "-- COMMANDS"
@@ -43,7 +34,6 @@ help:
 	@echo ""
 
 cy-image:
-	# docker build -t $(.CY_IMAGE) . -f cypress.Dockerfile
 	docker-compose -f cypress.compose.yml build
 
 dev-image:
