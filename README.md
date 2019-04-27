@@ -65,8 +65,8 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 
 ### how to run tests
 
-* _'cypress' integration tests_ `$ make cypress` or `$ npm test` inside `./cypress` directory
-* _'jest' unit and functional tests_ `$ make test` or `$ npm test`
+* 'cypress' integration tests `$ make cypress` or `$ npm test` inside `./cypress` directory
+* 'jest' unit and functional tests `$ make test` or `$ npm test`
   * __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
     * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
     * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
@@ -77,8 +77,8 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 
 ### how to run in 'production' mode
 
-* `$ make serve`
-*__how to generate static assets only__
+* `$ make serve`, there is no _npm only_ analogue
+* if you need __only__ generate static assets
   * `$ make build` or `$ npm run build` - generated assets will be located in __./build__ directory
 
 ### gitflow
