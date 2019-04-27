@@ -49,10 +49,12 @@ targets/goals : WIP
 ## used technologies
 
 * [react.js](https://reactjs.org/)
-* [enzyme](http://airbnb.io/enzyme/)
-* [jest](https://facebook.github.io/jest/)
 * [sass](https://sass-lang.com/)
+* [jest](https://facebook.github.io/jest/)
+* [enzyme](http://airbnb.io/enzyme/)
+* [cypress](https://www.cypress.io/)
 * [docker](https://www.docker.com/)
+* [docker-compose](https://docs.docker.com/compose/)
 
 ## used services
 
