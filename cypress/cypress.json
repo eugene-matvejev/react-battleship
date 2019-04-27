@@ -25,7 +25,7 @@
     "testFiles": "**/*.*",
     "trashAssetsBeforeRuns": true,
     "userAgent": null,
-    "video": true,
+    "video": false,
     "videoCompression": 32,
     "videoUploadOnPasses": true,
     "videosFolder": "videos",

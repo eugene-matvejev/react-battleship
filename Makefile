@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := interactive
+.CY_IMAGE := cwa-cypress
 .DEV_IMAGE := cwa
 .PROD_IMAGE := cwa-production
 
@@ -7,10 +8,20 @@
 
 .WORKSPACE_VOLUMES := \
 	-v $(PWD)/public:/www/public \
-	-v $(PWD)/src:/www/src
+	-v $(PWD)/src:/www/src \
+	-v $(PWD)/.env:/www/.env
 
 .ENVIROMENT_VARIABLES := \
 	-e PORT=$(.EXPOSED_PORT)
+
+# ********************* CYPRESS ONLY! *********************
+.CYPRESS_VARIABLES := \
+	-e CYPRESS_BASE_URL=http://host.docker.internal:$(.EXPOSED_PORT)/
+
+.CYPRESS_VOLUMES := \
+	-v $(PWD)/cypress/specs:/www/specs \
+	-v $(PWD)/cypress/cypress.json:/www/cypress.json
+# *********************************************************
 
 help:
 	@echo ""
@@ -21,11 +32,16 @@ help:
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
 	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync of src|public directories"
 	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
+	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
 	@echo " make build\t\tgenerate static assets into $(PWD)/build directory"
 	@echo " make test\t\texecute unit and functional tests"
 	@echo " make interactive\tprepares local dev. env., CWA become available on http://localhost:$(.LINKED_PORT)"
 	@echo " make production\tprepares local prod. env., CWA become available on http://localhost:$(.LINKED_PORT)"
 	@echo ""
+
+cy-image:
+	# docker build -t $(.CY_IMAGE) . -f cypress.Dockerfile
+	docker-compose -f cypress.compose.yml build
 
 dev-image:
 	docker build -t $(.DEV_IMAGE) .
@@ -52,6 +68,9 @@ test: dev-image
 		$(.ENVIROMENT_VARIABLES) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run test
+
+cypress: cy-image
+	docker-compose -f cypress.compose.yml up --abort-on-container-exit
 
 interactive: dev-image
 	docker run \
