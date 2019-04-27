@@ -65,11 +65,11 @@ targets/goals : WIP
 
 ### how to run tests
 
-* integration tests: `$ make cypress` or `$ npm test` inside `./cypress` directory
-* unit and functional tests: `$ make test` or `$ npm test`
-* __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
-  * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
-  * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
+* 'cypress' integration tests: `$ make cypress` or `$ npm test` inside `./cypress` directory
+* 'jest' unit and functional tests: `$ make test` or `$ npm test`
+  * __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
+    * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
+    * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
 
 ### how to run in 'development' mode
 
