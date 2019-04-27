@@ -1,12 +1,12 @@
-[circle.ci-master-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master.svg?style=svg
-[circle.ci-master-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master
-[codecov.io-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master/graph/badge.svg
-[codecov.io-master-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master
+[ci.tests-master-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master.svg?style=svg
+[ci.tests-master-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master
+[ci.coverage-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master/graph/badge.svg
+[ci.coverage-master-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master
 
-[circle.ci-heroku-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku.svg?style=svg
-[circle.ci-heroku-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku
-[codecov.io-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
-[codecov.io-heroku-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
+[ci.tests-heroku-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku.svg?style=svg
+[ci.tests-heroku-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku
+[ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
+[ci.coverage-heroku-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
 
 [slack-logo]: https://a.slack-edge.com/436da/marketing/img/slack_logo.png
 [slack-url]: https://join.slack.com/t/myth-project/shared_invite/enQtMjk2NTM0MDA5ODQ3LTg3ZDlmYTBiODIwODI0ZjhhMjc2NTgwMDMwNDc0NWMxNzExYzliM2UwYTEzNGMyMGRiZjg0ZTEyOTYwYzM0OTQ
@@ -16,9 +16,9 @@
 |                  | master                                                         | heroku
 |---               |---                                                             |---
 | __tests__        |
-| _< Circle CI >_  | [![build][circle.ci-master-badge]][circle.ci-master-link]      | [![build][circle.ci-heroku-badge]][circle.ci-heroku-link]
+| _< Circle CI >_  | [![tests][ci.tests-master-badge]][ci.tests-master-link]      | [![tests][ci.tests-heroku-badge]][ci.tests-heroku-link]
 | __coverage__     |
-| _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link] | [![coverage][codecov.io-heroku-badge]][codecov.io-heroku-link]
+| _< codecov.io >_ | [![coverage][ci.coverage-master-badge]][ci.coverage-master-link] | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku-link]
 
 # Battleship Game GUI [on react.js]
 instructions are written, assuming you work in unix / MacOS env. it still should work with W10 Pro and cygwin
@@ -26,15 +26,15 @@ instructions are written, assuming you work in unix / MacOS env. it still should
 ```
 targets/goals : WIP
 * to demostrate:
-    * QA Automation knowledge, and best practices [jest/enzyme/cypress]
-    * DRY/KISS/SOLID principles
-    * DevOps knowledge [Docker/CI/CD etc]
-    * react best practices
+ ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
+ ** DRY/KISS/SOLID principles
+ ** DevOps knowledge [Docker/CI/CD etc]
+ ** react.js best practices
 
-* implement form engine
- ** validation engine
- ** inputs
- ** cypress tests
+* DONE: implement form engine
+ ** DONE: generic handler
+ ** DONE: generic inputs
+ ** DONE: generic validation engine
 
 ```
 
@@ -48,11 +48,14 @@ targets/goals : WIP
 
 ## used technologies
 
+* [node.js](https://nodejs.org/)
 * [react.js](https://reactjs.org/)
-* [enzyme](http://airbnb.io/enzyme/)
-* [jest](https://facebook.github.io/jest/)
 * [sass](https://sass-lang.com/)
+* [jest](https://facebook.github.io/jest/)
+* [enzyme](http://airbnb.io/enzyme/)
+* [cypress](https://www.cypress.io/)
 * [docker](https://www.docker.com/)
+* [docker-compose](https://docs.docker.com/compose/)
 
 ## used services
 
@@ -64,12 +67,12 @@ targets/goals : WIP
 
 ## how to install
 
-* if you use `make` commands no actions required, apart of having [docker](https://docs.docker.com/install/) v18.09+ and [docker-compose](https://docs.docker.com/compose/install/) v3+ [docker-compose is needed for tests only]
-  * otherwise you need node & npm, then execute `$ npm i`
+* if you're using `make` commands no actions required, you need to have intalled [docker](https://docs.docker.com/install/) v18.09+ and [docker-compose](https://docs.docker.com/compose/install/) v3+ [for 'cypress' integration tests only]
+  * otherwise you need nodejs v8.4+ with npm, then execute `$ npm i`
 
 ## how to execute tests
 
-* integration tests: `$ make cypress` or `$ npm test` inside `cypress` directory
+* integration tests: `$ make cypress` or `$ npm test` inside `./cypress` directory
 * unit and functional tests: `$ make test` or `$ npm test`
 * __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
   * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
