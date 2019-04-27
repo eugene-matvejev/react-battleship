@@ -63,7 +63,7 @@ targets/goals : WIP
 * if you're using `make` commands no actions required, you need to have intalled [docker](https://docs.docker.com/install/) v18.09+ and [docker-compose](https://docs.docker.com/compose/install/) v3+ [for 'cypress' integration tests only]
   * otherwise you need nodejs v8.4+ with npm, then execute `$ npm i`
 
-### how to execute tests
+### how to run tests
 
 * integration tests: `$ make cypress` or `$ npm test` inside `./cypress` directory
 * unit and functional tests: `$ make test` or `$ npm test`
@@ -80,10 +80,6 @@ targets/goals : WIP
 * `$ make serve`
 * __to assemble static assets__
   * `$ make build` - compiled assets will be located in __./build__ directory
-
-### how to run tests
-
-* `$ make test` or `$ npm test`
 
 ### gitflow
 
