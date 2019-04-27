@@ -72,8 +72,10 @@ production: build prod-image
 	docker run \
 		--rm \
 		-it \
+		-v $(PWD)/build:/www/build \
+		-v $(PWD)/serve.json:/www/serve.json \
 		-e NO_UPDATE_CHECK=1 \
 		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
-		--entrypoint=/usr/bin/serve \
+		--entrypoint=serve \
 		$(.PROD_IMAGE)
