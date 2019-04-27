@@ -1,5 +1,4 @@
 .DEFAULT_GOAL := interactive
-.CY_IMAGE := cwa-cypress
 .DEV_IMAGE := cwa
 .PROD_IMAGE := cwa-production
 
@@ -14,15 +13,6 @@
 .ENVIROMENT_VARIABLES := \
 	-e PORT=$(.EXPOSED_PORT)
 
-# ********************* CYPRESS ONLY! *********************
-.CYPRESS_VARIABLES := \
-	-e CYPRESS_BASE_URL=http://host.docker.internal:$(.EXPOSED_PORT)/
-
-.CYPRESS_VOLUMES := \
-	-v $(PWD)/cypress/specs:/www/specs \
-	-v $(PWD)/cypress/cypress.json:/www/cypress.json
-# *********************************************************
-
 help:
 	@echo ""
 	@echo " Battleship Game CWA [ client web application ] "
@@ -30,9 +20,15 @@ help:
 	@echo ""
 	@echo " make help\t\tdisplay help"
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
+	@echo ""
+	@echo " IMAGES"
+	@echo ""
 	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync of src|public directories"
 	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
-	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
+	@echo " make cy-image\t\tbuild docker images [cypress-cwa|cypress]"
+	@echo ""
+	@echo " COMMANDS"
+	@echo ""
 	@echo " make build\t\tgenerate static assets into $(PWD)/build directory"
 	@echo " make test\t\texecute unit and functional tests"
 	@echo " make interactive\tprepares local dev. env., CWA become available on http://localhost:$(.LINKED_PORT)"
@@ -40,7 +36,6 @@ help:
 	@echo ""
 
 cy-image:
-	# docker build -t $(.CY_IMAGE) . -f cypress.Dockerfile
 	docker-compose -f cypress.compose.yml build
 
 dev-image:

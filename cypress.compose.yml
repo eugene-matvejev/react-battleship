@@ -7,9 +7,9 @@ services:
       dockerfile: cypress.cwa.Dockerfile
     container_name: cwa
     ports:
-      - "28080:28080"
+      - 28080:28080
     environment:
-      - "PORT=28080"
+      - PORT=28080
     entrypoint:
       - serve
 
