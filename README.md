@@ -26,12 +26,16 @@ instructions are written, assuming you work in unix / MacOS env. it still should
 ```
 targets/goals : WIP
 * to demostrate:
-    * unit/functional testing best practices
-    * integration testing best practices
-    * react best practices
+    * QA Automation knowledge, and best practices [jest/enzyme/cypress]
     * DRY/KISS/SOLID principles
     * DevOps knowledge [Docker/CI/CD etc]
-    * graphql knowledge
+    * react best practices
+
+* implement form engine
+ ** validation engine
+ ** inputs
+ ** cypress tests
+
 ```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
