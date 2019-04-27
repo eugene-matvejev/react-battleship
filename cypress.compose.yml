@@ -1,11 +1,11 @@
 version: '3'
 services:
   cwa:
-    image: cypress-cwa
+    container_name: cy-cwa
     build:
       context: .
       dockerfile: cypress.cwa.Dockerfile
-    container_name: cwa
+    image: cypress-cwa
     ports:
       - 28080:28080
     environment:
@@ -14,11 +14,11 @@ services:
       - serve
 
   cypress:
-    image: cypress
-    container_name: cypress
+    container_name: cy
     build:
       context: .
       dockerfile: cypress.Dockerfile
+    image: cypress
     depends_on:
       - cwa
     environment:
