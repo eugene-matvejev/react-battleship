@@ -5,12 +5,12 @@
 .EXPOSED_PORT := 8080
 .LINKED_PORT := 8080
 
-.WORKSPACE_VOLUMES := \
+.SHARED_VOLUMES := \
 	-v $(PWD)/public:/www/public \
 	-v $(PWD)/src:/www/src \
 	-v $(PWD)/.env:/www/.env
 
-.ENVIROMENT_VARIABLES := \
+.ENV_VARIABLES := \
 	-e PORT=$(.EXPOSED_PORT)
 
 help:
@@ -19,13 +19,17 @@ help:
 	@echo "------------------------------------------------"
 	@echo ""
 	@echo " make help\t\tdisplay help"
+	@echo ""
+	@echo "-- DOCKER IMAGE PREPARATION"
+	@echo " make dev-image\t\tbuild [$(.DEV_IMAGE)] image which encapsulate dev-dependencies, nothing else"
+	@echo " make prod-image\tbuild [$(.PROD_IMAGE)] image which encapsulate 'serve', nothing else"
+	@echo ""
+	@echo "-- COMMANDS"
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
-	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync src|public directories and .env file"
-	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
-	@echo " make build\t\tgenerate static assets into $(PWD)/build directory"
+	@echo " make interactive\trun [$(.DEV_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make production\trun [$(.PROD_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
 	@echo " make test\t\texecute unit and functional tests"
-	@echo " make interactive\tprepares local dev. env., CWA become available on http://localhost:$(.LINKED_PORT)"
-	@echo " make production\tprepares local prod. env., CWA become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make build\t\tgenerate static assets in './build' directory"
 	@echo ""
 
 dev-image:
@@ -39,9 +43,9 @@ build: dev-image
 	docker run \
 		--rm \
 		-it \
-		$(.WORKSPACE_VOLUMES) \
 		-v $(PWD)/build:/www/build \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.SHARED_VOLUMES) \
+		$(.ENV_VARIABLES) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run build
 
@@ -49,8 +53,8 @@ test: dev-image
 	docker run \
 		--rm \
 		-it \
-		$(.WORKSPACE_VOLUMES) \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.SHARED_VOLUMES) \
+		$(.ENV_VARIABLES) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run test
 
@@ -58,8 +62,8 @@ interactive: dev-image
 	docker run \
 		--rm \
 		-it \
-		$(.WORKSPACE_VOLUMES) \
-		$(.ENVIROMENT_VARIABLES) \
+		$(.SHARED_VOLUMES) \
+		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run start
@@ -68,8 +72,8 @@ production: build prod-image
 	docker run \
 		--rm \
 		-it \
-		$(.ENVIROMENT_VARIABLES) \
 		-e NO_UPDATE_CHECK=1 \
+		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=/usr/bin/serve \
 		$(.PROD_IMAGE)
