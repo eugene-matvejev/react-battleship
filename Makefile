@@ -7,7 +7,8 @@
 
 .WORKSPACE_VOLUMES := \
 	-v $(PWD)/public:/www/public \
-	-v $(PWD)/src:/www/src
+	-v $(PWD)/src:/www/src \
+	-v $(PWD)/.env:/www/.env
 
 .ENVIROMENT_VARIABLES := \
 	-e PORT=$(.EXPOSED_PORT)
@@ -19,7 +20,7 @@ help:
 	@echo ""
 	@echo " make help\t\tdisplay help"
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
-	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync of src|public directories"
+	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync src|public directories and .env file"
 	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
 	@echo " make build\t\tgenerate static assets into $(PWD)/build directory"
 	@echo " make test\t\texecute unit and functional tests"
