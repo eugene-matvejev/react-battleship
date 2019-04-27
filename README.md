@@ -74,13 +74,13 @@ targets/goals : WIP
   * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
   * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
 
-## how to serve in 'development' mode
+## how to run in 'development' mode
 
 * `$ make`
 
-## how to serve in 'production' mode
+## how to run in 'production' mode
 
-* `$ make production`
+* `$ make serve`
 * __to assemble static assets__
   * `$ make build` - compiled assets will be located in __./build__ directory
 

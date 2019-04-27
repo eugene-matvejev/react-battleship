@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := interactive
 .DEV_IMAGE := cwa
-.PROD_IMAGE := cwa-production
+.SERVE_IMAGE := cwa-serve
 
 .EXPOSED_PORT := 8080
 .LINKED_PORT := 8080
@@ -22,12 +22,12 @@ help:
 	@echo ""
 	@echo "-- DOCKER IMAGE PREPARATION"
 	@echo " make dev-image\t\tbuild [$(.DEV_IMAGE)] image which encapsulate dev-dependencies, nothing else"
-	@echo " make prod-image\tbuild [$(.PROD_IMAGE)] image which encapsulate 'serve', nothing else"
+	@echo " make serve-image\tbuild [$(.SERVE_IMAGE)] image which encapsulate 'serve', nothing else"
 	@echo ""
 	@echo "-- COMMANDS"
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
 	@echo " make interactive\trun [$(.DEV_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
-	@echo " make production\trun [$(.PROD_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make serve\t\trun [$(.SERVE_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
 	@echo " make test\t\texecute unit and functional tests"
 	@echo " make build\t\tgenerate static assets in './build' directory"
 	@echo ""
@@ -35,8 +35,8 @@ help:
 dev-image:
 	docker build -t $(.DEV_IMAGE) .
 
-prod-image:
-	docker build -t $(.PROD_IMAGE) . -f production.Dockerfile
+serve-image:
+	docker build -t $(.SERVE_IMAGE) . -f serve.Dockerfile
 
 build: dev-image
 	mkdir $(PWD)/build -p
@@ -70,10 +70,10 @@ interactive: dev-image
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run start
 
-production: build prod-image
+serve: build serve-image
 	docker run \
 		--rm \
-		--name cwa-production \
+		--name cwa-serve \
 		-it \
 		-v $(PWD)/build:/www/build \
 		-v $(PWD)/serve.json:/www/serve.json \
@@ -81,4 +81,4 @@ production: build prod-image
 		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=serve \
-		$(.PROD_IMAGE)
+		$(.SERVE_IMAGE)
