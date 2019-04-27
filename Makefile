@@ -52,6 +52,7 @@ build: dev-image
 test: dev-image
 	docker run \
 		--rm \
+		--name cwa-test \
 		-it \
 		$(.SHARED_VOLUMES) \
 		$(.ENV_VARIABLES) \
@@ -61,6 +62,7 @@ test: dev-image
 interactive: dev-image
 	docker run \
 		--rm \
+		--name cwa \
 		-it \
 		$(.SHARED_VOLUMES) \
 		$(.ENV_VARIABLES) \
@@ -71,6 +73,7 @@ interactive: dev-image
 production: build prod-image
 	docker run \
 		--rm \
+		--name cwa-production \
 		-it \
 		-v $(PWD)/build:/www/build \
 		-v $(PWD)/serve.json:/www/serve.json \
