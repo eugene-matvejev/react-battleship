@@ -19,13 +19,17 @@ help:
 	@echo "------------------------------------------------"
 	@echo ""
 	@echo " make help\t\tdisplay help"
+	@echo ""
+	@echo "-- DOCKER IMAGE PREPARATION"
+	@echo " make dev-image\t\tbuild [$(.DEV_IMAGE)] image which encapsulate dev-dependencies, nothing else"
+	@echo " make prod-image\tbuild [$(.PROD_IMAGE)] image which encapsulate 'serve', nothing else"
+	@echo ""
+	@echo "-- COMMANDS"
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
-	@echo " make dev-image\t\tbuild docker image [$(.DEV_IMAGE)] - require sync src|public directories and .env file"
-	@echo " make prod-image\tbuild docker image [$(.PROD_IMAGE)]"
-	@echo " make build\t\tgenerate static assets into $(PWD)/build directory"
+	@echo " make interactive\trun [$(.DEV_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make production\trun [$(.PROD_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
 	@echo " make test\t\texecute unit and functional tests"
-	@echo " make interactive\tprepares local dev. env., CWA become available on http://localhost:$(.LINKED_PORT)"
-	@echo " make production\tprepares local prod. env., CWA become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make build\t\tgenerate static assets in './build' directory"
 	@echo ""
 
 dev-image:
@@ -68,8 +72,8 @@ production: build prod-image
 	docker run \
 		--rm \
 		-it \
-		$(.ENVIROMENT_VARIABLES) \
 		-e NO_UPDATE_CHECK=1 \
+		$(.ENVIROMENT_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=/usr/bin/serve \
 		$(.PROD_IMAGE)
