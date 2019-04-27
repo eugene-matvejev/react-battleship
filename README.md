@@ -64,13 +64,14 @@ targets/goals : WIP
 
 ## how to install
 
-* if you use `make` commands no actions required, apart of having docker v18.09+ installed
+* if you use `make` commands no actions required, apart of having [docker](https://docs.docker.com/install/) v18.09+ and [docker-compose](https://docs.docker.com/compose/install/) v3+ [docker-compose is needed for tests only]
   * otherwise you need node & npm, then execute `$ npm i`
 
 ## how to execute tests
 
-* `$ make test` or `$ npm test`
-* __[optional jest CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
+* integration tests: `$ make cypress` or `$ npm test` inside `cypress` directory
+* unit and functional tests: `$ make test` or `$ npm test`
+* __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
   * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
   * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
 
