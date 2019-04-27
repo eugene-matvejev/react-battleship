@@ -26,12 +26,16 @@ instructions are written, assuming you work in unix / MacOS env. it still should
 ```
 targets/goals : WIP
 * to demostrate:
-    * unit/functional testing best practices
-    * integration testing best practices
-    * react best practices
+    * QA Automation knowledge, and best practices [jest/enzyme/cypress]
     * DRY/KISS/SOLID principles
     * DevOps knowledge [Docker/CI/CD etc]
-    * graphql knowledge
+    * react best practices
+
+* implement form engine
+ ** validation engine
+ ** inputs
+ ** cypress tests
+
 ```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
@@ -70,13 +74,13 @@ targets/goals : WIP
   * useful option for CI: `--coverage`, example: `$ npm test -- --coverage` to generate coverage report in __./coverage__ directory
   * path to file, example `$ npm test src/service/processor/game_processor.test.js` to execute tests only in one file
 
-## how to serve in 'development' mode
+## how to run in 'development' mode
 
 * `$ make`
 
-## how to serve in 'production' mode
+## how to run in 'production' mode
 
-* `$ make production`
+* `$ make serve`
 * __to assemble static assets__
   * `$ make build` - compiled assets will be located in __./build__ directory
 
