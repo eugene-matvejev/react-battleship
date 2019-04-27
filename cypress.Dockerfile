@@ -9,4 +9,3 @@ RUN npm i --verbose --production
 RUN npx cypress verify
 
 ENTRYPOINT /bin/sh
-
