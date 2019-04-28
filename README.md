@@ -8,12 +8,12 @@
 [ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
 [ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
 
-|                  | master                                                        | heroku
-|---               |---                                                            |---
+|                  | master                                                      | heroku
+|---               |---                                                          |---
 | __tests__        |
-| _< Circle CI >_  | [![tests][ci.tests-master-badge]][ci.tests-master]            | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
+| _< Circle CI >_  | [![tests][ci.tests-master-badge]][ci.tests-master]          | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
 | __coverage__     |
-| _< codecov.io >_ | [![coverage][ci.coverage-master-badge]]([ci.coverage-master]) | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
+| _< codecov.io >_ | [![coverage][ci.coverage-master-badge]][ci.coverage-master] | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
 
 # Battleship Game GUI [on react.js]
 
