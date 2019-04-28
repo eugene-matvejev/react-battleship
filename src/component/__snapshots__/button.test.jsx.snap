@@ -3,18 +3,24 @@
 exports[`<Button/> render with default/required props 1`] = `
 <button
   className="button "
-/>
+>
+  {{label}}
+</button>
 `;
 
 exports[`<Button/> render with optional props [::className] as "{{className}}" 1`] = `
 <button
   className="button {{className}}"
-/>
+>
+  {{label}}
+</button>
 `;
 
 exports[`<Button/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
 <button
   className="button "
   data-cy="{{data-cy}}"
-/>
+>
+  {{label}}
+</button>
 `;
