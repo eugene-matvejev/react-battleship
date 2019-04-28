@@ -12,6 +12,7 @@ services:
       - PORT=28080
     entrypoint:
       - serve
+    command: -n
 
   cypress:
     container_name: cy
