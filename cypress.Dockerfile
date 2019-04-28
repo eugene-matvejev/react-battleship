@@ -4,8 +4,7 @@ WORKDIR /www
 
 COPY ./cypress/package.json ./cypress/package-lock.json ./
 
-RUN npm i --verbose --production
-
-RUN npx cypress verify
+RUN npm i --verbose --production \
+    && npx cypress verify
 
 ENTRYPOINT /bin/sh

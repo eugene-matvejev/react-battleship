@@ -1,8 +1,8 @@
 FROM alpine
 
-RUN apk add --no-cache nodejs nodejs-npm
-
 WORKDIR /www
+
+RUN apk add --no-cache nodejs nodejs-npm
 
 COPY package.json package-lock.json ./
 

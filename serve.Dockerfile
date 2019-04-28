@@ -1,9 +1,9 @@
 FROM alpine
 
-RUN apk add --no-cache nodejs nodejs-npm
-
 WORKDIR /www
 
-RUN npm i serve --verbose -g
+RUN apk add --no-cache nodejs nodejs-npm \
+    && npm i serve --verbose -g \
+    && apk del nodejs-npm
 
 ENTRYPOINT /bin/sh
