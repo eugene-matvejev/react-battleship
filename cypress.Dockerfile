@@ -6,5 +6,3 @@ COPY ./cypress/package.json ./cypress/package-lock.json ./
 
 RUN npm i --verbose --production \
     && npx cypress verify
-
-ENTRYPOINT /bin/sh
