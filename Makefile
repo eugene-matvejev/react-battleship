@@ -89,4 +89,4 @@ serve: build serve-image
 		$(.ENV_VARIABLES) \
 		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
 		--entrypoint=serve \
-		$(.SERVE_IMAGE)
+		$(.SERVE_IMAGE) -n
