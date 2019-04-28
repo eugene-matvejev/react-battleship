@@ -28,5 +28,3 @@ RUN apk add --no-cache nodejs nodejs-npm \
 
 COPY serve.json ./
 COPY --from=cwa /www/build /www/build
-
-ENTRYPOINT /bin/sh
