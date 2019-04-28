@@ -7,6 +7,7 @@ configure({ adapter: new Adapter() });
 
 describe('<Button/>', () => {
     const props = {
+        label: '{{label}}',
     };
 
     describe('render', () => {
