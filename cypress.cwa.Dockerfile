@@ -15,10 +15,10 @@ RUN npm run build
 
 
 FROM alpine
-RUN apk add --no-cache nodejs nodejs-npm
-
 WORKDIR /www
-RUN npm i serve --verbose -g
+
+RUN apk add --no-cache nodejs nodejs-npm \
+    && npm i serve --verbose -g
 
 COPY serve.json ./
 COPY --from=cwa /www/build /www/build
