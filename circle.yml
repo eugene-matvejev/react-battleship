@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: npm i --verbose
+      - run: npm test -- --coverage --watchAll=false
       - run: sudo npm i -g codecov
       - run: npm test -- --coverage
       - run: codecov
