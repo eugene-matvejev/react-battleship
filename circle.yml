@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:10.4.0
+      - image: circleci/node:lts-jessie
     steps:
       - checkout
       - run: npm i --verbose
