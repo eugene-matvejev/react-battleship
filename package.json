@@ -38,8 +38,9 @@
   ],
   "jest": {
     "collectCoverageFrom": [
-      "src/**.js?(x)",
-      "!src/**index.js?(x)",
+      "src/**?(/*).js?(x)",
+      "!src/parameters.js?(x)",
+      "!src/**?(/*)index.js?(x)",
       "!src/__configs/**.js?(x)"
     ],
     "snapshotSerializers": [
