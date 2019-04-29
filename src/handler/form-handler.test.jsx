@@ -52,6 +52,7 @@ describe('<FormHandler/>', () => {
 
         describe('with optional props', () => {
             [
+                ['title', '{{title}}'],
                 ['cy', '{{cy}}'],
                 ['data', data],
             ].forEach(([prop, v]) => {
@@ -133,6 +134,35 @@ describe('<FormHandler/>', () => {
 
                 expect(spy).toBeCalledWith(c.instance().props, c.state(), c.instance().onSuccess, c.instance().onError);
             });
+
+            it('should invoke external callback [::validate] from click on [data-cy="form-action-submit"]', () => {
+                const spy = jest.fn();
+                const c = shallow(<FormHandler {...props} validate={spy} />);
+
+                c.find('Button[data-cy="form-action-submit"]').simulate('click', e);
+
+                expect(spy).toBeCalledWith(c.state('config'));
+            });
+
+            it('when external callback [::validate] undefined, state field [::isValid] should be set to true', () => {
+                const spy = spyOn(FormHandler.prototype, 'setState');
+
+                const c = shallow(<FormHandler {...props}  />);
+
+                c.find('Button[data-cy="form-action-submit"]').simulate('click', e);
+
+                expect(spy).toBeCalledWith({ isValid: true });
+            });
+
+            it('when external callback [::validate] return false, state field [::isValid] should be set to false, and [::config] field should get new reference', () => {
+                const spy = spyOn(FormHandler.prototype, 'setState');
+
+                const c = shallow(<FormHandler {...props} validate={() => false} />);
+
+                c.find('Button[data-cy="form-action-submit"]').simulate('click', e);
+
+                expect(spy).toBeCalledWith({ config: c.state('config'), isValid: false });
+            });
         });
 
         describe('::onCancel', () => {
@@ -151,7 +181,7 @@ describe('<FormHandler/>', () => {
             it('should mutate state field [::config] and toggle [::isCollapsed] field for relevant section, from click on <Accordion/>', () => {
                 const c = shallow(<FormHandler {...props} />);
 
-                c.find('[data-section][data-cy="section-0"]').simulate('click', e);
+                c.find('[data-section][data-cy="section-0"]').simulate('collapse', e);
 
                 expect(c.state('config')).toMatchSnapshot();
             });
