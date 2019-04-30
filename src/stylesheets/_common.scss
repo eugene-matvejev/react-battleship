@@ -47,22 +47,6 @@ a {
     }
 }
 
-.btn, .wrapper.navigation {
-    width: $button-size;
-}
-
-.btn {
-    display: inline-block;
-    color: $link-color;
-    height: $button-size;
-    width: $button-size;
-    line-height: $button-size;
-    font-size: $button-size;
-    text-align: center;
-
-    cursor: pointer;
-}
-
 .component, .handler {
     h1, h2, h3 {
         line-height: 2rem;
