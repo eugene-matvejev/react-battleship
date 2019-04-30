@@ -19,6 +19,7 @@ Array [
 exports[`<FormHandler/> internal callbacks ::onCollapse should mutate state field [::config] and toggle [::isCollapsed] field for relevant section, from click on <Accordion/> 1`] = `
 Array [
   Object {
+    "isCollapsed": true,
     "items": Array [
       Object {
         "c": [Function],
@@ -137,6 +138,52 @@ exports[`<FormHandler/> render with optional props [::data] as "[object Object]"
       data-cy="form-action-update"
       disabled={true}
       label="{{update}}"
+      onClick={[Function]}
+    />
+    <Button
+      className=""
+      data-cy="form-action-cancel"
+      label="{{cancel}}"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`<FormHandler/> render with optional props [::title] as "{{title}}" 1`] = `
+<form
+  className="form "
+>
+  <h1
+    className="form_title"
+    data-cy="form-title"
+  >
+    {{title}}
+  </h1>
+  <Accordion
+    className=""
+    data-cy="section-0"
+    data-section={0}
+    key="0"
+    onCollapse={[Function]}
+    title="{{section 0}}"
+  >
+    <c
+      data-cy="section-0-input-0"
+      data-field={0}
+      data-section={0}
+      key="0"
+      onChange={[Function]}
+    />
+  </Accordion>
+  <div
+    className="form_controls"
+  >
+    <Button
+      className=""
+      data-cy="form-action-submit"
+      disabled={true}
+      label="{{submit}}"
       onClick={[Function]}
     />
     <Button
