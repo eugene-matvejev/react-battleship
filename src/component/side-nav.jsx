@@ -47,8 +47,8 @@ export default class SideNav extends PureComponent {
     }
 
     static propTypes = {
-        className: PropTypes.string,
         'data-cy': PropTypes.string,
+        className: PropTypes.string,
         title: PropTypes.string.isRequired,
         routes: PropTypes.arrayOf(
             PropTypes.shape({
@@ -60,7 +60,7 @@ export default class SideNav extends PureComponent {
     };
 
     static defaultProps = {
-        className: '',
         'data-cy': '',
+        className: '',
     };
 }

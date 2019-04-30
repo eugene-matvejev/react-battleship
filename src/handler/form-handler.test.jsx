@@ -53,7 +53,7 @@ describe('<FormHandler/>', () => {
         describe('with optional props', () => {
             [
                 ['title', '{{title}}'],
-                ['cy', '{{cy}}'],
+                ['data-cy', '{{data-cy}}'],
                 ['data', data],
             ].forEach(([prop, v]) => {
                 it(`[::${prop}] as "${v}"`, () => {
