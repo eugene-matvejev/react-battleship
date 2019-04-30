@@ -10,7 +10,6 @@
 @import '../handler/game_initiation_handler';
 @import '../handler/game_results_handler';
 
-@import '../component/layout/navigation_side_bar';
 @import '../component/layout/pagination';
 
 @import '../component/game/battlefield';
@@ -20,3 +19,5 @@
 
 @import '../component/form/accordion';
 @import '../component/button';
+
+@import '../component/side-nav';

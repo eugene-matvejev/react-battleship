@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Switch, Route } from 'react-router-dom';
+import SideNav from './component/side-nav';
 
 class WebApp extends PureComponent {
     constructor({ user }) {
@@ -18,24 +19,28 @@ class WebApp extends PureComponent {
     }
 
     render() {
-        const { authorizedRoutes, unauthorizedRoutes } = this.props;
+        const { authorizedRoutes, unauthorizedRoutes, sidenavAuthorizedRoutes, sidenavUnauthorizedRoutes } = this.props;
         const { user } = this.state;
 
         const routes = undefined !== user ? authorizedRoutes : unauthorizedRoutes;
+        const sidenavRoutes = undefined !== user ? sidenavAuthorizedRoutes : sidenavUnauthorizedRoutes;
         const extraProps = undefined !== user ? {} : { onAuthenticate: this.onAuthenticate };
 
-        return <Switch>
-            {
-                routes.map(({ c: C, path, props }, i) =>
-                    <Route
-                        exact
-                        path={path}
-                        key={i}
-                        component={() => <C {...props} {...extraProps}/>}
-                    />
-                )
-            }
-        </Switch>;
+        return <Fragment>
+            <SideNav routes={sidenavRoutes} title="battleship"/>
+            <Switch>
+                {
+                    routes.map(({ c: C, path, props }, i) =>
+                        <Route
+                            exact
+                            path={path}
+                            key={i}
+                            component={() => <C {...props} {...extraProps} />}
+                        />
+                    )
+                }
+            </Switch>
+        </Fragment>
     }
 
     static propTypes = {
@@ -54,9 +59,13 @@ class WebApp extends PureComponent {
                 props: PropTypes.object,
             })
         ),
+        sidenavUnauthorizedRoutes: PropTypes.array,
+        sidenavAuthorizedRoutes: PropTypes.array,
     };
 
     static defaultProps = {
+        sidenavUnauthorizedRoutes: [],
+        sidenavAuthorizedRoutes: [],
     };
 }
 

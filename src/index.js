@@ -7,8 +7,11 @@ import MockAdapter from 'axios-mock-adapter';
 
 import WebApp from './web-app';
 
-import unauthorizedRoutes from './__configs/unauthorized.routes';
-import authorizedRoutes from './__configs/authorized.routes';
+import unauthorizedRoutes from './__configs/router.unauthorized.routes';
+import authorizedRoutes from './__configs/router.authorized.routes';
+
+import sidenavUnauthorizedRoutes from './__configs/sidenav.unauthorized.routes';
+import sidenavUuthorizedRoutes from './__configs/sidenav.authorized.routes';
 
 import './stylesheets/main.scss';
 import 'react-rangeslider/lib/index.css';
@@ -66,7 +69,12 @@ mock.onGet(/game/).reply(
 
 ReactDOM.render(
     <BrowserRouter forceRefresh >
-        <WebApp authorizedRoutes={authorizedRoutes} unauthorizedRoutes={unauthorizedRoutes} />
+        <WebApp
+            authorizedRoutes={authorizedRoutes}
+            unauthorizedRoutes={unauthorizedRoutes}
+            sidenavUnauthorizedRoutes={sidenavUnauthorizedRoutes}
+            sidenavAuthorizedRoutes={sidenavUuthorizedRoutes}
+        />
     </BrowserRouter>,
     document.getElementById('content-area')
 );
