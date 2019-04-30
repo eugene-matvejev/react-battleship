@@ -3,26 +3,21 @@ $navbar-width-collapsed: 4rem;
 $navbar-animation: all .33s ease;
 
 .sidenav {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
     width: $navbar-width;
-    transition: $navbar-animation;
-    text-transform: uppercase;
-    // background: #00000090;
-    // background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
-    // border-right: 1px solid #fff;
-
 
     &, &--collapsed {
         position: relative;
-        background: #00000090;
+        display: flex;
+        flex-direction: column;
+
+        background: #00000050;
+        transition: $navbar-animation;
+
+        text-transform: uppercase;
     }
 
     &--collapsed {
         width: $navbar-width-collapsed;
-        transition: $navbar-animation;
     }
 
     &_title {
@@ -43,14 +38,16 @@ $navbar-animation: all .33s ease;
     }
 
     &_collapse-button {
-        z-index: 1;
-        font-size: 3rem;
-        position: absolute;
-        right: 1rem;
-        color: #fff;
         background: transparent;
         border: none;
+
+        color: #fff;
         cursor: pointer;
+
+        right: 1rem;
+        font-size: 3rem;
+        position: absolute;
+        z-index: 1;
 
         &:after {
             content: '\2261';
