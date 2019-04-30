@@ -70,46 +70,6 @@ exports[`<FormHandler/> render with default/required props 1`] = `
 </form>
 `;
 
-exports[`<FormHandler/> render with optional props [::cy] as "{{cy}}" 1`] = `
-<form
-  className="form "
->
-  <Accordion
-    className=""
-    data-cy="{{cy}}section-0"
-    data-section={0}
-    key="0"
-    onCollapse={[Function]}
-    title="{{section 0}}"
-  >
-    <c
-      data-cy="{{cy}}section-0-input-0"
-      data-field={0}
-      data-section={0}
-      key="0"
-      onChange={[Function]}
-    />
-  </Accordion>
-  <div
-    className="form_controls"
-  >
-    <Button
-      className=""
-      data-cy="{{cy}}form-action-submit"
-      disabled={true}
-      label="{{submit}}"
-      onClick={[Function]}
-    />
-    <Button
-      className=""
-      data-cy="{{cy}}form-action-cancel"
-      label="{{cancel}}"
-      onClick={[Function]}
-    />
-  </div>
-</form>
-`;
-
 exports[`<FormHandler/> render with optional props [::data] as "[object Object]" 1`] = `
 <form
   className="form "
@@ -143,6 +103,46 @@ exports[`<FormHandler/> render with optional props [::data] as "[object Object]"
     <Button
       className=""
       data-cy="form-action-cancel"
+      label="{{cancel}}"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`<FormHandler/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<form
+  className="form "
+>
+  <Accordion
+    className=""
+    data-cy="{{data-cy}}section-0"
+    data-section={0}
+    key="0"
+    onCollapse={[Function]}
+    title="{{section 0}}"
+  >
+    <c
+      data-cy="{{data-cy}}section-0-input-0"
+      data-field={0}
+      data-section={0}
+      key="0"
+      onChange={[Function]}
+    />
+  </Accordion>
+  <div
+    className="form_controls"
+  >
+    <Button
+      className=""
+      data-cy="{{data-cy}}form-action-submit"
+      disabled={true}
+      label="{{submit}}"
+      onClick={[Function]}
+    />
+    <Button
+      className=""
+      data-cy="{{data-cy}}form-action-cancel"
       label="{{cancel}}"
       onClick={[Function]}
     />

@@ -94,7 +94,7 @@ export default class FormHandler extends PureComponent {
 
     render() {
         const { config, data, isValid } = this.state;
-        const { cy, className, title, submitCTRL, updateCTRL, cancelCTRL } = this.props;
+        const { 'data-cy': cy, className, title, submitCTRL, updateCTRL, cancelCTRL } = this.props;
 
         return <form className={`form ${className}`}>
             {title && <h1 className="form_title" data-cy={`${cy}form-title`}>{title}</h1>}
@@ -159,8 +159,8 @@ export default class FormHandler extends PureComponent {
     }
 
     static propTypes = {
+        'data-cy': PropTypes.string,
         className: PropTypes.string,
-        cy: PropTypes.string,
 
         config: PropTypes.arrayOf(
             PropTypes.shape({
@@ -202,7 +202,7 @@ export default class FormHandler extends PureComponent {
     }
 
     static defaultProps = {
+        'data-cy': '',
         className: '',
-        cy: '',
     }
 }
