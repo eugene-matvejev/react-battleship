@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideNav/> render with default/required props 1`] = `
+<div
+  className="sidenav "
+>
+  <button
+    className="sidenav_collapse-button"
+    data-cy="sidenav-collapse-button"
+    onClick={[Function]}
+  />
+  <h2
+    className="sidenav_title"
+    data-cy="sidenav-label"
+  >
+    {{title}}
+  </h2>
+  <Link
+    className="sidenav_link--disabled"
+    data-cy="sidenav-link-0"
+    disabled={true}
+    key="0"
+    to="/1"
+  >
+    label1
+  </Link>
+  <Link
+    className="sidenav_link"
+    data-cy="sidenav-link-1"
+    disabled={false}
+    key="1"
+    to="/2"
+  >
+    label2
+  </Link>
+</div>
+`;
+
+exports[`<SideNav/> render with optional props [::className] as "{{className}}" 1`] = `
+<div
+  className="sidenav {{className}}"
+>
+  <button
+    className="sidenav_collapse-button"
+    data-cy="sidenav-collapse-button"
+    onClick={[Function]}
+  />
+  <h2
+    className="sidenav_title"
+    data-cy="sidenav-label"
+  >
+    {{title}}
+  </h2>
+  <Link
+    className="sidenav_link--disabled"
+    data-cy="sidenav-link-0"
+    disabled={true}
+    key="0"
+    to="/1"
+  >
+    label1
+  </Link>
+  <Link
+    className="sidenav_link"
+    data-cy="sidenav-link-1"
+    disabled={false}
+    key="1"
+    to="/2"
+  >
+    label2
+  </Link>
+</div>
+`;
+
+exports[`<SideNav/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<div
+  className="sidenav "
+>
+  <button
+    className="sidenav_collapse-button"
+    data-cy="{{data-cy}}sidenav-collapse-button"
+    onClick={[Function]}
+  />
+  <h2
+    className="sidenav_title"
+    data-cy="{{data-cy}}sidenav-label"
+  >
+    {{title}}
+  </h2>
+  <Link
+    className="sidenav_link--disabled"
+    data-cy="{{data-cy}}sidenav-link-0"
+    disabled={true}
+    key="0"
+    to="/1"
+  >
+    label1
+  </Link>
+  <Link
+    className="sidenav_link"
+    data-cy="{{data-cy}}sidenav-link-1"
+    disabled={false}
+    key="1"
+    to="/2"
+  >
+    label2
+  </Link>
+</div>
+`;
+
+exports[`<SideNav/> render with optional props [::isCollapsed] as "false" 1`] = `
+<div
+  className="sidenav "
+>
+  <button
+    className="sidenav_collapse-button"
+    data-cy="sidenav-collapse-button"
+    onClick={[Function]}
+  />
+  <h2
+    className="sidenav_title"
+    data-cy="sidenav-label"
+  >
+    {{title}}
+  </h2>
+  <Link
+    className="sidenav_link--disabled"
+    data-cy="sidenav-link-0"
+    disabled={true}
+    key="0"
+    to="/1"
+  >
+    label1
+  </Link>
+  <Link
+    className="sidenav_link"
+    data-cy="sidenav-link-1"
+    disabled={false}
+    key="1"
+    to="/2"
+  >
+    label2
+  </Link>
+</div>
+`;
+
+exports[`<SideNav/> render with optional props [::isCollapsed] as "true" 1`] = `
+<div
+  className="sidenav--collapsed "
+>
+  <button
+    className="sidenav_collapse-button"
+    data-cy="sidenav-collapse-button"
+    onClick={[Function]}
+  />
+</div>
+`;
