@@ -1,8 +1,10 @@
 .button {
-    background: none;
+    background: transparent;
 
-    border: 3px #000 solid;
+    border: .1rem #fff solid;
     border-radius: 2rem;
+
+    color: #fff;
 
     font-size: 1.25rem;
     font-weight: lighter;
