@@ -32,40 +32,40 @@ mock.onPost(/account/, { username: 'example@example.com', password: 'password' }
 );
 mock.onAny(/account/).reply(401);
 
-mock.onGet(/game/, { page: 1 }).reply(
-    200,
-    [
-        { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
-        { id: 2, name: 'test', timestamp: (new Date()).toLocaleString(), },
-        { id: 3, name: 'test', timestamp: (new Date()).toLocaleString(), },
-        { id: 4, name: 'test', timestamp: (new Date()).toLocaleString(), },
-        { id: 5, name: 'test', timestamp: (new Date()).toLocaleString(), },
-    ],
-    {
-        'x-page-page': 1,
-        'x-page-total': 2,
-    }
-);
-mock.onGet(/game/, { page: 2 }).reply(
-    200,
-    [
-        { id: 6, name: 'test', timestamp: (new Date()).toLocaleString(), },
-        { id: 7, name: 'test', timestamp: (new Date()).toLocaleString(), },
-    ],
-    {
-        'x-page-page': 2,
-        'x-page-total': 2,
-    }
-);
-mock.onGet(/game/).reply(
-    404,
-    [
-    ],
-    {
-        'x-page-page': 2,
-        'x-page-total': 2,
-    }
-);
+// mock.onGet(/game/, { page: 1 }).reply(
+//     200,
+//     [
+//         { id: 1, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//         { id: 2, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//         { id: 3, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//         { id: 4, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//         { id: 5, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//     ],
+//     {
+//         'x-page-page': 1,
+//         'x-page-total': 2,
+//     }
+// );
+// mock.onGet(/game/, { page: 2 }).reply(
+//     200,
+//     [
+//         { id: 6, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//         { id: 7, name: 'test', timestamp: (new Date()).toLocaleString(), },
+//     ],
+//     {
+//         'x-page-page': 2,
+//         'x-page-total': 2,
+//     }
+// );
+// mock.onGet(/game/).reply(
+//     404,
+//     [
+//     ],
+//     {
+//         'x-page-page': 2,
+//         'x-page-total': 2,
+//     }
+// );
 
 ReactDOM.render(
     <BrowserRouter forceRefresh >
