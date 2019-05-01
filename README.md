@@ -25,10 +25,12 @@ targets/goals : WIP
  ** DevOps knowledge [Docker/CI/CD etc]
  ** react.js best practices
 
-* DONE: implement form engine
+* DONE: implement <FormHandler/>
  ** DONE: generic handler
  ** DONE: generic inputs
  ** DONE: generic validation engine
+
+* DONE: implement <SideNav/>
 ```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
@@ -52,10 +54,10 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 
 ### used services
 
-* [CircleCI](https://circleci.com/dashboard)
-* [codecov.io](https://codecov.io/)
-* [CodeClimate](https://codeclimate.com/)
-* [snyk.io](https://snyk.io/)
+* [circle ci](https://circleci.com/dashboard)
+* [codecov](https://codecov.io/)
+* [code climate](https://codeclimate.com/)
+* [snyk](https://snyk.io/)
 * [heroku](https://www.heroku.com/)
 
 ### how to install
