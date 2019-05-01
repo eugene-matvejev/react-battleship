@@ -95,6 +95,7 @@ CI build is mandatory check for every PR into master/heroku branches
 * **REACT_APP_GAME-MIN-OPPONENTS** [default 1] as number
 * **REACT_APP_GAME-MAX-OPPONENTS** [default 3] as number
 
-* **REACT_APP_API_PROTOCOL** [default "http"]
-* **REACT_APP_API_HOST** [default "localhost"]
+* **REACT_APP_API_PROTOCOL** [default "http"] as string
+* **REACT_APP_API_HOST** [default "localhost"] as string
 * **REACT_APP_API_PORT** [default 8081] as number
+* **REACT_APP_WEBSITE_NAME** [default "Battleship"] as string

@@ -19,7 +19,7 @@ class WebApp extends PureComponent {
     }
 
     render() {
-        const { authorizedRoutes, unauthorizedRoutes, sidenavAuthorizedRoutes, sidenavUnauthorizedRoutes } = this.props;
+        const { title, authorizedRoutes, unauthorizedRoutes, sidenavAuthorizedRoutes, sidenavUnauthorizedRoutes } = this.props;
         const { user } = this.state;
 
         const routes = undefined !== user ? authorizedRoutes : unauthorizedRoutes;
@@ -27,7 +27,7 @@ class WebApp extends PureComponent {
         const extraProps = undefined !== user ? {} : { onAuthenticate: this.onAuthenticate };
 
         return <Fragment>
-            <SideNav routes={sidenavRoutes} title="battleship"/>
+            <SideNav routes={sidenavRoutes} title={title}/>
             <Switch>
                 {
                     routes.map(({ c: C, path, props }, i) =>
@@ -45,6 +45,7 @@ class WebApp extends PureComponent {
 
     static propTypes = {
         user: PropTypes.object,
+        title: PropTypes.string.isRequired,
         authorizedRoutes: PropTypes.arrayOf(
             PropTypes.shape({
                 c: PropTypes.func.isRequired,

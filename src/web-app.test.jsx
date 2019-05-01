@@ -9,6 +9,7 @@ configure({ adapter: new Adapter() });
 
 describe('<WebApp/>', () => {
     const props = {
+        title: '{{title}}',
         authorizedRoutes: [
             {
                 c: () => <span className="authorized" />,
