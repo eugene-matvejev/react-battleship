@@ -74,6 +74,7 @@ ReactDOM.render(
             unauthorizedRoutes={unauthorizedRoutes}
             sidenavUnauthorizedRoutes={sidenavUnauthorizedRoutes}
             sidenavAuthorizedRoutes={sidenavUuthorizedRoutes}
+            title={process.env['REACT_APP_WEBSITE_NAME']}
         />
     </BrowserRouter>,
     document.getElementById('content-area')

@@ -6,7 +6,7 @@ exports[`<WebApp/> render with default/required props 1`] = `
     className=""
     data-cy=""
     routes={Array []}
-    title="battleship"
+    title="{{title}}"
   />
   <Switch>
     <Route
@@ -25,7 +25,7 @@ exports[`<WebApp/> render with optional props [::user] as "[object Object]" 1`] 
     className=""
     data-cy=""
     routes={Array []}
-    title="battleship"
+    title="{{title}}"
   />
   <Switch>
     <Route
