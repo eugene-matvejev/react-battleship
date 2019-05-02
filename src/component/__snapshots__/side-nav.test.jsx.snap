@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SideNav/> render with default/required props 1`] = `
-<div
+<aside
   className="sidenav "
 >
   <button
@@ -33,11 +33,11 @@ exports[`<SideNav/> render with default/required props 1`] = `
   >
     label2
   </Link>
-</div>
+</aside>
 `;
 
 exports[`<SideNav/> render with optional props [::className] as "{{className}}" 1`] = `
-<div
+<aside
   className="sidenav {{className}}"
 >
   <button
@@ -69,11 +69,11 @@ exports[`<SideNav/> render with optional props [::className] as "{{className}}" 
   >
     label2
   </Link>
-</div>
+</aside>
 `;
 
 exports[`<SideNav/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
-<div
+<aside
   className="sidenav "
 >
   <button
@@ -105,11 +105,11 @@ exports[`<SideNav/> render with optional props [::data-cy] as "{{data-cy}}" 1`] 
   >
     label2
   </Link>
-</div>
+</aside>
 `;
 
 exports[`<SideNav/> render with optional props [::isCollapsed] as "false" 1`] = `
-<div
+<aside
   className="sidenav "
 >
   <button
@@ -141,11 +141,11 @@ exports[`<SideNav/> render with optional props [::isCollapsed] as "false" 1`] = 
   >
     label2
   </Link>
-</div>
+</aside>
 `;
 
 exports[`<SideNav/> render with optional props [::isCollapsed] as "true" 1`] = `
-<div
+<aside
   className="sidenav--collapsed "
 >
   <button
@@ -153,5 +153,5 @@ exports[`<SideNav/> render with optional props [::isCollapsed] as "true" 1`] = `
     data-cy="sidenav-collapse-button"
     onClick={[Function]}
   />
-</div>
+</aside>
 `;

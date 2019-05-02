@@ -23,7 +23,7 @@ export default class SideNav extends PureComponent {
         const { className, title, routes, 'data-cy': cy } = this.props;
         const { isCollapsed } = this.state;
 
-        return <div className={`sidenav${isCollapsed ? '--collapsed' : ''} ${className}`}>
+        return <aside className={`sidenav${isCollapsed ? '--collapsed' : ''} ${className}`}>
             <button data-cy={`${cy}sidenav-collapse-button`} className="sidenav_collapse-button" onClick={this.onCollapse} />
             {
                 !isCollapsed && <Fragment>
@@ -43,7 +43,7 @@ export default class SideNav extends PureComponent {
                     }
                 </Fragment>
             }
-        </div>;
+        </aside>;
     }
 
     static propTypes = {
