@@ -1,4 +1,4 @@
-import GameProcessor from "./game_processor";
+import GameProcessor from './game_processor';
 
 describe(`processor:: <GameProcessor/>`, () => {
     describe(`::constructor`, () => {

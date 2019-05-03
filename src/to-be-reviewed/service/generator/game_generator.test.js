@@ -1,5 +1,5 @@
-import { generateGame } from "./";
-import PlayerModel from "../../model/player_model";
+import { generateGame } from './game_generator';
+import PlayerModel from '../../model/player_model';
 
 describe(`generator:: Game`, () => {
     describe(`::generate`, () => {

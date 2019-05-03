@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Game } from '../component';
+import Game from '../component/game/game';
 import { GameModel } from '../model';
 
 const GameHandler = ({ className, label, model }) =>

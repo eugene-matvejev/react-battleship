@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-rangeslider';
-import { Battlefield } from '../component';
+import Battlefield from '../component/game/battlefield';
 import { generateBattlefield, generateGame } from '../service/generator';
 
 export default class GameInitiationHandler extends Component {

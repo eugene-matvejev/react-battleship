@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Pagination } from '../component';
+import Pagination from '../component/pagination';
 
 export default class GameResultsHandler extends Component {
     constructor({ current, total }) {
