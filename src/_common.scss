@@ -31,7 +31,7 @@ a {
     text-decoration: none;
 
     &:active, &:link, &:visited, &:hover {
-        color: #fff;
+        color: inherit;
     }
 }
 
