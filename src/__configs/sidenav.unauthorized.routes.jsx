@@ -1,14 +1,14 @@
 export default [
     {
-        path: '/',
+        to: '/',
         label: 'sign in',
     },
     {
-        path: '/1',
+        to: '/acc/create',
         label: 'create an account',
     },
     {
-        path: '/2',
+        to: '/acc/restore-password/1',
         label: 'forgot password',
     },
 ];

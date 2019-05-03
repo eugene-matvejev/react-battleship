@@ -1,10 +1,12 @@
 import composePortal from './compose-portal';
 
 import FormHandler from '../handler/form-handler';
-import loginForm from './forms/login';
-import registerForm from './forms/register';
-import restorePasswordStep1 from './forms/restore-password-step1';
-import restorePasswordStep2 from './forms/restore-password-step2';
+import TreeHandler from '../handler/tree-handler';
+
+import loginUser from './forms/user.login';
+import createUser from './forms/user.create';
+import passwordStep1 from './forms/user.password.restore-1';
+import passwordStep2 from './forms/user.password.restore-2';
 
 export default [
     {
@@ -12,15 +14,7 @@ export default [
         path: '/',
         exact: true,
         props: {
-            ...loginForm,
-        },
-    },
-    {
-        c: FormHandler,
-        path: '/login',
-        exact: true,
-        props: {
-            ...loginForm,
+            ...loginUser,
         },
     },
     {
@@ -28,33 +22,30 @@ export default [
         path: '/acc/create',
         exact: true,
         props: {
-            ...registerForm,
+            ...createUser,
         },
     },
     {
         c: FormHandler,
-        path: '/acc/1',
+        path: '/acc/restore-password/1',
         exact: true,
         props: {
-            ...restorePasswordStep1,
+            ...passwordStep1,
         },
     },
     {
         c: FormHandler,
-        path: '/acc/2',
+        path: '/acc/restore-password/2',
         exact: true,
         props: {
-            ...restorePasswordStep2,
+            ...passwordStep2,
         },
     },
     {
-        c: composePortal(() => 'PORTAL', document.getElementById('portal')),
+        c: composePortal(TreeHandler, document.getElementById('portal')),
         path: '/search',
         props: {
-            title: 'portal example',
-            contentProps: {
-
-            }
-        }
+            modalTitle: 'portal example',
+        },
     }
 ]
