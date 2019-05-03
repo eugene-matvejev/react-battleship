@@ -13,7 +13,7 @@ import authorizedRoutes from './__configs/router.authorized.routes';
 import sidenavUnauthorizedRoutes from './__configs/sidenav.unauthorized.routes';
 import sidenavUuthorizedRoutes from './__configs/sidenav.authorized.routes';
 
-import './stylesheets/main.scss';
+import './index.scss';
 import 'react-rangeslider/lib/index.css';
 
 const mock = new MockAdapter(axios, { delayResponse: 100 });
