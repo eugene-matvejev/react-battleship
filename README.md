@@ -15,7 +15,7 @@
 | __coverage__     |
 | _< codecov.io >_ | [![coverage][ci.coverage-master-badge]][ci.coverage-master] | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
 
-# battleship GUI on react.js
+# battleship GUI
 
 ```
 targets/goals : WIP
