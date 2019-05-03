@@ -1,0 +1,15 @@
+/**
+ * main file to give single output
+ */
+@import './common';
+@import './media';
+@import './variables';
+@import './web-app';
+
+@import './component/button';
+@import './component/side-nav';
+@import './component/top-nav';
+
+@import './handler/form-handler';
+
+@import './component/form/accordion';
