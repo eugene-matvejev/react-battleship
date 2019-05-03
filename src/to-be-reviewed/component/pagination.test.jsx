@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Pagination } from '../';
+import Pagination from './pagination';
 
 configure({ adapter: new Adapter() });
 

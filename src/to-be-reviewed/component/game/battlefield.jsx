@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Cell } from '../';
+import Cell from './cell';
 import { BattlefieldModel, CellModel } from '../../model';
 
 const Battlefield = ({ className, model }) => {
