@@ -5,14 +5,14 @@ exports[`<TopNav/> render with default/required props 1`] = `
   className="topnav "
 >
   <Link
-    className="topnav_search_button"
+    className="topnav_search"
     data-cy="topnav-search"
     to="/search"
   >
     search
   </Link>
   <button
-    className="topnav_profile_button"
+    className="topnav_profile"
     data-cy="topnav-profile"
   >
     CY
@@ -25,14 +25,14 @@ exports[`<TopNav/> render with optional props [::className] as "{{className}}" 1
   className="topnav {{className}}"
 >
   <Link
-    className="topnav_search_button"
+    className="topnav_search"
     data-cy="topnav-search"
     to="/search"
   >
     search
   </Link>
   <button
-    className="topnav_profile_button"
+    className="topnav_profile"
     data-cy="topnav-profile"
   >
     CY
@@ -45,14 +45,14 @@ exports[`<TopNav/> render with optional props [::data-cy] as "{{data-cy}}" 1`] =
   className="topnav "
 >
   <Link
-    className="topnav_search_button"
+    className="topnav_search"
     data-cy="{{data-cy}}topnav-search"
     to="/search"
   >
     search
   </Link>
   <button
-    className="topnav_profile_button"
+    className="topnav_profile"
     data-cy="{{data-cy}}topnav-profile"
   >
     CY

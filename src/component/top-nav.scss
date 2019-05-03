@@ -3,23 +3,23 @@
 
     height: 4rem;
 
-
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
-    &_search_button, &_profile_button {
-        background: transparent;
-        border: none;
-        color: #fff;
-    }
-
-    &_search_button {
+    &_search {
         font-size: 1.5rem;
         font-style: italic;
     }
 
-    &_profile_button {
+    &_profile {
+        background: transparent;
+
+        border: 2px solid #fff;
+        border-radius: 3rem;
+
+        color: #fff;
+
         display: flex;
 
         width: 3rem;
@@ -28,8 +28,6 @@
         font-size: 1.25rem;
         line-height: 2rem;
 
-        border-radius: 3rem;
-        border: 2px solid #fff;
         box-sizing: border-box;
 
         margin: 0 1rem;
