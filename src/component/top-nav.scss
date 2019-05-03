@@ -20,6 +20,8 @@
     }
 
     &_profile_button {
+        display: flex;
+
         width: 3rem;
         height: 3rem;
 
@@ -27,10 +29,11 @@
         line-height: 2rem;
 
         border-radius: 3rem;
-
         border: 2px solid #fff;
         box-sizing: border-box;
 
         margin: 0 1rem;
+        justify-content: center;
+        font-weight: bold;
     }
 }
