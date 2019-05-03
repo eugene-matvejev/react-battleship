@@ -11,7 +11,7 @@ import unauthorizedRoutes from './__configs/router.unauthorized.routes';
 import authorizedRoutes from './__configs/router.authorized.routes';
 
 import sidenavUnauthorizedRoutes from './__configs/sidenav.unauthorized.routes';
-import sidenavUuthorizedRoutes from './__configs/sidenav.authorized.routes';
+import sidenavAuthorizedRoutes from './__configs/sidenav.authorized.routes';
 
 import './index.scss';
 import 'react-rangeslider/lib/index.css';
