@@ -31,7 +31,7 @@ $navbar-animation: all .33s ease;
         padding: 1rem;
         font-size: 1.25rem;
 
-        &:hover {
+        .sidenav &--active, &:hover {
             color: #000;
             background: #fff;
         }

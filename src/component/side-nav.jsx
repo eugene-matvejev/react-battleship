@@ -1,6 +1,6 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class SideNav extends PureComponent {
     constructor({ isCollapsed }) {
@@ -30,15 +30,16 @@ export default class SideNav extends PureComponent {
                     <h2 data-cy={`${cy}sidenav-label`} className="sidenav_title">{title}</h2>
                     {
                         routes.map(({ label, disabled, ...props }, i) =>
-                            <Link
+                            <NavLink
                                 {...props}
                                 key={i}
                                 data-cy={`${cy}sidenav-link-${i}`}
                                 disabled={disabled}
+                                activeClassName="sidenav_link--active"
                                 className={`sidenav_link${disabled ? '--disabled' : ''}`}
                             >
                                 {label}
-                            </Link>
+                            </NavLink>
                         )
                     }
                 </Fragment>
