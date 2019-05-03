@@ -9,12 +9,13 @@ const onSubmit = (props, state, onSuccess, onError) => {
     const { value: username } = config[0].items[0];
     const { value: password } = config[0].items[1];
 
-    const { onAuthenticate } = props;
+    const { onAuthenticate, history } = props;
 
     axios
         .post(`/account/login`, { username, password })
         .then((r) => {
             onAuthenticate(r.data.user);
+            history.push('/');
         })
         .catch((r) => {
             onError({ config });
