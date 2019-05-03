@@ -1,9 +1,9 @@
-$navbar-width: 21rem;
+$navbar-width: 20rem;
 $navbar-width-collapsed: 4rem;
 $navbar-animation: all .33s ease;
 
 .sidenav {
-    width: $navbar-width;
+    flex: 0 0 $navbar-width;
 
     &, &--collapsed {
         position: relative;
@@ -17,7 +17,7 @@ $navbar-animation: all .33s ease;
     }
 
     &--collapsed {
-        width: $navbar-width-collapsed;
+        flex: 0 0 $navbar-width-collapsed;
     }
 
     &_title {
@@ -40,6 +40,7 @@ $navbar-animation: all .33s ease;
     &_collapse-button {
         background: transparent;
         border: none;
+        width: 2.25rem;
 
         color: #fff;
         cursor: pointer;
