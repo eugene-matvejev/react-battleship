@@ -1,6 +1,6 @@
 export default [
     {
-        to: '/',
+        to: '/acc/login',
         label: 'sign in',
     },
     {

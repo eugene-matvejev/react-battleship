@@ -1,7 +1,6 @@
 import composePortal from './compose-portal';
 
 import FormHandler from '../handler/form-handler';
-import TreeHandler from '../handler/tree-handler';
 
 import loginUser from './forms/user.login';
 import createUser from './forms/user.create';
@@ -11,7 +10,7 @@ import passwordStep2 from './forms/user.password.restore-2';
 export default [
     {
         c: FormHandler,
-        path: '/',
+        path: '/acc/login',
         exact: true,
         props: {
             ...loginUser,
@@ -42,7 +41,7 @@ export default [
         },
     },
     {
-        c: composePortal(TreeHandler, document.getElementById('portal')),
+        c: composePortal(() => 'PORTAL EXAMPLE', document.getElementById('portal')),
         path: '/search',
         props: {
             modalTitle: 'portal example',

@@ -2,10 +2,10 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import Modal from '../component/modal';
 
-export default (Component, node) => ({ contentProps, ...props }) =>
+export default (Component, node) => ({ modalTitle, modalClassName, ...props }) =>
     createPortal(
-        <Modal {...props}>
-            <Component {...contentProps} />
+        <Modal className={modalClassName} title={modalTitle} >
+            <Component {...props} />
         </Modal>,
         node
     );
