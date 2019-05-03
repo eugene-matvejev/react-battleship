@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TopNav/> render with default/required props 1`] = `
+<nav
+  className="topnav "
+>
+  <button
+    className="topnav_search_button"
+    data-cy="topnav-search"
+  >
+    search
+  </button>
+  <button
+    className="topnav_profile_button"
+    data-cy="topnav-profile"
+  >
+    CY
+  </button>
+</nav>
+`;
+
+exports[`<TopNav/> render with optional props [::className] as "{{className}}" 1`] = `
+<nav
+  className="topnav {{className}}"
+>
+  <button
+    className="topnav_search_button"
+    data-cy="topnav-search"
+  >
+    search
+  </button>
+  <button
+    className="topnav_profile_button"
+    data-cy="topnav-profile"
+  >
+    CY
+  </button>
+</nav>
+`;
+
+exports[`<TopNav/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<nav
+  className="topnav "
+>
+  <button
+    className="topnav_search_button"
+    data-cy="{{data-cy}}topnav-search"
+  >
+    search
+  </button>
+  <button
+    className="topnav_profile_button"
+    data-cy="{{data-cy}}topnav-profile"
+  >
+    CY
+  </button>
+</nav>
+`;

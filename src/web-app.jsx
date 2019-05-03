@@ -2,6 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import SideNav from './component/side-nav';
+import TopNav from './component/top-nav';
 
 class WebApp extends PureComponent {
     constructor({ user }) {
@@ -27,19 +28,22 @@ class WebApp extends PureComponent {
         const extraProps = undefined !== user ? {} : { onAuthenticate: this.onAuthenticate };
 
         return <Fragment>
-            <SideNav routes={sidenavRoutes} title={title}/>
-            <Switch>
-                {
-                    routes.map(({ c: C, path, props }, i) =>
-                        <Route
-                            exact
-                            path={path}
-                            key={i}
-                            component={() => <C {...props} {...extraProps} />}
-                        />
-                    )
-                }
-            </Switch>
+            <SideNav routes={sidenavRoutes} title={title} />
+            <main className="webapp_content">
+                <TopNav initials="CY"/>
+                <Switch>
+                    {
+                        routes.map(({ c: C, path, props }, i) =>
+                            <Route
+                                exact
+                                path={path}
+                                key={i}
+                                component={() => <C {...props} {...extraProps} />}
+                            />
+                        )
+                    }
+                </Switch>
+            </main>
         </Fragment>
     }
 

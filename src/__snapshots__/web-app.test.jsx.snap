@@ -8,14 +8,23 @@ exports[`<WebApp/> render with default/required props 1`] = `
     routes={Array []}
     title="{{title}}"
   />
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      key="0"
-      path="/"
+  <main
+    className="webapp_content"
+  >
+    <TopNav
+      className=""
+      data-cy=""
+      initials="CY"
     />
-  </Switch>
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        key="0"
+        path="/"
+      />
+    </Switch>
+  </main>
 </Fragment>
 `;
 
@@ -27,13 +36,22 @@ exports[`<WebApp/> render with optional props [::user] as "[object Object]" 1`] 
     routes={Array []}
     title="{{title}}"
   />
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      key="0"
-      path="/"
+  <main
+    className="webapp_content"
+  >
+    <TopNav
+      className=""
+      data-cy=""
+      initials="CY"
     />
-  </Switch>
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        key="0"
+        path="/"
+      />
+    </Switch>
+  </main>
 </Fragment>
 `;
