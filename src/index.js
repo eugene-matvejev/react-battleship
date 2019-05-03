@@ -77,5 +77,5 @@ ReactDOM.render(
             title={process.env['REACT_APP_WEBSITE_NAME']}
         />
     </BrowserRouter>,
-    document.getElementById('content-area')
+    document.getElementById('app')
 );
