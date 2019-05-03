@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -66,16 +66,19 @@ mock.onAny(/account/).reply(401);
 //         'x-page-total': 2,
 //     }
 // );
+const props = {
+    authorizedRoutes,
+    unauthorizedRoutes,
+    sidenavUnauthorizedRoutes,
+    sidenavAuthorizedRoutes,
+    title: process.env['REACT_APP_WEBSITE_NAME'],
+}
 
 ReactDOM.render(
-    <BrowserRouter forceRefresh >
-        <WebApp
-            authorizedRoutes={authorizedRoutes}
-            unauthorizedRoutes={unauthorizedRoutes}
-            sidenavUnauthorizedRoutes={sidenavUnauthorizedRoutes}
-            sidenavAuthorizedRoutes={sidenavUuthorizedRoutes}
-            title={process.env['REACT_APP_WEBSITE_NAME']}
-        />
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" component={() => <WebApp {...props} />} />
+        </Switch>
     </BrowserRouter>,
     document.getElementById('app')
 );

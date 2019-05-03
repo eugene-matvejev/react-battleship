@@ -19,7 +19,6 @@ exports[`<WebApp/> render with default/required props 1`] = `
     <Switch>
       <Route
         component={[Function]}
-        exact={true}
         key="0"
         path="/"
       />
@@ -47,7 +46,6 @@ exports[`<WebApp/> render with optional props [::user] as "[object Object]" 1`] 
     <Switch>
       <Route
         component={[Function]}
-        exact={true}
         key="0"
         path="/"
       />

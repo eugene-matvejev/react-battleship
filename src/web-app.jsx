@@ -30,21 +30,20 @@ class WebApp extends PureComponent {
         return <Fragment>
             <SideNav routes={sidenavRoutes} title={title} />
             <main className="webapp_content">
-                <TopNav initials="CY"/>
+                <TopNav initials="CY" />
                 <Switch>
                     {
-                        routes.map(({ c: C, path, props }, i) =>
+                        routes.map(({ c: C, props: componentProps, ...props }, i) =>
                             <Route
-                                exact
-                                path={path}
+                                {...props}
                                 key={i}
-                                component={() => <C {...props} {...extraProps} />}
+                                component={() => <C {...componentProps} {...extraProps} />}
                             />
                         )
                     }
                 </Switch>
             </main>
-        </Fragment>
+        </Fragment>;
     }
 
     static propTypes = {
