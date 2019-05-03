@@ -27,7 +27,9 @@
         line-height: 2rem;
 
         border-radius: 3rem;
-        border: 1px solid #fff;
+
+        border: 2px solid #fff;
+        box-sizing: border-box;
 
         margin: 0 1rem;
     }
