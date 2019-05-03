@@ -25,7 +25,6 @@ class WebApp extends PureComponent {
 
         const routes = undefined !== user ? authorizedRoutes : unauthorizedRoutes;
         const sidenavRoutes = undefined !== user ? sidenavAuthorizedRoutes : sidenavUnauthorizedRoutes;
-        const extraProps = undefined !== user ? {} : { onAuthenticate: this.onAuthenticate };
 
         return <Fragment>
             <SideNav routes={sidenavRoutes} title={title} />
@@ -33,11 +32,11 @@ class WebApp extends PureComponent {
                 <TopNav initials="CY" />
                 <Switch>
                     {
-                        routes.map(({ c: C, props: componentProps, ...props }, i) =>
+                        routes.map(({ c: C, props: c, ...props }, i) =>
                             <Route
                                 {...props}
                                 key={i}
-                                component={() => <C {...componentProps} {...extraProps} />}
+                                component={() => <C {...c} onAuthenticate={this.onAuthenticate} />}
                             />
                         )
                     }
