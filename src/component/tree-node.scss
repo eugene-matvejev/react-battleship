@@ -1,0 +1,12 @@
+.tree-node {
+    // display: inline-flex;
+    font-size: 1.25rem;
+
+    &_pattern {
+        font-weight: bold;
+    }
+
+    & & {
+        margin-left: 1rem;
+    }
+}
