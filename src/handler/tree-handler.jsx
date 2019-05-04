@@ -47,7 +47,6 @@ export default class TreeHandler extends PureComponent {
         const { target: { value: pattern } } = e;
         const { data } = this.state;
 
-        console.log(pattern);
         this.props.onFilter(data, pattern);
 
         this.setState({ data: [...data], pattern });
@@ -69,7 +68,7 @@ export default class TreeHandler extends PureComponent {
                 data && <section className={`tree ${className}`}>
                     {
                         data.map((v, i) =>
-                            !!v.isExpanded
+                            v.isExpanded
                             && <TreeNode
                                 {...v}
                                 key={i}
@@ -86,6 +85,7 @@ export default class TreeHandler extends PureComponent {
     static propTypes = {
         'data-cy': PropTypes.string,
         className: PropTypes.string,
+        pattern: PropTypes.string,
 
         data: PropTypes.arrayOf(
             PropTypes.shape({
@@ -103,5 +103,6 @@ export default class TreeHandler extends PureComponent {
     static defaultProps = {
         'data-cy': '',
         className: '',
+        pattern: '',
     }
 }

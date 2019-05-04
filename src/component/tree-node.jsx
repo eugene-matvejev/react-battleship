@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TreeNode = ({ className, 'data-cy': cy, text, chunks, nodes, isExpanded }) =>
-    <div className={`tree-node ${className}`} data-cy={cy}>
+    <div className={`tree-node${nodes ? '--with-children' : ''} ${className}`} data-cy={cy}>
         {
             !!chunks
                 ? chunks.map(({ isMatch, v }, i) =>
