@@ -8,11 +8,11 @@ const onMount = (props, state, onSuccess, onError) => {
     };
     const friends = {
         text: 'friends',
-        // nodes: (new Array(10)).fill(1).map(() => ({ text: `${generate()} b` })),
+        nodes: (new Array(10)).fill(1).map(() => ({ text: `${generate()} b` })),
     };
     const battles = {
         text: 'battles',
-        // nodes: (new Array(10)).fill(1).map(() => ({ text: `${generate()} c` }))
+        nodes: (new Array(10)).fill(1).map(() => ({ text: `${generate()} c` }))
     };
 
     const data = [
@@ -29,7 +29,7 @@ const onMount = (props, state, onSuccess, onError) => {
 
 
 const onFilter = (data, pattern) => {
-    pattern = pattern.toLowerCase();
+    pattern = (pattern || '').toLowerCase();
 
     for (const v of data) {
         v.isExpanded = filter(v, pattern);
@@ -38,13 +38,10 @@ const onFilter = (data, pattern) => {
             v.isExpanded = true;
         }
     }
-
-    debugger;
 }
 
 export default {
     onMount,
 
     onFilter,
-    pattern: 'a',
 }

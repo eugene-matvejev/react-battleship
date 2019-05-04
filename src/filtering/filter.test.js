@@ -3,6 +3,15 @@ import { filter } from './filter';
 describe('tree filter engine', () => {
     const dataProvider = [
         ['text', 'a', undefined],
+        [
+            'player',
+            'a',
+            [
+                { v: 'pl', isMatch: false },
+                { v: 'a', isMatch: true },
+                { v: 'yer', isMatch: false },
+            ]
+        ],
         ['text', 'text', [{ v: 'text', isMatch: true }]],
         ['TEXT text', 'text', [{ v: 'TEXT', isMatch: true }, { v: ' ', isMatch: false }, { v: 'text', isMatch: true }]],
         [
@@ -29,7 +38,7 @@ describe('tree filter engine', () => {
             .filter((v) => v[2])
             .forEach(([text, pattern, c]) => {
                 describe(`searching for "${pattern}" in "${text}"`, () => {
-                    it(`expect [::chunks] to have length ${c.length}`, () => {
+                    it.only(`expect [::chunks] to have length ${c.length}`, () => {
                         const v = { text };
 
                         filter(v, pattern);
@@ -57,9 +66,9 @@ describe('tree filter engine', () => {
             });
     });
 
-    describe.skip('propogation of isCollapsed', () => {
+    describe.skip('propogation of [::isExpanded] field', () => {
         dataProvider.forEach(([text, pattern, c]) => {
-            it(`searching for "${pattern}" in "${text}", expect [::isCollapsed] to be ${`${!!c}`.toUpperCase()}`, () => {
+            it(`searching for "${pattern}" in "${text}", expect [::isExpanded] to be ${`${!!c}`.toUpperCase()}`, () => {
                 const v = { text };
 
                 const result = filter(v, pattern);

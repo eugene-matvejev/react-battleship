@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 const TreeNode = ({ className, 'data-cy': cy, text, chunks, nodes, isExpanded }) =>
     <div className={`tree-node ${className}`} data-cy={cy}>
         {
-            !!chunks && !!chunks.length
+            !!chunks
                 ? chunks.map(({ isMatch, v }, i) =>
-                    <span key={i} className={isMatch ? 'tree-node_pattern' : null}>{v}</span>
+                    <span key={i} className={isMatch ? 'tree-node--matched' : null}>{v}</span>
                 )
                 : <span>{text}</span>
         }
         {
-            nodes
+            isExpanded
+            && nodes
             && nodes.map((v, i) =>
-                // !!v.isExpanded
-                // && <TreeNode
                 <TreeNode
                     {...v}
                     key={i}
@@ -27,20 +26,19 @@ const TreeNode = ({ className, 'data-cy': cy, text, chunks, nodes, isExpanded })
 TreeNode.propTypes = {
     'data-cy': PropTypes.string,
     className: PropTypes.string,
-    isExpanded: PropTypes.bool,
-    text: PropTypes.string,
     chunks: PropTypes.arrayOf(
         PropTypes.shape({
             v: PropTypes.string.isRequired,
             isMatch: PropTypes.bool,
         })
     ),
+    text: PropTypes.string,
+    isExpanded: PropTypes.bool,
     nodes: PropTypes.arrayOf(PropTypes.object),
 };
 TreeNode.defaultProps = {
     'data-cy': '',
     className: '',
-    patternClassName: 'tree-node_pattern',
 };
 
 export default TreeNode;

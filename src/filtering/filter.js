@@ -1,7 +1,7 @@
 export const filter = (obj, pattern) => {
     const text = obj.text.toLowerCase();
 
-    let index = text.indexOf(pattern);
+    let index = !pattern ? -1 : text.indexOf(pattern);
 
     const chunks = index !== -1 ? [] : undefined;
     let pos = 0;
@@ -18,7 +18,7 @@ export const filter = (obj, pattern) => {
             isMatch: text.slice(pos, pos + index) === pattern,
         });
 
-        left = text.slice(index);
+        left = left.slice(index);
         pos += index;
 
         if (pos === text.length) {
@@ -39,7 +39,7 @@ export const filter = (obj, pattern) => {
     obj.isExpanded = !!obj.chunks;
 
     if (!obj.nodes) {
-        return false;
+        return obj.isExpanded;
     }
 
     for (const v of obj.nodes) {
