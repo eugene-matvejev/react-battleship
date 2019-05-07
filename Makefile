@@ -2,8 +2,7 @@
 .DEV_IMAGE := cwa
 .SERVE_IMAGE := cwa-serve
 
-.EXPOSED_PORT := 8080
-.LINKED_PORT := 8080
+PORT := 8080
 
 .SHARED_VOLUMES := \
 	-v $(PWD)/public:/www/public \
@@ -11,7 +10,7 @@
 	-v $(PWD)/.env:/www/.env
 
 .ENV_VARIABLES := \
-	-e PORT=$(.EXPOSED_PORT)
+	-e PORT=$(PORT)
 
 help:
 	@echo ""
@@ -27,8 +26,8 @@ help:
 	@echo ""
 	@echo "-- COMMANDS"
 	@echo " make\t\t\talias for 'make $(.DEFAULT_GOAL)'"
-	@echo " make interactive\trun [$(.DEV_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
-	@echo " make serve\t\trun [$(.SERVE_IMAGE)] image, content become available on http://localhost:$(.LINKED_PORT)"
+	@echo " make interactive\trun [$(.DEV_IMAGE)] image, content become available on http://localhost:$(PORT)"
+	@echo " make serve\t\trun [$(.SERVE_IMAGE)] image, content become available on http://localhost:$(PORT)"
 	@echo " make test\t\texecute unit and functional tests"
 	@echo " make cypress\t\texecute 'cypress' integration tests"
 	@echo " make build\t\tgenerate static assets in './build' directory"
@@ -74,7 +73,7 @@ interactive: dev-image
 		-it \
 		$(.SHARED_VOLUMES) \
 		$(.ENV_VARIABLES) \
-		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
+		-p $(PORT):$(PORT) \
 		--entrypoint=npm \
 		$(.DEV_IMAGE) run start
 
@@ -87,6 +86,6 @@ serve: build serve-image
 		-v $(PWD)/serve.json:/www/serve.json \
 		-e NO_UPDATE_CHECK=1 \
 		$(.ENV_VARIABLES) \
-		-p $(.LINKED_PORT):$(.EXPOSED_PORT) \
+		-p $(PORT):$(PORT) \
 		--entrypoint=serve \
 		$(.SERVE_IMAGE) -n

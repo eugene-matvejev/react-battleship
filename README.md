@@ -80,6 +80,7 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 ### how to run in 'production' mode
 
 * `$ make serve`, there is no _npm only_ analogue
+  * to run on non-default port you can overwrite PORT variable, example `$ make serve PORT=18080`
 * if you need __only__ generate static assets
   * `$ make build` or `$ npm run build` - generated assets will be located in __./build__ directory
 
