@@ -18,19 +18,14 @@
 # battleship GUI
 
 ```
-targets/goals : WIP
+targets/goals
 * to demostrate:
- ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
  ** DRY/KISS/SOLID principles
- ** DevOps knowledge [Docker/CI/CD etc]
+ ** software development pattern knowledge
+ ** JS/SASS knowledge
  ** react.js best practices
-
-* DONE: implement <FormHandler/>
- ** DONE: generic handler
- ** DONE: generic inputs
- ** DONE: generic validation engine
-
-* DONE: implement <SideNav/>
+ ** DevOps knowledge [Docker/CI/CD etc]
+ ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
 ```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
