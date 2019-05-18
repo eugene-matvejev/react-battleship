@@ -1,32 +1,24 @@
-import generate from 'node-random-name';
+import axios from 'axios';
+
 import { filter } from '../../filtering/filter';
 
 const onMount = (props, state, onSuccess, onError) => {
-    const players = {
-        text: 'players',
-        nodes: (new Array(20)).fill(1).map(() => ({ text: `${generate()} a` })),
-    };
-    const friends = {
-        text: 'friends',
-        nodes: (new Array(10)).fill(1).map(() => ({ text: `${generate()} b` })),
-    };
-    const battles = {
-        text: 'battles',
-        nodes: (new Array(10)).fill(1).map(() => ({ text: `${generate()} c` }))
-    };
-
-    const data = [
-        friends,
-        players,
-        battles,
-    ];
     const { pattern } = state;
 
-    onFilter(data, pattern);
+    axios
+        .get(`/spotlight`)
+        .then((r) => {
 
-    onSuccess({ data });
+            debugger;
+            const data = r.data;
+            onFilter(data, pattern);
+
+            onSuccess({ data });
+        })
+        .catch((r) => {
+            onError({  });
+        });
 };
-
 
 const onFilter = (data, pattern) => {
     pattern = (pattern || '').toLowerCase();
