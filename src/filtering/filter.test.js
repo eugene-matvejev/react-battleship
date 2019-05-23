@@ -38,7 +38,7 @@ describe('tree filter engine', () => {
             .filter((v) => v[2])
             .forEach(([text, pattern, c]) => {
                 describe(`searching for "${pattern}" in "${text}"`, () => {
-                    it.only(`expect [::chunks] to have length ${c.length}`, () => {
+                    it(`expect [::chunks] to have length ${c.length}`, () => {
                         const v = { text };
 
                         filter(v, pattern);
@@ -66,9 +66,21 @@ describe('tree filter engine', () => {
             });
     });
 
-    describe.skip('propogation of [::isExpanded] field', () => {
+    describe('propogation of [::isExpanded] field', () => {
         dataProvider.forEach(([text, pattern, c]) => {
-            it(`searching for "${pattern}" in "${text}", expect [::isExpanded] to be ${`${!!c}`.toUpperCase()}`, () => {
+            it(`searching for "${pattern}" in "${text}", expect to be ${`${!!c}`.toUpperCase()}`, () => {
+                const v = { text };
+
+                const result = filter(v, pattern);
+
+                expect(result).toBe(!!c);
+            });
+        });
+    });
+
+    describe('propogation of [::isVisible] field', () => {
+        dataProvider.forEach(([text, pattern, c]) => {
+            it(`searching for "${pattern}" in "${text}", expect to be ${`${!!c}`.toUpperCase()}`, () => {
                 const v = { text };
 
                 const result = filter(v, pattern);

@@ -14,9 +14,8 @@ export default class TreeHandler extends PureComponent {
         this.onSuccess = this.onSuccess.bind(this);
         this.onError = this.onError.bind(this);
 
+        this.onExpand = this.onExpand.bind(this);
         this.onChange = this.onChange.bind(this);
-
-        this.onCollapse = this.onCollapse.bind(this);
     }
 
     componentDidMount() {
@@ -29,15 +28,26 @@ export default class TreeHandler extends PureComponent {
         this.props.onSuccess && this.props.onSuccess(this.props, this.state);
     }
 
-    onError({ data }) {
-        this.setState({ data });
+    onError() {
+        this.setState({ data: [] });
 
         this.props.onError && this.props.onError(this.props, this.state);
     }
 
-    onCollapse(e) {
+    onExpand(e) {
         e.preventDefault();
         e.stopPropagation();
+
+        const { data } = this.state;
+        const path = e.target.getAttribute('data-node');
+
+        if (!path) {
+            return;
+        }
+
+        this.props.onExpand(data, path);
+
+        this.setState({ data: [...data] });
     }
 
     onChange(e) {
@@ -65,21 +75,20 @@ export default class TreeHandler extends PureComponent {
                 onChange={this.onChange}
             />
             {
-                data && <section className={`tree ${className}`}>
+                data && <section className={`tree ${className}`} onClick={this.onExpand}>
                     {
                         data.map((v, i) =>
-                            v.isExpanded
-                            && <TreeNode
+                            <TreeNode
                                 {...v}
                                 key={i}
                                 data-cy={`${cy}tree-node-${i}`}
+                                data-node={`${i}`}
                             />
                         )
                     }
                 </section>
             }
-        </Fragment>
-
+        </Fragment>;
     }
 
     static propTypes = {
@@ -89,7 +98,7 @@ export default class TreeHandler extends PureComponent {
 
         data: PropTypes.arrayOf(
             PropTypes.shape({
-                pattern: PropTypes.string,
+                isExpanded: PropTypes.bool,
             })
         ),
 
@@ -98,6 +107,7 @@ export default class TreeHandler extends PureComponent {
         onSuccess: PropTypes.func,
 
         onFilter: PropTypes.func.isRequired,
+        onExpand: PropTypes.func.isRequired,
     }
 
     static defaultProps = {

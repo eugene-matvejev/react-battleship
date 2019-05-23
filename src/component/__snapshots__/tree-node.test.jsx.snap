@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TreeNode/> render with default/required props 1`] = `
+<div
+  className="tree-node "
+  data-cy=""
+  data-node={0}
+>
+  <span>
+    {{text}}
+  </span>
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props [::chunks] as "[object Object],[object Object],[object Object]" 1`] = `
+<div
+  className="tree-node "
+  data-cy=""
+  data-node={0}
+>
+  <span
+    className="tree-node--pattern-match"
+    key="0"
+  >
+    a
+  </span>
+  <span
+    className={null}
+    key="1"
+  >
+    b
+  </span>
+  <span
+    className={null}
+    key="2"
+  >
+    c
+  </span>
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props [::className] as "{{className}}" 1`] = `
+<div
+  className="tree-node {{className}}"
+  data-cy=""
+  data-node={0}
+>
+  <span>
+    {{text}}
+  </span>
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<div
+  className="tree-node "
+  data-cy="{{data-cy}}"
+  data-node={0}
+>
+  <span>
+    {{text}}
+  </span>
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props prop combinations ::isExpanded, ::nodes - collapsed with nodes 1`] = `
+<div
+  className="tree-node--with-children "
+  data-cy=""
+>
+  <span>
+    {{text}}
+  </span>
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props prop combinations ::isExpanded, ::nodes - expanded with "hidden" nodes 1`] = `
+<div
+  className="tree-node--with-children-expanded "
+  data-cy=""
+>
+  <span>
+    {{text}}
+  </span>
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props prop combinations ::isExpanded, ::nodes - expanded with "visible" nodes 1`] = `
+<div
+  className="tree-node--with-children-expanded "
+  data-cy=""
+>
+  <span>
+    {{text}}
+  </span>
+  <TreeNode
+    className=""
+    data-cy="-0"
+    data-node="undefined-0"
+    isVisible={true}
+    key="0"
+    text="{{node-text}}"
+  />
+</div>
+`;
+
+exports[`<TreeNode/> render with optional props prop combinations ::isExpanded, ::nodes - expanded with NO nodes 1`] = `
+<div
+  className="tree-node--with-children-expanded "
+  data-cy=""
+>
+  <span>
+    {{text}}
+  </span>
+</div>
+`;

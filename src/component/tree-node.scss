@@ -1,21 +1,34 @@
 .tree-node {
-    // display: inline-flex;
-    margin-left: 1rem;
+    margin-left: 2rem;
 
-    &, &--with-children {
-        font-size: 2.25rem;
+    &, &--with-children, &--with-children-expanded {
+        font-size: 1.25rem;
         font-weight: 100;
     }
 
-    &--with-children {
-
-    }
-
-    &--matched {
+    &--pattern-match {
         font-weight: bold;
     }
 
-    & & {
-        margin-left: 1rem;
+    &--with-children {
+        &, &-expanded {
+            margin-left: 1rem;
+        }
+
+        &::before, &-expanded::before {
+            width: 1rem;
+            display: inline-block;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        &::before {
+            content: "+";
+        }
+
+        &-expanded::before {
+            content: "-";
+        }
     }
 }

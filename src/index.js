@@ -38,23 +38,37 @@ mock.onGet(/spotlight/).reply(
     (() => [
         {
             text: 'friends',
-            nodes: (new Array(20)).fill(1).map(() => ({ text: `${generate()} friend` })),
-        },
-        {
-            text: 'players',
-            nodes: (new Array(20)).fill(1).map(() => ({ text: `${generate()} player` })),
-        },
-        {
-            text: 'guilds',
-            nodes: (new Array(20)).fill(1).map(() => ({ text: `${generate()} guild` })),
+            nodes: (new Array(20)).fill(1).map((_, i) => ({ text: `friend No ${i} "${generate()}"` })),
         },
         {
             text: 'alliances',
-            nodes: (new Array(20)).fill(1).map(() => ({ text: `${generate()} alliance` })),
+            nodes: (new Array(5)).fill(1).map((_, i) => ({
+                text: `alliance No ${i} "${generate()}"`,
+                nodes: (new Array(4)).fill(1).map((_, j) => ({
+                    text: `guild No ${j} "${generate()}"`,
+                    nodes: (new Array(20)).fill(1).map((_, k) => ({
+                        text: `guild's ${i} member ${k} "${generate()}"`,
+                    }))
+                }))
+            })),
         },
         {
-            text: 'battles',
-            nodes: (new Array(20)).fill(1).map(() => ({ text: `${generate()} battle` }))
+            text: 'guilds',
+            nodes: [
+                ...(new Array(2)).fill(1).map((_, i) => ({
+                    text: `guild No ${i} "${generate()}"`,
+                    nodes: (new Array(20).fill(1)).map((_, j) => ({
+                        text: `guild's ${i} member ${j} "${generate()}"`,
+                    })),
+                })),
+                {
+                    text: 'no children',
+                },
+
+            ],
+        },
+        {
+            text: 'no children',
         },
     ])()
 );
