@@ -76,7 +76,7 @@ describe('tree filter engine', () => {
                             text: 'bbb',
                             nodes: [
                                 {
-                                    text: 'ccc',
+                                    text: 'CCC',
                                     nodes: [
                                     ],
                                 },
@@ -87,25 +87,34 @@ describe('tree filter engine', () => {
                 'c',
                 {
                     text: 'aaa',
+                    isExpanded: true,
+                    isVisible: true,
+                    chunks: undefined,
                     nodes: [
                         {
                             text: 'bbb',
+                            isExpanded: true,
+                            isVisible: true,
+                            chunks: undefined,
                             nodes: [
                                 {
                                     text: 'CCC',
+                                    isExpanded: false,
+                                    isVisible: true,
                                     chunks: [
                                         { v: 'C', isMatch: true },
                                         { v: 'C', isMatch: true },
                                         { v: 'C', isMatch: true },
-                                    ]
+                                    ],
+                                    nodes: [],
                                 },
                             ],
                         },
                     ],
                 },
             ]
-        ].forEach((v, pattern, expected) => {
-            it.only('aaa > bbb > ccc', () => {
+        ].forEach(([v, pattern, expected]) => {
+            it('aaa > bbb > ccc', () => {
                 filter(v, pattern);
 
                 expect(v).toEqual(expected);

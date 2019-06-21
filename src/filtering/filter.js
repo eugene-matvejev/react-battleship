@@ -5,11 +5,11 @@ export const filter = (obj, pattern) => {
     let left = text;
     let index = !pattern ? -1 : text.indexOf(pattern);
 
-    obj.iter = 0;
+    // obj.iter = 0;
     obj.chunks = index !== -1 ? [] : undefined;
 
     while (index !== -1) {
-        obj.iter++;
+        // obj.iter++;
         if (index === 0) {
             index = pattern.length;
         }
