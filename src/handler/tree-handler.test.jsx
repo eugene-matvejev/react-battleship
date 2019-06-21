@@ -18,6 +18,7 @@ describe('<TreeHandler/>', () => {
     ];
     const props = {
         onFilter: jest.fn(),
+        onExpand: jest.fn(),
     };
 
     describe('render', () => {
@@ -92,15 +93,24 @@ describe('<TreeHandler/>', () => {
             });
         });
 
+        /** functionality relay on data-node attribute */
+        describe('::onExpand', () => {
+            it('should invoke external callback [::onExpand] with [::data] state field and value of ["data-node"] from on a click on [data-cy="tree-node-0"]', () => {
+                const spy = jest.fn();
+                const c = mount(<TreeHandler {...props} data={data} onExpand={spy} />);
 
-        /** functionality relay on data-section attribute */
-        describe('::onCollapse', () => {
-            it('should mutate state field [::config] and toggle [::isCollapsed] field for relevant section, from click on <Accordion/>', () => {
-                const c = shallow(<TreeWalker {...props} />);
+                c.find('TreeNode[data-cy="tree-node-0"]').simulate('click');
 
-                c.find('[data-section][data-cy="section-0"]').simulate('collapse', e);
+                expect(spy).toBeCalledWith(c.state('data'), '0');
+            });
 
-                expect(c.state('config')).toMatchSnapshot();
+            it('should invoke external callback [::onExpand] with path from ["data-node"] and [::data] state field', () => {
+                const spy = jest.fn();
+                const c = mount(<TreeHandler {...props} data={data} onExpand={spy} />);
+
+                c.find('section').simulate('click');
+
+                expect(spy).not.toBeCalled();
             });
         });
 
@@ -108,11 +118,11 @@ describe('<TreeHandler/>', () => {
         describe('::onChange', () => {
             it('should invoke external callback [::onFilter] with relevant payload from a change event of [data-cy="tree-pattern"]', () => {
                 const spy = jest.fn();
-                const c = shallow(<FormHandler {...props} validate={spy} />);
+                const c = mount(<TreeHandler {...props} data={data} onFilter={spy} />);
 
-                c.find('[tree-pattern"]').simulate('change', e);
+                c.find('[data-cy="tree-pattern"]').simulate('change', { target: { value: 'val' } });
 
-                expect(spy).toBeCalledWith(c.state('config'), [[0, 0]]);
+                expect(spy).toBeCalledWith(c.state('data'), 'val');
             });
         });
     });

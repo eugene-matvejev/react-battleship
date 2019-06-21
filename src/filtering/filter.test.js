@@ -66,6 +66,53 @@ describe('tree filter engine', () => {
             });
     });
 
+    describe(`detection of pattern in lowercase mode in children nodes`, () => {
+        [
+            [
+                {
+                    text: 'aaa',
+                    nodes: [
+                        {
+                            text: 'bbb',
+                            nodes: [
+                                {
+                                    text: 'ccc',
+                                    nodes: [
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                'c',
+                {
+                    text: 'aaa',
+                    nodes: [
+                        {
+                            text: 'bbb',
+                            nodes: [
+                                {
+                                    text: 'CCC',
+                                    chunks: [
+                                        { v: 'C', isMatch: true },
+                                        { v: 'C', isMatch: true },
+                                        { v: 'C', isMatch: true },
+                                    ]
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ]
+        ].forEach((v, pattern, expected) => {
+            it.only('aaa > bbb > ccc', () => {
+                filter(v, pattern);
+
+                expect(v).toEqual(expected);
+            });
+        });
+    });
+
     describe('propogation of [::isExpanded] field', () => {
         dataProvider.forEach(([text, pattern, c]) => {
             it(`searching for "${pattern}" in "${text}", expect to be ${`${!!c}`.toUpperCase()}`, () => {
