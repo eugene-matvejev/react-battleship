@@ -92,6 +92,8 @@ CI build is mandatory check for every PR into master/heroku branches
 
 ### used environment variables
 
+* **PORT** [default 8080] as number [ for development only ]
+
 * **REACT_APP_GAME-MIN-SIZE** [default 5] as number
 * **REACT_APP_GAME-MAX-SIZE** [default 10] as number
 * **REACT_APP_GAME-MIN-OPPONENTS** [default 1] as number
