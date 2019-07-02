@@ -1,11 +1,14 @@
 import composePortal from './compose-portal';
 
 import FormHandler from '../handler/form-handler';
+import TreeHandler from '../handler/tree-handler';
 
 import loginUser from './forms/user.login';
 import createUser from './forms/user.create';
 import passwordStep1 from './forms/user.password.restore-1';
 import passwordStep2 from './forms/user.password.restore-2';
+
+import spotlightSearch from './trees/search.spotlight';
 
 export default [
     {
@@ -41,10 +44,11 @@ export default [
         },
     },
     {
-        c: composePortal(() => 'PORTAL EXAMPLE', document.getElementById('portal')),
+        c: composePortal(TreeHandler, document.getElementById('portal')),
         path: '/search',
         props: {
             modalTitle: 'portal example',
+            ...spotlightSearch,
         },
     }
 ]

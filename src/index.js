@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import axios from 'axios';
+
 import MockAdapter from 'axios-mock-adapter';
+import generate from 'node-random-name';
 
 import WebApp from './web-app';
 
@@ -31,6 +33,46 @@ mock.onPost(/account/, { username: 'example@example.com', password: 'password' }
     }
 );
 mock.onAny(/account/).reply(401);
+mock.onGet(/spotlight/).reply(
+    200,
+    (() => [
+        {
+            text: 'friends',
+            nodes: (new Array(20)).fill(1).map((_, i) => ({ text: `friend No ${i} "${generate()}"` })),
+        },
+        {
+            text: 'alliances',
+            nodes: (new Array(5)).fill(1).map((_, i) => ({
+                text: `alliance No ${i} "${generate()}"`,
+                nodes: (new Array(4)).fill(1).map((_, j) => ({
+                    text: `guild No ${j} "${generate()}"`,
+                    nodes: (new Array(20)).fill(1).map((_, k) => ({
+                        text: `guild's ${i} member ${k} "${generate()}"`,
+                    }))
+                }))
+            })),
+        },
+        {
+            text: 'guilds',
+            nodes: [
+                ...(new Array(2)).fill(1).map((_, i) => ({
+                    text: `guild No ${i} "${generate()}"`,
+                    nodes: (new Array(20).fill(1)).map((_, j) => ({
+                        text: `guild's ${i} member ${j} "${generate()}"`,
+                    })),
+                })),
+                {
+                    text: 'no children',
+                },
+
+            ],
+        },
+        {
+            text: 'no children',
+        },
+    ])()
+);
+mock.onAny(/history/).reply(401);
 
 // mock.onGet(/game/, { page: 1 }).reply(
 //     200,

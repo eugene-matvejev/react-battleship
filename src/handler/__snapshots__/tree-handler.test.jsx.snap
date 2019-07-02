@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TreeHandler/> render with default/required props 1`] = `
+<Fragment>
+  <input
+    className="tree_input"
+    data-cy="tree-pattern"
+    onChange={[Function]}
+    value=""
+  />
+</Fragment>
+`;
+
+exports[`<TreeHandler/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<Fragment>
+  <input
+    className="tree_input"
+    data-cy="{{data-cy}}tree-pattern"
+    onChange={[Function]}
+    value=""
+  />
+</Fragment>
+`;
+
+exports[`<TreeHandler/> render with optional props [::title] as "{{title}}" 1`] = `
+<Fragment>
+  <input
+    className="tree_input"
+    data-cy="tree-pattern"
+    onChange={[Function]}
+    value=""
+  />
+</Fragment>
+`;
