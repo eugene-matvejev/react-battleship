@@ -1,12 +1,12 @@
-[ci.tests-master-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master.svg?style=svg
-[ci.tests-master]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master
-[ci.coverage-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master/graph/badge.svg
-[ci.coverage-master]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master
+[ci.tests-master-badge]: https://circleci.com/gh/eugene-matvejev/react-js-battleship/tree/master.svg?style=svg
+[ci.tests-master]: https://circleci.com/gh/eugene-matvejev/react-js-battleship/tree/master
+[ci.coverage-master-badge]: https://codecov.io/gh/eugene-matvejev/react-js-battleship/branch/master/graph/badge.svg
+[ci.coverage-master]: https://codecov.io/gh/eugene-matvejev/react-js-battleship/branch/master
 
-[ci.tests-heroku-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku.svg?style=svg
-[ci.tests-heroku]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku
-[ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
-[ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
+[ci.tests-heroku-badge]: https://circleci.com/gh/eugene-matvejev/react-js-battleship/tree/heroku.svg?style=svg
+[ci.tests-heroku]: https://circleci.com/gh/eugene-matvejev/react-js-battleship/tree/heroku
+[ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/react-js-battleship/branch/heroku/graph/badge.svg
+[ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/react-js-battleship/branch/heroku
 
 |                  | master                                                      | heroku
 |---               |---                                                          |---
@@ -18,19 +18,14 @@
 # battleship GUI
 
 ```
-targets/goals : WIP
+targets/goals
 * to demostrate:
- ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
  ** DRY/KISS/SOLID principles
- ** DevOps knowledge [Docker/CI/CD etc]
+ ** software development pattern knowledge
+ ** JS/SASS knowledge
  ** react.js best practices
-
-* DONE: implement <FormHandler/>
- ** DONE: generic handler
- ** DONE: generic inputs
- ** DONE: generic validation engine
-
-* DONE: implement <SideNav/>
+ ** DevOps knowledge [Docker/CI/CD etc]
+ ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
 ```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
@@ -80,6 +75,7 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 ### how to run in 'production' mode
 
 * `$ make serve`, there is no _npm only_ analogue
+  * to run on non-default port you can overwrite PORT variable, example `$ make serve PORT=18080`
 * if you need __only__ generate static assets
   * `$ make build` or `$ npm run build` - generated assets will be located in __./build__ directory
 
