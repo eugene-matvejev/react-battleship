@@ -8,6 +8,7 @@
 [ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku/graph/badge.svg
 [ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku
 
+
 |                  | master                                                      | heroku
 |---               |---                                                          |---
 | __tests__        |
@@ -18,19 +19,14 @@
 # battleship GUI
 
 ```
-targets/goals : WIP
+targets/goals
 * to demostrate:
- ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
  ** DRY/KISS/SOLID principles
- ** DevOps knowledge [Docker/CI/CD etc]
+ ** software development pattern knowledge
+ ** JS/SASS knowledge
  ** react.js best practices
-
-* DONE: implement <FormHandler/>
- ** DONE: generic handler
- ** DONE: generic inputs
- ** DONE: generic validation engine
-
-* DONE: implement <SideNav/>
+ ** DevOps knowledge [Docker/CI/CD etc]
+ ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
 ```
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
@@ -63,7 +59,7 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 ### how to install
 
 * if you're using `make` commands and have [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed, then no steps required
-* otherwise you need **node.js**, then execute `$ npm i`
+* otherwise you need **node.js** installed, and execute `$ npm i`
 
 ### how to run tests
 
@@ -80,6 +76,7 @@ if you're using `make` commands, local **node.js** and **npm** aren't required
 ### how to run in 'production' mode
 
 * `$ make serve`, there is no _npm only_ analogue
+  * to run on non-default port you can overwrite PORT variable, example `$ make serve PORT=18080`
 * if you need __only__ generate static assets
   * `$ make build` or `$ npm run build` - generated assets will be located in __./build__ directory
 
