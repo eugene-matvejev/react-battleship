@@ -8,7 +8,6 @@
 [ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku/graph/badge.svg
 [ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku
 
-
 |                  | master                                                      | heroku
 |---               |---                                                          |---
 | __tests__        |
