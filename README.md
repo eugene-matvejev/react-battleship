@@ -17,18 +17,7 @@
 
 # battleship GUI
 
-```
-targets/goals
-* to demostrate:
- ** DRY/KISS/SOLID principles
- ** software development pattern knowledge
- ** JS/SASS knowledge
- ** react.js best practices
- ** DevOps knowledge [Docker/CI/CD etc]
- ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
-```
-
-## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
+### THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
 ### software requirements
 
