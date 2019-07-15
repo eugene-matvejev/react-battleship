@@ -80,12 +80,10 @@ CI build is mandatory check for every PR into master/heroku branches
 | variable                      | default value | used as
 |---                            |---            |---
 | PORT                          | 8080          | number
-
 | REACT_APP_GAME-MIN-SIZE       | 5             | number
 | REACT_APP_GAME-MAX-SIZE       | 10            | number
 | REACT_APP_GAME-MIN-OPPONENTS  | 1             | number
 | REACT_APP_GAME-MAX-OPPONENTS  | 3             | number
-
 | REACT_APP_API_PROTOCOL        | http          | string
 | REACT_APP_API_HOST            | localhost     | string
 | REACT_APP_API_PORT            | 8081          | number
