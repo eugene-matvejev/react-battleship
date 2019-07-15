@@ -8,10 +8,10 @@
 [ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku/graph/badge.svg
 [ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku
 
-|                  | master                                                      | heroku
-|---               |---                                                          |---
-| __tests__        | [![tests][ci.tests-master-badge]][ci.tests-master]          | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
-| __coverage__     | [![coverage][ci.coverage-master-badge]][ci.coverage-master] | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
+|               | master                                                        | heroku
+|---            |---                                                            | ---
+| __tests__     | [![tests][ci.tests-master-badge]][ci.tests-master]            | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
+| __coverage__  | [![coverage][ci.coverage-master-badge]][ci.coverage-master]   | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
 
 # battleship GUI
 
