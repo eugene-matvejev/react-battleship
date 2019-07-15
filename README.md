@@ -75,14 +75,14 @@ CI build is mandatory check for every PR into master/heroku branches
 
 ### used environment variables
 
-| variable                          | default value | used as
-|---                                |---            |---
-| _PORT_                            | 8080          | number
-| _REACT_APP_GAME-MIN-SIZE_         | 5             | number
-| _REACT_APP_GAME-MAX-SIZE_         | 10            | number
-| _REACT_APP_GAME-MIN-OPPONENTS_    | 1             | number
-| _REACT_APP_GAME-MAX-OPPONENTS_    | 3             | number
-| _REACT_APP_API_PROTOCOL_          | http          | string
-| _REACT_APP_API_HOST_              | localhost     | string
-| _REACT_APP_API_PORT_              | 8081          | number
-| _REACT_APP_WEBSITE_NAME_          | Battleship    | string
+| variable                      | default value | used as
+|---                            |---            |---
+| PORT                          | 8080          | number
+| REACT_APP_GAME-MIN-SIZE       | 5             | number
+| REACT_APP_GAME-MAX-SIZE       | 10            | number
+| REACT_APP_GAME-MIN-OPPONENTS  | 1             | number
+| REACT_APP_GAME-MAX-OPPONENTS  | 3             | number
+| REACT_APP_API_PROTOCOL        | http          | string
+| REACT_APP_API_HOST            | localhost     | string
+| REACT_APP_API_PORT            | 8081          | number
+| REACT_APP_WEBSITE_NAME        | Battleship    | string
