@@ -8,27 +8,14 @@
 [ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku/graph/badge.svg
 [ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku
 
-|                  | master                                                      | heroku
-|---               |---                                                          |---
-| __tests__        |
-| _< Circle CI >_  | [![tests][ci.tests-master-badge]][ci.tests-master]          | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
-| __coverage__     |
-| _< codecov.io >_ | [![coverage][ci.coverage-master-badge]][ci.coverage-master] | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
+|               | master                                                        | heroku
+|---            |---                                                            | ---
+| __tests__     | [![tests][ci.tests-master-badge]][ci.tests-master]            | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
+| __coverage__  | [![coverage][ci.coverage-master-badge]][ci.coverage-master]   | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
 
 # battleship GUI
 
-```
-targets/goals
-* to demostrate:
- ** DRY/KISS/SOLID principles
- ** software development pattern knowledge
- ** JS/SASS knowledge
- ** react.js best practices
- ** DevOps knowledge [Docker/CI/CD etc]
- ** QA Automation knowledge, and best practices [jest/enzyme/cypress]
-```
-
-## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
+##### THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
 ### software requirements
 
@@ -91,12 +78,10 @@ CI build is mandatory check for every PR into master/heroku branches
 | variable                      | default value | used as
 |---                            |---            |---
 | PORT                          | 8080          | number
-
 | REACT_APP_GAME-MIN-SIZE       | 5             | number
 | REACT_APP_GAME-MAX-SIZE       | 10            | number
 | REACT_APP_GAME-MIN-OPPONENTS  | 1             | number
 | REACT_APP_GAME-MAX-OPPONENTS  | 3             | number
-
 | REACT_APP_API_PROTOCOL        | http          | string
 | REACT_APP_API_HOST            | localhost     | string
 | REACT_APP_API_PORT            | 8081          | number
