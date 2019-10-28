@@ -38,18 +38,4 @@ export const isMatchRegex = (v, pattern) => {
 
     return new RegExp(pattern).test(v);
 };
-export const isLengthBetween = (v, min, max) => {
-    if (undefined !== min) {
-        if (min > v.length) {
-            return false;
-        }
-    }
-
-    if (undefined !== max) {
-        if (max < v.length) {
-            return false;
-        }
-    }
-
-    return true;
-}
+export const isLengthBetween = (v, min, max) => !(min > v.length || max < v.length);
