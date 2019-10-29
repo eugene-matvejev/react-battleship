@@ -1,0 +1,100 @@
+html,
+body,
+#app,
+.navbar,
+.navbar--collapsed {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+
+    background: linear-gradient(to bottom, rgb(32, 23, 99) 0%, rgb(31, 19, 95) 40%, #a94442 100%) center center / cover fixed;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+    display: flex;
+}
+
+#portal {
+}
+
+a {
+    text-decoration: none;
+
+    &:active, &:link, &:visited, &:hover {
+        color: inherit;
+    }
+}
+
+/*******************/
+/** to be reviewed */
+/*******************/
+.form.form--logout {
+    background: transparent;
+}
+.button.button--logout {
+    background: #ad0c0c;
+    border: 2px solid brown;
+}
+/*******************/
+/** to be reviewed */
+/*******************/
+$handler-label-size: 3rem;
+
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+
+.component, .handler {
+    h1, h2, h3 {
+        line-height: 2rem;
+        font-size: 2rem;
+    }
+}
+
+.component, .handler {
+    & > .label {
+        padding: 1rem 1rem 0 1rem;
+        font-size: 1.25rem;
+        line-height: 3rem;
+    }
+}
+
+.handler {
+    width: 35rem;
+    position: relative;
+
+    &.content {
+        width: 100%;
+    }
+
+    &.label {
+        font-size: $handler-label-size / 2;
+        line-height: $handler-label-size;
+        height: $handler-label-size;
+
+        color: #fff;
+        text-transform: lowercase;
+        border: none;
+        border-bottom: 1px solid #fff;
+        margin: 0 0 2rem 0;
+        position: relative;
+
+        sub {
+            font-size: $handler-label-size / 4;
+        }
+    }
+}

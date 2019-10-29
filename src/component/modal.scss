@@ -1,0 +1,51 @@
+.modal {
+    margin: auto;
+
+    width: calc(100% - 10rem);
+    height: calc(100% - 10rem);
+
+    background: #fff;
+
+    border-radius: 3rem;
+    padding: 2rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #000;
+
+    &_container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        background: #00000030;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &_button--close {
+        align-self: flex-end;
+        background: transparent;
+        border: 0;
+        font-size: 2rem;
+
+        cursor: pointer;
+
+        &::before {
+            content: '\00D7';
+        }
+    }
+
+    &_title {
+        color: #000;
+        text-transform: uppercase;
+        margin-top: 0;
+    }
+}

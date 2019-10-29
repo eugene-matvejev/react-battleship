@@ -1,0 +1,57 @@
+$navbar-width: 20rem;
+$navbar-width-collapsed: 4rem;
+$navbar-animation: all .33s ease;
+
+.sidenav {
+    flex: 0 0 $navbar-width;
+
+    &, &--collapsed {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        background: #00000050;
+        transition: $navbar-animation;
+
+        text-transform: uppercase;
+    }
+
+    &--collapsed {
+        flex: 0 0 $navbar-width-collapsed;
+    }
+
+    &_title {
+        align-items: center;
+        display: flex;
+        color: #fff;
+        padding: 0 1rem;
+    }
+
+    &_link {
+        padding: 1rem;
+        font-size: 1.25rem;
+
+        .sidenav &--active, &:hover {
+            color: #000;
+            background: #fff;
+        }
+    }
+
+    &_collapse-button {
+        background: transparent;
+        border: none;
+        width: 2.25rem;
+
+        color: #fff;
+        cursor: pointer;
+
+        right: 1rem;
+        font-size: 3rem;
+        position: absolute;
+        z-index: 1;
+
+        &:after {
+            content: '\2261';
+        }
+    }
+}

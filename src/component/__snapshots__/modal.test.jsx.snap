@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal/> render with default/required props 1`] = `
+<div
+  className="modal_container"
+>
+  <section
+    className="modal "
+  >
+    <button
+      className="modal_button--close"
+      data-cy="modal-close"
+      onClick={[MockFunction]}
+    />
+    <h1
+      className="modal_title"
+      data-cy="modal-title"
+    >
+      {{label}}
+    </h1>
+  </section>
+</div>
+`;
+
+exports[`<Modal/> render with optional props [::children] as "{{children}}" 1`] = `
+<div
+  className="modal_container"
+>
+  <section
+    className="modal "
+  >
+    <button
+      className="modal_button--close"
+      data-cy="modal-close"
+      onClick={[MockFunction]}
+    />
+    <h1
+      className="modal_title"
+      data-cy="modal-title"
+    >
+      {{label}}
+    </h1>
+    {{children}}
+  </section>
+</div>
+`;
+
+exports[`<Modal/> render with optional props [::className] as "{{className}}" 1`] = `
+<div
+  className="modal_container"
+>
+  <section
+    className="modal {{className}}"
+  >
+    <button
+      className="modal_button--close"
+      data-cy="modal-close"
+      onClick={[MockFunction]}
+    />
+    <h1
+      className="modal_title"
+      data-cy="modal-title"
+    >
+      {{label}}
+    </h1>
+  </section>
+</div>
+`;
+
+exports[`<Modal/> render with optional props [::data-cy] as "{{data-cy}}" 1`] = `
+<div
+  className="modal_container"
+>
+  <section
+    className="modal "
+  >
+    <button
+      className="modal_button--close"
+      data-cy="{{data-cy}}modal-close"
+      onClick={[MockFunction]}
+    />
+    <h1
+      className="modal_title"
+      data-cy="{{data-cy}}modal-title"
+    >
+      {{label}}
+    </h1>
+  </section>
+</div>
+`;

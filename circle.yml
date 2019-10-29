@@ -1,16 +1,19 @@
-machine:
-    node:
-        version: 6.9
-
-dependencies:
-    cache_directories:
-        - ~/.npm/
-    override:
-        - npm install --no-progress
-    post:
-        - npm run generate:all && npm install -g codecov
-
-test:
-    override:
-        - npm test -- --coverage
-        - codecov
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:lts-jessie
+    steps:
+      - checkout
+      - run: npm i --verbose
+      - run: npm test -- --coverage --watchAll=false
+      - run: sudo npm i -g codecov
+      - run: codecov
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+workflows:
+  version: 2
+  test-only:
+    jobs:
+      - test

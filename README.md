@@ -1,52 +1,88 @@
-[circle.ci-master-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master.svg?style=svg
-[circle.ci-master-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/master
-[codecov.io-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master/graph/badge.svg
-[codecov.io-master-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/master
+[ci.tests-master-badge]: https://circleci.com/gh/eugene-matvejev/react-battleship/tree/master.svg?style=svg
+[ci.tests-master]: https://circleci.com/gh/eugene-matvejev/react-battleship/tree/master
+[ci.coverage-master-badge]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/master/graph/badge.svg
+[ci.coverage-master]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/master
 
-[circle.ci-heroku-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku.svg?style=svg
-[circle.ci-heroku-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-gui-react-js/tree/heroku
-[codecov.io-heroku-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku/graph/badge.svg
-[codecov.io-heroku-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-gui-react-js/branch/heroku
+[ci.tests-heroku-badge]: https://circleci.com/gh/eugene-matvejev/react-battleship/tree/heroku.svg?style=svg
+[ci.tests-heroku]: https://circleci.com/gh/eugene-matvejev/react-battleship/tree/heroku
+[ci.coverage-heroku-badge]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku/graph/badge.svg
+[ci.coverage-heroku]: https://codecov.io/gh/eugene-matvejev/react-battleship/branch/heroku
 
-|                  | master                                                         | heroku
-|---               |---                                                             |---
-| __tests__        |
-| _< Circle CI >_  | [![build][circle.ci-master-badge]][circle.ci-master-link]      | [![build][circle.ci-heroku-badge]][circle.ci-heroku-link]
-| __coverage__     |
-| _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link] | [![coverage][codecov.io-heroku-badge]][codecov.io-heroku-link]
+|               | master                                                        | heroku
+|---            |---                                                            | ---
+| __tests__     | [![tests][ci.tests-master-badge]][ci.tests-master]            | [![tests][ci.tests-heroku-badge]][ci.tests-heroku]
+| __coverage__  | [![coverage][ci.coverage-master-badge]][ci.coverage-master]   | [![coverage][ci.coverage-heroku-badge]][ci.coverage-heroku]
 
-# Battleship Game GUI [on react.js]
-project target is to rewrite [vanilla typescript GUI](https://github.com/eugene-matvejev/battleship-game-gui) on react.js, [DEMO](https://battleship-game-gui-react-js.herokuapp.com/)
+# battleship GUI
 
-## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
+##### THIS IS SPARE TIME PROJECT, WORK IN PROGRESS!
 
-## software requirements
- * node.js v6+
- * npm v5+ or yarn
+### software requirements
 
-## used technologies
- * node.js v6+
- * react.js v16+
- * jest
- * enzyme
- * npm
- * yarn
-  
-## used enviroment variables
- * __BASE_URL__ - API endpoint host
-   * example: `$ export BASE_URL="https://api.game.local"`
- 
-## how to install
- * `$ npm start` - execute `$ npm run generate:all`, then starts lite-server with file watcher and `generate:css:w`
- * OPTIONAL:
-   * `$ npm run generate:all` - shortcut to execute `generate:settings` and `generate:css` tasks
-   * `$ npm run generate:settings` - to generate settings [_src/parameters.json_]
-   * `$ npm run generate:css` - to generate CSS from LESS
-   * `$ npm run generate:css:w` - watch LESS files for changes and compile CSS in runtime
- * TO DEPLOY:
-   * `$ npm run build` - compile app and assets, compiled app will be located in __./build__ directory
+if you're using `make` commands, local **node.js** and **npm** aren't required
+* [node.js](https://nodejs.org/) v10+
+* [npm](https://www.npmjs.com/) v6+ or [yarn](https://yarnpkg.com/)
+* __optional__ [makefile](https://en.wikipedia.org/wiki/Makefile) comes out of the box in *nix enviroments
+* __optional__ [docker](https://www.docker.com/) v18.09+
+* __optional__ [docker-compose](https://docs.docker.com/compose/) v3+ *for 'cypress' tests only*
 
-## how to run tests
- * `$ npm test`
- * OPTIONAL:
-   * `-- --coverage` to generate coverage report [located in __./coverage__ directory]
+### used technologies
+
+* [react.js](https://reactjs.org/)
+* [sass](https://sass-lang.com/)
+* [jest](https://facebook.github.io/jest/)
+* [enzyme](http://airbnb.io/enzyme/)
+* [cypress](https://www.cypress.io/)
+
+### used services
+
+* [circle ci](https://circleci.com/dashboard)
+* [codecov](https://codecov.io/)
+* [code climate](https://codeclimate.com/)
+* [snyk](https://snyk.io/)
+* [heroku](https://www.heroku.com/)
+
+### how to install
+
+* if you're using `make` commands and have [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed, then no steps required
+* otherwise you need **node.js** installed, and execute `$ npm i`
+
+### how to run tests
+
+* 'cypress' integration tests `$ make cypress` or `$ npm test` inside `./cypress` directory
+* 'jest' unit and functional tests `$ make test` or `$ npm test`
+  * __[optional 'jest' CLI params](https://facebook.github.io/jest/docs/en/cli.html)__
+    * to generate coverage report `--coverage`, example: `$ npm test -- --coverage`, report will be located in __./coverage__ directory
+    * to run tests __only__ in specific file, example: `$ npm test src/validation/rules.test.js`
+
+### how to run in 'development' mode
+
+* `$ make` or `$ npm start`
+
+### how to run in 'production' mode
+
+* `$ make serve`, there is no _npm only_ analogue
+  * to run on non-default port you can overwrite PORT variable, example `$ make serve PORT=18080`
+* if you need __only__ generate static assets
+  * `$ make build` or `$ npm run build` - generated assets will be located in __./build__ directory
+
+### gitflow
+
+* master -> most upto date __production__ version
+* __proxy branch__ heroku -> master is not deployed to heroku with every push, because of limiations of 'free account'
+* other branches -> 'feature branches' get merged into master
+CI build is mandatory check for every PR into master/heroku branches
+
+### used environment variables
+
+| variable                      | default value | used as
+|---                            |---            |---
+| PORT                          | 8080          | number
+| REACT_APP_GAME-MIN-SIZE       | 5             | number
+| REACT_APP_GAME-MAX-SIZE       | 10            | number
+| REACT_APP_GAME-MIN-OPPONENTS  | 1             | number
+| REACT_APP_GAME-MAX-OPPONENTS  | 3             | number
+| REACT_APP_API_PROTOCOL        | http          | string
+| REACT_APP_API_HOST            | localhost     | string
+| REACT_APP_API_PORT            | 8081          | number
+| REACT_APP_WEBSITE_NAME        | Battleship    | string

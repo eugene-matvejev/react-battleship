@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WebApp/> render with default/required props 1`] = `
+<Fragment>
+  <SideNav
+    className=""
+    data-cy=""
+    routes={Array []}
+    title="{{title}}"
+  />
+  <main
+    className="webapp_content"
+  >
+    <TopNav
+      className=""
+      data-cy=""
+      initials="CY"
+    />
+    <Switch>
+      <Route
+        component={[Function]}
+        key="0"
+        path="/"
+      />
+    </Switch>
+  </main>
+</Fragment>
+`;
+
+exports[`<WebApp/> render with optional props [::user] as "[object Object]" 1`] = `
+<Fragment>
+  <SideNav
+    className=""
+    data-cy=""
+    routes={Array []}
+    title="{{title}}"
+  />
+  <main
+    className="webapp_content"
+  >
+    <TopNav
+      className=""
+      data-cy=""
+      initials="CY"
+    />
+    <Switch>
+      <Route
+        component={[Function]}
+        key="0"
+        path="/"
+      />
+    </Switch>
+  </main>
+</Fragment>
+`;
