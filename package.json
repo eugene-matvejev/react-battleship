@@ -6,7 +6,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "axios-mock-adapter": "^1.16.0",
     "node-random-name": "^1.0.1",
     "node-sass": "^4.11.0",
