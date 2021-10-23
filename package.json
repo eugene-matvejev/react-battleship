@@ -15,7 +15,8 @@
     "react-dom": "^16.8.6",
     "react-rangeslider": "^2.2.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "enzyme": "^3.9.0",
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,5 +50,6 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
-  }
+  },
+  "snyk": true
 }
